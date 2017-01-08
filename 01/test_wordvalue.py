@@ -7,14 +7,12 @@ TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
 
 class TestWordValue(unittest.TestCase):
     
-    def setUp(self):
-        self.words = load_words()
-
     def test_load_words(self):
-        self.assertEqual(len(self.words), 235886)
-        self.assertEqual(self.words[0], 'A')
-        self.assertEqual(self.words[-1], 'Zyzzogeton')
-        self.assertNotIn(' ', ''.join(self.words))
+        words = load_words()
+        self.assertEqual(len(words), 235886)
+        self.assertEqual(words[0], 'A')
+        self.assertEqual(words[-1], 'Zyzzogeton')
+        self.assertNotIn(' ', ''.join(words))
 
     def test_calc_word_value(self):
         self.assertEqual(calc_word_value('bob'), 7)
