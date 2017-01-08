@@ -1,4 +1,4 @@
-## Challenge 01 - Word Values Part I
+## Code Challenge 01 - Word Values Part I
 
 ### Calculate the (language) dictionary word that would have the most value in Scrabble
 
@@ -14,10 +14,10 @@ Bonus: something to think about: when calculating the max value can you use a fa
 
 Enjoy!
 
-### About challenges
+### About PyBites Code Challenges
 
-Read [here](https://github.com/pybites/challenges) how PyBites challenges works.
+Read [here](https://github.com/pybites/challenges) how it works.
 
-Please be patient as we are still learning how to best to present the challenges and collaborate on Github.
+Please be patient as we are still learning how to best to present the code challenges and collaborate on Github.
 
 We think working towards tests is a good approach. And providing stubs might be a good place to start. But if you have any other ideas or feedback please [let us know](https://github.com/pybites/challenges/issues).
