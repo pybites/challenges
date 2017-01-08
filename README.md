@@ -5,7 +5,13 @@ On Friday we publish one or more solutions.
 
 The goals is to have us and our readers work on the solution during the week.
 
-To keep it simple we don't accept pull-requests at this time. Just fork the repo and work on your solution locally. 
+To keep it simple we don't accept pull-requests at this time. 
+Just fork the repo and work on your solution locally:
+
+	$ cd <challenge_number> 
+	$ cp name-template name.py
+	# code ...
+
 If you want to share your solution just share your commit link in the comments of our blog (Monday post = questions / Friday post = solutions + feedback).
 
 Check [this link](https://help.github.com/articles/syncing-a-fork/) how to keep your fork in sync with our repo.
