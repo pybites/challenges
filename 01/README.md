@@ -1,29 +1,23 @@
-## Challenge 01: find the word with the highest (Scrabble) value
+## Challenge 01 - Word Values Part I
 
-### Intro
+### Calculate the (language) dictionary word that would have the most value in Scrabble
 
-Welcome to [PyBites challenges](http://pybit.es/category/challenges) where we post a challenge every week on Monday and push a (refactored) solution on Friday. The goal is to learn / improve our Python coding skills. We are firm believers that you have to get your hands on the keyboard as soon as possible. Making mistakes, doing code reviews. Using github we encourage people to take the code challenges and to make pull requests so we can comment each others code and learn even more.
+Read in dictionary.txt (a copy of /usr/share/dict/words on my Mac) and calculate the word that has the most value in Scrabble based on LETTER_SCORES which is imported in wordvalue-template.py. 
 
-### How does it work?
+Make sure you run the test_wordvalue.py to verify your methods are correct. 
 
-You clone this repo, then every week you clone the branch of the exercise:
+It expects (imports) wordvalue.py so make sure you copy wordvalue-template.py to wordvalue.py
 
-	$ git pull origin ch<sequence>_exercise
+Note that no PyPI modules need to be installed, just use stdlib for this. 
 
-You branch off your solution branch:
+Bonus: something to think about: when calculating the max value can you use a fast builtin method? And even so could you improve the performance even further?
 
-	$ git checkout -b ch01_exercise_<github_user>
+Enjoy!
 
-You run the tests I will include and when you have a working solution you can submit a pull request. Pythonic solutions will be mentioned in our Friday review.
-	
-### This week's challenge
+### About challenges
 
-#### Calculate the dictionary word that would have the most value in Scrabble
+Read [here](https://github.com/pybites/challenges) how PyBites challenges works.
 
-Read in dictionary.txt (a copy of /usr/share/dict/words on my Mac) and calculate the word that has the most value in Scrabble based on LETTER_SCORES I will import for you in main script. Note that no PyPI modules need to be installed, just use stdlib for this. Run the test_wordvalue.py to verify your methods are correct. Use wordvalue.py where I put some stubs you should use (to make the tests pass).
+Please be patient as we are still learning how to best to present the challenges and collaborate on Github.
 
-### Feedback
-
-We are still experimenting with how to best present the challenges and with github collaboration overall. We like the idea of having tests to verify the results, getting closer to TDD. Also Github pull requests make it easy to have the greater community participate, not just Julian and myself. 
-
-Thanks for trying.
+We think working towards tests is a good approach. And providing stubs might be a good place to start. But if you have any other ideas or feedback please [let us know](https://github.com/pybites/challenges/issues).
