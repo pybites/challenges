@@ -1,6 +1,6 @@
-# PyBites Challenges
+# PyBites Code Challenges
 
-Every Monday we release a challenge [on our blog](http://pybit.es). 
+Every Monday we release a code challenge [on our blog](http://pybit.es). 
 On Friday we publish one or more solutions.
 
 The goals is to have us and our readers work on the solution during the week.
@@ -18,7 +18,7 @@ Check [this link](https://help.github.com/articles/syncing-a-fork/) how to keep 
 
 Remember, we don't strive for the 'best' solution, it's not a competition. 
 We do of course strive to have good Pythonic solutions so any feedback is welcome, but do respect the newby / learner. 
-Again, learning more + better Python is the main objective. We believe fixing challenges is a very effective way to achieve this.
+Again, learning more + better Python is the main objective. We believe fixing code challenges is a very effective way to achieve this.
 
 Have fun!
 
