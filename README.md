@@ -1,29 +1,23 @@
 # PyBites Challenges
 
-Every Monday we release a challenge [on our blog](http://pybit.es).
+Every Monday we release a challenge [on our blog](http://pybit.es). 
+On Friday we publish one or more solutions.
 
-If this is your first time around, clone this repo: 
+The goals is to have us and our readers work on the solution during the week.
 
-	$ git clone https://github.com/pybites/challenges.git pybites_challenges && cd $_
+To keep it simple we don't accept pull-requests at this time. Just fork the repo and work on your solution locally. 
+If you want to share your solution just share your commit link in the comments of our blog (Monday post = questions / Friday post = solutions + feedback).
 
-After that you can pull the exercise branch with. 
+Check [this link](https://help.github.com/articles/syncing-a-fork/) how to keep your fork in sync with our repo.
 
-I will use ch01_exercise below as an example. 
-Change the branch name and test_<name>.py if you are doing this for another exercise.
+Remember, we don't strive for the 'best' solution, it's not a competition. 
+We do of course strive to have good Pythonic solutions so any feedback is welcome, but do respect the newby / learner. 
+Again, learning more + better Python is the main objective. We believe fixing challenges is a very effective way to achieve this.
 
-	$ git pull origin ch01_exercise
-	$ git checkout ch01_exercise
-	$ cd ch01
+Have fun!
 
-Branch off your solution:
+---
 
-	$ git checkout -b ch01_exercise_<github_user>
-	# code ...
-	# verify: 
-	$ python test_wordvalue.py
-	$ git add .
-	$ git commit -m "my solution blabla ..."
+Keep Calm and Code in Python!
 
-If you want to submit the solution do a pull request:
-
-	$ git request-pull (#TODO)
+Bob and Julian from [PyBites](http://pybit.es)
