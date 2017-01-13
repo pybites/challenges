@@ -5,7 +5,7 @@
 import itertools
 import random
 
-from data import DICTIONARY, LETTER_SCORES, POUNCH
+from data import DICTIONARY, LETTER_SCORES, POUCH
 
 NUM_LETTERS = 7
 
