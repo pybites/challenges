@@ -4,87 +4,64 @@
 
 ### Given a random set of 7 letters build the most valuable word 
 
-Using what we've learned [the last challenge](http://pybit.es/codechallenge01.html) this week we build a simple game.
+Using what we've learned [the last challenge](http://pybit.es/codechallenge01.html) this week we build a simple Scrabble-like game (without board):
+
+	Letters drawn: G, A, R, Y, T, E, V
+	Form a valid word: gary
+	Word chosen: GARY with value: 8
+	Max word: garvey with value: 13
+	You scored: 61.5
+
+### Get ready
+
+Start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync the fork](https://help.github.com/articles/syncing-a-fork/))
 
 ### Requirements / steps
 
-* this will be a console game. Import SCRABBLE_POUCH from data.py to get the complete pool of letters
+* Last time we provided unittests and a guiding template. We received feedback that this did not allow sufficient freedom. Therefore we provide a basic and more advanced template this challenge.
 
-* draw 7 random letters from SCRABBLE_POUCH (see [Scrabble rules](http://www.scrabblepages.com/scrabble/rules/), this will be a lite version, no board and no bonus points, keeping it simple).
+* We do load in the necessary data structures to focus on the game:
 
-['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'F', 'G', 'G', 'G', 'H', 'H', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'J', 'K', 'L', 'L', 'L', 'L', 'M', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'P', 'P', 'Q', 'R', 'R', 'R', 'R', 'R', 'R', 'S', 'S', 'S', 'S', 'T', 'T', 'T', 'T', 'T', 'T', 'U', 'U', 'U', 'U', 'V', 'V', 'W', 'W', 'X', 'Y', 'Y', 'Z']
+		# Note that DICTIONARY is a set for O(1) lookup
+		from data import DICTIONARY, LETTER_VALUES, POUCH
 
-* ask the user to form a word with the 7 letters. 
-        * check that only letters of the draw are used. 
-        * check if a valid word, for that import the DICTIONARY set from data.py (I provided a set for O(1) lookup)
+* Draw 7 random letters from POUCH.
 
-Stop basic
-Print score
+	As said the pouch is given and contains a distribution of Scrabble letters so that the player gets enough vowels (A-Z makes it extremely hard because you need more vowels):
 
-## Advanced: give a score based on optimal (computer calculated) solution
+		['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 
+		'D', 'D', 'D', 'D', ...]
 
-* now the computer side: get all permutations for the 7 letter draw (hint: [itertools.permutations](http://pybit.es/itertools-examples.html))
+* Ask the player to form a word with one or more of the 7 letters of the draw. Validate input for a) valid letters (= in draw set), b) valid word (in DICTIONARY)
 
-* cross check the collection built in last step with the dictionary to filter out valid words only.
+* Calculate the word value. To no re-invent the wheel (and focus on this challenge) 2 methods of the previous challenge are provided in both templates: a) calc_word_value(word) and b) max_word_value(words) 
 
-* calculate the word values of each of the remaining words, you can use code from [last challenge](http://pybit.es/codechallenge01.html) here. Import LETTER_VALUES from data.py to use in your calculations.
+* (more advanced) calculate the optimal word checking all permutations of the 7 letters of the draw (cross-checking DICTIONARY for valid ones).
 
-
-
-# re-use from challenge 01
-def calc_word_value(word):
-    """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
-    return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
-
-
-# re-use from challenge 01
-def max_word_value(words):
-    """Calc the max value of a collection of words"""
-    return max(words, key=lambda w: calc_word_value(w))
-
-
-
-
-* present the user with the highest vs the one he/she created and calculate a simple score (user word value / max word value).
-        * optional variation: give the user n attempts (defined as a constant NUM_ATTEMPTS) and feedback each time how far he/she is off from the max score.
-
-
-
+* Show the player what the max possible value word (and score) is and the endresult: player_score / optimal_score
 
 ### Bonus (not required)
 
-This might be quite a challenge, but it is also a highly addictive one I think. If you want to get creative you can further build this out:
+The optimal solution calculation might be a bit difficult for some, that's why we stop here. But if you are feeling creative you might consider adding:
 
-* keep scores in a shelve (or sqlite3 db) and feedback each game if user reached a new max score.
+* Keep scores in a shelve (file, db) and notify player when a new record is reached.
 
-* work with hints: show some chars of the optimal word (e.g. g____y) - substract some points for using the hint
+* Work with hints and bonuses: hints cost x points, a bonus could be when player uses all letters from the draw.
 
-* give 20 extra points if all letters are used
-
-* convert this in a pygame / web app. / Android app 
-
-### Possible console output 
-
-Letters drawn: G, A, R, Y, T, E, V
-Form a valid word: gary
-Word chosen: GARY with value: 8
-Max word: garvey with value: 13
-You scored: 61.53846153846154
+* Make it in a simple web or mobile app.
 
 ### Good luck!
 
-We can't wait for your inputs! 
-
 Remember: there is no best solution, only learning and getting better Pythonistas.
 
-And above all: have fun!! 
+Enjoy and we're looking forward seeing all the great stuff you will be building. Have fun!
+
+Again start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync the fork](https://help.github.com/articles/syncing-a-fork/))
 
 ---
 
-* [Corresponding blog post](http://pybit.es/codechallenge02.html)
-
-* [Fork this project and start coding](https://github.com/pybites/challenges)
-
 ### About PyBites Code Challenges
 
-Background in [our intro post](http://pybit.es/codechallenge01.html).
+More background in our [first challenge article](http://pybit.es/codechallenge01.html).
+
+Above challenge appeared [here](http://pybit.es/codechallenge02.html).
