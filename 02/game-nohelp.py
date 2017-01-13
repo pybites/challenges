@@ -2,7 +2,7 @@
 # Code Challenge 02 - Word Values Part II - a simple game
 # http://pybit.es/codechallenge02.html
 
-from data import DICTIONARY, LETTER_VALUES, POUCH
+from data import DICTIONARY, LETTER_SCORES, POUCH
 
 NUM_LETTERS = 7
 
