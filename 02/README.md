@@ -2,59 +2,67 @@
 
 > This week, each one of you has a homework assignment ... - Tyler Durden (Fight club)
 
-### Given a random set of 7 letters build the most valuable word 
+### Given a random set of 7 letters build the most valuable word
 
 Using what we've learned [the last challenge](http://pybit.es/codechallenge01.html) this week we build a simple Scrabble-like game (without board):
 
 	Letters drawn: G, A, R, Y, T, E, V
-	Form a valid word: gary
-	Word chosen: GARY with value: 8
-	Max word: garvey with value: 13
+	Form a valid word: gary  << user input
+	Word chosen: GARY (value: 8)
+	Optimal word possible: GARVEY (value: 13)
 	You scored: 61.5
 
 ### Get ready
 
-Start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync the fork](https://help.github.com/articles/syncing-a-fork/))
+Start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync your fork](https://help.github.com/articles/syncing-a-fork/)) to get the new challenge.
 
 ### Requirements / steps
 
-* Last time we provided unittests and a guiding template. We received feedback that this did not allow sufficient freedom. Therefore we provide a basic and more advanced template this challenge.
+* Last time we provided unittests and a guiding template. We received feedback that this was a bit too stringent. Therefore we provide two templates this time: game-help.py and game-nohelp.py
 
 * We do load in the necessary data structures to focus on the game:
 
-		# Note that DICTIONARY is a set for O(1) lookup
+		# Note that DICTIONARY is a set for O(1) lookups
 		from data import DICTIONARY, LETTER_VALUES, POUCH
 
 * Draw 7 random letters from POUCH.
 
-	As said the pouch is given and contains a distribution of Scrabble letters so that the player gets enough vowels (A-Z makes it extremely hard because you need more vowels):
+	As said POUCH is given and contains a distribution of Scrabble letters so that the player gets enough vowels (equally drawing A-Z makes it extremely hard because you need more vowels to make words):
 
-		['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 
+		['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C',
 		'D', 'D', 'D', 'D', ...]
 
-* Ask the player to form a word with one or more of the 7 letters of the draw. Validate input for a) valid letters (= in draw set), b) valid word (in DICTIONARY)
+* Ask the player to form a word with one or more of the 7 letters of the draw. Validate input for a) valid letters (= in draw set), b) valid word (= in DICTIONARY).
 
-* Calculate the word value. To no re-invent the wheel (and focus on this challenge) 2 methods of the previous challenge are provided in both templates: a) calc_word_value(word) and b) max_word_value(words) 
+* Calculate the word value and show it to the player.
 
-* (more advanced) calculate the optimal word checking all permutations of the 7 letters of the draw (cross-checking DICTIONARY for valid ones).
+	To no re-invent the wheel (focus on this challenge) 2 methods of the previous challenge are provided in both templates: a) calc_word_value(word) and b) max_word_value(words)
 
-* Show the player what the max possible value word (and score) is and the endresult: player_score / optimal_score
+* (more advanced) calculate the optimal word (= max value) checking all permutations of the 7 letters of the draw, cross-checking the DICTIONARY set for valid ones.
+
+* Show the player what the optimal word and its value is.
+
+* Give the player a score based on the previous steps, basically: player_score / optimal_score.
 
 ### Bonus (not required)
 
-The optimal solution calculation might be a bit difficult for some, that's why we stop here. But if you are feeling creative you might consider adding:
+The optimal solution calculation might be a bit difficult for some, that's why we stop here. But if you are feeling creative you might consider expanding this game:
 
-* Keep scores in a shelve (file, db) and notify player when a new record is reached.
+* Keep scores in a shelve (file, db) and notify the player when a new record is reached.
 
-* Work with hints and bonuses: hints cost x points, a bonus could be when player uses all letters from the draw.
+* Work with hints and bonuses: hints cost x points, give a bonus of y points, for example when a 7 letter word is created (complete draw).
 
-* Make it in a simple web or mobile app.
+* Make a simple web, mobile app or pygame.
 
 ### Good luck!
 
-Remember: there is no best solution, only learning and getting better Pythonistas.
+Remember: there is no best solution, only learning more and better Python.
 
-Enjoy and we're looking forward seeing all the great stuff you will be building. Have fun!
+Enjoy and we're looking forward reviewing on Friday all the cool / creative / Pythonic stuff you come up with.
+
+Have fun!
+
+---
 
 Again start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync the fork](https://help.github.com/articles/syncing-a-fork/))
 
@@ -64,4 +72,4 @@ Again start coding by [forking our challenges repo](https://github.com/pybites/c
 
 More background in our [first challenge article](http://pybit.es/codechallenge01.html).
 
-Above challenge appeared [here](http://pybit.es/codechallenge02.html).
+Above challenge appeared on the blog as [this article](http://pybit.es/codechallenge02.html).
