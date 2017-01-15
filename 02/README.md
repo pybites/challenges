@@ -18,7 +18,7 @@ Start coding by [forking our challenges repo](https://github.com/pybites/challen
 
 	$ git clone https://github.com/pybites/challenges
 	
-If you already forked it [sync it](https://help.github.com/articles/syncing-a-fork/)):
+If you already forked it [sync it](https://help.github.com/articles/syncing-a-fork/):
 
 	# assuming using ssh key
 	$ git remote add upstream git@github.com:pybites/challenges.git 
@@ -28,8 +28,10 @@ If you already forked it [sync it](https://help.github.com/articles/syncing-a-fo
 	$ git merge upstream/master
 
 Use one of the templates:
+
 	$ cd 02
-	$ cp game-<template>.py game.py
+	$ cp game-TEMPLATE.py game.py
+	# code
 
 ### Requirements / steps
 
@@ -47,13 +49,16 @@ Last time we provided unittests and a guiding template. We received feedback tha
 		['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C',
 		'D', 'D', 'D', 'D', ...]
 
-* Ask the player to form a word with one or more of the 7 letters of the draw. Validate input for a) valid letters (= in draw set), b) valid word (= in DICTIONARY).
+* Ask the player to form a word with one or more of the 7 letters of the draw. Validate input for:
+
+	1) all letters of word are in draw;
+	2) word is in DICTIONARY.
 
 * Calculate the word value and show it to the player.
 
-	To no re-invent the wheel (focus on this challenge) 2 methods of the previous challenge are provided in both templates: a) calc_word_value(word) and b) max_word_value(words)
+	To focus on this challenge we re-use two methods from the previous challenge for this: calc_word_value and max_word_value.
 
-* (more advanced) calculate the optimal word (= max value) checking all permutations of the 7 letters of the draw, cross-checking the DICTIONARY set for valid ones.
+* Calculate the optimal word (= max word value) checking all permutations of the 7 letters of the draw, cross-checking the DICTIONARY set for valid ones. This is a bit more advanced, but allows you to score the player (next).
 
 * Show the player what the optimal word and its value is.
 
@@ -65,7 +70,7 @@ The optimal solution calculation might be a bit difficult for some, that's why w
 
 * Keep scores in a shelve (file, db) and notify the player when a new record is reached.
 
-* Work with hints and bonuses: hints cost x points, give a bonus of y points, for example when a 7 letter word is created (complete draw).
+* Work with hints and bonuses: hints cost x points, give a bonus of y points, for example when a 7 letter word is created (complete draw exhausted).
 
 * Make a simple web, mobile app or pygame.
 
@@ -87,4 +92,4 @@ Again to start coding [fork our challenges repo](https://github.com/pybites/chal
 
 More background in our [first challenge article](http://pybit.es/codechallenge01.html).
 
-Above challenge appeared on the blog as [this article](http://pybit.es/codechallenge02.html).
+Above challenge appeared on our blog as [this article](http://pybit.es/codechallenge02.html).
