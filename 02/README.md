@@ -51,8 +51,8 @@ Last time we provided unittests and a guiding template. We received feedback tha
 
 * Ask the player to form a word with one or more of the 7 letters of the draw. Validate input for:
 
-	1) all letters of word are in draw;
-	2) word is in DICTIONARY.
+		1) all letters of word are in draw;
+		2) word is in DICTIONARY.
 
 * Calculate the word value and show it to the player.
 
