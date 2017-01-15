@@ -20,10 +20,12 @@ Start coding by [forking our challenges repo](https://github.com/pybites/challen
 
 * Last time we provided unittests and a guiding template. We received feedback that this was a bit too stringent. Therefore we provide two templates this time: game-help.py and game-nohelp.py
 
-* We do load in the necessary data structures to focus on the game:
+* We load in the necessary data structures to focus on the game:
 
 		# Note that DICTIONARY is a set for O(1) lookups
 		from data import DICTIONARY, LETTER_VALUES, POUCH
+
+* Copy one of the templates to game.py to start
 
 * Draw 7 random letters from POUCH.
 
