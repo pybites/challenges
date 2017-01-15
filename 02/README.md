@@ -20,8 +20,11 @@ Start coding by [forking our challenges repo](https://github.com/pybites/challen
 	
 If you already forked it [sync it](https://help.github.com/articles/syncing-a-fork/)):
 
+	# assuming using ssh key
+	$ git remote add upstream git@github.com:pybites/challenges.git 
 	$ git fetch upstream
-	$ git checkout master
+	# if not on master: 
+	$ git checkout master 
 	$ git merge upstream/master
 
 Use one of the templates:
