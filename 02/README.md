@@ -14,18 +14,28 @@ Using what we've learned [the last challenge](http://pybit.es/codechallenge01.ht
 
 ### Get ready
 
-Start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync your fork](https://help.github.com/articles/syncing-a-fork/)) to get the new challenge.
+Start coding by [forking our challenges repo](https://github.com/pybites/challenges):
+
+	$ git clone https://github.com/pybites/challenges
+	
+If you already forked it [sync it](https://help.github.com/articles/syncing-a-fork/)):
+
+	$ git fetch upstream
+	$ git checkout master
+	$ git merge upstream/master
+
+Use one of the templates:
+	$ cd 02
+	$ cp game-<template>.py game.py
 
 ### Requirements / steps
 
-* Last time we provided unittests and a guiding template. We received feedback that this was a bit too stringent. Therefore we provide two templates this time: game-help.py and game-nohelp.py
+Last time we provided unittests and a guiding template. We received feedback that this was a bit too stringent. Therefore we provide two templates this time: game-help.py and game-nohelp.py
 
 * We load in the necessary data structures to focus on the game:
 
 		# Note that DICTIONARY is a set for O(1) lookups
 		from data import DICTIONARY, LETTER_VALUES, POUCH
-
-* Copy one of the templates to game.py to start
 
 * Draw 7 random letters from POUCH.
 
@@ -66,7 +76,7 @@ Have fun!
 
 ---
 
-Again start coding by [forking our challenges repo](https://github.com/pybites/challenges) (if done already, [sync the fork](https://help.github.com/articles/syncing-a-fork/))
+Again to start coding [fork our challenges repo](https://github.com/pybites/challenges) or [sync it](https://help.github.com/articles/syncing-a-fork/).
 
 ---
 
