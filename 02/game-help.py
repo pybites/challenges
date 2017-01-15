@@ -46,7 +46,7 @@ def _get_permutations_draw(draw):
 # From challenge 01:
 def max_word_value(words):
     """Calc the max value of a collection of words"""
-    return max(words, key=lambda w: calc_word_value(w))
+    return max(words, key=calc_word_value)
 
 
 def main():
