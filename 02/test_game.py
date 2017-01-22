@@ -3,6 +3,7 @@ import unittest
 
 from game import draw_letters, calc_word_value, max_word_value
 from game import get_possible_dict_words, _get_permutations_draw
+from game import _validation
 
 NUM_LETTERS = 7
 TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
@@ -37,6 +38,15 @@ class TestGame(unittest.TestCase):
         self.fixed_draw = list('garytev'.upper())
         words = get_possible_dict_words(self.fixed_draw)
         self.assertEqual(len(words), 137)
+
+    def test_validation(self):
+        draw = list('garytev'.upper())
+        word = 'GARYTEV'
+        self.assertRaises(ValueError, _validation, word, draw)
+        word = 'F'
+        self.assertRaises(ValueError, _validation, word, draw)
+        word = 'GARETTA'
+        self.assertRaises(ValueError, _validation, word, draw)
 
 if __name__ == "__main__":
    unittest.main() 
