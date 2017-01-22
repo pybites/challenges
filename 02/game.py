@@ -10,10 +10,6 @@ from data import DICTIONARY, LETTER_SCORES, POUCH
 NUM_LETTERS = 7
 
 
-class WrongInput(ValueError):
-    pass
-
-
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
     return random.sample(POUCH, NUM_LETTERS)
@@ -26,16 +22,19 @@ def input_word(draw):
         word = input('Form a valid word: ').upper()
         try:
             return _validation(word, draw)
-        except WrongInput as exc:
-            print(exc)
+        except ValueError as e:
+            print(e)
             continue
 
 
 def _validation(word, draw):
-    if not set(word) < set(draw):
-        raise WrongInput('One or more characters not in draw, try again')
+    for char in word.upper():
+        if char in draw:
+            draw.remove(char)
+        else:
+          raise ValueError("{} is not a valid word!".format(word))
     if not word.lower() in DICTIONARY:
-        raise WrongInput('Not a valid dictionary word, try again')
+        raise ValueError('Not a valid dictionary word, try again')
     return word
 
 
