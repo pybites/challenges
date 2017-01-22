@@ -16,8 +16,14 @@ def draw_letters():
 
 
 def input_word(draw):
-    """Ask player for a word.
-    Validations: 1) only use letters of draw, 2) valid dictionary word"""
+    """Ask player for a word and validate against draw.
+    Use _validation(word, draw) helper."""
+    pass 
+
+
+
+def _validation(word, draw):
+    """Validations: 1) only use letters of draw, 2) valid dictionary word"""
     pass
 
 
