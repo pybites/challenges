@@ -1,8 +1,8 @@
-## Code Challenge 03 - PyBites' blog  most used and redundant tags
+## Code Challenge 03 - PyBites blog tag analysis
 
 > This week, each one of you has a homework assignment ... - Tyler Durden (Fight club)
 
-### Given our RSS feed what are our 10 most used tags and which 3 are most similar (= redundant / should be merged)?
+### Given our RSS feed what tags does PyBites mostly use and which tags should be merged (based on similarity)?
 
 Example output: 
 
@@ -68,6 +68,8 @@ Use one of the templates:
 		SIMILAR = 0.87
 
 * Rest is documented in the methods docstrings. Again use tags-help.py if you need more guidance, tags-nohelp.py is for the more experienced and/or if you want more freedom. Same goes for tests: use them if you need them.
+
+* Talking about freedom feel free to use our [live feed](http://pybit.es/feeds/all.rss.xml) but then the tests will probably break.
 
 * Hint: for word similarity feel free to use NLTK, or your favorite language processing tool. However, stdlib does provide a nice way to do this. Using this method we came to 0.87 as a threshold to for example not mark 'python' and 'pythonic' as similar. 
 
