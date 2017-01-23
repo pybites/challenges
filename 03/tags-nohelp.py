@@ -1,8 +1,3 @@
-from collections import Counter
-from difflib import SequenceMatcher
-from itertools import product
-import re
-
 TOP_NUMBER = 10
 RSS_FEED = 'rss.xml'
 SIMILAR = 0.87
