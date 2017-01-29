@@ -4,11 +4,7 @@
 
 ### Write a class to retrieve tweets from the Twitter API 
 
-In this 3 part challenge your will analyze Twitter Data. In this challenge we will automate the retieval of data. Part 2 we will task you with finding similar tweeters, and Part 3 we will do a full sentiment analysis.
-
-Example output: 
-
-	$ python tweets.py
+In this 3 part challenge you will analyze Twitter Data. In this challenge we will automate the retrieval of data. Part 2 we will task you with finding similar tweeters, and Part 3 you will do a full sentiment analysis.
 
 ### Get ready
 
@@ -36,25 +32,64 @@ If you already forked it [sync it](https://help.github.com/articles/syncing-a-fo
 	$ pip install -r requirements.txt
 
 	# if you want to use another package like twython, feel free to do so
-	# if so make sure you update the requirements.txt with pip freeze 
 
-	# add your twitter API tokens in config.py 
+	# get your API keys from Twitter - https://apps.twitter.com 
 	$ cp config-template.py config.py
+	# paste the keys in config.py
 
-	# start to code
-	$ cp tweets-template.py tweets.py
+	# choose a template
+	$ cp usertweets-help.py usertweets.py
+	# or 
+	$ cp usertweets-nohelp.py usertweets.py
+	# code
 
 ### The challenge
 
-* Define a class that takes a Twitter handle / user in its constructor. Create an instance variable to hold the last n (100, 200, ...) tweets of this user. Use tweepy (or alternative package) to query the Twitter's API. 
+* Define a class called UserTweets that takes a Twitter handle / user in its constructor. it also receives an optional max_id parameter to start from a particular tweet id. 
+* Create a tweepy API object using the tokens imported from config.py (again, you can use another package if you prefer).
 
-	* New to OOP or bit rusty? You can read [our OOP post](http://pybit.es/oop-primer.html).
+* Create an instance variable to hold the last 100 tweets of the user. 
 
-	* Optional (but Pythonic): use Python's data model to implement len() and getitem() to create an iterator over the tweets. We did a post on that as well if you need help, see [here](http://pybit.es/python-data-model.html).
+* Implement len() and getitem() magic (dunder) methods to make the UserTweets object iterable.
 
-* Optional (but recommended): tokenize / clean the data. We leave this one open (we just started NLP ...) so we learn from this week solutions to start with a clean data set next week for Part 2.
+* Save the generated data as CSV in the data subdirectory: data/<handle>.csv, columns: id_str,created_at,text
 
-* Save the data in data/handle (txt, json, format you find convenient).
+### Background
+
+* We posted two articles this week you might find useful in this context: [oop primer](http://pybit.es/oop-primer.html) and [Python's data model](http://pybit.es/python-data-model.html). 
+
+* If you decide to use Tweepy, you might want to check its [API reference](http://docs.tweepy.org/en/v3.5.0/api.html) as well.
+
+### Tests
+
+For developers that like to work towards tests we included test_usertweets.py:
+
+	$ python test_usertweets.py
+	...
+	----------------------------------------------------------------------
+	Ran 3 tests in 0.001s
+
+	OK
+
+### Example output
+
+We used a namedtuple here, this is not required. Also note the tweets can differ, yet in the unittests we test a fix set (via the optional max_id parameter in the constructor):
+
+	$ python
+	>>> from usertweets import UserTweets
+	>>> pybites = UserTweets('pybites')
+	>>> len(pybites)
+	100
+	>>> pybites[0]
+	Tweet(id_str='825629570992726017', created_at=datetime.datetime(2017, 1, 29, 9, 0, 3), text='Twitter digest 2017 week 04 https://t.co/L3njBuBats #python')
+	>>> ^D
+	(venv) [bbelderb@macbook 04 (master)]$ ls -lrth data/
+	...
+	-rw-r--r--  1 bbelderb  staff    14K Jan 29 21:49 pybites.csv
+	(venv) [bbelderb@macbook 04 (master)]$ head -3 data/pybites.csv
+	id_str,created_at,text
+	825629570992726017,2017-01-29 09:00:03,Twitter digest 2017 week 04 https://t.co/L3njBuBats #python
+	825267189162733569,2017-01-28 09:00:05,Code Challenge 03 - PyBites blog tag analysis - Review https://t.co/xvcLQBbvup #python
 
 ### Good luck!
 
