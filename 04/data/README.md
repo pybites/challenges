@@ -1,3 +1,3 @@
 ### Twitter data
 
-In this directory the output of tweets.py is stored, one file per user / handle
+Output directory of usertweets.py script, file format like <handle>.csv
