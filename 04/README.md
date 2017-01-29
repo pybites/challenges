@@ -4,7 +4,7 @@
 
 ### Write a class to retrieve tweets from the Twitter API 
 
-In this 3 part challenge you will analyze Twitter Data. In this challenge we will automate the retrieval of data. Part 2 we will task you with finding similar tweeters, and Part 3 you will do a full sentiment analysis.
+In this 3 part challenge you will analyze Twitter Data. This week we will automate the retrieval of data. In Part 2 we will task you with finding similar tweeters, and for Part 3 you will do a full sentiment analysis.
 
 ### Get ready
 
@@ -52,13 +52,13 @@ If you already forked it [sync it](https://help.github.com/articles/syncing-a-fo
 
 * Implement len() and getitem() magic (dunder) methods to make the UserTweets object iterable.
 
-* Save the generated data as CSV in the data subdirectory: data/<handle>.csv, columns: id_str,created_at,text
+* Save the generated data as CSV in the data subdirectory: data/some_handle.csv, columns: id_str,created_at,text
 
 ### Background
 
 * We posted two articles this week you might find useful in this context: [oop primer](http://pybit.es/oop-primer.html) and [Python's data model](http://pybit.es/python-data-model.html). 
 
-* If you decide to use Tweepy, you might want to check its [API reference](http://docs.tweepy.org/en/v3.5.0/api.html) as well.
+* If you decide to use Tweepy, you might want to check its [API reference](http://docs.tweepy.org/en/v3.5.0/api.html).
 
 ### Tests
 
@@ -73,7 +73,7 @@ For developers that like to work towards tests we included test_usertweets.py:
 
 ### Example output
 
-We used a namedtuple here, this is not required. Also note the tweets can differ, yet in the unittests we test a fix set (via the optional max_id parameter in the constructor):
+We used a namedtuple here, this is not required. Also note the tweets can differ, yet in the unittests we test a fix set (using the optional max_id parameter in the constructor):
 
 	$ python
 	>>> from usertweets import UserTweets
