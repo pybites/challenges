@@ -28,7 +28,7 @@ class UserTweets(object):
 
     def _get_tweets(self):
         tweets = self.api.user_timeline(self.handle, count=NUM_TWEETS, max_id=self.max_id)
-        return (Tweet(s.id_str, s.created_at, s.text) for s in tweets)
+        return (Tweet(s.id_str, s.created_at, s.text.replace('\n', '')) for s in tweets)
 
     def _save_tweets(self):
         with open(self.output_file, 'w') as f:
