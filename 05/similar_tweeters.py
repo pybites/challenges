@@ -11,7 +11,6 @@ from nltk.corpus import stopwords
 from tweet_dumper import get_all_tweets 
 
 CSV = 'data/new/{}.csv'
-DB = 'twitter.dict'
 IS_LINK_OBJ = re.compile(r'^(?:@|https?://)')
 STOPWORDS = set(stopwords.words('english'))
 
