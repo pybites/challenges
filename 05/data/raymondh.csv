@@ -1,0 +1,201 @@
+id_str,created_at,text
+829474817082433536,2017-02-08 23:39:41,"#python data extrapolation contest: Tweet your prediction of the exact date and time(UTC) that https://t.co/FKHrePjOPy hits 100,000 packages"
+829049495979642880,2017-02-07 19:29:37,"#python tip:  ASCII tablepprint(list(zip(range(32, 127), map(chr, range(32, 127)))))"
+825075602071842816,2017-01-27 20:18:47,#python news:  Congratulations to @Mariatta Wijaya on becoming a core developer.  She has worked hard for this. https://t.co/7G2pW8mgqj
+825071841962188801,2017-01-27 20:03:50,@WillingCarol Mariatta has worked hard for this.  It was an honor to be the spirit guide.
+824855279707631616,2017-01-27 05:43:18,"@honig_den Thank you for the invite.  That date is already booked for me.  Perhaps, next year :-)"
+824523183311040512,2017-01-26 07:43:40,"@pwang At least we got some conda, numeric, and data viz talks.Another improvement, only a half dozen accepted talks aren't Python related."
+824517277651333120,2017-01-26 07:20:12,"@pwang FWIW, I'm always inspired and informed every time I've heard you speak.  It is Pycon's loss if you aren't on stage this year."
+823969981645746176,2017-01-24 19:05:26,"RT @dabeaz: An easier way to save memory:class dict(dict):     def __sizeof__(self):           return 0Money for nothing, dicts for f…"
+823943911315906560,2017-01-24 17:21:51,"RT @MarsRovers: She’s just a teenage rover, baby. Opportunity turns 13 today, which means that on Earth, she’s officially a teenager https:…"
+823804186932310016,2017-01-24 08:06:38,"Today, my talk proposal for @PyCon 2017 was accepted:Modern #Python Dictionaries -- A confluence of a dozen great ideas"
+822557697589608448,2017-01-20 21:33:32,"#python news:  The MyPy static type checker is now findable on pip as mypy.  Formerly, it was mypy-lang which was hard to find."
+822319990623739904,2017-01-20 05:48:58,@__n_ansari__ It's a PEP 8 recommendation and a standard for the standard library.  It avoids false branching for s=[ ] or s='' or s=0.
+822306538949742595,2017-01-20 04:55:31,@jackdied Of course it not an absolute error.  It is just almost always the wrong thing to do ;-)
+822303382576607234,2017-01-20 04:42:58,"@jackdied If what you want is a new list, then s=[] as a default is a flat-out bug."
+822296239156920321,2017-01-20 04:14:35,#python tip: Use only immutable values for function defaults.def wrong(s=[]):  ...def better(s=None):  if s is None:    s = [ ]
+821249665265864704,2017-01-17 06:55:52,@b0rk I would buy it :-)
+821118171184644096,2017-01-16 22:13:22,"""If debugging is the process of removing software bugs, then programming must be the process of putting them in."" -- Edsger Dijkstra"
+819085176764366848,2017-01-11 07:34:58,#python 2017 wish:  That Python-aware editors will learn to do syntax highlighting and brace-matching for f-strings.
+818289483019730945,2017-01-09 02:53:10,"@The_Goosey PEP 238 says, ""... they are    first coerced to a common type using the same rules used for all    other arithmetic operators"""
+817049949783269376,2017-01-05 16:47:42,#python news:  InfoWorld write-up on the what there is to love about Python 3.6: https://t.co/5M7cr951fj
+812440894573924352,2016-12-23 23:32:58,"@brettsky @vorpalsmith @dabeaz @miishke It's still an open question for Guido, ""scrambled is better than ordered"" or vice-versa ;-)"
+812413169742118912,2016-12-23 21:42:48,#Python news:  Python 3.6.0 has been released.Merry Christmas!https://t.co/nzrsR9traV
+812103677712351233,2016-12-23 01:12:59,"@infixum Perhaps.  I've been using Python 3.6 for a good while now. And after many uses, the extra space starts to seem like a good idea."
+812102506155081728,2016-12-23 01:08:20,"@infixum Readability.  This example is short (twitter limits), but the spacing seems to make a difference in clarity for other cases."
+812007102327750656,2016-12-22 18:49:14,"#python tip:  If an f-string contains both an expression and a format, leave a space before the colon:f'We spent ${round(total) :,d}'"
+810553138071662592,2016-12-18 18:31:42,"#python tip:  To change the cache size of an LRU cached function, just rewrap it:&gt;&gt;&gt; f = lru_cache(newsize)(f.__wrapped__)"
+810226437324210177,2016-12-17 20:53:30,"Link to my #PyconCA keynote:  ""You're Invited to Participate in #Python Core Development""     https://t.co/mg49INNFQY"
+810225353025155072,2016-12-17 20:49:12,@dabeaz Diabolical!
+810216189544845312,2016-12-17 20:12:47,#python muscle memory doesn't always serve me well.  Today's typo:$ git __init__git: '__init__' is not a git command. See 'git --help'
+809903241299456000,2016-12-16 23:29:14,RT @simeonfranklin: If you missed @raymondh’s great talk on the Python dict implementation at the @sfpythonmeetup Holiday party… https://t.…
+808348439113121792,2016-12-12 16:31:00,"For the most part, #Python eschews magic and works in the most straight-forward way possible.  That said, ""super"" borders on witchcraft ;-)"
+808194595225890816,2016-12-12 06:19:41,@py_ebarry @pumpichank A better survey question is whether people can show us any real use cases or whether the existing API has sufficed.
+807124172627275778,2016-12-09 07:26:13,"""The Tech Behind #Python 3.6 Dictionaries""   Here are the slides from my @sfpythonmeetup presentation tonighthttps://t.co/sFuKMHHbBq"
+806536570413006849,2016-12-07 16:31:17,@jakevdp Add guess who is now linked to in the python docshttps://t.co/oZdlfXqezG
+805981523182657537,2016-12-06 03:45:44,"@dabeaz @odtorium s = OrderedDict.fromkeys(data)s[newval] = None # addings.pop(oldval, None) # removings.keys() supports set ops; &amp; | - ^"
+805623161404334080,2016-12-05 04:01:44,"RT @ctitusbrown: OH: ""People's use cases are rarely limited by your imagination."""
+805459649939935232,2016-12-04 17:11:59,"#python dyslexia:  My C programmer fingers keep wanting to type printf(""Answer is {x}"") instead of print(f""Answer is {x}"")."
+805312910633242624,2016-12-04 07:28:54,"@TimMcDon4ld  Which do you prefer?max(team_history, key=attrgetter('goals'))max(game.goals for game in team_history)"
+805257359345844224,2016-12-04 03:48:10,"#python tip to extract fields for reducers:median(map(attrgetter('sale_price'), housing_data)sum(map(attrgetter('tax'), housing_data)"
+804880453584830465,2016-12-03 02:50:28,"RT @makmanalp: Most annoying feature in python: forget comma between two strings on two separate lines, strings get joined into one big str…"
+803818478356414465,2016-11-30 04:30:34,@jackdied Dr Diederich or: How I Stopped Worrying and Learned to Love lamdba.
+803814128355639296,2016-11-30 04:13:17,"#python tip for permuting tuples:&gt;&gt;&gt; map(itemgetter(2, 1, 0), [('Gabert','B',2), ('Reid','E',35)])[(2, 'B', 'Gabert'), (35, 'E', 'Reid')]"
+803059696827396096,2016-11-28 02:15:26,"RT @jacobian: I like pytest, and I think not enough Python people use it. So I wrote a short introduction: https://t.co/4Lbw0SkpHD"
+802957068109914113,2016-11-27 19:27:37,"@dabeaz If you put on a Ply tutorial or talk, I would be first in line :-)"
+802206512235966464,2016-11-25 17:45:11,"#python formatting tip:&gt;&gt;&gt; meal = dict(main='turkey', dessert='pie')&gt;&gt;&gt; 'Eat {main} and {dessert}'.format_map(meal)'Eat turkey and pie'"
+801588306249035776,2016-11-24 00:48:39,"RT @pycon: With only 1 week left til the deadline, only 24 tutorials have so far been proposed. Have an idea? Try proposing it!https://t.c…"
+801567131443658752,2016-11-23 23:24:31,RT @kennwhite: “[T]he Apollo guidance software was so robust that no software bugs were found on any crewed Apollo missions”. So well deser…
+801181322064498688,2016-11-22 21:51:27,"@Belteshassar In general, the answer is yes.  For Python 2.7 string seeds there was a difference between 32-bit builds and 64-bit builds."
+801169466633555968,2016-11-22 21:04:20,The #Python random module examples and recipes have evolved into a mini-tutorial on simulations and statistics.https://t.co/oZdlfXqezG
+800966448113823744,2016-11-22 07:37:37,#python news:  The final Python 3.6 beta is out.You get extra credit for early adoption and feedback.https://t.co/xstItTkkE1
+800396862096166912,2016-11-20 17:54:17,#python amusement:# When you need a new name and cover storyfrom functools import wraps as nikky_parsons
+797489574813585408,2016-11-12 17:21:45,RT @NateSilver538: A—There's a 30% chance of an earthquakeB—LOL ur crazy no way it's that high{{earthquake}}B—Idiot! You said a 70% chan…
+797302378361999360,2016-11-12 04:57:54,"#emacs tip:  You can type C-h after any prefix to see its full keymap.For example, C-x r C-h shows the rectangle and register key bindings."
+797267421568634880,2016-11-12 02:39:00,Woot!  Just arrived in Toronto for #PyConCA2016.
+795779272329687041,2016-11-08 00:05:38,"In case you're undecided and my opinion matters to you, #ImWithHer.In any case, please vote tomorrow.  It matters."
+795739394615324672,2016-11-07 21:27:10,"#python tip:  Slicing support isn't automatic.In Python 2, add a __getslice__() method.In Python 3, add a special case to __getitem__()."
+795031167762309120,2016-11-05 22:32:56,@xennygrimmato_ &gt;&gt;&gt; f'There are {len(dir())} variables defined''There are 48 variables defined'
+795018167948976128,2016-11-05 21:41:16,"#python 3.6 field report:  At first I was leery of Python's new f-strings, but they are convenient and you quickly grow to love them."
+795016586079846400,2016-11-05 21:34:59,@Mapio Both math.fsum() and statistics.mean() have Kahan sums internally.
+794948174435627008,2016-11-05 17:03:08,@rory_h_r It depend on what you're doing.  Bootstrapping is a statistical technique that involves thousands statistic recomputations.
+794947702689648640,2016-11-05 17:01:16,@tech31842 Yes.
+794744530897489920,2016-11-05 03:33:56,#python factlet:statistics.mean(s)     # 534 µsecmath.fsum(s) / len(s)  # 12.2 µsecsum(s) / len(s)        # 3.77 µsecwhere len(s)==1000
+793325158391873536,2016-11-01 05:33:51,#python news:  CPython 3.6b3 was released today.This is the best Python so far.Try it now.https://t.co/ZBDFTFfwPo
+793243917407969280,2016-11-01 00:11:02,"Before celebrating when your team votes for you as MVP, be sure to ask whether they meant Most Valuable Player or Minimum Viable Product ;-)"
+792466371661619201,2016-10-29 20:41:20,@Belteshassar yes
+791174302183755776,2016-10-26 07:07:07,"#python factlet:  Variable unpacking works on any sequence.  It even works for strings:&gt;&gt;&gt; a, b, c = 'xyz'&gt;&gt;&gt; a'x'&gt;&gt;&gt; b'y'&gt;&gt;&gt; c'z'"
+790809033632546816,2016-10-25 06:55:40,@nicolas09F9 ElementTree
+790745771851255808,2016-10-25 02:44:18,"#python tip:  By default, elements iterate over their children, so write ""for child in elem"" instead of ""for child in elem.findall('*')"""
+790070934073815041,2016-10-23 06:02:44,@_shubhamsorte @pypals #MUPy #TheFullMontyThe code for today is at: https://t.co/7mIhfCRjSc
+790069890690392064,2016-10-23 05:58:35,"#python tip:  By default, files iterate line-by-line, so you can write ""for line in f"" instead of the wordier ""for line in f.readlines()"""
+789569941989040128,2016-10-21 20:51:58,"@AllenDowney This problem was originally from Ronald Fischer in 1959, ""Statistical Methods and Scientific Inference"" https://t.co/DLrCeGZ28C"
+789567923438313472,2016-10-21 20:43:57,"#python tip:  By default, dicts iterate over their keys, so you can write ""for k in d"" rather than the wordier ""for k in d.keys()""."
+787142205228003332,2016-10-15 04:05:00,RT @chaign_c: #python is a lot more fun now @fr0gSecurity @raymondh https://t.co/iWkcGXsxw5
+787112027454070784,2016-10-15 02:05:05,@treyhunner Bloom filters can test for membership but cannot iterate.
+786362241348055040,2016-10-13 00:25:42,#python news:  The newest version of #pypy for Python 3 has been released. https://t.co/0wodhEr7ep
+786186848141881344,2016-10-12 12:48:45,"RT @dabeaz: class Spam(object):    __slots__ = ('__dict__',)Is a damn weird class.  And slightly smaller than a normal class."
+785568907167805441,2016-10-10 19:53:17,@chrismcdonough Unions are strengthened quite a bit when the members have no choice about whether to join or not.
+782483479992803328,2016-10-02 07:32:54,#python news:  Python is the most popular introductory language at top US universities.https://t.co/Vrj7yR1SPy
+781695013352800257,2016-09-30 03:19:49,"RT @sarah_edo: Every time I think ""nobody pointed out this obvious thing so I must be wrong"" I remind myself how long it took us to put whe…"
+781296538240872453,2016-09-29 00:56:25,"RT @brandon_rhodes: I always stare for several minutes at `datetime.strptime()` errors before realizing I have, yet again, swapped the form…"
+781159247979479040,2016-09-28 15:50:52,@phl82 @k_karthikp This is now valid Python ;-)&gt;&gt;&gt; _0=0x_0-0o_0*_0
+781018794739236864,2016-09-28 06:32:45,@k_karthikp It is hard to say.  I rarely have large numeric literals in my code.  The interesting numbers are almost always in data files.
+780986732275703808,2016-09-28 04:25:21,"Coming soon in #Python 3.6:  PEP 515: Underscores in Numeric Literals&gt;&gt;&gt; format(1_234_567 + 7_654_321, '9_d')'8_888_888'"
+780433112375238656,2016-09-26 15:45:28,#python itertools relationship:Both permutations() and combinations_with_replacement() are subsequences of product().
+780240081957171200,2016-09-26 02:58:26,"@lucaswiman Yes for the ""r"" and no for the ""b"""
+780239769166983168,2016-09-26 02:57:11,"@done_with_fish &gt;&gt;&gt; mytuple = 'hello', 'world'&gt;&gt;&gt; f'{mytuple[0]} my little {mytuple[1]}''hello my little world'"
+780239436021764096,2016-09-26 02:55:52,@_romuald https://t.co/lconmsnwz1
+779857992820731905,2016-09-25 01:40:09,"@MarkusMeskanen The performance is excellent, faster than both format() and traditional % formatting."
+779840313472933888,2016-09-25 00:29:54,F-strings are coming in #Python 3.6:&gt;&gt;&gt; planet = 'Earth'&gt;&gt;&gt; f'Hello {planet}''Hello Earth'
+779839972639596544,2016-09-25 00:28:32,@py_ebarry I thought pickles were just reduced cucumbers ;-)
+779435935234600960,2016-09-23 21:43:02,#python news: https://t.co/RGYJmlegXg
+779390562449272832,2016-09-23 18:42:45,RT @baybryj: We blogged about the Python Core Developer Sprint: https://t.co/CzjjLTJtGX
+777709462861656064,2016-09-19 03:22:39,"RT @cdixon: ""The question of whether machines can think is about as relevant as the question of whether submarines can swim."" -Edsger Dijks…"
+777345688803737600,2016-09-18 03:17:09,Q. How can I know what is in the #python standard library?A. Read the table of contents in the documentation.https://t.co/TwGqBG0vC4
+777260038301683712,2016-09-17 21:36:48,@philzine from itertools import accumulate
+777178536381558785,2016-09-17 16:12:57,"# 5% loan of 1000 with 4 annual pmts of 90cashflows=[1000, -90, -90, -90, -90]list(accumulate(cashflows, lambda bal, pmt: bal*1.05 + pmt))"
+776339191080726528,2016-09-15 08:37:41,"@ossronny Yes, dense storage means there are no unpredictable tests for NULL placeholders during iteration.  https://t.co/vBeVyCHeRb"
+776322068723798016,2016-09-15 07:29:39,"#python news:  Dict iteration speed in Py3.6 improved fourfold!timeit -s ""d=dict.fromkeys(map(str, range(10**6)))"" ""list(d)""47ms  -&gt;  12ms"
+776066938359341057,2016-09-14 14:35:51,@lifebalance (a - b - c) | (b - a - c) | (c - a - b)
+775916426053890048,2016-09-14 04:37:46,@ThePowerfulDeeZ s ^ t == (s | t) - (s &amp; t)
+775861231991128064,2016-09-14 00:58:27,"RT @dabeaz: Rock.  Curio passes all of its tests under Python 3.6b1.  Plus, async comprehensions seem to work. Yes."
+775589011381301248,2016-09-13 06:56:44,"#python tip:  The symmetric_difference method finds elements that are in exactly one of the sets&gt;&gt;&gt; {2, 4, 6} ^ {2, 3, 5}{3, 4, 5, 6}"
+775536775338930176,2016-09-13 03:29:10,"#python news: Today, the Python 3.6 beta was released.  Go try it out!https://t.co/37Gz7bi8Pv"
+775033782990544896,2016-09-11 18:10:27,@DJetelina Twitter examples are necessarily terse.  Pop quizzes that pique interest and have a surprise lesson are necessarily a bit opaque.
+775020588171616256,2016-09-11 17:18:02,"#python iterator pop quiz:  What does this print?&gt;&gt;&gt; it = iter('abcdefghi')&gt;&gt;&gt; print(list(zip(it, range(3), it)) + list(it))"
+774732907311079424,2016-09-10 22:14:53,#python 3.6 pop quiz:   What do you think this does?&gt;&gt;&gt; x: str = 10
+774671938585174016,2016-09-10 18:12:37,Today's lesson on Object Oriented Programming:   Class Toast and class  Pancake are subclasses of ButterDeliveryDevice   :-)
+774458268974395392,2016-09-10 04:03:34,"RT @phoe6: Hacking #cpython at @instagram - Sep 9, 2016 https://t.co/g6QiRMFCpY"
+774396734310977536,2016-09-09 23:59:03,@popeman I believe it should be about the same.  Both dicts need to resize periodically to cleanup dummy entries and do compaction.
+774375896182431744,2016-09-09 22:36:15,"@tonyandrewmeyer @ncoghlan_dev For the time being, the side-effect of being ordered is non-guaranteed.   So, no API changes for now."
+774305951784448000,2016-09-09 17:58:19,"Four years ago, I proposed a technique for smaller, faster dicts.Now it is a reality in both #cpython and #pypy :-)https://t.co/QZMlARJaZO"
+774086216199176194,2016-09-09 03:25:10,@lig1 The semantics of dict comparisons is unchanged.
+774086036678774784,2016-09-09 03:24:27,@goerz Yes!
+774012376546811904,2016-09-08 22:31:45,"@mistermocha Should be an improvement across the board.  Smaller size (usually), a little faster (due to cache performance), and ordered."
+774011963781238784,2016-09-08 22:30:07,"@py_ebarry More work needs to happen first.  But yes, that is where we are headed.  This change will give us a number of simplifications."
+773998484978438153,2016-09-08 21:36:33,"@py_ebarry Yes, the order is preserved across deletions."
+773978885092323328,2016-09-08 20:18:40,#python3.6 news:  OrderedDict is dead. Long live dicts that are ordered.Regular dicts are ordered and more compact: https://t.co/du4P4M4LFN
+773788847574425602,2016-09-08 07:43:32,"#python tip:  Use a comma to unpack lists of length one while looping:for (name,) in cursor.execute('SELECT name FROM Employees'):    ..."
+773786851727380480,2016-09-08 07:35:36,"#python and #pypy tip:  For extracting a value from a list of length one, ""a, = s"" is faster than ""a = s[0]""."
+773277119065448449,2016-09-06 21:50:06,"#internet syllogism:All URLs are URIsAll URNs are URIsSome URNs are URLsTherefore, Socrates is a Mortalhttps://t.co/aOAdM7WNh1"
+773224135409360896,2016-09-06 18:19:34,What #Python says:  TypeError: 'Tk' object cannot be interpreted as an integerWhat it means:  class 'Tk' does not have an __index__ method
+772957699478663169,2016-09-06 00:40:51,"#python tip:What Python says: ""TypeError: 'method' object is not subscriptable""What it means: ""Use parentheses instead of square brackets"""
+771855427512315904,2016-09-02 23:40:48,#python news: I love that #pypy is constantly improving.Version 5.4 is now available.https://t.co/VjnX0JAfsG
+771628923100667904,2016-09-02 08:40:46,"#python tip:  You can make an instance method by partialing a function with an instance.&gt;&gt;&gt; inst.meth = partial(func, inst)&gt;&gt;&gt; inst.meth()"
+771521718896631808,2016-09-02 01:34:46,"RT @AllenDowney: The ASA statement on p-values is good, and consistent with my conclusion: ""only mostly useless"".https://t.co/0VHZhWV4sK"
+771373085379264513,2016-09-01 15:44:09,#python tip: A function object is a non-data descriptor where an instance variable takes precedence over a similarly named class variable.
+771152812310802432,2016-09-01 01:08:52,"#python tip:  Since a property object is a data descriptor, it takes precedence over a similarly named variable in the instance dictionary."
+769368522602389504,2016-08-27 02:58:44,@byuu_san @ChristianHeimes This is nothing compared to what you're going to have to do to program GPUs.  Just saying.
+767547917154476032,2016-08-22 02:24:18,RT @WillingCarol: Thank you Team @py_bay for a super #PyBay2016. On behalf of @ThePSF great job! https://t.co/Ag1yWlenVi
+767521226004701184,2016-08-22 00:38:14,RT @laebshade: @NorthIsUp @simeonfranklin @noahgift @wescpy @glyph @raymondh loved the talk. @py_bay #PyBay2016 https://t.co/z8e2EG7Zrd
+766654913526890496,2016-08-19 15:15:49,"#python tip:  Complicated regexes can be organized into readable, commented chucks.https://t.co/QtH4TfIlNZ"
+766535765798952960,2016-08-19 07:22:22,@rtdbrito @py_bay No luck there.  Only the main conference talks are being recorded.  The tutorials are at a different site.
+766435680981430272,2016-08-19 00:44:40,"For tomorrow's tutorial at #py_bay, I planned to cover metaclasses, but the website promises ""meatballs"" instead ;-)https://t.co/Ck3CfTIGOH"
+766020899032051712,2016-08-17 21:16:28,@hackebrot Nice.
+766016793538236416,2016-08-17 21:00:10,"#python humor:The bartender says, ""We don't serve race conditions here"".A thread walks into a bar."
+765735896066904064,2016-08-17 02:23:58,"@phoikoi You called it.  To my eyes, it seems like part of a new language that isn't #Python."
+765734559623155712,2016-08-17 02:18:40,"@thomasloven I think @dabeaz would gleefully describe it as ""diabolical"" :-)"
+765723949875331073,2016-08-17 01:36:30,"@pumpichank Hopefully #pyflakes would complain. Outside of AutoEnum, a bare variable name would almost always be an error to be flagged."
+765716218271535104,2016-08-17 01:05:47,"@johnhagen I'm curious.  What was wrong with the current one-way-to-do-it?Animal = Enum('Animal', 'ant bee cat dog')"
+765691226309795842,2016-08-16 23:26:28,@pumpichank Do you know if there is a precedent for using a variable name as a statement rather than as an expression?  Can lint tools cope?
+765652816849285120,2016-08-16 20:53:51,#python3.6 survey:  What do you think of the new AutoEnum class?Pure genius or too much magic for too little gain?https://t.co/A47IFggHwq
+765626456969916416,2016-08-16 19:09:06,#python happiness:  Sometimes I just enjoy watching geniuses at work.https://t.co/TNjfftv0mA
+763627705405280256,2016-08-11 06:46:47,"@SaveTheRbtz Thank you.  I appreciate it.  Outside of this glitch, Dropbox has a perfect record with me."
+763040244794916864,2016-08-09 15:52:25,"@ralsina @ncoghlan_dev @nedbat It is a chained comparison that does the same as:""5 in r and r == True"" where r is ""range(10)""."
+762907823281811456,2016-08-09 07:06:13,A weird #python zen koan for your contemplation and enlightenment:&gt;&gt;&gt; 5 in range(10) == TrueFalse
+762109546043088896,2016-08-07 02:14:09,@1st1 Is the Earth close to the Sun?The design issue with math.isclose() is that accepts the temptation to guess at what the user meant.
+762104044181606402,2016-08-07 01:52:17,"#python3: Sometimes floating point math works out exactly, sometimes not.&gt;&gt;&gt; gamma(1/2) == sqrt(pi)True&gt;&gt;&gt; exp(1j * pi) + 1 == 0False"
+762099363984269312,2016-08-07 01:33:42,"@ParamountMills ""Coordinated"" as in you need to think about the business logic of what you want to happen when the shared method is called."
+762081165830266885,2016-08-07 00:21:23,@ParamountMills The competing parts of the super classes need to be coordinated. That can be easy or hard depending what you want it to do.
+761969451927412736,2016-08-06 16:57:28,#python tip:  Multiple inheritance is about simple as single inheritance whenever the parent classes do not have any methods in common.
+761283981040087044,2016-08-04 19:33:39,#python news:  Wesley Chun @wescpy and I will be teaching public tutorials at @py_bay in San Francisco on 8/19.https://t.co/Ck3CfTr5X9
+758317573079388160,2016-07-27 15:06:12,"#python video and slides for ""Thinking About Concurrency"",my July 3rd keynote at #pyconruhttps://t.co/geJ0s8CcsChttps://t.co/uRYgmLYXNX"
+757739097830006784,2016-07-26 00:47:33,@united I understand HOW it works. I just think it is wrong and undermines your program that all of my flights get less than actual mileage.
+756261999328112640,2016-07-21 22:58:05,#python3 tip:  str.casefold() is similar to str.lower() but is more aggressive:&gt;&gt;&gt; 'Weiß'.casefold()'weiss'&gt;&gt;&gt; 'Weiß'.lower()'weiß'
+756182561039142916,2016-07-21 17:42:26,"#python tip:  str.replace() non-recursively replaces non-overlapping matches:&gt;&gt;&gt; '~~~~~ ~~~~ ~~~ ~~ ~'.replace('~~', '~')'~~~ ~~ ~~ ~ ~'"
+755474989009113088,2016-07-19 18:50:48,RT @simeonfranklin: Talks list for @py_bay is out... Come hear @raymondh @wescpy @wesmckinn @mitsuhiko @andrewgodwin &amp; many more! https://t…
+753935015566778368,2016-07-15 12:51:29,"@infixum @voidspace Replacing me would be premature ;-)Neater:   x = fAfter all, files are self-iterable.iter(f) just returns f."
+753327234929287168,2016-07-13 20:36:23,"#Dropbox Fail. While presenting at #pyconru, dbox decided I was in ""region known for abuse"", so it killed all my existing public talk links."
+752617817078312960,2016-07-11 21:37:25,@segfaulthunter Take it up with @gvanrossum who translated it into #Python 1.5 from someone else's C module almost 17 years ago ;-)
+752591604695896064,2016-07-11 19:53:15,#python factlet:  random.normalvariate() and random.gauss() generate the same distribution.  The former is threadsafe. The latter is faster.
+749877422972137472,2016-07-04 08:08:04,RT @eramirem: Design principle for @NASAJuno: no single fault can destroy the mission #NASASocial #Juno #NoSPOFs
+749366323784871936,2016-07-02 22:17:08,@pythoasis math.ceil() is for floating point arithmetic.  These two techniques work with arbitrary precision integer math.
+749351090211160064,2016-07-02 21:16:36,#python tip:  Two techniques for ceiling_division:      q = (n + d - 1) // dor:            q = -(-n // d)
+748869541409665024,2016-07-01 13:23:06,"@gershonmarx @nedbat That is how Counter.elements() is implemented:    return _chain.from_iterable(_starmap(_repeat, self.items()))"
+748868833180459008,2016-07-01 13:20:17,"@RyanDoughertyAZ Yes, just bisect a cumulative distribution.  I put an example in the docs for the random module:  https://t.co/zlTjUiAwlp"
+748867204175704064,2016-07-01 13:13:49,@asmeurer Counter is a dict subclass.  How would you index that?
+748586729716719617,2016-06-30 18:39:19,"#python tip:  Making an integer weighted random choicepool = list(Counter(red=80, blue=40, green=20).elements())print(random.choice(pool))"
+747292856075706368,2016-06-27 04:57:55,The process of changing CPython is highly metrics driven.  Contributors with the most time on their hands effect the most change ;-)
+746833885296734210,2016-06-25 22:34:08,"RT @miishke: Ha! @LIGO is on a roll. New pair of coalescing black holes found. BH, FT, Python, matplotlib https://t.co/w38tf3ehYf https://t…"
+744975448036114432,2016-06-20 19:29:22,"Thanks @nbadg, that is useful.When teaching #python, instead of presenting ""tool T does S"",I prefer ""given problem P reach for tool T""."
+744945258983620609,2016-06-20 17:29:24,#python3 survey:   Are you using memoryview()?What are you using it for?
+744744732937465856,2016-06-20 04:12:35,"“Code is law ... We can bake privacy in, we can bake the first amendment in, and we can bake openness in."" -- Brewster Kahle"
+744744014201520128,2016-06-20 04:09:44,"@asmeurer Unicode itself was designed to be ""representation-agnostic"".  #Python appropriately sticks with that vision."
+744725051065274368,2016-06-20 02:54:23,@zedshaw Nice work!
+744723119462440961,2016-06-20 02:46:42,"""It is in the user’s bill of rights to mix any number of languages in any text string."" -- https://t.co/bsOASYDaUi"
+744276203805171716,2016-06-18 21:10:49,Show-off your accomplishments and share your skills.There are 6 days left to submit a talk proposal for #pybayhttps://t.co/UvQ14C4y05.
+744000111248695297,2016-06-18 02:53:44,Finally there's a SF area #python conference.See me @jessicamckellar @wescpy at #pybay 8/19-8/21.Earlybird tix at https://t.co/QpwjPMJAxk
+743947767358205953,2016-06-17 23:25:44,"#python tip:  When translating to canonical values, try dict.get(k,k):xlat={'grey':'gray', 'mauve':'purple'}color = xlat.get(color, color)"
+743894408794275840,2016-06-17 19:53:42,"RT @cfbolz: Discovered today that some kind of meta programming in PyPy is really fast, eg:type(x).__dict__['attr']turns into just a ty…"
+743106725281046528,2016-06-15 15:43:44,@bedekelly Both how it works and how it is used
+743106630238146561,2016-06-15 15:43:21,@sheilnaik I teach #python to engineers who have real work to do.  Nothing is held back or watered down.
+742806900337606656,2016-06-14 19:52:20,"#python lament:  When teaching introductory courses, my least favorite topic is:    if __name__ == '__main__':        ..."
+742425112524161024,2016-06-13 18:35:15,"#python tip:  There is a wonderful module called itsdangerous, but it is in fact safe ;-)https://t.co/4JickIViNe"
+741839949461262341,2016-06-12 03:50:01,@RyanDoughertyAZ @TvdW @letsencrypt I concur.
+741743649222844417,2016-06-11 21:27:21,@QuikliCodes @TvdW @letsencrypt This was fixed for #Python 3.3 but needs a backport for Python 2.7 https://t.co/HuwBmFCAQ5
+741642289747877894,2016-06-11 14:44:35,RT @TvdW: So @letsencrypt sent out a lot of mail addresses to the wrong people… Bet it’s because of this Python “feature” https://t.co/NMwq…
+741478393456168960,2016-06-11 03:53:19,Another #pycon2016 video recommendation:@dshafik from https://t.co/zqBCyZKtbf teaches us the joys of HTTP/2https://t.co/KMRha8Uzbp
+741352801016545280,2016-06-10 19:34:16,@fijall It is hard to reason with people whose entire intellectual foundation is that the number three is bigger than the number two ;-)
+741029871548137472,2016-06-09 22:11:03,#pycon2016 Suggested talk video from @mattbachmann about property based testing using #hypothesis:https://t.co/ApXVPbuCkK
+740940736925863936,2016-06-09 16:16:52,"One of the most important insights into #python is that modules, classes, and instances are just thin wrappers around dictionaries."
+740401191427936256,2016-06-08 04:32:54,"RT @CompSciFact: ""The idea that people knew a thing or two in the '70s is strange to a lot of young programmers."" -- Donald Knuth"
+740247331279228928,2016-06-07 18:21:31,#python tip:  NotImplementedError is raised in subclasses to block a parent method.  NotImplemented is a constant used in binary operations.
+740037763286732800,2016-06-07 04:28:46,@Mbussonn That one actually does something:&gt;&gt;&gt; from __future__ import barry_as_FLUFL&gt;&gt;&gt; 1 &lt;&gt; 5True
+740017381141929985,2016-06-07 03:07:47,And now a message from #python's least import module:&gt;&gt;&gt; import __hello__Hello world!
+739868375925432322,2016-06-06 17:15:41,"OH: ""It's pretty cool that the internet lets you watch Monty Python videos on a platform powered by #Python"""
+738884437799145472,2016-06-04 00:05:52,"First rule of #opensource:  Only you control where, when, and how you volunteer your time and skills to better the world."
+738516224292716544,2016-06-02 23:42:43,RT @1st1: One of the coolest keynotes ever - #pycon2016 - K Lars Lohn - https://t.co/QWIic7F0rY
+737791828380909568,2016-05-31 23:44:14,"#python2016  ""If you care about speed, use built-in types and functions.  They are written in C and highly optimized"" -- @Grant_Jenks"
+737763739609403395,2016-05-31 21:52:37,#pycon2016 @eramirem is greatly challenging my matrix algebra skills.The payoff is a better understanding of Kalman Filters for forecasting
+737754496206442498,2016-05-31 21:15:53,"""DNS leaks a massive amount of information about what a user is doing on the internet"" -- @MelindaShore #pycon2016"

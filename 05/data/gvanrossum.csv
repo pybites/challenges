@@ -1,0 +1,201 @@
+id_str,created_at,text
+830194194501099520,2017-02-10 23:18:14,The CPython source code has officially moved to https://t.co/0ax0UGzgLZ. Congrats @brettsky !!!
+830187573049896960,2017-02-10 22:51:56,"Micro mypy update: https://t.co/XU6N0O88g5 -- the only change is fixing the typed_ast version, to avoid a new typed_ast breaking old mypy."
+829017268096937985,2017-02-07 17:21:33,"@FieryPhoenix7 Yes, I interviewed the Dropbox engineers thoroughly. :-)"
+826906349086715905,2017-02-01 21:33:31,"@Stavros No, chaining for mutable operations is unpythonic."
+826545600342528000,2017-01-31 21:40:02,@mhashemi @Meetup Stalker!
+822843940806066176,2017-01-21 16:30:57,"@jessejiryudavis The crawler does https, you may have to use a context with ctx.check_hostname=False, ctx.verify_mode = ssl.CERT_NONE?"
+822650739780702212,2017-01-21 03:43:15,@jessejiryudavis @pgbovine Here's an async+await version of the *original* code I wrote. https://t.co/8XlJeEJFLe But the book is different!
+822649910898151424,2017-01-21 03:39:57,@jessejiryudavis @pgbovine We should really do an update to async+await...
+822464846222368768,2017-01-20 15:24:34,@erickjo61337836 @Kentzo https://t.co/dqAw5iUw7y
+822101632598978561,2017-01-19 15:21:17,@erickjo61337836 @Kentzo Try asking on python-list
+821840981943152640,2017-01-18 22:05:33,@brettsky @Yhg1s I've forgotten most of my dutch :-(
+821805554888650752,2017-01-18 19:44:47,@Van_Guren Some Googleing? I found this: https://t.co/BKzIIp1EJA
+821450904691822592,2017-01-17 20:15:32,.@Kentzo It links to the full change log: https://t.co/m1lWLf8C6x
+821406791703478272,2017-01-17 17:20:14,Python 3.5.3 is released! https://t.co/TkbCF1Pvvn (Also 3.4.6 -- the last of 3.4.)
+821110052404662272,2017-01-16 21:41:06,"RT @pgbovine: I made a video walkthrough of ""A Web Crawler With [Python] asyncio Coroutines"" by @jessejiryudavis and @gvanrossumhttps://t…"
+821110009224261633,2017-01-16 21:40:56,@WillingCarol @pgbovine @jessejiryudavis It's awesome!
+821031270893223937,2017-01-16 16:28:03,"@PyConRu Cute, but unfortunately I cannot do more travel or speaking this year."
+819999097381736449,2017-01-13 20:06:34,"mypy 0.470 released! https://t.co/r8zthRmJCo Finally ""pip3 install mypy"" works!!!"
+819410337468280832,2017-01-12 05:07:03,Thanks to @baypiggies and @LinkedIn for posting the video of our mypy talk! (Dec 15 2016) https://t.co/XYZQDIUk80 https://t.co/8l1McdQkNA
+815427246898823168,2017-01-01 05:19:40,"@duchowememy The runtime support may make it look that way, but the actual checking happens in mypy and is pretty tame."
+815395496395051008,2017-01-01 03:13:30,"I've released typing 3.5.3.0 -- the typing package as distributed with Python 3.6.0, for use in 2.7 and 3.2--3.4. https://t.co/ApehtXhd8e"
+812366202529943552,2016-12-23 18:36:10,"Yes! Python 3.6.0 (final) is released!!! https://t.co/DIWDxoUuXd Thanks @baybryj and all core devs, contributors and beta testers!"
+810174657093664768,2016-12-17 17:27:45,@bronger @tswaterman I can taste only ambiguity in that remark.
+809821369265332224,2016-12-16 18:03:54,"@RogerAllen That's actually in all versions of Python 3, and mypy supports 2.7 as well as 3.2 and up."
+809808487458799616,2016-12-16 17:12:43,"@wamdamdam @tswaterman Yes, and that means no whining and choosing the option that works for you."
+809806689134182400,2016-12-16 17:05:34,.@tswaterman It's nuanced. I'm offering optional static types for those who want them.
+808742641345007617,2016-12-13 18:37:26,@BCAlAin1 Start here: https://t.co/Z54mLTFCtN and ask here: https://t.co/uC4L6lDEA3
+808123140115050496,2016-12-12 01:35:45,@set_trace As you can read in the issue I'm fine with that thing existing. But it's not Python 2.8.
+807745065846128640,2016-12-11 00:33:25,"@llanga @ncoghlan_dev @ChristianHeimes @brettsky Oh, it's different for old-style classes. Never mind."
+807744800925499392,2016-12-11 00:32:22,@llanga @ncoghlan_dev @ChristianHeimes @brettsky Weird. It doesn't work that way for me.
+807743320516476928,2016-12-11 00:26:29,"@llanga @ncoghlan_dev @ChristianHeimes @brettsky Strange, I must have tested it wrong then, because I get `TypeError: unhashable instance`."
+807739255204159488,2016-12-11 00:10:20,@ncoghlan_dev @ChristianHeimes @brettsky Are you sure? That's also in PY2.
+807302218265149440,2016-12-09 19:13:42,@mackeykamran @pramaku Lucky you
+807300299241066496,2016-12-09 19:06:04,@mackeykamran @pramaku Though that only works when you have relatively small programs and not too many package dependencies... :-)
+807275620749090816,2016-12-09 17:28:01,"@mackeykamran @pramaku Yeah, 3.3 was first released over 4 years ago and there are two (very soon three) newer feature release."
+806524107177140225,2016-12-07 15:41:46,We have Python 3.6.0rc1 out! https://t.co/lz6KuItx8h Thanks @baybryj !!!
+804713060900347904,2016-12-02 15:45:19,@pramaku They probably mean some 3rd party libraries haven't been ported. Plus you should use 3.5. (And soon 3.6.)
+803985523756843008,2016-11-30 15:34:20,"@mhooman74 Heh, that's a classic interview question. :-)"
+802602169329336320,2016-11-26 19:57:23,"@ShernetJames (', '.join(a[:-1]) + ' and ' + a[-1]) if len(a) &gt;= 2 else '',join(a)"
+801184820776710144,2016-11-22 22:05:21,Python 3.6b4 is out! https://t.co/gNo1Pv0uJk
+801133829465350144,2016-11-22 18:42:43,@_headcrab_ Nothing. I don't believe there's a correlation between Emacs specifically and RSI.
+801133662259449857,2016-11-22 18:42:04,@meowklaski Submit a patch to https://t.co/GjFaGfmq3M!
+801111379746791424,2016-11-22 17:13:31,We released mypy 0.4.6! `pip3 install mypy-lang`. https://t.co/NPkJNwhHqp
+797932283395067904,2016-11-13 22:40:55,@humanist_steve That old chestnut again? :-(
+796528774347100160,2016-11-10 01:43:53,@DevMtn Feels like recycled clickbait to me. I can't even read that article without registration (which I refuse).
+795792442377183232,2016-11-08 00:57:58,@PrometheusXvier Can you please submit that to our user forum? https://t.co/hzKUDX5IPK
+795737643724128256,2016-11-07 21:20:13,Windows Python users please read! https://t.co/0A2Ylg57XH
+793534504073695232,2016-11-01 19:25:43,"@skiftcreative @ich_code No, you will have to upgrade to Python 3.6 in order to enjoy those."
+793462074709938176,2016-11-01 14:37:55,Whee! Python 3.6b3 is out! https://t.co/U0P9GdZOys  https://t.co/023Pj4ecPB
+793127477077872640,2016-10-31 16:28:20,"@TorbjrnWEngel Well you should print this Twitter exchange, frame it, and hang it on your wall. :-)"
+793122571927429121,2016-10-31 16:08:51,@TorbjrnWEngel So what's wrong with abs(x - y)?
+793117573810311168,2016-10-31 15:48:59,"@TorbjrnWEngel I got that far, but is ""Difference"" a class? Or was your Tweet a joke? (I still don't get it.)"
+793115408379195392,2016-10-31 15:40:23,@sam_et_max @1st1 See also https://t.co/ZdqMxhvT53
+793115194654232576,2016-10-31 15:39:32,@TorbjrnWEngel You lost me. What's a neg diff? What's a diff?
+792018906344894465,2016-10-28 15:03:16,@codeHobbyist @abyt23 FWIW Python's bytecode was inspired by https://t.co/p5YOuNE9hZ
+791696721419968512,2016-10-27 17:43:02,"(Best quote: ""Remember that when you push back against a bad schedule, you are not a Debbie Downer against a magical world [...]."")"
+791695225571807232,2016-10-27 17:37:05,On the art of estimating software project completion times... https://t.co/gHeceDFvTx
+790973202595913728,2016-10-25 17:48:01,Sans-IO: The new way to implement protocol parsers. https://t.co/PzeV2fmKv9
+789523754111995904,2016-10-21 17:48:26,80x24 should be enough for anyone. :-)
+788541820321968128,2016-10-19 00:46:35,"@patriarcareptil IANAL, sorry. Maybe the PSF has a page about this?"
+788182610715381760,2016-10-18 00:59:12,.@rowlandm Thanks @ncoghlan_dev for linking to that article! (Sorry Nick I forgot to credit you on the initial post.)
+787416137277382656,2016-10-15 22:13:31,Don't separate the sheep from the goats. https://t.co/mz2kpE3Du8
+787139044442447873,2016-10-15 03:52:27,RT @astrofrog: Now THIS is a hockey stick graph I'm happy about #python https://t.co/awRa8kuzFt
+786661035637772288,2016-10-13 20:13:01,Great blog post about Zulip's use of mypy: https://t.co/3Zet8fAeXR
+786589994664140800,2016-10-13 15:30:43,Good piece on the danger of contempt culture. Calls out Python. https://t.co/0RnFa9XWDw
+785900863814373377,2016-10-11 17:52:21,"@fabiankochem_ep @krzysztofdorosz There are (implementation feature, not required by the language standard). https://t.co/65FfCFniKb"
+785660096348954625,2016-10-11 01:55:38,Whee! Python 3.6b2 is out. https://t.co/gZLH6YIYqn Expect 3.6final in December.
+784872045309939712,2016-10-08 21:44:12,@yawnyoice Oh but that's for C code.
+784779491650342913,2016-10-08 15:36:25,@yawnyoice You mean PEP 526? https://t.co/53qyI2UOQt
+784560535094296577,2016-10-08 01:06:22,@vitiral It already does.
+784515684189425664,2016-10-07 22:08:09,@EinFreierMensch Try presenting your problems in the mypy issue tracker at https://t.co/jxw9JZskRU
+784469964103098368,2016-10-07 19:06:28,mypy 0.4.5 is out! https://t.co/eVcQVecKFl
+784434660361121792,2016-10-07 16:46:11,@jessenoller @tjguk @brettsky Here's the issue. https://t.co/ZGnjk1eFdj
+784079231357554688,2016-10-06 17:13:50,@jessenoller @tjguk @brettsky Berker and Kushal are volunteering on core-mentorship. Can you hand over the keys to one of them?
+784069632684470272,2016-10-06 16:35:42,"@jessenoller @tjguk @brettsky Seems like the only thing ""discontinued"" is Jesse's interest. Let's find https://t.co/VADOw14HwQ a new owner!"
+784059400155762688,2016-10-06 15:55:02,@tjguk @jessenoller @brettsky My guess is Jesse owns it and has stopped caring.
+784055359803650049,2016-10-06 15:38:59,@jessenoller @brettsky Meh.
+784053220385579009,2016-10-06 15:30:29,@jessenoller @brettsky Was there a website for that? I thought we still did this. How was it decided to stop?
+784043870002610176,2016-10-06 14:53:20,@jessenoller What kind of program was that anyway?
+783811300258439168,2016-10-05 23:29:11,"@jessenoller @5u5anCarey Susan, can you drop me an email at guido at python dot org?"
+783367950489092096,2016-10-04 18:07:28,Are there newer versions of https://t.co/WaQi8DIonH anywhere?
+782960660523028480,2016-10-03 15:09:02,@bmispelon @KatiMichel @ThePSF @mariatta Are you a PSF member?
+782955086838272001,2016-10-03 14:46:53,@KatiMichel @bmispelon @ThePSF @mariatta At PyCon I encouraged women to contact me for mentorship. I am now mentoring many.
+782444932694802434,2016-10-02 04:59:43,"@ivanov @dwf Four shalt thou not count, neither count thou two, excepting that thou then proceed to three. Five is right out."
+781958449965903872,2016-09-30 20:46:37,"@amuellerml @asmeurer @pwang Only by implementation for now, see the start of this thread."
+781342426711502851,2016-09-29 03:58:45,So basically Elon Musk taxes rich Tesla buyers to finance his space hobby. Right?
+780886108162842624,2016-09-27 21:45:31,@FabulousMuller @KSRAMAN501 No just read the blog.
+780785112971481088,2016-09-27 15:04:11,.@KSRAMAN501 https://t.co/D8BiNcc9OG
+779374038967721984,2016-09-23 17:37:05,Report from the Python core dev sprint a few weeks ago is live! https://t.co/649J5RhWHc
+779342838978924546,2016-09-23 15:33:06,@nkantar That was ridiculous. Do you really think I read Tweets during my talk?
+779024105735458817,2016-09-22 18:26:35,@OpenSourceOrg Can I ask your PR people when retweeting me not to call out my former OSI directorship?
+778705253361266688,2016-09-21 21:19:34,Great advice on how to find a project to start contributing. Project owners: read between the lines how to attract… https://t.co/APNEx1Cnd6
+778611824371589121,2016-09-21 15:08:19,@codeHobbyist Read books with interviews with programmers.
+778611763923279872,2016-09-21 15:08:05,.@codeHobbyist Look at https://t.co/Fpkdewmxh4
+778265157466136578,2016-09-20 16:10:47,CheckIO is trending on Reddit: https://t.co/RUOM165AaV
+778051269655040001,2016-09-20 02:00:52,@_ryancole They also put lots of material they didn't create but that has high-SEO value on their site. Downward spiral.
+778050183758094336,2016-09-20 01:56:33,"I keep getting spammed by something called ""livecoding dot tv"". How to make them stop?"
+775715569819537408,2016-09-13 15:19:38,@denfromufa @baybryj Probably because the What's New doc hasn't been fully written yet.
+775480948267679744,2016-09-12 23:47:20,Whee!! Python 3.6b1 is now RELEASED: https://t.co/Vply6Hu0yO Thanks everyone who worked on this!! @baybryj
+775378107352035328,2016-09-12 16:58:41,@shortdudey123 I also like the three-digit year.
+775372668442808320,2016-09-12 16:37:04,"Email from IEEE: ""Your membership(s) will be renewed automatically during the week of NaN October 016"""
+774458874661183488,2016-09-10 04:05:59,@drussellmrichie @anchuksss What professor?
+774396948488921088,2016-09-09 23:59:54,"@tonnydourado ""Mijn naam is Guido van Rossum en ik doe Woody Woodpecker na."""
+774395602813591552,2016-09-09 23:54:33,@anchuksss The old time charm is part of my image. :-)
+774395259287515136,2016-09-09 23:53:12,"@tonnydourado Fixed, try now."
+774391127373864960,2016-09-09 23:36:46,My new home page is at https://t.co/K4OKBSXGtq.
+774365185406480384,2016-09-09 21:53:41,"@VictorStinner @ChristianHeimes @phoe6 @raymondh @brettsky @gutworth @rdavidmurray @ericsnowcrntly Define ""from"""
+773630712209473536,2016-09-07 21:15:09,"@tsvenson Not my keynote, maybe @LarryHastings's?"
+773629031602229248,2016-09-07 21:08:29,@tsvenson Larry is sitting next to me this week. :-)
+773620061907017728,2016-09-07 20:32:50,"""How many cores do you have?"" ""Two. No, four. Aauuuuuuuugh!"""
+773593466609610753,2016-09-07 18:47:09,Accept ALL the PEPs!
+773250985170837504,2016-09-06 20:06:15,@Justph0823 File a bug please. I can't handle bug reports on Twitter.
+771783682767978497,2016-09-02 18:55:43,@cosmologist_10 I'm glad it's with a lowercase 'g'. :-)
+771776624597438464,2016-09-02 18:27:40,@cosmologist_10 I didn't hear any prayers. :-)
+771441994275008512,2016-09-01 20:17:58,RT @ScribblingOn: I just published “A Beginner’s Very Bumpy Journey Through The World of Open Source” https://t.co/TUiO3KvTbu
+770814548085321728,2016-08-31 02:44:43,@crncosta See second bullet: https://t.co/HPrV354s19
+770762630164205568,2016-08-30 23:18:25,PEP 526: Proposal for variable/attribute annotations: https://t.co/vngXZFmhPT (A follow-up to PEP 484.)
+770693812578426880,2016-08-30 18:44:58,@TonyFlury @nedbat @treyhunner File a bug in https://t.co/GjFaGfmq3M. But I'm sure it's deeper than you think.
+770665136260603904,2016-08-30 16:51:01,@hawkieowl @brettsky Please stop spamming us.
+769239927116574720,2016-08-26 18:27:45,"@brettsky Sadly nothing new has been brought up, and I still hate reading CS papers in 2-column format..."
+769191135520620546,2016-08-26 15:13:52,Why all the sudden interest in a two-year-old tweet?
+768945890509721600,2016-08-25 22:59:21,We've released mypy 0.4.4: https://t.co/beNquklP4b (adding e.g. async/await support and NewType()!)
+768105387178459136,2016-08-23 15:19:29,"@obi_inc Ow, that's complicated! These blocks exist to clean up the value stack when an exception happens, mostly."
+766363022625353729,2016-08-18 19:55:57,Reminder: `python -m this`
+765765249731526656,2016-08-17 04:20:37,Congrats @hjwp PyDev of the week!
+765571306431520768,2016-08-16 15:29:57,@Caltrain Please make 272 a six car train. It's standing only every day!
+765014329338925056,2016-08-15 02:36:44,"@ncoghlan_dev No different than ""I don't understand your language, so please add this new feature."""
+764322874660270080,2016-08-13 04:49:08,".@sivabudh @DefinitelyTyped We've already got one! https://t.co/P70oz565x6 Oh yes, it's very nice!"
+764321451650355200,2016-08-13 04:43:29,@makoyan1331 Don't be sorry! :-) I just called on others to help you.
+764235693748989952,2016-08-12 23:02:42,.@makoyan1331 Better ask someone who has learned Python using that book.
+763961320324501504,2016-08-12 04:52:27,"Don't be like me, don't miss @py_bay ! https://t.co/q3USk7CR0s"
+763417672226779136,2016-08-10 16:52:11,@Rick_303 Should have been easier in 1995 too.
+761279107648806912,2016-08-04 19:14:17,@Collinsjo12 Not that I know of. It's kind of late given the feature freeze is in September.
+759124088635822081,2016-07-29 20:31:01,@AriVocals Why is that? Python doesn't use * for pointers. (Or is that your point?)
+759106477537632256,2016-07-29 19:21:02,"@AriVocals Languages inheriting from C usually already define ^ as bitwise xor, leaving ** for power. But math people know ^ from Latex(?)."
+759094632462491648,2016-07-29 18:33:58,@AriVocals But flame wars aside it *would* be interesting to compare the two across languages and users.
+759081320463032320,2016-07-29 17:41:04,@AriVocals Are you also studying whether languages use ^ or **? That seems very divisive.
+759077636530278401,2016-07-29 17:26:26,"@AriVocals We're talking about x**y as pow(x, y) right? It's as old as Fortran IIRC."
+759061240278814720,2016-07-29 16:21:17,@AriVocals Maybe two decades? Why do you ask?
+758887294514270208,2016-07-29 04:50:05,Apparently these guys haven't heard of micropython yet... https://t.co/Oeh4zrLSYI
+758717346177429505,2016-07-28 17:34:46,@BigJeffDogg I'll give you a hint -- print the value of all(lst)
+758527287755087872,2016-07-28 04:59:32,@IsraelFruchter @robassotti @AnneMiller32 Oh horror. :-)
+758434591141224449,2016-07-27 22:51:12,@robassotti @AnneMiller32 I can't recommend PyCharm to beginners. Nor Emacs.
+758399115835248641,2016-07-27 20:30:14,".@AnneMiller32 Also, I've heard good things about Sublime."
+758338485036027904,2016-07-27 16:29:18,@AnneMiller32 Anything that has Python syntax support (color and indents).
+758164964829954048,2016-07-27 04:59:48,"@iAmHatef Would love to see that but Google has invested too much in Java -- they won't give it up. But, see https://t.co/pTwkVdEn07."
+758085908906127361,2016-07-26 23:45:39,@iAmHatef Where did you read that?
+756566983462629376,2016-07-22 19:09:59,@MichaelSeney @deathbullet @jessicamckellar Really I don't recommend Emacs to new developers. It just exists for old brain compatibility.
+756543035765383169,2016-07-22 17:34:50,"@1150_Consulting Thanks, we already fixed a few. There's discussion about this on python-dev now. Some snippets are not from CPython?"
+756155072992710656,2016-07-21 15:53:12,".@Collinsjo12 These ""protocols"" don't require explicit inheritance or registration. See https://t.co/dcpWgTzrPr"
+756154692070207488,2016-07-21 15:51:41,.@laike9m Here are the slides from my 2014 talk on asyncio: https://t.co/xA3T54qemv
+754185725482967040,2016-07-16 05:27:43,@DarkRedman Improve programmers' life on really large Python projects.
+754006948404600832,2016-07-15 17:37:19,@Sorseg No I was in a bumpy Lyft ride. :-)
+753963185741246465,2016-07-15 14:43:26,@deathbullet Emacs of course!
+753801045227167744,2016-07-15 03:59:08,@gvanrossum now I know why people leave out the punctuation
+753800712094486528,2016-07-15 03:57:49,@gvanrossum !
+753800653705662465,2016-07-15 03:57:35,The #TechnovationWP2016 award ceremony was incredibly inspiring. Great teams and mentors?
+753662481608740864,2016-07-14 18:48:32,New mypy release (0.4.3) is out! https://t.co/OF0vCWJ09s Remember to use pip3 install -U *mypy-lang*
+753614309305966592,2016-07-14 15:37:07,@miguelsaddress @eisokant @srcd_ Not the pic from wikipedia please. ;-(
+753430576372133888,2016-07-14 03:27:02,"@codeweavr Priorities, my friend..."
+753040357521260544,2016-07-13 01:36:26,@bitsgalore @textfiles Thankfully none of that is relevant any more ;-)
+753039988669947904,2016-07-13 01:34:58,Listen to @Podcast__init__ about mypy with @_ddfisher and @gnprice: https://t.co/17NSIZfIil
+752627659587203072,2016-07-11 22:16:31,@raymondh @segfaulthunter I've lost context
+751467298897031168,2016-07-08 17:25:40,@pydanny @Dropbox @readthedocs Danny can you email guido@python.org?
+751153403888148480,2016-07-07 20:38:21,@pztrick Post to python-ideas
+750812174130393088,2016-07-06 22:02:26,Yeah! I wrote a little code and @jessejiryudavis wrote a beautiful explanation. Recommended. https://t.co/KeyqncL210
+750811925659783168,2016-07-06 22:01:27,"@kragen @progrium More specifically functools.singledispatch (in mypy, ""generic function"" is something else, more like Java generics)"
+750733142923702272,2016-07-06 16:48:23,@i_am_erip Probably never.
+750365065778384896,2016-07-05 16:25:47,"@ches No, don't use mypy as a library, it's not stable. Use https://t.co/EnL5LZmUp2 instead."
+750190665695309825,2016-07-05 04:52:47,"@lswartsenburg ""I'm asking for a friend. :-)"""
+750190302296584192,2016-07-05 04:51:20,"@lswartsenburg Search for ""Dropbox"". :-)"
+750186359831212032,2016-07-05 04:35:40,@lswartsenburg Where did you hear that? We have millions of lines of Python. https://t.co/aWd3gbvnta
+750167983788429312,2016-07-05 03:22:39,@lswartsenburg It's a great company and there's a ton of really complex Python in use. Also great people (and good food :-).
+749280928300560384,2016-07-02 16:37:48,@NotMuchJustMe Find a mailing list or user forum please.
+748944902164127744,2016-07-01 18:22:34,Python by the bay! https://t.co/u6Nskmtr2U https://t.co/0mIAnCuFK5
+748943772017274880,2016-07-01 18:18:04,@evuez @github Whee! A big GitHub gripe of mine got addressed.
+748927833611706368,2016-07-01 17:14:44,These UI guidelines make ever UI better: https://t.co/k7RbYSoUWB
+748895261087281152,2016-07-01 15:05:18,"@gregzakharov Sorry, I don't think anyone cares. If you do, make it happen."
+748633615987159041,2016-06-30 21:45:37,@mdpacer Never occurred to me. It's all about readability by humans. (Though humans also benefit from rules that are easy to explain.)
+748529391118868480,2016-06-30 14:51:28,@mlvora For free-form docs I think markdown is good. For Python however use Sphinx and ReST.
+748177768614027265,2016-06-29 15:34:15,"Who thought compression was ""solved""? https://t.co/MKuSJSz88J"
+747983884457906177,2016-06-29 02:43:49,@miishke *Especially* the BDFL. :-)
+747852232217886720,2016-06-28 18:00:41,@ApolloTarget And 87% of statistics are made up.
+747807931559641088,2016-06-28 15:04:39,"Also, Python 2.7.12, for those keeping count: https://t.co/svxZS0VIPQ"
+747508640358162432,2016-06-27 19:15:22,@grepory @jessfraz @jadbox There is an explicit example in PEP 8 for this. Search for `def munge(sep: AnyStr = None): ...`
+747454486151499777,2016-06-27 15:40:11,"@EnriquetaSo @OpenSourceOrg Interesting to see the different perspectives. I don't like real time communication, to me Twitter is news."
+747451001859256321,2016-06-27 15:26:20,@OpenSourceOrg well please don't do it again.
+747446883673509890,2016-06-27 15:09:58,@ermff @i_am_erip @hsjawanda @MatthewInSEA I certainly didn't think I needed to be CC'ed on every tweet in the exchange.
+747446699354841088,2016-06-27 15:09:14,@danielward @russel_winder I believe PEP 8 already shows how to mark up type annotations. `def foo(a: int = 0) -&gt; str: ...`
+747446193920172036,2016-06-27 15:07:14,"@EnriquetaSo @OpenSourceOrg What's a ""naked ping""? Am I supposed to do something?"
+747268212945936384,2016-06-27 03:20:00,@hsjawanda Because they have huge code bases that take a lot of effort to port. And library dependencies on specific old versions.
+747267353688211456,2016-06-27 03:16:35,Python 3.5.2 is out. Yeah! https://t.co/Jfex331KG3 (Also Python 3.4.5 nearby.)
+747267097005174784,2016-06-27 03:15:34,"@Pyleodancer OK, got it. Official Python 2 support will stop in 2020. But you should switch to Python 3 before then."
+746517374552047616,2016-06-25 01:36:26,@OpenSourceOrg What's that spam about? :-(
+746358770385584128,2016-06-24 15:06:12,"@Pyleodancer Don't move to Java, more to Python 3!"
+745993282631540740,2016-06-23 14:53:53,Long live affirmative action! https://t.co/VGXDkn3NtW
+745448256369369088,2016-06-22 02:48:08,@terryyin I wouldn't know. You should probably file a bug with the PyCQA/pycodestyle project.
+745109652946321411,2016-06-21 04:22:39,@KathyReid Join pythonedu-wg: https://t.co/FtcpsbHL2F
+745015253591687168,2016-06-20 22:07:32,@TechLeitzler Only to Visual Basic users. :-)
+744914468337913858,2016-06-20 15:27:03,"@twiteness Hi Maria, I have some Python core-dev resources for you. Can you email me at guido@python.org?"

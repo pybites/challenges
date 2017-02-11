@@ -2,6 +2,7 @@ from collections import namedtuple
 import csv
 import os
 import sys
+import time
 
 import tweepy
 
@@ -10,7 +11,7 @@ from config import ACCESS_TOKEN, ACCESS_SECRET
 
 DEST_DIR = 'data'
 EXT = 'csv'
-NUM_TWEETS = 100
+NUM_TWEETS = 200
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
@@ -47,10 +48,9 @@ class UserTweets(object):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) > 1:
-        handles = sys.argv[1:]
-    else:
-        handles = ('pybites', 'techmoneykids', 'bbelderbos')
+    handles = """pybites techmoneykids bbelderbos importpython lifehacker 
+    jsonmez Schwarzenegger PythonEggs github treyhunner
+    raymondh gvanrossum dbader_org cine_tv_es newsafaribooks tferriss""".split()
 
     for handle in handles:
         print('--- {} ---'.format(handle))
@@ -58,3 +58,4 @@ if __name__ == "__main__":
         for tw in user[:5]:
             print(tw)
         print()
+        time.sleep(1)

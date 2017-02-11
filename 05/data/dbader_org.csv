@@ -1,0 +1,201 @@
+id_str,created_at,text
+830128033399001088,2017-02-10 18:55:20,📺🐍 Python Tricks #5: String Conversion in Python (__str__ vs __repr__) https://t.co/luDLxwlYdp
+830061831200858113,2017-02-10 14:32:17,I'm definitely a late adopter here but Cardboard VR is still fun 😀 My friend @kschmidtdev reviewed a few units:… https://t.co/YprwXORR1c
+830059909953810436,2017-02-10 14:24:38,@rey12rey @amontalenti 😍 Good stuff! Thx
+830059789908598784,2017-02-10 14:24:10,Another great resource with Python code style advice by @amontalenti 👌 https://t.co/5MIODpNEsF
+829965475769622528,2017-02-10 08:09:24,@amontalenti you know what I was wondering about that :) what's your favourite alternative? Stick with PEP8?
+829899537519149056,2017-02-10 03:47:23,Using Python And Excel For Data Science (a tutorial)https://t.co/9Nsb4o6bgo
+829876111731523584,2017-02-10 02:14:18,Do I Need a GitHub/GitLab/Bitbucket Profile as a Developer? - https://t.co/6NlMLsodjY
+829851198266150917,2017-02-10 00:35:18,Google's (comprehensive) code style guide for Python https://t.co/raPEwHJ0NL
+829793254040289281,2017-02-09 20:45:03,"@OgMaciel Thanks so much for the kind words, Og ❤"
+829792344799059969,2017-02-09 20:41:26,RT @OgMaciel: Nice article about #python lambda functions by @dbader_org You may want to consider purchasing his book too https://t.co/C9Hn…
+829765644648325125,2017-02-09 18:55:20,https://t.co/esUJVJJ80b
+829537136814723072,2017-02-09 03:47:20,“I don’t even feel like I’ve scratched the surface of what I can do with Python.” https://t.co/NqYGHKm4gt
+829513726839681024,2017-02-09 02:14:18,"""Measuring programming progress by lines of code is like measuring aircraft building progress by weight."" – Bill Gates"
+829488822106853377,2017-02-09 00:35:21,Nice technique for finding memory leaks in your test code with  pytest https://t.co/szy8NVesFP
+829426915429777420,2017-02-08 20:29:21,@tdtownes Great 👌 Let me know what you think :)
+829423890870960128,2017-02-08 20:17:20,RT @kschmidtdev: Spotted in the wild at @mobify 😎☕️ @dbader_org https://t.co/cyty2fBIJF
+829403252701683712,2017-02-08 18:55:19,A Python Riddle: The Craziest Dict Expression in the West - https://t.co/13xmzFf5SZ
+829378075435663362,2017-02-08 17:15:16,"@p_grzesik Nice, lucky you :)"
+829377793343504385,2017-02-08 17:14:09,RT @PythonEggs: Sublime Text 3 Heaven https://t.co/EHeDuJwQIt https://t.co/VHlnLYUOqK
+829377467202859008,2017-02-08 17:12:51,"RT @raymondh: #python tip:  ASCII tablepprint(list(zip(range(32, 127), map(chr, range(32, 127)))))"
+829377308976885760,2017-02-08 17:12:14,@jakevdp @RealPython In Guido We Trust
+829377008245276674,2017-02-08 17:11:02,RT @pythonbytes: It's @pythonbytes #12 Expanding your Python mental model and serving millions of requests per second with Python https://t…
+829329925228359680,2017-02-08 14:03:57,By the way I just added a commenting system to https://t.co/ysvqDQYhRO So now is the time to strike if you've got something to share :)
+829238176086626304,2017-02-08 07:59:22,"RT @Daxx_IT_Staff: At nearly $103,500 per year, #Python is the second best-paying programming language in the country. Read more: https://t…"
+829174751272849408,2017-02-08 03:47:20,📰  Parsing ISO 8601 timestamps in plain Django - https://t.co/quIH86urGQ
+829151338978275328,2017-02-08 02:14:18,Feeling like a Pythonista? Show it with this new ☕/🍵  mug design we created: https://t.co/3ggsPTcCOI
+829126426368606208,2017-02-08 00:35:19,"📺🐍 Python Tricks #4: Dictionary key collisions (+ a ""crazy"" example) https://t.co/a9N3jL19MC"
+829070401569452033,2017-02-07 20:52:41,"@p_grzesik Python 3 FTW, but I will discuss it in the book :)"
+829059419883368454,2017-02-07 20:09:03,📺🐍 I just published this Python tutorial on string conversion (__str__ vs __repr__) to YouTube: https://t.co/rSDHqC2Jqq
+829040900038918145,2017-02-07 18:55:28,🐍 How to sort a Python dict by value (Get the whole series: https://t.co/U3IauoCiM1 ) https://t.co/opJYMuXPjQ
+828981758674817029,2017-02-07 15:00:27,@mlv Got it. Maybe you can boot macOS inside emacs and then install Sublime inside that. Editor inception :D
+828980952777052160,2017-02-07 14:57:15,Resources for learning Python https://t.co/4oddudDBjw (Thanks for featuring my blog @pybites!)
+828973294007234561,2017-02-07 14:26:49,"@mlv Thank you, Michael :) You might like this video course I've got on building the same setup from scratch: https://t.co/h2hBfd9dpv"
+828932478446481409,2017-02-07 11:44:38,"@tapherjspiteri It's just syntactic sugar for regular functions. So they're not faster than using ""def"". Totally okay to use them sparingly."
+828911723629408258,2017-02-07 10:22:10,📰 New tutorial I just posted: Learn how to use Python's lambda expressions  https://t.co/WxGqkd0VGM
+828812356809523201,2017-02-07 03:47:19,Watch me do a “live” Python code review for a reader - https://t.co/hwmIckW2kh
+828788951527915520,2017-02-07 02:14:18,📰  Is Python worth learning? We’ve interviewed experts and surveyed the job market for you. https://t.co/SvXr40M0Re
+828764057851351042,2017-02-07 00:35:23,"""Everyone knows that any scripting language shootout that doesn't show Python as the best language is faulty by design."" — Max M."
+828709114259861504,2017-02-06 20:57:04,"@mlv Great, thank you, Michael. I'll look into that :)"
+828678476513296384,2017-02-06 18:55:19,Why should I use Python 3? https://t.co/3jNJQ11qPu
+828671093426761728,2017-02-06 18:25:59,RT @RealPython: YAPF - a formatter for python files &gt;&gt; https://t.co/ZnytJsxGfH by @googledevs #python
+828671038015799297,2017-02-06 18:25:46,RT @PyImageSearch: Sneak Peek: Emotion Recognition using Deep Learning (and on to Stretch Goal #4!)  https://t.co/GHUAsw7i6v #deeplearning…
+828670874274373632,2017-02-06 18:25:07,RT @pybites: Send Advanced Emails with Python MIME Submodules https://t.co/qm33tgIVKV #python
+828510868962963456,2017-02-06 07:49:18,@p_grzesik Hey that's a great idea. I might do a video about that soon!
+828449970013470722,2017-02-06 03:47:19,🐍📺 Setting Up a Programmer Portfolio/Developer Blog – How To Get Started? https://t.co/7V8PTfDqEG
+828426558947917824,2017-02-06 02:14:17,xkcd: Code Quality https://t.co/sVZpA81ufl
+828401656308068352,2017-02-06 00:35:20,"""Problems I Have With Python"" (from a long-time Python user) https://t.co/CWYTdsge70"
+828316085774491649,2017-02-05 18:55:18,A better Python REPL: bpython vs python - https://t.co/FYE7M4Z08i
+828233793794355200,2017-02-05 13:28:18,@varuncjain Check out my writeup here: https://t.co/13xmzFf5SZ :)
+828087586220539904,2017-02-05 03:47:20,"""Running Python in Xcode: Step by Step"" https://t.co/xukNX2yyu3"
+828064171417804800,2017-02-05 02:14:17,Free weekly tips for ✨ Python Developers✨https://t.co/iWMzHgB8zs
+828039261505085440,2017-02-05 00:35:18,📺 Setting Up a Programmer Portfolio/Developer Blog + How To Get Started https://t.co/0eUlSi0Mco
+827953709963415554,2017-02-04 18:55:21,PyCon 2017 Accepted Talks https://t.co/CqKIWpXV7Z
+827725446104117249,2017-02-04 03:48:19,🐍 A Python riddle – What will this strange dict expression evaluate to? (Get the whole series:… https://t.co/O0LQDLcI3g
+827702046103109636,2017-02-04 02:15:20,"""Good design adds value faster than it adds cost."" — Thomas C. Gale"
+827676871596920832,2017-02-04 00:35:18,Reshaping Data in Python https://t.co/oqS3Obf3L2
+827591306767630340,2017-02-03 18:55:18,📺 Do I Need a GitHub/GitLab/Bitbucket Profile as a Developer? https://t.co/Zm4qqG6Xwh
+827487574029692928,2017-02-03 12:03:06,"@profbejian I don't really believe in the Nespresso capsules crap he's pushing, but... yes 😀"
+827484402636693504,2017-02-03 11:50:30,Time to get sh*t done! https://t.co/PVgtz8wLFF
+827362805531684865,2017-02-03 03:47:19,"Techniques for benchmarking, profiling and optimising Python code https://t.co/9SehRjxcwk"
+827339400128389120,2017-02-03 02:14:18,🐍📺 A Shorthand for Merging Dictionaries in Python 3.5+ https://t.co/6Qfdx5NCpU
+827314493357162496,2017-02-03 00:35:20,Testing Python Applications with Pytest https://t.co/YsmMjvIoBD
+827228930969071621,2017-02-02 18:55:20,This is an ongoing experiment: Get a new 🐍 Python Trick 💌 delivered to your inbox every couple of days... https://t.co/U3IauoCiM1
+827192646481408002,2017-02-02 16:31:10,“The Python community is the most welcoming and inclusive one out of all those that I’ve experienced.” — @elbaschid https://t.co/SvXr40M0Re
+827096361329913856,2017-02-02 10:08:33,RT @Peter__Rowe: @dbader_org @originalankur Many of my customers are having great success in cross training people. There aren't enough Pyt…
+827085622334586881,2017-02-02 09:25:53,“There is a demand-supply mismatch for Python developers with 2 to 6 years of experience.” — @originalankur https://t.co/SvXr40M0Re
+827000426134433794,2017-02-02 03:47:21,Love Python? Show It With Some (unique &amp; custom-made) Python Swag: https://t.co/kujR4IsO3N
+826977023692267520,2017-02-02 02:14:21,"""Perfection in design is achieved, not when there is nothing more to add, but when there is nothing left to take away.""– A. de Saint-Exupéry"
+826952106619830276,2017-02-02 00:35:20,I didn't realize ASCII had this nice internal organization https://t.co/b8EWVk9w4T https://t.co/8LzkBaHIYn
+826866542059069445,2017-02-01 18:55:20,Make your Python code more readable with custom exception classes - https://t.co/gVzM4FnmeT
+826854556797648896,2017-02-01 18:07:43,“You start easy but you rarely outgrow Python like you do other easy to learn languages.” — @mkennedy https://t.co/SvXr40M0Re
+826854240282955782,2017-02-01 18:06:27,"@Jowanza All good, thanks Jowanza :)"
+826778492457070593,2017-02-01 13:05:28,"🐍 Friend of mine is hiring for a paid Python dev internship with Red Hat in Raleigh, NC https://t.co/ja6cACAAN6"
+826777194265456640,2017-02-01 13:00:18,@Jowanza I respect your opinion—so thx for speaking your mind. I disagree but obv I'm also biased because I run the website the post is on 🙂
+826770943435476993,2017-02-01 12:35:28,"@Jowanza I know someone with a math degree who ""learned Python"" and is now on the upper end of that salary scale in SF after 2 yrs"
+826714072003571712,2017-02-01 08:49:29,@Jowanza Why is that?
+826713569446207488,2017-02-01 08:47:29,"RT @ElenaRuchko: An exciting project I had to chance to work on. HUGE thanks to @dbader_org and a nod to @originalankur, @mkennedy, @elbasc…"
+826638279533539329,2017-02-01 03:48:18,📰  Using Sublime Text as your Git editor - https://t.co/fNoRnPq099
+826614622065139713,2017-02-01 02:14:18,"Set up a professional Python development setup based on Sublime Text and Git. Available for Windows, Mac, and Linux… https://t.co/4SvTBh29oV"
+826589706720784384,2017-02-01 00:35:18,"🐍📺  Using ""get()"" to Return a Default Value from a Python Dict https://t.co/cRRfKqFBSR"
+826526543472185344,2017-01-31 20:24:18,RT @TalkPython: Is Python worth learning? Nice article on key reasons why you should learn Python today. https://t.co/G2zHOf63Uj @dbader_org
+826525464281935872,2017-01-31 20:20:01,@mampfraupe @ElenaRuchko me neither :) But it's a question I get asked at least once a week.
+826504426596757507,2017-01-31 18:56:25,"""I think Microsoft named .NET so it wouldn’t show up in a Unix directory listing."" – Oktal"
+826461493038292993,2017-01-31 16:05:49,"Will be discussing the ""Why Learn Python?"" post here on Reddit: https://t.co/gVZ0AfCAKS"
+826459383769006082,2017-01-31 15:57:26,RT @Cdric_JLN: Why the hell learn a general purpose language full of builtin libraries and easily extensible ? 🙄😎https://t.co/REzecJZ6jv
+826420883015233537,2017-01-31 13:24:27,.@pybites reviewed my Python Tricks book. Did they like it? Click here to find out: https://t.co/CBBeZinksb
+826415201264205825,2017-01-31 13:01:52,Why Learn Python? Here Are 8 Data-Driven Reasons: A Python job market and salary survey + expert interviews.… https://t.co/zknZUbgS5v
+826369792089145344,2017-01-31 10:01:26,Is Python Still Worth Learning? @ElenaRuchko did an AMAZING job sifting through all the job and salary data https://t.co/SvXr40M0Re
+826357067015405568,2017-01-31 09:10:52,@robert_ozga Thanks Robert! I hope so too 😃
+826356911859724288,2017-01-31 09:10:15,@IsabellaGhement Haha glad you like it 🙂
+826276005140627456,2017-01-31 03:48:45,You can use Python dicts to emulate switch/case statements... Learn how in my video tutorial: https://t.co/u4JzGOyECR
+826252250486075393,2017-01-31 02:14:22,📰 A little something I built a while ago – A countdown timer extension for https://t.co/zaiNzb3S6K https://t.co/SJjE6MS77l
+826227323938734080,2017-01-31 00:35:19,"""If debugging is the process of removing software bugs, then programming must be the process of putting them in."" – Edsger Dijkstra"
+826141767099637761,2017-01-30 18:55:20,Token-Based Authentication with Flask via @RealPython (good stuff!) https://t.co/APcgwW4G5P
+826041561775484928,2017-01-30 12:17:10,🙃 How to master procrastination as a developer via @danielhepper https://t.co/f2IVLA7Ke9
+825999723647684609,2017-01-30 09:30:55,RT @ThePracticalDev: When you write a Python wrapper for Hadoop https://t.co/H0viqyl1ee
+825999474258477057,2017-01-30 09:29:55,"@AmirRachum @tuckerbeck Agreed, gotta start somewhere and finding motivation &amp; inspiration is half the battle. Thx for the great post Amir!"
+825998968165453824,2017-01-30 09:27:54,"@toltarius Hey you're welcome, Matthew! Glad you liked it 😊"
+825998902839083008,2017-01-30 09:27:39,@koenheltzel Thanks Koen!
+825913295395749888,2017-01-30 03:47:29,Want to get 1 step closer to mastering Python and start writing clean and Pythonic code? I can help you with that: https://t.co/dGX7Q7d3TM
+825889842848473088,2017-01-30 02:14:17,xkcd: Code Quality 2 https://t.co/pOq5XOASa0
+825864934781231110,2017-01-30 00:35:18,"Pipenv is a command line tool that manages pip, virtualenv, and your Pipfile (requirements) for you https://t.co/jBW4ydcUH5"
+825779371625558017,2017-01-29 18:55:19,📰 Keep a journal to become a better developer https://t.co/Nz7E9RktCZ
+825550861246091264,2017-01-29 03:47:17,📺 How To Become a Tech Conference Speaker https://t.co/aEW3YRkkcG
+825527452113985536,2017-01-29 02:14:16,How Can You Gain More Python Experience If No Other Senior Dev Is Around? https://t.co/uXFW5QSi10
+825502540905209856,2017-01-29 00:35:17,🐍📺 Sublime Text Settings for Writing PEP 8 Python https://t.co/DcJz9Czuhh
+825416988491149318,2017-01-28 18:55:20,Common Django ORM pitfalls (a quiz you can use to test your own knowledge) https://t.co/7TN1NJIbUq
+825188478010920960,2017-01-28 03:47:19,"Ever wondered how Python's ""import this"" easter egg works behind the scenes? https://t.co/CiJoqBWPnQ"
+825165067918442496,2017-01-28 02:14:17,"""One of my most productive days was throwing away 1000 lines of code."" — Ken Thompson"
+825140156315348992,2017-01-28 00:35:18,"Great article by @AmirRachum: ""Write Explicit Tests"" -- Couldn't agree more! https://t.co/LcCtdkmZNH"
+825054604530446336,2017-01-27 18:55:21,🐍📺  I'm answering a YouTube commenter's question: What Code Should I Put On My GitHub/GitLab/BitBucket Profile? https://t.co/SvKI6BuhiA
+824935881958109184,2017-01-27 11:03:35,"@pobyzaarif Thanks so much, Poby 😊"
+824935753302020097,2017-01-27 11:03:04,@ankitagarwal167 Thanks Ankit!
+824826114870755330,2017-01-27 03:47:24,Instagram back-end disables Python's GC to squeeze out extra performance. Nice writeup: https://t.co/bqusOVnj6U
+824802680795185155,2017-01-27 02:14:17,Python string formatting shootout: %-formatting vs str.format vs Python 3.6 f-strings vs Template strings https://t.co/owq9xDp40r
+824777766096748545,2017-01-27 00:35:17,"Solving the ""eight queens"" puzzle in 6 lines of Python (itertools FTW): https://t.co/fqSwhWWS1N"
+824692248960966656,2017-01-26 18:55:28,Python devs deserve awesome coffee mugs 🌟☕   Time to do something about it: https://t.co/71b86r2M0N
+824669463421263873,2017-01-26 17:24:56,@JAMESSTONEco I've got a Python (Bottle) based backend behind nginx but most of the content is actually just cached (static) HTML.
+824664485541675008,2017-01-26 17:05:09,@JAMESSTONEco Btw if you want to chat READMEs email me any time at mail@dbader.org :-)
+824664314275594243,2017-01-26 17:04:28,@JAMESSTONEco @Medium Thanks so much. I wrote the guy who copied it. I'm sure he had the best intentions but this is not cool :)
+824662995842240513,2017-01-26 16:59:14,"@JAMESSTONEco Thank you Justin, i really appreciate it :)"
+824662739670949889,2017-01-26 16:58:13,@JAMESSTONEco @Medium wtf no... that guy just copied my article. Thanks for the heads up
+824565292009451520,2017-01-26 10:30:59,.@Jice_Lavocat is looking for a Python engineer. Seems like a cool place and the product might have legs: https://t.co/qaa7lo7Qz3
+824550343736487937,2017-01-26 09:31:36,@avyfain Oh this is cool. Nice visualization!
+824550112772968449,2017-01-26 09:30:40,@avyfain Thanks Avy! Wise words...
+824550024260554753,2017-01-26 09:30:19,@amsjacks Have you met @aCameronhuff? He convinced me that lawyer/coder is an amazing combo 🙂
+824549217242845184,2017-01-26 09:27:07,@_ChrisMay Thanks Chris! Getting used to the Lion's den ;-)
+824463721409998848,2017-01-26 03:47:23,Want to get 1 step closer to mastering Python and start writing clean and Pythonic code? I can help you with that: https://t.co/dGX7Q7d3TM
+824440292610895872,2017-01-26 02:14:17,"""Once the last developer is locked up and the last idea patented you will realize that lawyers can’t program."" – Christian Heilmann"
+824415392189841410,2017-01-26 00:35:21,"Cool visualization: The most commonly used words in Python source code (#1 is ""self"") https://t.co/qyhnN8c4kF"
+824329824403595264,2017-01-25 18:55:20,📰 Abstract Base Classes in Python (and what they're good for) https://t.co/mZY6LN4uHj
+824101319015276547,2017-01-25 03:47:20,Should you worry about code reviewing someone more experienced than you? (Hint: NO!) https://t.co/jOpAI8ighb
+824077902551588864,2017-01-25 02:14:17,I'm posting a new Python video tutorial a week to my YouTube channel: https://t.co/N4LoyzPYRC
+824052989467959296,2017-01-25 00:35:17,"🐍📺 How to use Python's ""*"" and ""**"" operator to write flexible and clean APIs https://t.co/rNBNmNxmgc"
+823967446780563457,2017-01-24 18:55:22,"""You can have the project: a) Done On Time b) Done On Budget c) Done Properly. Pick two."" – Unknown"
+823951985498066944,2017-01-24 17:53:56,If anyone wants to chime in: https://t.co/7WVJWWgMoc
+823844764252536833,2017-01-24 10:47:52,📰 New Python article I've just posted: How to decide between the 47271 ways to do string formatting in Python https://t.co/owq9xDp40r
+823844096578043905,2017-01-24 10:45:13,@ManuelPerezUS :D
+823843866323324930,2017-01-24 10:44:18,"@MGsiorowski Thanks for sharing, Maciej! :)"
+823738945330626561,2017-01-24 03:47:23,"Wow, this is crazy: ""Obfuscating 'Hello, World' in Python"" https://t.co/jeQlrwJ8NV"
+823715519077482496,2017-01-24 02:14:18,"How to use Python's ""assert"" statement to write code that's easier to debug and more maintainable https://t.co/kqb8n1zcLd"
+823690603988971520,2017-01-24 00:35:18,"""Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live."" – Martin Golding"
+823625670517518337,2017-01-23 20:17:16,For a new Python article I'm working on. Will go live tomorrow! https://t.co/Zr4JRZblS2
+823619737754206209,2017-01-23 19:53:42,"@boatcoder I've never really tried WingIDE, but making a mental note now to check it out. Thanks!"
+823605082809913344,2017-01-23 18:55:28,"Oh god... ""99 bottles of beer"" one-liner done with Python 3.6 f-strings: https://t.co/0l8FaRJvE6"
+823464995728031744,2017-01-23 09:38:48,My buddy Yaroslav is putting up a Scala/Akka microservices workshop in Berlin. I'm sure it'll be worth your time: https://t.co/M1l4KGchQE
+823460599782850561,2017-01-23 09:21:20,RT @CodersInstitute: Need help debugging your #Python code? @DBader_org has you covered: https://t.co/wahiNy87ta https://t.co/zjJRa9f2XI
+823376533679173633,2017-01-23 03:47:17,"""If debugging is the process of removing software bugs, then programming must be the process of putting them in."" – Edsger Dijkstra"
+823353123490119680,2017-01-23 02:14:16,"""Everyone knows that any scripting language shootout that doesn't show Python as the best language is faulty by design."" — Max M."
+823328212205862912,2017-01-23 00:35:17,"What the virtualenv? ""Guide to setting up my Python workspace"" (venvs, multiple interpreters, jupyter) https://t.co/PnxwmR6Tdb"
+823242655891132417,2017-01-22 18:55:18,How I debugged the memory usage of a live Python web app with a simple memory stats endpoint (older post of mine) https://t.co/bps9DXENeN
+823205870309961731,2017-01-22 16:29:08,RT @shawnjan8: Got our awesome new mugs today! Thanks @dbader_org and Anja! ❤️ #python #pyladies https://t.co/JHzfsjk2tY
+823205835807526912,2017-01-22 16:29:00,@beconstant I'm not sure. It might leave some refs even though they can't be viewed with git checkout. Let me know if you find an answer
+823127204058058752,2017-01-22 11:16:33,"@boatcoder ""We""?"
+823088056886562816,2017-01-22 08:40:59,"RT @myusuf3: I call this masterpiece ""technical debt"". https://t.co/KaiAcEkrwP"
+823086847958155264,2017-01-22 08:36:11,"@kennethreitz Kenneth, I'm amazed by how prolific you are. Thanks so much for all the hard work &amp; cool experiments you churn out ❤️"
+823086222562234368,2017-01-22 08:33:42,"RT @timbray: Two unit tests, no integration tests. https://t.co/RHWRvzsxnc"
+823085037767757824,2017-01-22 08:28:59,"RT @raymondh: #python news:  The MyPy static type checker is now findable on pip as mypy.  Formerly, it was mypy-lang which was hard to fin…"
+823014145377308672,2017-01-22 03:47:17,📰 Wondering when to use “is” and “==” in Python? Here are some of my thoughts on the topic: https://t.co/zlKtDm4xh3
+822990735561687042,2017-01-22 02:14:16,"Some of the best content I post is email only. Join over 3,000 Python developers on my (free) weekly newsletter https://t.co/iWMzHgB8zs"
+822965821802708992,2017-01-22 00:35:16,A complete guide to auto-generating documentation for your Python REST API with apiDoc + other open-source tools https://t.co/kLN4LT0D8c
+822880258986770434,2017-01-21 18:55:16,Accidentally committed an auth key/password to GitHub? Change it. There's automated tools/bots that will dig it up: https://t.co/xq9j2oSVhr
+822652003457400837,2017-01-21 03:48:16,"""A day with mypy"" – Good read: https://t.co/Ybb9o9wfwV"
+822628601040343046,2017-01-21 02:15:16,"""What is the object oriented way of getting rich?"" ""Inheritance."""
+822603686019002369,2017-01-21 00:36:16,"Nice writeup: ""Multiprocessing and multithreading in Python 3"" https://t.co/Ahcp0rcyF9"
+822518129662300160,2017-01-20 18:56:18,🐍📺 Python Code Review: Unplugged – Episode 3: Code Review for Sunny https://t.co/3QL93B1J6X
+822289374184284160,2017-01-20 03:47:18,"""Mistakes I Made Writing a Django App (and How I Fixed Them)"" https://t.co/8TZnz1r3Th"
+822265962091134978,2017-01-20 02:14:16,📰 Setting up Sublime Text for Python development https://t.co/ur3xGHDzGl
+822241046348316672,2017-01-20 00:35:16,"Reddit: ""What are some programs I can make that would realistically prepare me for a programming job using python?"" https://t.co/1Sc8S1KtFd"
+822177633043705857,2017-01-19 20:23:17,"@PyImageSearch ... or maybe you'll be in the next one, haha :D"
+822177365015064576,2017-01-19 20:22:13,@PyImageSearch Thanks Adrian! :) Btw I just watched https://t.co/2ZrunUqXEn because @mkennedy recommended it to me. I think you'll love it!
+822155488951488512,2017-01-19 18:55:18,https://t.co/x5A9xk6vUi
+822099789487673344,2017-01-19 15:13:58,I think this will be a good chapter... https://t.co/L55WPYNgBB https://t.co/oa5iqeORhc
+822052521158078465,2017-01-19 12:06:08,RT @haldaume3: How have I lived my life without ever reading this Peter Landin quote?(guilty as charged.) https://t.co/7LuFqc3RxW
+822052407169449984,2017-01-19 12:05:41,@PyImageSearch this is incredible &amp; well deserved. Keep up the awesome work man 😊
+822052003002122240,2017-01-19 12:04:05,RT @TalkPython: Very excited to share @talkpython 95 Grumpy: Running #Python on #Go with you today featuring Dylan Trotter https://t.co/pGt…
+822051153391288320,2017-01-19 12:00:42,"@SparkOfSunshine thanks! Your ""carpe datum"" mug is awesome :)"
+821926981214281728,2017-01-19 03:47:17,Free weekly tips for ✨ Python Developers✨https://t.co/iWMzHgB8zs
+821903572896018432,2017-01-19 02:14:16,"""One of my most productive days was throwing away 1000 lines of code."" — Ken Thompson"
+821878659564863488,2017-01-19 00:35:16,Handling 186k requests/second using Python (Sanic framework) https://t.co/v8amEqYde7
+821803640742703106,2017-01-18 19:37:10,Discussing the merits of Python's assertions on Reddit—jump in if you want! https://t.co/gHuLPDqlpd
+821795453863923714,2017-01-18 19:04:39,"@PurpleDiane88 I just updated the FAQ. Thanks again for the heads up, Diane :)"
+821793105531781124,2017-01-18 18:55:19,🐍📺 Click &amp; Jump to Test Failures from the Command Line (iTerm2) https://t.co/c6iOdqH5WA
+821777936223236096,2017-01-18 17:55:02,Who's your favorite Python BDFL? Guido is! Show your allegiance with this fancy new mug design (idea by @ksgyoung 🙏… https://t.co/YCVK2LQTyB
+821740927484043265,2017-01-18 15:27:58,"@FrameworkFred Thank you. Yeah, I've been bitten by that in the past as well ;)"
+821727438984122368,2017-01-18 14:34:23,"Thanks so much, Adam! Glad you found the article helpful :) https://t.co/Fq8hN34gbu"
+821726136325574657,2017-01-18 14:29:12,RT @IanBertolacci: @dbader_org Received! https://t.co/3l5YmLtZJQ
+821726073264152576,2017-01-18 14:28:57,"@IanBertolacci Haha... What more could a man want out of life? 😂 But seriously, glad you like the mug!"
+821687525836279809,2017-01-18 11:55:47,📰 New Python article I just posted: Write more maintainable and easier to debug Python programs with assertions https://t.co/kqb8n1zcLd
+821611950312394753,2017-01-18 06:55:28,@PurpleDiane88 Thanks Diane – I couldn't find a way to change this without disabling 1 click checkout. Will add an FAQ item:)
+821611260680736769,2017-01-18 06:52:44,@IanBertolacci Great! What do you think?
+821564598935580673,2017-01-18 03:47:18,📰 Functional linked lists in Python https://t.co/p3WOUaoNVp https://t.co/1xB5OnV1e5
+821541199148359680,2017-01-18 02:14:20,This is a project my wife Anja and I just launched: Unique (hand-lettered) swag for Python developers… https://t.co/rSHU87BBWv
+821516270315175936,2017-01-18 00:35:16,📰 🐍 How code linting will make you awesome at Python (includes a 5 minute video tutorial on setting everything up): https://t.co/tRS5xPs2yi
+821435989797310466,2017-01-17 19:16:16,You can get a special discount on all our Python mugs and mouse pads today through Product Hunt: https://t.co/dEHQeJbH6T
+821430714830884879,2017-01-17 18:55:18,"""Programming is like sex. One mistake and you have to support it for the rest of your life."" — Michael Sinz"
+821390586984992768,2017-01-17 16:15:51,RT @kschmidtdev: My thoughts on Nerdlettering on @ProductHunt https://t.co/7SGLCexAjk https://t.co/uJucMH6Ge6
+821354918581833728,2017-01-17 13:54:07,RT @elbaschid: A fan of @dbader_org’s schedule #Python package? ❤️ asyncio? Take a look at this little experiment 🔥: https://t.co/DMNLGRKMrb
+821302995740721152,2017-01-17 10:27:47,I just submitted Nerdlettering to ProductHunt: https://t.co/dEHQeJbH6T https://t.co/PoqBICV9Dy
+821296785440342016,2017-01-17 10:03:07,"RT @tuckerbeck: @dbader_org If builders built buildings the way programmers wrote programs, then I could just ‘pip install four_bedroom_hom…"
