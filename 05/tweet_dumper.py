@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
+# source: https://gist.github.com/yanofsky/5436496
 
 import tweepy #https://github.com/tweepy/tweepy
 import csv
