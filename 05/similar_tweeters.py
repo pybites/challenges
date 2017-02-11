@@ -8,7 +8,9 @@ import sys
 from gensim import corpora, models, similarities
 from nltk.corpus import stopwords
 
-CSV = 'data/{}.csv'
+from tweet_dumper import get_all_tweets 
+
+CSV = 'data/new/{}.csv'
 DB = 'twitter.dict'
 IS_LINK_OBJ = re.compile(r'^(?:@|https?://)')
 STOPWORDS = set(stopwords.words('english'))
@@ -28,6 +30,8 @@ def _get_filename(u):
 
 def get_user_tokens(user):
     tweets_csv = CSV.format(user)
+    if not os.path.isfile(tweets_csv):
+        get_all_tweets(user)
     words = []
     with open(tweets_csv) as csvfile:
         reader = csv.DictReader(csvfile)
@@ -38,11 +42,10 @@ def get_user_tokens(user):
 
 
 def tokenize_text(words):
-    words = [word for word in words if len(word) > 4]
+    words = [word for word in words if len(word) > 4 and word not in STOPWORDS]
     words = [word for word in words if _is_ascii(word)]
     words = [word for word in words if not IS_LINK_OBJ.search(word)]
-    words = [word for word in words if word not in STOPWORDS]
-    words = [_strip_non_ascii(word) for word in words]
+    #words = [_strip_non_ascii(word) for word in words]
     return words
 
 
