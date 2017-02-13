@@ -2,15 +2,15 @@
 
 > This week, each one of you has a homework assignment ... - Tyler Durden (Fight club)
 
-### A milestone right at the corner
+### A milestone right around the corner
 
 A new week, more coding! 
 
-We are grabbing this challenge from [Raymond Hettinger's tweet](https://twitter.com/raymondh/status/829474817082433536):
+We are grabbing this challenge from [Raymond Hettinger's tweet](https://twitter.com/raymondh/status/829474817082433536) (EAFP):
 
-> #python data extrapolation contest: Tweet your prediction of the exact date and time(UTC) that http://pypi.python.org  hits 100,000 packages
+> python data extrapolation contest: Tweet your prediction of the exact date and time(UTC) that http://pypi.python.org  hits 100,000 packages
 
-The replies on Twitter were pretty different. As it's a prediction there won't be one right answer of course. We challenge you to find a data set to make your prediction. We are curious what you will come up with ...
+The submitted answers (tweet replies) were very different which made us curious. As it's a prediction there won't be one right answer of course. We challenge you to find a data set to make your prediction. We are curious what you will come up with ...
 
 ### To follow along with our challenges
 
@@ -27,7 +27,7 @@ If you already forked it [sync it](https://help.github.com/articles/syncing-a-fo
     $ git checkout master 
     $ git merge upstream/master
     # cp pypi100k-template.py pypi100k.py
-	# code
+    # code
 
 Remember: there is no best solution, only learning more/ better Python. We're looking forward reviewing our and your solutions end of this week. Good luck and have fun!
 
