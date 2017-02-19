@@ -46,6 +46,10 @@ If you already forked it [sync it](https://help.github.com/articles/syncing-a-fo
     $ git merge upstream/master
     $ cd 07
 	$ cp sentiment-template.py sentiment.py
+    # if you want to follow along with our recommended libraries (assuming py >= 3.3)
+    $ python -m venv venv
+    $ source venv/bin/activate'
+    $ pip install -r requirements.txt
     # code
 
 Remember: there is no best solution, only learning more/ better Python. We're looking forward reviewing our and your solutions end of this week. Good luck and have fun!
