@@ -1,0 +1,7 @@
+nltk==3.2.2
+oauthlib==2.0.1
+requests==2.13.0
+requests-oauthlib==0.8.0
+six==1.10.0
+textblob==0.11.1
+twython==3.4.0
