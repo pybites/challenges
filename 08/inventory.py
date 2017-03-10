@@ -31,8 +31,15 @@ def create_inventory(collection):
     ]
     collection.insert_many(Rooms)
 
+def create_room(name, items, collection=house):
+    """Create a new room that doesnt already exist"""
+    room = {'name': name, 'items': items}
+    collection.insert_one(room)
+
+
 if house.count() == 0:
     create_inventory(house)
+
 
 
 for room in house.find():
