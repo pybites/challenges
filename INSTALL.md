@@ -36,11 +36,8 @@
 
 ---
 
-Remember: there is no best solution, only learning more/ better Python. We're looking forward reviewing our and your solutions end of this week. 
-
+Remember: there is no best solution, only learning more/ better Python. We're looking forward reviewing our and your solutions.
 Good luck and have fun!
-
----
 
 Keep Calm and Code in Python!
 
