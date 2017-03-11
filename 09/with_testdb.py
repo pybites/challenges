@@ -3,18 +3,16 @@ from copy import deepcopy
 
 import app
 
-assert len(app.items) == 3
-
 
 @contextmanager
-def testdb():
+def copy_db():
     backup = deepcopy(app.items)
     yield app.items
     app.items = backup
 
 
 def test_post():
-    with testdb() as db:
+    with copy_db() as db:
         newitem = {"name": "screen", "value": 200}
         db.append(newitem)
         assert len(db) == 4
@@ -22,7 +20,7 @@ def test_post():
 
 
 def test_delete():
-    with testdb() as db:
+    with copy_db() as db:
         db.pop()
         assert len(db) == 2
     assert len(app.items) == 3
