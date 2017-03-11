@@ -6,7 +6,7 @@
 
 * Clone your copy:
 
-    $ git clone https://github.com/<your_user>/challenges
+		$ git clone https://github.com/<your_user>/challenges
 
 ### II. You already cloned your fork
 
