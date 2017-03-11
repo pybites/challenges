@@ -46,15 +46,11 @@ def update_item(room_name, item_name, item_value, collection=house):
 if house.count() == 0:
     create_inventory(house)
 
-for room in house.find():
-    print(f'In the {room["name"]} there are the following items: ')
-    for item, value in room["items"].items():
-        print(f'    A {item} worth ${value}')
+def show_inventory():
+    inv = ''
+    for room in house.find():
+        inv += f'<p>In the {room["name"]} there are the following items:</p>'
+        for item, value in room["items"].items():
+            inv += f'<p>A {item} worth ${value}</p>'
 
-print("updating the TV's value")
-
-update_item('Living Room', 'TV', 500)
-
-for room in house.find({'name':'Living Room'}):
-    for item, value in room["items"].items():
-        print(f'    A {item} worth ${value}')
+    return inv
