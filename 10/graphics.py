@@ -1,6 +1,14 @@
 def hang_graphics():
     """Graphs from https://gist.github.com/DevDarren/4199441"""
     yield """
+
+    |
+	|
+	|
+	|
+	|"""
+
+    yield """
 	________      
 	|      |      
 	|             
