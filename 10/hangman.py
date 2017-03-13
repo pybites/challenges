@@ -11,7 +11,14 @@ PLACEHOLDER = '_'
 
 
 class Hangman(object):
-    pass 
+    def __init__(self, word):
+        self.word = word
+        self.graphics_gen = hang_graphics()
+        self.graphics = next(self.graphics_gen)
+        self.show = ''.join('_' if letter in ASCII else ' ' for letter in self.word )
+        print(self.graphics, '\n')
+        print(self.show)
+
 
 # or use functions ...
 
@@ -22,5 +29,5 @@ if __name__ == '__main__':
     else:
         word = get_word()
     print(word)
-
+    Hangman(word)
     # init / call program
