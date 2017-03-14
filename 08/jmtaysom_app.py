@@ -1,5 +1,5 @@
 from flask import Flask
-from inventory import show_inventory
+from jmtaysom_inventory import show_inventory
 
 app = Flask(__name__)
 
