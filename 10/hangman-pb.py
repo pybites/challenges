@@ -22,13 +22,14 @@ class Hangman(object):
         self.secret_word = list(word.lower())
         self.guessed_word = [PLACEHOLDER if c in ASCII else c
                              for c in self.secret_word]
+        # status variables
         self.num_guesses = 0
         self.num_wrong_guesses = 0
         self.letters_used = set()
+        self.wrong_letters = set()
 
     def _guess_letter(self):
-        """Interface to user to guess letter, ValueError if wrong input"""
-        self.num_guesses += 1
+        """Gets letter from user and validates it."""
         letter = input('\nGuess #{}: enter letter: '.format(self.num_guesses))
         letter = letter.lower()
         if letter not in ASCII:
@@ -40,45 +41,54 @@ class Hangman(object):
             return letter
 
     def _update_guess_with_letter(self, letter):
-        """Checks secret word for matches updating the guessed word list.
-           Returns boolean if there were matches"""
-        prev_state_guessed_word = list(self.guessed_word)
+        """Updates guessed word with guess letter if in secret word."""
         for i, char in enumerate(self.secret_word):
             if letter == char:
                 self.guessed_word[i] = letter
-        return self.guessed_word != prev_state_guessed_word
 
     def _has_won(self):
-        """If no placeholders left, we have a winner"""
+        """If no placeholders chars left in guessed word == win"""
         return PLACEHOLDER not in self.guessed_word
 
-    def _show_hang_graph_and_status(self):
-        """Prints status after bad guess"""
-        print(HANG_GRAPHICS[self.num_wrong_guesses] + '\n')
-        wrong_letters = ', '.join(self.letters_used - set(self.guessed_word))
-        print('Wrong letters: {}'.format(wrong_letters))
+    def _show_guessed_word(self):
+        print(' '.join(self.guessed_word))
 
-    def __call__(self):
-        """Entry point to the game, runs till 1. game is won (return), 2. lost game =
-           number allowed guesses ran out"""
+    def _show_status(self):
+        """Prints status graph and information"""
+        if DEBUG:
+            print('\n---Debug---\n{}\n---\n'.format(self))
+        if self.num_wrong_guesses > 0:
+            print(HANG_GRAPHICS[self.num_wrong_guesses - 1] + '\n')
+        if self.wrong_letters:
+            print('Guessed letters not in word: {}'.format(
+                ', '.join(self.wrong_letters)))
+
+    def play(self):
+        """Entry point to the game, results in win or loss"""
         while self.num_wrong_guesses < ALLOWED_GUESSES:
-            if DEBUG:
-                print(self)
-            print(' '.join(self.guessed_word))
+            self._show_guessed_word()
+
             try:
+                self.num_guesses += 1
                 letter = self._guess_letter()
             except ValueError as exc:
                 print(exc)
+                self.num_guesses -= 1
                 continue
-            good_turn = self._update_guess_with_letter(letter)
-            if self._has_won():
-                guessed_word = ''.join(self.guessed_word)
-                print('\nYou won! You guessed {} in {} guesses :)'.format(
-                    guessed_word, self.num_guesses))
-                return
-            if not good_turn:
-                self._show_hang_graph_and_status()
+
+            if letter in self.secret_word:
+                self._update_guess_with_letter(letter)
+            else:
+                self.wrong_letters.add(letter)
                 self.num_wrong_guesses += 1
+
+            if self._has_won():
+                print('\nYou won! You guessed {} in {} guesses :)'.format(
+                    ''.join(self.guessed_word), self.num_guesses))
+                return
+
+            self._show_status()
+
         print('\nGame over :(')
         print('The word was: {}'.format(''.join(self.secret_word)))
 
@@ -96,4 +106,5 @@ if __name__ == '__main__':
         word = sys.argv[1]
     else:
         word = None
-    Hangman(word)()
+    hangman = Hangman(word)
+    hangman.play()
