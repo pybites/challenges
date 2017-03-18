@@ -26,6 +26,18 @@
 		$ cd <challenge-number>
 		# edit <template>.py file
 
+### III. Optional - Detaching the fork
+
+* One small issue with working with a forked repo is that Github wont actually recognize any of your activity. If you want to see your activity follow these steps. However be warned that it will prevent you from creating pull-requests.
+
+1. On Github go to the settings page of your forked repo.
+2. In the Danger Zone click on the Delete this repository button.
+3. Type the full name of the repo in the box and click the button.
+4. Create a new repo with the same name as the original repo.
+5. Push the repo to Github
+
+		$ git push origin master
+
 ---
 
 ## Feedback
