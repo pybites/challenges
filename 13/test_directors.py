@@ -29,6 +29,8 @@ def test():
         assert len(report[counter][1]) == k
         assert  _calc_mean(report[counter][1]) == j
 
+    return "tests pass"
+
 
 if __name__ == '__main__':
-    test()
+    print(test())
