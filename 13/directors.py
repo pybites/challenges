@@ -1,4 +1,5 @@
 import csv
+import pandas as pd
 from collections import defaultdict, namedtuple
 
 MOVIE_DATA = 'movie_metadata.csv'
@@ -12,6 +13,8 @@ Movie = namedtuple('Movie', 'title year score')
 def get_movies_by_director():
     '''Extracts all movies from csv and stores them in a dictionary
     where keys are directors, and values is a list of movies (named tuples)'''
+    df = pd.read_csv(MOVIE_DATA)
+
     pass
 
 
