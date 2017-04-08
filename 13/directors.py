@@ -46,7 +46,7 @@ def _calc_mean(movies):
 
 
 def print_results(directors):
-    fmt_director_entry = '{counter}. {director:<52} {avg}'
+    fmt_director_entry = '{counter:>02}. {director:<52} {avg}'
     fmt_movie_entry = '{year}] {title:<50} {score}'
     sep_line = '-' * 60
 
@@ -56,7 +56,6 @@ def print_results(directors):
         director, avg = director_rating
 
         print()
-        counter = str(counter).zfill(2)
         print(fmt_director_entry.format(counter=counter,
                                         director=director, avg=avg))
         print(sep_line)
