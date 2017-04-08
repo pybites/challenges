@@ -33,9 +33,9 @@ def get_movies_by_director():
 
 def get_average_scores(directors):
     '''Filter directors with < MIN_MOVIES and calculate averge score'''
-    return dict(((director, _calc_mean(movies)), movies)
+    return { (director, _calc_mean(movies)): movies
                 for director, movies in directors.items()
-                if len(movies) >= MIN_MOVIES)
+                if len(movies) >= MIN_MOVIES }
 
 
 def _calc_mean(movies):
