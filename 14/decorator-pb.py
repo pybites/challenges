@@ -24,7 +24,7 @@ def timeit(func):
 
 
 def mute_exception(func=None, *, reraise=False, default_return=None):
-    ''' Technique: http://pybit.es/decorator-optional-argument.html (Python cookbook 3rd ed
+    ''' Technique: http://pybit.es/decorator-optional-argument.html (Python cookbook 3rd ed)
         Inspiration: https://www.blog.pythonlibrary.org/2016/06/09/python-how-to-create-an-exception-logging-decorator/ '''
     if func is None:
         return partial(mute_exception, reraise=reraise, default_return=default_return)
@@ -32,10 +32,10 @@ def mute_exception(func=None, *, reraise=False, default_return=None):
     @wraps(func)
     def wrapper(*args, **kwargs):
         try:
-            logging.debug('{} called for args {}'.format(func.__name__, args))
+            logging.debug(f'{func.__name__} called for args {args}')
             return func(*args, **kwargs)
         except Exception as e:
-            logging.error('{} raised exception {} for args: {}'.format(func.__name__, type(e).__name__, args))
+            logging.error(f'{func.__name__} raised exception {e.__class__.__name__} for args: {args}')
             if reraise:
                 raise
             return default_return
