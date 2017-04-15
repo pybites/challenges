@@ -4,7 +4,6 @@ from os import system
 
 from passlib.hash import pbkdf2_sha512
 
-
 def hashit(func):
     """Decorator to securely hash passwords"""
 
@@ -32,9 +31,9 @@ def boxit(func):
             padding_l = pad
             padding_r = pad
         else:
-            title_len += pad * 2 + 1
+            title_len += pad * 2 + 2
             padding_l = pad
-            padding_r = pad - 1
+            padding_r = pad
 
         # create each section
         box_horizontal = '#' * title_len
