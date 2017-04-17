@@ -1,0 +1,18 @@
+<!doctype html>
+
+<!-- some boilerplate, delete or modify as you wish -->
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<table class="centered thick-border">
+	<tr>
+		<th>col1</th>
+		<th>col2</th>
+	</tr>
+	{% for k, v in data.items() %}
+		<tr>
+			<td>{{ k }}</td>
+			<td>{{ v }}</td>
+		</tr>		
+	{% endfor %}
+</table>
