@@ -65,11 +65,17 @@ This is still a bit of an experimental feature. We will update it as we go. If t
 
 * Go to your cloned repo and open a PR by comparing pybites community branch with your newly pushed local branch (make sure only the files of your changes are included):
 
-	![step 1](PR1.png)
+	* Your push should create this link on your fork's main page:
 
-	![step 2](PR2.png)
+		![step 1](PR1.png)
 
-	![step 3](PR3.png)
+	* When you click it make sure you compare base fork: pybites/challenges - base: community with head fork: <username>/challenges - compare: <your-branch>:
+
+		![step 2](PR2.png)
+
+	* Make sure you only PR on the files you change, in this example I had 2 files in my new 'bbelderbos' dir:
+
+		![step 3](PR3.png)
 
 The difficult part here was isolating the changes. We think that if you do the "git pull upstream community" into your local community branch, as described above, you should see only your changes, but we have to do some more testing. Please let us know how this goes ...
 
