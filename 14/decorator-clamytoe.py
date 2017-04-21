@@ -1,8 +1,8 @@
 from getpass import getpass
 from functools import wraps
-from passlib.hash import pbkdf2_sha512
 from os import system
 
+from passlib.hash import pbkdf2_sha512
 
 def hashit(func):
     """Decorator to securely hash passwords"""
