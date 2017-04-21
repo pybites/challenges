@@ -8,7 +8,7 @@
     <meta name="description"
           content="PyBites challenge 15, creating a Flask web app that allows you to enter data via a web form. Data is displayed and is persistent with a sqllite3 database using SQLAlchemy.">
     <meta name="author" content="Martin Uribe">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='clamytoe-favicon.ico') }}" type="image/x-icon">
 
     <title>Clamytoe's Task Manager App</title>
 
@@ -21,10 +21,10 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/clamytoe-ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/navbar-fixed-top.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/clamytoe-navbar-fixed-top.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -74,6 +74,8 @@
             <form class="navbar-form navbar-left" role="search" action="/add" method="POST">
                 <div class="form-group">
                     <div class="input-group">
+                        <span class="input-group-addon container-fluid">Project</span>
+                        <input type="text" name="project" class="form-control" {% for project in projects %}{% if project.project_id == active %}value="{{ project.project_name }}"{% endif %}{% endfor %} placeholder="Project name">
                         <span class="input-group-addon container-fluid">Task</span>
                         <input type="text" name="task" class="form-control" placeholder="Add new task" required>
                         <span class="input-group-addon container-fluid">Status</span>
@@ -95,14 +97,28 @@
             </form>
         </div><!-- jumbotron -->
 
+        {% if tasks %}
         <div class="tasks">
-
-            {% if tasks %}
-            <div class="panel panel-default">
+            {% if projects %}
+            <span id="taksNav" class="container">
+                <ul class="nav nav-tabs">
+                    {% for tab in projects %}
+                    {% if tab.project_id == active %}
+                    <li role="presentation" class="active">
+                    {% else %}
+                    <li role="presentation">
+                    {% endif %}
+                        <a href="/project/{{ tab.project_name }}">{{ tab.project_name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </span>
+            {% endif %}
+            <div id="taskPanel" class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Tasks
+                    <h3 class="panel-title">&nbsp;
                         <span class="navbar-right">
-                            <a href="/clear">
+                            <a href="/clear/{{ active }}">
                                 <span class="glyphicon glyphicon-trash" aria-label="Remove All"></span>
                             </a>
                             <span class="spacer">&nbsp;</span>
@@ -122,13 +138,14 @@
                         </thead>
                         <tbody>
                         {% for task in tasks %}
-                        {% if task.status %}
+                        {% if task.project_id == active %}
+                            {% if task.status %}
                         <tr class="success">
                             <td>{{ task.task }}</td>
-                        {% else %}
+                            {% else %}
                         <tr class="active">
                             <td><strike>{{ task.task }}</strike></td>
-                        {% endif %}
+                            {% endif %}
                             <td align="center">
                                 <a href="/close/{{ task.task_id }}">
                                 {% if task.status %}
@@ -144,13 +161,14 @@
                                 </a>
                             </td>
                         </tr>
+                        {% endif %}
                         {% endfor %}
                         </tbody>
                     </table>
                 </div><!-- panel body -->
-                {% endif %}
             </div><!-- panel -->
         </div><!-- tasks -->
+        {% endif %}
     </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript
