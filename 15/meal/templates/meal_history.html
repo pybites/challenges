@@ -1,0 +1,24 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<h1>Meal Tracker 5000</h1>
+
+<div class="main">
+	<h2>Meal History</h2>
+	
+	<table cellpadding="10px">
+		<tr class="centered-text">
+			<th>Name</th>
+			<th>Food</th>
+			<th>Drink</th>
+		</tr>
+		{% for row in c.execute("SELECT * from meals") %}
+			<tr>
+				<td>{{ row[0] }}</td>
+				<td>{{ row[1] }}</td>
+				<td>{{ row[2] }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
