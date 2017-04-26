@@ -1,13 +1,14 @@
+import webbrowser
+from json import JSONDecodeError
+from multiprocessing import Process
 from flask import Flask, render_template
 import requests
-from json import JSONDecodeError
 import webview
-from multiprocessing import Process
-import webbrowser
+
 app = Flask(__name__)
 
 quotes_url = 'http://api.forismatic.com/api/1.0/'
-wiki_url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=TITLEHERE&redirects=1&utf8=1&exintro=1&explaintext=1'
+wiki_url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles={title}&redirects=1&utf8=1&exintro=1&explaintext=1'
 
 
 @app.route("/")
@@ -27,7 +28,7 @@ def get_random_quote():
 
 
 def get_author_bio(author_name):
-    query_url = wiki_url.replace('TITLEHERE', author_name)
+    query_url = wiki_url.format(title=author_name)
     try:
         j = requests.get(query_url).json()
         for p in j['query']['pages']:
@@ -56,4 +57,5 @@ if __name__ == "__main__":
         view.start()
         view.join()
         server.terminate()
-    webbrowser.open('http://127.0.0.1:5000')
+    else:
+        webbrowser.open('http://127.0.0.1:5000')
