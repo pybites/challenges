@@ -3,6 +3,7 @@ import requests
 from json import JSONDecodeError
 import webview
 from multiprocessing import Process
+import webbrowser
 app = Flask(__name__)
 
 quotes_url = 'http://api.forismatic.com/api/1.0/'
@@ -45,9 +46,14 @@ def start_view():
     webview.create_window('Wisdom of the Ages', 'http://127.0.0.1:5000')
 
 if __name__ == "__main__":
+    command = input('(S)imple view or (W)eb view?')
+    while command.lower() not in ['s', 'w']:
+        input('(S)imple view or (W)eb view?')
     server = Process(target=start_web)
     server.start()
-    view = Process(target=start_view)
-    view.start()
-    view.join()
-    server.terminate()
+    if command == 's':
+        view = Process(target=start_view)
+        view.start()
+        view.join()
+        server.terminate()
+    webbrowser.open('http://127.0.0.1:5000')
