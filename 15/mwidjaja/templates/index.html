@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<title>Shopping List</title>
+</head>
+<body>
+    <h1>Shopping List</h1>
+    <hr/>
+    <br/>
+
+    <a href="/add">Add New Item</a></p>
+
+    {% if items %}
+
+
+
+        <table class="thick-border">
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Action</th>
+        </tr>
+
+        {% for item in items %}
+            <tr>
+                <td>{{ item['item_name'] }}  </td>
+                <td>{{ item['quantity'] }}   </td>
+                <td>{{ item['unit_price'] }} </td>
+                <td> <a href="/edit/{{ item['id'] }}">Edit</a> |
+                     <a href="/delete/{{ item['id'] }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+
+    {% else %}
+
+        <h3>You shopping list is empty</h3>
+
+    {% endif %}
+    </body>
+</html>
