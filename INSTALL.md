@@ -24,7 +24,7 @@
 * Have fun :)
 
 		$ cd <challenge-number>
-		# edit <template>.py file
+		# create new file or if template file provided: edit <template>.py 
 
 ## III. Submit your code to our community branch via a Pull Request (PR)
 
