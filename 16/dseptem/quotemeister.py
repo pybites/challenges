@@ -1,7 +1,7 @@
 import webbrowser
 from json import JSONDecodeError
 from multiprocessing import Process
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 import requests
 import webview
 
@@ -19,12 +19,16 @@ def wisdom():
 
 
 def get_random_quote():
+    errors = 0
     while True:
+        if errors > 2:
+            abort(500)
         try:
             j = requests.post(quotes_url, data={'method': 'getQuote', 'format': 'json', 'lang': 'en'}).json()
+            return j['quoteText'], j['quoteAuthor']
         except JSONDecodeError:
+            errors += 1
             continue
-        return j['quoteText'], j['quoteAuthor']
 
 
 def get_author_bio(author_name):
