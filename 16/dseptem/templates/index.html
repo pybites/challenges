@@ -24,6 +24,11 @@
             Author: BootstrapMade
             Author URL: https://bootstrapmade.com
         ======================================================= -->
+		<script>
+		function Refresh() {
+			location.reload();
+		}
+		</script>
     </head>
 	 
     <body>
@@ -35,20 +40,26 @@
 						<div class="align-center">
 							<h2 class="slogan">Wisdom of the Ages</h2>
 							<br>
+							{% if quote %}
 							<h2>
-							{{quote}}
+							{{ quote }}
 							</h2>
 							{% if author %}
-								<h2>-{{author}}</h2>
+								<h2>-{{ author }}</h2>
 								<br>
 							{% else %}
 								<h2>-Anonymous</h2>
 								<br>
 							{% endif %}
-							<button type="button" class="btn btn-info btn-lg" onClick="history.go(0)">Another Quote!</button>
+							<button type="button" class="btn btn-info btn-lg" onClick="Refresh()">Another Quote!</button>
 							<br>
 							<br>
 							<p>{{bio}}</p>
+							{% else %}
+							<h2>
+								{{ error }}
+							</h2>
+							{% endif %}
 						</div>
 					</div>
 				</div>
