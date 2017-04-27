@@ -12,6 +12,10 @@ wiki_url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=ext
 @app.route("/")
 def wisdom():
     quote, author = get_random_quote()
+    if not quote:
+        error = 'Something went terribly wrong getting your quote, try again please!'
+        return render_template('index.html', error=error), 500
+
     bio = get_author_bio(author)
     return render_template('index.html', quote=quote, author=author, bio=bio)
 
@@ -25,7 +29,7 @@ def get_random_quote():
         except JSONDecodeError:
             tries += 1
     else:
-        abort(500)
+        return None, None
 
 
 def get_author_bio(author_name):
