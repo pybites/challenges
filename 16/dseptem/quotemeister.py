@@ -8,6 +8,8 @@ app = Flask(__name__)
 quotes_url = 'http://api.forismatic.com/api/1.0/'
 wiki_url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles={title}&redirects=1&utf8=1&exintro=1&explaintext=1'
 
+MAX_TRIES = 3
+
 
 @app.route("/")
 def wisdom():
@@ -18,7 +20,7 @@ def wisdom():
 
 def get_random_quote():
     tries = 0
-    while tries < 2:
+    while tries < MAX_TRIES:
         try:
             j = requests.post(quotes_url, data={'method': 'getQuote', 'format': 'json', 'lang': 'en'}).json()
             return j['quoteText'], j['quoteAuthor']
