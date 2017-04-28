@@ -1,8 +1,6 @@
 # GitHub Profiler
 
-This Flask application will create a profile page for any valid GitHub username
-that is entered into the form. It pulls the informatoin through GitHub's API and
-displays it in a resume type format.
+This Flask application will create a profile page for any valid GitHub user name that is entered into the form. It pulls the information through GitHub's API and displays it in a resume type format.
 
 ## Description
 Currently it displays the following if it was made available:
@@ -35,7 +33,7 @@ Sample run for pybites account:
 
 ## Issues
 Since there a lot of API calls being made in the background, initially on new
-searches it can take a few seconds. In order to aleviate this, the information
+searches it can take a few seconds. In order to alleviate this, the information
 is stored in a sqlite3 database.
 
 GitHub also limits the amount of API calls that can be made every hour to 60. If
@@ -44,7 +42,7 @@ my best to attempt to break it and code around those issues, but if you happen
 to find a bug, please let me know.
 
 ## Installation
-To install the app and try it out yourself, do the following from the commandline:
+To install the app and try it out yourself, do the following from the command line:
 
     cd <project-dir>
     git clone https://github.com/clamytoe/challenges.git
@@ -54,5 +52,4 @@ To install the app and try it out yourself, do the following from the commandlin
     pip install -r requirements.txt
     python app.py
 
-Now simply enter a GitHub username into the input box and click on the Search 
-button.
+Now simply enter a GitHub user name into the input box and click on the Search button.
