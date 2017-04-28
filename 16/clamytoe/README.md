@@ -54,5 +54,5 @@ To install the app and try it out yourself, do the following from the commandlin
     pip install -r requirements.txt
     python app.py
 
-Now simply open up a browser to http://localhost:5000 and enter a GitHub
-username into the input box and click on the Search button.
+Now simply enter a GitHub username into the input box and click on the Search 
+button.
