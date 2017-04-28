@@ -6,6 +6,7 @@ displays it in a resume type format.
 
 ## Description
 Currently it displays the following if it was made available:
+
     * accounts name
     * link to their GitHub page
     * email address
