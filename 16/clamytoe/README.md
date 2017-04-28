@@ -6,7 +6,6 @@ displays it in a resume type format.
 
 ## Description
 Currently it displays the following if it was made available:
-
     * accounts name
     * link to their GitHub page
     * email address
@@ -57,5 +56,5 @@ commandline:
     `python app.py`
 
 Now simply open up a browser to http://localhost:5000 and enter a GitHub
-username into the input box and click on the Submit button.
+username into the input box and click on the Search button.
 
