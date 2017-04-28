@@ -7,23 +7,23 @@ displays it in a resume type format.
 ## Description
 Currently it displays the following if it was made available:
 
-    * accounts name
-    * link to their GitHub page
-    * email address
-    * company
-    * blog/website
-    * repos
-        * repo name
-        * indicates if it's a fork
-        * link to the repo
-        * repo language
-        * repo created date
-        * repo last pushed date
-        * repo description
-    * gists
-        * gist name
-        * link to the gist
-        * gist description
+* accounts name
+* link to their GitHub page
+* email address
+* company
+* blog/website
+* repos
+    * repo name
+    * indicates if it's a fork
+    * link to the repo
+    * repo language
+    * repo created date
+    * repo last pushed date
+    * repo description
+* gists
+    * gist name
+    * link to the gist
+    * gist description
 
 Entry page:
 
@@ -44,18 +44,15 @@ my best to attempt to break it and code around those issues, but if you happen
 to find a bug, please let me know.
 
 ## Installation
-To install the app and try it out yourself, do the following from the
-commandline:
+To install the app and try it out yourself, do the following from the commandline:
 
-
-    `cd <project-dir>`
-    `git clone https://github.com/clamytoe/challenges.git`
-    `cd challenges/16/clamytoe`
-    `python3.6 -m venv venv`
-    `source venv/bin/activate`
-    `pip install -r requirements.txt`
-    `python app.py`
+    cd <project-dir>
+    git clone https://github.com/clamytoe/challenges.git
+    cd challenges/16/clamytoe
+    python3.6 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python app.py
 
 Now simply open up a browser to http://localhost:5000 and enter a GitHub
 username into the input box and click on the Search button.
-
