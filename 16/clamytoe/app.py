@@ -10,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gh-profiles.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 API_BASE = 'https://api.github.com/users/'
+DEBUG = False
 
 
 class Accounts(db.Model):
@@ -165,15 +166,15 @@ def get_account():
     accounts = Accounts.query.all()
     for account in accounts:
         if account.login == user:
-            print(f"User already exists: {account.login}")
-            print("Checking for updates to info")
+            if DEBUG: print(f"User already exists: {account.login}")
+            if DEBUG: print("Checking for updates to info")
             same = check_etag(user, account.etag)
             if same:
                 gh_user = account
-                print(f"Pulling account info from db: {gh_user.login}")
+                if DEBUG: print(f"Pulling account info from db: {gh_user.login}")
                 is_account = True
             else:
-                print(f'Account etags differ, will have to get an update')
+                if DEBUG: print(f'Account etags differ, will have to get an update')
                 Accounts.query.filter(Accounts.login == user).delete()
                 db.session.commit()
                 break
@@ -181,11 +182,11 @@ def get_account():
     # add the account if not in database already
     if not is_account:
         url = API_BASE + user
-        print(f"Checking: {url}")
+        if DEBUG: print(f"Checking: {url}")
         # Header info
         response = requests.head(url)
         status = response.headers['Status']
-        print(f'Status: {status}')
+        if DEBUG: print(f'Status: {status}')
 
         # Handle errors
         if '404' in status:  # 404 Not Found
@@ -197,8 +198,8 @@ def get_account():
                                    error=f"You have exceeded the number of lookups! Come back after {reset_at}!")
         else:
             gh_user = add_profile(user)
-            print(f"Retrived {gh_user}")
-            print(f"Name is {gh_user.name}")
+            if DEBUG: print(f"Retrived {gh_user}")
+            if DEBUG: print(f"Name is {gh_user.name}")
             is_account = True
 
     if is_account:
@@ -211,13 +212,13 @@ def get_account():
                     # Check to see if the repos in the db are still up to date
                     is_repos = check_etag(user + '/repos', repo.etag)
                     if not is_repos:
-                        print(f'Repos etags differ, will have to get an update')
+                        if DEBUG: print(f'Repos etags differ, will have to get an update')
                         Repos.query.filter(Repos.owner == user).delete()
                         db.session.commit()
                         break
                 else:
                     gh_repos.append(repo)
-                    print(f"Found existing repo: {repo}")
+                    if DEBUG: print(f"Found existing repo: {repo}")
                     is_repos = True
 
         # Check and see if we have any gists for the user
@@ -229,24 +230,24 @@ def get_account():
                     # Check to see if they are up to date
                     is_gists = check_etag(user + '/gists', gist.etag)
                     if not is_gists:
-                        print(f'Gist etags differ, will have to get an update')
+                        if DEBUG: print(f'Gist etags differ, will have to get an update')
                         Gists.query.filter(Gists.owner == user).delete()
                         db.session.commit()
                         break
                 else:
                     gh_gists.append(gist)
-                    print(f"Found existing gist: {gist}")
+                    if DEBUG: print(f"Found existing gist: {gist}")
                     is_gists = True
 
     if not is_repos:
-        print("Repos were not found or needs to be updated")
+        if DEBUG: print("Repos were not found or needs to be updated")
         gh_repos = add_repos(user)
-        print(f"Repos: {gh_repos}")
+        if DEBUG: print(f"Repos: {gh_repos}")
 
     if not is_gists:
-        print("Gists were not found or needs to be updated")
+        if DEBUG: print("Gists were not found or needs to be updated")
         gh_gists = add_gists(user)
-        print(f"Gists: {gh_gists}")
+        if DEBUG: print(f"Gists: {gh_gists}")
 
     return render_template('index.html', gh_user=gh_user, gh_repos=gh_repos, gh_gists=gh_gists)
 
@@ -257,7 +258,7 @@ def check_etag(user, old_etag):
     response = requests.head(url)
     new_etag = response.headers['ETag']
     matched = True if old_etag == new_etag else False
-    print(f'ETags Match: {matched}')
+    if DEBUG: print(f'ETags Match: {matched}')
 
     return matched
 
@@ -265,7 +266,7 @@ def check_etag(user, old_etag):
 def add_profile(user):
     """Adds account information"""
     url = API_BASE + user
-    print(f"Retrieving: {url}")
+    if DEBUG: print(f"Retrieving: {url}")
 
     # Header info
     response = requests.get(url)
@@ -274,15 +275,15 @@ def add_profile(user):
     remaining = response.headers['X-RateLimit-Remaining']
     reset = response.headers['X-RateLimit-Reset']
     etag = response.headers['ETag']
-    print(f'Status: {status}')
-    print(f'Limit: {limit}')
-    print(f'Remaining: {remaining}')
-    print(f'Reset: {reset}')
-    print(f'ETag: {etag}')
-    print(f"Retrieved: {url}")
+    if DEBUG: print(f'Status: {status}')
+    if DEBUG: print(f'Limit: {limit}')
+    if DEBUG: print(f'Remaining: {remaining}')
+    if DEBUG: print(f'Reset: {reset}')
+    if DEBUG: print(f'ETag: {etag}')
+    if DEBUG: print(f"Retrieved: {url}")
 
     data = response.json()
-    print(f"Found {data['name']}")
+    if DEBUG: print(f"Found {data['name']}")
 
     # add the account
     add_account = Accounts(data['login'].lower(), data['avatar_url'], data['url'], data['html_url'],
@@ -295,7 +296,7 @@ def add_profile(user):
     db.session.commit()
 
     account = Accounts.query.get(user)
-    print(f"Returning {account}")
+    if DEBUG: print(f"Returning {account}")
 
     return account
 
@@ -306,13 +307,13 @@ def add_repos(user):
     response = requests.get(url)
     etag = response.headers['ETag']
     data = response.json()
-    print(f"Found {len(data)} repos")
+    if DEBUG: print(f"Found {len(data)} repos")
 
     for repo in data:  # repos_id, owner, name, html_url, description, fork, language, created_at, updated_at, etag
         add_repo = Repos(repo['id'], user, repo['name'], repo['html_url'], repo['description'], repo['fork'],
                          repo['language'], repo['created_at'], repo['pushed_at'], etag)
         db.session.add(add_repo)
-        print(f"Added repo {repo['name']}")
+        if DEBUG: print(f"Added repo {repo['name']}")
     db.session.commit()
 
     # Since there might be more than one, a list is used to hold them
@@ -323,7 +324,7 @@ def add_repos(user):
         if repo.owner == user:
             repos.append(repo)
 
-    print(f"Returning {repos}")
+    if DEBUG: print(f"Returning {repos}")
 
     return repos
 
@@ -334,16 +335,16 @@ def add_gists(user):
     response = requests.get(url)
     etag = response.headers['ETag']
     data = response.json()
-    print(f"Found {len(data)} gists")
+    if DEBUG: print(f"Found {len(data)} gists")
 
     for gist in data:  # gist_id, owner, filename, html_url, description, language, etag
         files = []
         for file in gist['files']:
             files.append(file)
-        print(f'{len(files)} Files: {files}')
+        if DEBUG: print(f'{len(files)} Files: {files}')
         add_gist = Gists(gist['id'], user, files[0], gist['html_url'], gist['description'], etag)
         db.session.add(add_gist)
-        print(f'Added gist {files[0]}')
+        if DEBUG: print(f'Added gist {files[0]}')
     db.session.commit()
 
     # Since there might be more than one, a list is used to hold them
@@ -354,7 +355,7 @@ def add_gists(user):
         if gist.owner == user:
             gists.append(gist)
 
-    print(f"Returning {gists}")
+    if DEBUG: print(f"Returning {gists}")
 
     return gists
 
