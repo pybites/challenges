@@ -25,6 +25,14 @@ Currently it displays the following if it was made available:
         * link to the gist
         * gist description
 
+Entry page:
+
+![form](img/form.png)
+
+Sample run for pybites account:
+
+![sample](img/sample.png)
+
 ## Issues
 Since there a lot of API calls being made in the background, initially on new
 searches it can take a few seconds. In order to aleviate this, the information
