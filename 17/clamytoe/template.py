@@ -6,20 +6,21 @@
 import os
 import random
 import sqlite3
+import feedparser
 from time import sleep
 
-# this module might save you time parsing feeds
-import feedparser
-
 INTERVAL = 24 * 60 * 60  # change if you don't want every day
-FEED = 'your_feed'
+# FEED = 'https://audioboom.com/channels/4567086.rss'
+FEED = 'https://pythonbytes.fm/episodes/rss'
 
 
-# Feed parsing
+# Feed parsing
 
 def parse_feed(feed=FEED):
     items = []
-    # ...
+    feeds = feedparser.parse(feed)
+    for data in feeds:
+        print(data)
     return items
 
 
@@ -33,7 +34,7 @@ def add_new_episodes_to_db(episodes):
     pass
 
 
-# Send out new episode and mark as complete
+# Send out new episode and mark as complete
 
 def get_random_episode():
     pass
@@ -54,9 +55,9 @@ def main():
         for episode in feed:
             pass
         # ...
-        # etc
+        # etc
         # ...
-        sleep(INTERVAL)  # or use system cron / sched / pypi
+        sleep(INTERVAL)  # or use system cron / sched / pypi
 
 
 if __name__ == '__main__':
