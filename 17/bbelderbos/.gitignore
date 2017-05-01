@@ -1,3 +1,4 @@
 venv
-*db
 rss
+*db
+*log
