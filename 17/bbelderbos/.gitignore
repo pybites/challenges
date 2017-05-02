@@ -3,3 +3,4 @@ test/rss
 databases
 *log
 **__pycache__
+**rss
