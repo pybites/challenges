@@ -1,12 +1,9 @@
 from datetime import datetime
 
-from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
-
 
 class Podcast(Base):
     __tablename__ = 'podcasts'
@@ -21,10 +18,3 @@ class Podcast(Base):
     def __repr__(self):
         return "<Podcast(id='%s', title='%s', link='%s', published='%s', done='%s')>" \
                % (self.id, self.title, self.link, self.published, self.done)
-
-
-engine = create_engine('sqlite:///podcast.db')
-Base.metadata.create_all(engine)
-
-Session = sessionmaker(bind=engine)
-session = Session()

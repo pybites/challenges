@@ -1,4 +1,5 @@
 venv
-rss
-*db
+test/rss
+databases
 *log
+**__pycache__
