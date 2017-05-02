@@ -1,1 +1,1 @@
-from .podcast import Podcast
+from .podcaster import Podcast
