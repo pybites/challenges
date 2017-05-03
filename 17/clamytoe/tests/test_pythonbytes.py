@@ -24,7 +24,6 @@ def test_feed_update(feed_keys):
     assert feed_instance.link == 'http://pythonbytes.fm/'
     assert feed_instance.author == 'Michael Kennedy'
     assert feed_instance.email == 'mikeckennedy@gmail.com'
-    assert 'Brian Okken' in feed_instance.content, "Co-Author should be in the content detail"
 
     # # check for proper episode parsing
     assert isinstance(feed_instance.episodes, OrderedDict)

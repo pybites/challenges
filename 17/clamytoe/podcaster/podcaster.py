@@ -23,7 +23,6 @@ class Podcast(object):
             self.link = response.feed.link
             self.author = response.feed.author_detail.name
             self.email = response.feed.author_detail.email
-            self.content = response.feed.content
 
             data = response.entries
             casts = {}
