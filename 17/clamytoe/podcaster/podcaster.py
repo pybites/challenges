@@ -1,9 +1,11 @@
 import os
 import random
+import re
 import sqlite3
-import feedparser
 from collections import OrderedDict
 from sys import exit
+
+import feedparser
 
 
 class Podcast(object):
@@ -21,8 +23,7 @@ class Podcast(object):
             self.subtitle = response.feed.subtitle
             self.link = response.feed.link
             self.image = response.feed.image.href
-            # TODO: Clean up the summary by removing whitespace and line returns
-            self.summary = response.feed.summary
+            self.summary = re.sub('\w(\s{2,})\w', '', response.feed.summary)
             self.author = response.feed.author_detail.name
             self.email = response.feed.author_detail.email
 
@@ -39,12 +40,11 @@ class Podcast(object):
                     'file': file_link,
                     'duration': duration_time,
                     'published': entry.published,
-                    # TODO: Clean up summary by removing html tags and line returns
-                    'summary': entry.summary
+                    'summary': re.sub('<.*?>', '', entry.summary)
                 }
 
-            for cast in casts:
-                print(casts[cast]['title'])
+            # for cast in casts:
+            #     print(casts[cast]['title'])
             episodes = OrderedDict(sorted(casts.items(), key=lambda n: n[0]))
 
             return episodes
