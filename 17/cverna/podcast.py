@@ -1,21 +1,24 @@
 # http://pybit.es/codechallenge17.html
-# quick template (instructions converted into methods)
-# could use class as well
-# use as needed (not required of course)
-#
 import os
+import sys
 import sqlite3
-from time import sleep
+import smtplib
 from collections import namedtuple
 from random import randint
+from email.mime.text import MIMEText
 # this module might save you time parsing feeds
 import feedparser
 
-INTERVAL = 24 * 60 * 60  # change if you don't want every day
 FEED = 'https://www.podcastinit.com/feed/mp3/'
 
-conn = sqlite3.connect('podcast.sqlite')
+conn = sqlite3.connect('dbpodcast.sqlite')
 db = conn.cursor()
+
+smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
+smtp_account = os.environ.get('MAIL_ACCOUNT')
+smtp_password = os.environ.get('MAIL_PASSWORD')
+mailto = os.environ.get('MAILTO')
+
 Episode = namedtuple('Episode', 'title url')
 
 
@@ -57,7 +60,6 @@ def get_random_episode():
     unplayed = get_episodes_from_db(unplayed=True)
     if len(unplayed) > 0:
         episode = randint(0, len(unplayed)-1)
-        mark_episode_done(unplayed[episode])
         return unplayed[episode]
 
 
@@ -68,17 +70,33 @@ def mark_episode_done(episode):
 
 def mail_episode(episode):
     # could use os.environ to retrieve credentials
+    smtp_server.ehlo()
+    smtp_server.starttls()
+    try:
+        smtp_server.login(smtp_account, smtp_password)
+    except smtplib.SMTPAuthenticationError:
+        print('Could not login to the smtp server please check your username and password')
+        sys.exit(1)
+    msg = MIMEText('\nHi this week podcast is {} you can download it from here {}'.
+                   format(episode[0], episode[1]))
+    msg['Subject'] = 'My podcast of the week'
+    msg['From'] = smtp_account
+    msg['To'] = mailto
+    smtp_server.send_message(msg)
+    smtp_server.quit()
+
+    mark_episode_done(episode)
 
 
 def main():
     db.execute(
         'CREATE TABLE IF NOT EXISTS podcast (title TEXT PRIMARY_KEY, url TEXT, played INTEGER)')
-    while True:
-        feed = parse_feed()
-        add_new_episodes_to_db(feed)
-        episode = get_random_episode()
-        print(episode)
-        sleep(20)  # or use system cron / sched / pypi
+    feed = parse_feed()
+    add_new_episodes_to_db(feed)
+    episode = get_random_episode()
+    if episode is not None:
+        mail_episode(episode)
+        print('Podcast {} successfully sent !!'.format(episode[0]))
 
 
 if __name__ == '__main__':
