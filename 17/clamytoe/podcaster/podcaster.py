@@ -7,7 +7,6 @@ from sys import exit
 
 
 class Podcast(object):
-
     def __init__(self, rss):
         """Constructor requires the url to the rss feed"""
         self.rss = rss
@@ -21,18 +20,26 @@ class Podcast(object):
             self.title = response.feed.title
             self.subtitle = response.feed.subtitle
             self.link = response.feed.link
+            self.image = response.feed.image.href
+            # TODO: Clean up the summary by removing whitespace and line returns
+            self.summary = response.feed.summary
             self.author = response.feed.author_detail.name
             self.email = response.feed.author_detail.email
 
             data = response.entries
+            # TODO: Put into a database istead of an OrderedDict
             casts = {}
             for i, entry in enumerate(data):
+                # remove extra parameters from file link if they exist
+                file_link = self._format_link(entry.links[1].href)
+                duration_time = self._format_duration(entry.itunes_duration)
+
                 casts[len(data) - i] = {
                     'title': entry.title,
+                    'file': file_link,
+                    'duration': duration_time,
                     'published': entry.published,
-                    'published_parsed': entry.published_parsed,
-                    'file': entry.id,
-                    'duration': entry.itunes_duration,
+                    # TODO: Clean up summary by removing html tags and line returns
                     'summary': entry.summary
                 }
 
@@ -42,8 +49,27 @@ class Podcast(object):
 
             return episodes
         else:
+            # TODO: Handle other return codes from server
             print('There was a error retrieving the rss feed')
             exit(1)
+
+    @staticmethod
+    def _format_link(link):
+        """Removes extra parameters from file link if they exist"""
+        if '?' in link:
+            return link.split('?')[0]
+        else:
+            return link
+
+    @staticmethod
+    def _format_duration(seconds):
+        """Converts seconds into hh:mm:ss format"""
+        if ':' in seconds:
+            return seconds
+        else:
+            m, s = divmod(int(seconds), 60)
+            h, m = divmod(m, 60)
+            return f'{h:02}:{m:02}:{s:02}'
 
     # Keep cache of feed in SQLite
 

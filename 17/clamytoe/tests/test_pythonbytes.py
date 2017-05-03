@@ -13,6 +13,7 @@ def test_feed_update(feed_keys):
     """Tests the RSS feed for the podcast info"""
 
     # rgso = 'https://audioboom.com/channels/4567086.rss'
+    # talk = 'https://talkpython.fm/episodes/rss'
     pythonbytes = 'https://pythonbytes.fm/episodes/rss'
     feed_instance = Podcast(pythonbytes)
 
