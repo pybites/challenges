@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # http://pybit.es/codechallenge17.html
 import os
 import sys
