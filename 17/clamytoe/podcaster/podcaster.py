@@ -1,7 +1,6 @@
 import logging
-import os
-import random
-import re
+from random import choice
+from re import sub
 from sys import exit
 
 import feedparser
@@ -13,7 +12,6 @@ from sqlalchemy.orm.exc import NoResultFound
 from podcaster.models import Base, Episode, Pod
 from podcaster.utils.utils import check_dir, format_date, format_duration, format_link
 
-
 # setup some logging
 check_dir('logs')
 logger = logging.getLogger(__name__)
@@ -22,9 +20,15 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
 file_handler = logging.FileHandler('logs/podcaster.log')
+file_handler.setLevel(logging.ERROR)
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
+
+# comment these lines if the logging is too loud to the screen
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+logger.addHandler(stream_handler)
 
 
 class Podcast(object):
@@ -62,10 +66,10 @@ class Podcast(object):
             self.author = response.feed.author_detail.name
             self.email = response.feed.author_detail.email
             self.image = response.feed.image.href
-            self.summary = re.sub('\w(\s{2,})\w', '', response.feed.summary)
+            self.summary = sub('\w(\s{2,})\w', '', response.feed.summary)
             self.published = format_date(response.feed.published_parsed)
             shows = response.entries
-            logger.debug(f'Shows: {len(shows)}')
+            logger.debug(f'Shows Available: {len(shows)}')
 
             try:
                 logger.debug(f'Attempting to locate podcast feed in db: {self.rss}')
@@ -85,7 +89,7 @@ class Podcast(object):
                     episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
                     for episode in episodes:
                         if not episode.done:
-                            self.episodes.append(episode.id)
+                            self.episodes.append(episode)
             except NoResultFound:
                 logger.debug('Podcast not found, adding it:')
                 self._add_pod()
@@ -111,23 +115,24 @@ class Podcast(object):
         self.session.query(Pod).filter(Pod.rss == self.rss).update({'published': published, 'caught_up': caught_up})
         self.session.commit()
 
-    def get_episode(self, episode):
+    def get_episode(self, episode_id):
         """Grabs an episode from the database"""
-        logger.debug(f'User requested episode {episode}')
+        logger.debug(f'User requested episode {episode_id}')
         try:
-            epi = self.session.query(Episode).filter_by(id = episode, pod_id = self.id).one()
-            logger.debug(f'Episode {episode}: {epi.title}')
+            epi = self.session.query(Episode).filter_by(id=episode_id, pod_id=self.id).one()
+            logger.debug(f'Episode {epi.id}: {epi.title}')
             return epi
         except NoResultFound:
-            logger.error(f'User requested episode {episode}, which was not valid for this podcast')
-            print(f'Episode: {episode} is not a valid')
-            print(self.episodes)
+            logger.exception(f'User requested episode {episode_id}, which was not valid for this podcast')
+            print(f'Episode: {episode_id} is not a valid')
+            for episode in self.episodes:
+                print(f'[{episode.id}]: {episode.title}')
 
     def get_episodes_from_db(self):
         """Gets all episodes from the database"""
         logger.debug(f'Retrieving all episodes from the database for podcast {self.id}')
         episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
-        return episodes
+        return self.episodes.append(episodes)
 
     def add_new_episodes_to_db(self, shows):
         """Add a new episode to the database"""
@@ -139,27 +144,26 @@ class Podcast(object):
             published = format_date(episode.published_parsed)
 
             show = Episode(pod_id=self.id, title=episode.title, file=file_link, duration=duration_time,
-                           published=published, summary=re.sub('<.*?>', '', episode.summary))
+                           published=published, summary=sub('<.*?>', '', episode.summary))
             self.session.add(show)
             self.session.commit()
-            self.episodes.append(show.id)
+            self.episodes.append(show)
             logger.debug(f'Added: [{show.id}] {show.title}')
 
     def get_random_episode(self):
         """Retrieves a random show from the database"""
-        episode = random.choice(self.episodes)
-        return self.get_episode(episode)
+        return choice(self.episodes)
 
     def mark_episode_done(self, episode):
         """Update an episode as done in the database"""
-        logger.debug(f'Marking episode {episode} as completed')
-        self.session.query(Episode).filter(Episode.id == episode).update({'done': True})
+        logger.debug(f'Marking episode {episode.id} as completed')
+        self.session.query(Episode).filter(Episode.id == episode.id).update({'done': True})
         self.session.commit()
-        self.episodes.remove(episode)
-        logger.debug(f'Does episodes contain {episode}: {episode in self.episodes}')
 
-    def email_episode(self, episode):
+    @staticmethod
+    def email_episode(episode):
         """Email the selected episode"""
+        # TODO: Setup email handler
         # could use os.environ to retrieve credentials
         logger.debug(f'Attempting to mail episode {episode}')
         pass
