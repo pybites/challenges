@@ -30,6 +30,7 @@ logger.addHandler(file_handler)
 class Podcast(object):
     def __init__(self, rss):
         """Constructor requires the url to the rss feed"""
+        logger.debug(f'Creating Podcast from feed: {rss}')
         self.rss = rss
         self.title = None
         self.subtitle = None
@@ -67,9 +68,10 @@ class Podcast(object):
             logger.debug(f'Shows: {len(shows)}')
 
             try:
+                logger.debug(f'Attempting to locate podcast feed in db: {self.rss}')
                 pod = self.session.query(Pod).filter(Pod.rss == self.rss).one()
                 self.id = pod.id
-                logger.debug(f'Pod: {self.id}')
+                logger.debug(f'Found Pod ID: {self.id}')
 
                 if pod.published != self.published:
                     logger.debug('Published dates do not match!')
@@ -78,6 +80,12 @@ class Podcast(object):
                     new_shows = dict((k, shows[k]) for k in shows.keys() if k not in episodes)
                     logger.debug(f'Found {len(new_shows)} new shows')
                     self.add_new_episodes_to_db(new_shows)
+                else:
+                    logger.debug(f'Populating episodes from db')
+                    episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
+                    for episode in episodes:
+                        if not episode.done:
+                            self.episodes.append(episode.id)
             except NoResultFound:
                 logger.debug('Podcast not found, adding it:')
                 self._add_pod()
@@ -89,6 +97,7 @@ class Podcast(object):
 
     def _add_pod(self):
         """Add new podcast to the database"""
+        logger.debug(f'Adding new podcast from {self.rss}')
         published = self.published
         pod = Pod(title=self.title, subtitle=self.subtitle, link=self.link, rss=self.rss, author=self.author,
                   email=self.email, image=self.image, summary=self.summary, published=published)
@@ -98,21 +107,31 @@ class Podcast(object):
 
     def _update_pod(self, published, caught_up=False):
         """Updates the passed values on the database"""
+        logger.debug(f'Updating podcast {self.id} with a new published date of: {published}')
         self.session.query(Pod).filter(Pod.rss == self.rss).update({'published': published, 'caught_up': caught_up})
         self.session.commit()
 
-    @staticmethod
-    def _update_episode(episode):
-        """Update an episode as done in the database"""
-        pass
-
-    # Keep cache of feed in SQLite
+    def get_episode(self, episode):
+        """Grabs an episode from the database"""
+        logger.debug(f'User requested episode {episode}')
+        try:
+            epi = self.session.query(Episode).filter_by(id = episode, pod_id = self.id).one()
+            logger.debug(f'Episode {episode}: {epi.title}')
+            return epi
+        except NoResultFound:
+            logger.error(f'User requested episode {episode}, which was not valid for this podcast')
+            print(f'Episode: {episode} is not a valid')
+            print(self.episodes)
 
     def get_episodes_from_db(self):
-        pass
+        """Gets all episodes from the database"""
+        logger.debug(f'Retrieving all episodes from the database for podcast {self.id}')
+        episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
+        return episodes
 
     def add_new_episodes_to_db(self, shows):
         """Add a new episode to the database"""
+        logger.debug(f'Adding {len(shows)} to the database')
         for episode in shows:
             # remove extra parameters from file link if they exist
             file_link = format_link(episode.links[1].href)
@@ -124,15 +143,25 @@ class Podcast(object):
             self.session.add(show)
             self.session.commit()
             self.episodes.append(show.id)
+            logger.debug(f'Added: [{show.id}] {show.title}')
 
     def get_random_episode(self):
-        pass
+        """Retrieves a random show from the database"""
+        episode = random.choice(self.episodes)
+        return self.get_episode(episode)
 
     def mark_episode_done(self, episode):
-        pass
+        """Update an episode as done in the database"""
+        logger.debug(f'Marking episode {episode} as completed')
+        self.session.query(Episode).filter(Episode.id == episode).update({'done': True})
+        self.session.commit()
+        self.episodes.remove(episode)
+        logger.debug(f'Does episodes contain {episode}: {episode in self.episodes}')
 
-    def mail_episode(self, episode):
+    def email_episode(self, episode):
+        """Email the selected episode"""
         # could use os.environ to retrieve credentials
+        logger.debug(f'Attempting to mail episode {episode}')
         pass
 
     def __repr__(self):

@@ -26,7 +26,7 @@ class Pod(Base):
     caught_up = Column(Boolean, default=False)
 
     def __repr__(self):
-        return f'<Podcast (id={id}, title={title}, updated={published}, caught_up={caught_up})>'
+        return f'<Podcast (id={self.id}, title={self.title}, updated={self.published}, caught_up={self.caught_up})>'
 
 
 class Episode(Base):
@@ -43,4 +43,5 @@ class Episode(Base):
     done = Column(Boolean, default=False)
 
     def __repr__(self):
-        return f'<Episode (id={id}, pod_id={pod_id}, title={title}, duration={duration}, done={done})>'
+        return f'<Episode (id={self.id}, pod_id={self.pod_id}, title={self.title}, duration={self.duration},' \
+               f'done={self.done})>'
