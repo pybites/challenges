@@ -1,3 +1,7 @@
-*__pycache__
 .idea
+*.sqlite
+*__pycache__
+tests
+db
+logs
 venv
