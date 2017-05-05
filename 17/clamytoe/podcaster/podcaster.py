@@ -20,7 +20,7 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
 file_handler = logging.FileHandler('logs/podcaster.log')
-file_handler.setLevel(logging.ERROR)
+# file_handler.setLevel(logging.ERROR)
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -34,7 +34,15 @@ logger.addHandler(stream_handler)
 class Podcast(object):
     def __init__(self, rss):
         """Constructor requires the url to the rss feed"""
-        logger.debug(f'Creating Podcast from feed: {rss}')
+        check_dir('.podcaster')
+        engine = create_engine('sqlite:///.podcaster/podcaster_db.sqlite')
+        # Base.metadata.drop_all(engine)
+        Base.metadata.create_all(engine)
+        Session = sessionmaker(bind=engine)
+        self.session = Session()
+
+        logger.debug(f'Creating Podcast with feed: {rss}')
+        self.id = None
         self.rss = rss
         self.title = None
         self.subtitle = None
@@ -44,15 +52,17 @@ class Podcast(object):
         self.image = None
         self.summary = None
         self.published = None
-        self.id = None
         self.episodes = []
+        self.complete = False
+        self.total_episodes = len(self.episodes)
+        self.played = 0
+        self.status = '0 %'
 
-        check_dir('db')
-        engine = create_engine('sqlite:///db/pods_db.sqlite')
-        # Base.metadata.drop_all(engine)
-        Base.metadata.create_all(engine)
-        Session = sessionmaker(bind=engine)
-        self.session = Session()
+        podcasts = self.get_all_podcasts()
+        for podcast in podcasts:
+            if podcast.rss == self.rss:
+                logger.debug('Found podcast in the database')
+                self._update_from_db(podcast)
 
     def update(self):
         """Internal method for retrieving the rss feed"""
@@ -72,13 +82,13 @@ class Podcast(object):
             logger.debug(f'Shows Available: {len(shows)}')
 
             try:
-                logger.debug(f'Attempting to locate podcast feed in db: {self.rss}')
+                logger.debug('Attempting to locate podcast feed in db:')
                 pod = self.session.query(Pod).filter(Pod.rss == self.rss).one()
                 self.id = pod.id
                 logger.debug(f'Found Pod ID: {self.id}')
 
                 if pod.published != self.published:
-                    logger.debug('Published dates do not match!')
+                    logger.debug('Feed is newer than what is in database, updating')
                     self._update_pod(self.published)
                     episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
                     new_shows = dict((k, shows[k]) for k in shows.keys() if k not in episodes)
@@ -87,9 +97,11 @@ class Podcast(object):
                 else:
                     logger.debug(f'Populating episodes from db')
                     episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
-                    for episode in episodes:
-                        if not episode.done:
-                            self.episodes.append(episode)
+                    if episodes:
+                        self._update_status()
+                    else:
+                        logger.debug(f'Podcast {self.id} exists in database, but has no episodes. Will add them now')
+                        self.add_new_episodes_to_db(shows)
             except NoResultFound:
                 logger.debug('Podcast not found, adding it:')
                 self._add_pod()
@@ -98,6 +110,25 @@ class Podcast(object):
             # TODO: Handle other return codes from server
             logger.error('There was a error retrieving the rss feed')
             exit(1)
+
+    def _update_from_db(self, podcast):
+        """Update podcast information from existing entries in the database"""
+        logger.debug('Retriving values from the databse')
+        self.id = podcast.id
+        self.title = podcast.title
+        self.subtitle = podcast.subtitle
+        self.link = podcast.link
+        self.author = podcast.author
+        self.email = podcast.email
+        self.image = podcast.image
+        self.summary = podcast.summary
+        self.published = podcast.published
+        self.episodes = podcast.episodes
+        self.complete = podcast.complete
+        self.total_episodes = podcast.total_episodes
+        self.played = podcast.played
+        self.status = podcast.status
+        self._update_status()
 
     def _add_pod(self):
         """Add new podcast to the database"""
@@ -109,30 +140,65 @@ class Podcast(object):
         self.session.commit()
         self.id = pod.id
 
-    def _update_pod(self, published, caught_up=False):
+    def _update_pod(self, published):
         """Updates the passed values on the database"""
         logger.debug(f'Updating podcast {self.id} with a new published date of: {published}')
-        self.session.query(Pod).filter(Pod.rss == self.rss).update({'published': published, 'caught_up': caught_up})
+        self.session.query(Pod).filter(Pod.rss == self.rss).update({'published': published})
         self.session.commit()
+
+    def _update_status(self):
+        """Updates the status of the podcast"""
+        logger.debug(f'Updating the status of podcast {self.id}')
+        all_episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
+        played_episodes = self.session.query(Episode).filter_by(pod_id=self.id, done=True).all()
+        total = len(all_episodes)
+        listened_to = len(played_episodes)
+        percentage = int((listened_to / total) * 100 + 0.5)
+
+        logger.debug('Updating the database with new values')
+        # update current instance
+        self.episodes = all_episodes
+        self.total_episodes = total
+        self.played = listened_to
+        self.status = f'{percentage}%'
+        self.complete = True if (total == listened_to) else False
+
+        self.session.commit()
+
+    def list_episodes(self):
+        """Displays all of the episodes for the podcast"""
+        print('Valid episodes:')
+        for episode in self.episodes:
+            played = 'Played' if episode.done else '      '
+            print(f' {played} [{episode.id:02d}]: {episode.title}')
 
     def get_episode(self, episode_id):
         """Grabs an episode from the database"""
         logger.debug(f'User requested episode {episode_id}')
-        try:
-            epi = self.session.query(Episode).filter_by(id=episode_id, pod_id=self.id).one()
-            logger.debug(f'Episode {epi.id}: {epi.title}')
-            return epi
-        except NoResultFound:
-            logger.exception(f'User requested episode {episode_id}, which was not valid for this podcast')
-            print(f'Episode: {episode_id} is not a valid')
-            for episode in self.episodes:
-                print(f'[{episode.id}]: {episode.title}')
+        if isinstance(episode_id, int):
+            try:
+                epi = self.session.query(Episode).filter_by(id=episode_id, pod_id=self.id).one()
+                logger.debug(f'Episode {epi.id}: {epi.title}')
+                return epi
+            except NoResultFound as e:
+                logger.exception(f'User requested episode {episode_id}, which was not valid for this podcast')
+                logger.exception(e)
+                self.list_episodes()
+        else:
+            self.list_episodes()
 
-    def get_episodes_from_db(self):
-        """Gets all episodes from the database"""
-        logger.debug(f'Retrieving all episodes from the database for podcast {self.id}')
-        episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
-        return self.episodes.append(episodes)
+    def get_episodes_from_db(self, pod_id=None):
+        """Gets all unplayed episodes from the database"""
+        logger.debug(f'Retrieving all episodes from the database')
+        if pod_id:
+            logger.debug(f'All episodes from Podcast {pod_id}')
+            episodes = self.session.query(Episode).filter(Episode.pod_id == pod_id).all()
+        else:
+            logger.debug('From all from current podcast')
+            episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
+            self.total_episodes = len(episodes)
+
+        return episodes
 
     def add_new_episodes_to_db(self, shows):
         """Add a new episode to the database"""
@@ -147,18 +213,44 @@ class Podcast(object):
                            published=published, summary=sub('<.*?>', '', episode.summary))
             self.session.add(show)
             self.session.commit()
-            self.episodes.append(show)
             logger.debug(f'Added: [{show.id}] {show.title}')
 
-    def get_random_episode(self):
+        self._update_status()
+
+    def get_random_episode(self, pod_id=None):
         """Retrieves a random show from the database"""
-        return choice(self.episodes)
+        if not self.complete:
+            if pod_id:
+                logger.debug(f'Retrieving a random episode for podcast {pod_id}')
+                episodes = self.get_episodes_from_db(pod_id)
+            else:
+                episodes = [episode for episode in self.episodes if episode.done is False]
+
+            episode = choice(episodes)
+            return episode
+        else:
+            logger.debug('There are no more unplayed episodes')
+            print('You have already played all of the episodes!')
+            return None
 
     def mark_episode_done(self, episode):
         """Update an episode as done in the database"""
         logger.debug(f'Marking episode {episode.id} as completed')
         self.session.query(Episode).filter(Episode.id == episode.id).update({'done': True})
         self.session.commit()
+        self._update_status()
+
+    def get_all_podcasts(self):
+        """Returns all available podcasts in the database"""
+        podcasts = self.session.query(Pod).all()
+        return podcasts
+
+    def get_podcast(self, pod_id):
+        """Retrieves the specified podcast from the database"""
+        pod = self.session.query(Pod).filter(Pod.id == pod_id).one()
+        podcast = Podcast(pod.rss)
+        podcast.update()
+        return podcast
 
     @staticmethod
     def email_episode(episode):

@@ -23,11 +23,14 @@ class Pod(Base):
     published = Column(DateTime)
     episodes = relationship('Episode', order_by='Episode.id', back_populates='pod',
                             cascade='all, delete, delete-orphan')
-    caught_up = Column(Boolean, default=False)
+    complete = Column(Boolean, default=False)
+    total_episodes = Column(Integer, default=0)
+    played = Column(Integer, default=0)
+    status = Column(String, default='0 %')
 
     def __repr__(self):
         return f'<Podcast (id={self.id}, title={self.title}, updated={self.published}, episodes={len(self.episodes)},' \
-               f'caught_up={self.caught_up})>'
+               f' status={self.status})>'
 
 
 class Episode(Base):
@@ -45,4 +48,4 @@ class Episode(Base):
 
     def __repr__(self):
         return f'<Episode (id={self.id}, pod_id={self.pod_id}, title={self.title}, duration={self.duration},' \
-               f'done={self.done})>'
+               f' done={self.done})>'
