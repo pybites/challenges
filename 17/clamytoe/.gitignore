@@ -1,6 +1,9 @@
 .idea
+*.json
+*.pyc
 *.sqlite
 *__pycache__
+gmail_test.py
 tests
 db
 logs
