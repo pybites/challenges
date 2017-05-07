@@ -1,4 +1,5 @@
 import os
+import sys
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -11,9 +12,11 @@ DB_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'databa
 
 class PodStore:
 
-    def __init__(self, feed):
+    def __init__(self, feed, dropall=False):
         db = os.path.join(DB_DIR, get_db_name(feed))
         engine = create_engine('sqlite:///{}.db'.format(db))
+        if dropall:
+            Base.metadata.drop_all(engine)
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         self.session = Session()
