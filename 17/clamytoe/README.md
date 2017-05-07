@@ -78,3 +78,8 @@ The use of the `random` argument will randomly select and unplayed episode from 
 This option would be perfect for setting the script into your cron and setting it to download a random episode automatically for you.
 
 ![random](img/random.png)
+
+### Podcasts Episodes
+The episodes are saved to your account's Music folder under the Podcasts directory.
+
+![enjoy](img/enjoy.png)
