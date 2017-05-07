@@ -1,9 +1,13 @@
 import logging
+import os
+
 from random import choice
 from re import sub
 from sys import exit
 
+import click
 import feedparser
+
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -13,30 +17,31 @@ from podcaster.models import Base, Episode, Pod
 from podcaster.utils.utils import check_dir, format_date, format_duration, format_link
 
 # setup some logging
+# TODO: Make log file directory configurable
 check_dir('logs')
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+# logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
 file_handler = logging.FileHandler('logs/podcaster.log')
-# file_handler.setLevel(logging.ERROR)
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
-# comment these lines if the logging is too loud to the screen
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-logger.addHandler(stream_handler)
+
+# uncomment these lines if to see debug messages in the terminal
+# stream_handler = logging.StreamHandler()
+# stream_handler.setFormatter(formatter)
+# logger.addHandler(stream_handler)
 
 
 class Podcast(object):
     def __init__(self, rss):
         """Constructor requires the url to the rss feed"""
+        # TODO: Make database location configurable
         check_dir('.podcaster')
         engine = create_engine('sqlite:///.podcaster/podcaster_db.sqlite')
-        # Base.metadata.drop_all(engine)
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         self.session = Session()
@@ -64,52 +69,72 @@ class Podcast(object):
                 logger.debug('Found podcast in the database')
                 self._update_from_db(podcast)
 
+        if len(self.episodes) < 1 and self.rss is not None:
+            self.update()
+
     def update(self):
         """Internal method for retrieving the rss feed"""
-        logger.debug(f'Retrieving: {self.rss}')
-        response = feedparser.parse(self.rss)
+        if self.rss:
+            click.secho('DOWNLOADING FEED', blink=True, bold=True)
+            logger.debug(f'Retrieving: {self.rss}')
+            response = feedparser.parse(self.rss)
 
-        if response.status == 200:
-            self.title = response.feed.title
-            self.subtitle = response.feed.subtitle
-            self.link = response.feed.link
-            self.author = response.feed.author_detail.name
-            self.email = response.feed.author_detail.email
-            self.image = response.feed.image.href
-            self.summary = sub('\w(\s{2,})\w', '', response.feed.summary)
-            self.published = format_date(response.feed.published_parsed)
-            shows = response.entries
-            logger.debug(f'Shows Available: {len(shows)}')
+            if response.status == 200:
+                self.title = response.feed.title
+                raw_sub = response.feed.subtitle
+                subtitle = self._clean_up(raw_sub)
+                self.subtitle = subtitle
+                self.link = response.feed.link
+                self.author = response.feed.author_detail.name
+                self.email = response.feed.author_detail.email
+                self.image = response.feed.image.href
+                raw_sum = response.feed.summary
+                summary = self._clean_up(raw_sum)
+                self.summary = summary
+                self.published = format_date(response.feed.published_parsed)
+                shows = response.entries
+                logger.debug(f'Shows Available: {len(shows)}')
 
-            try:
-                logger.debug('Attempting to locate podcast feed in db:')
-                pod = self.session.query(Pod).filter(Pod.rss == self.rss).one()
-                self.id = pod.id
-                logger.debug(f'Found Pod ID: {self.id}')
+                try:
+                    logger.debug('Attempting to locate podcast feed in db:')
+                    pod = self.session.query(Pod).filter(Pod.rss == self.rss).one()
+                    self.id = pod.id
+                    logger.debug(f'Found Pod ID: {self.id}')
 
-                if pod.published != self.published:
-                    logger.debug('Feed is newer than what is in database, updating')
-                    self._update_pod(self.published)
-                    episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
-                    new_shows = dict((k, shows[k]) for k in shows.keys() if k not in episodes)
-                    logger.debug(f'Found {len(new_shows)} new shows')
-                    self.add_new_episodes_to_db(new_shows)
-                else:
-                    logger.debug(f'Populating episodes from db')
-                    episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
-                    if episodes:
-                        self._update_status()
+                    if pod.published != self.published:
+                        logger.debug('Feed is newer than what is in database, updating')
+                        self._update_pod(self.published)
+                        episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
+                        new_shows = dict((k, shows[k]) for k in shows.keys() if k not in episodes)
+                        logger.debug(f'Found {len(new_shows)} new shows')
+                        self.add_new_episodes_to_db(new_shows)
                     else:
-                        logger.debug(f'Podcast {self.id} exists in database, but has no episodes. Will add them now')
-                        self.add_new_episodes_to_db(shows)
-            except NoResultFound:
-                logger.debug('Podcast not found, adding it:')
-                self._add_pod()
-                self.add_new_episodes_to_db(shows)
+                        logger.debug(f'Populating episodes from db')
+                        episodes = self.session.query(Episode).filter(Episode.pod_id == self.id).all()
+                        if episodes:
+                            self._update_status()
+                        else:
+                            logger.debug(f'Podcast {self.id} exists in database, but has no episodes. Adding them now')
+                            self.add_new_episodes_to_db(shows)
+                except NoResultFound:
+                    logger.debug('Podcast not found, adding it:')
+                    self._add_pod()
+                    self.add_new_episodes_to_db(shows)
+            else:
+                # TODO: Handle other return codes from server
+                logger.error('There was a error retrieving the rss feed')
+                exit(1)
         else:
-            # TODO: Handle other return codes from server
-            logger.error('There was a error retrieving the rss feed')
-            exit(1)
+            logger.debug('Attempted to update dummy podcast object')
+            click.echo('You can not update the dummy object')
+
+    @staticmethod
+    def _clean_up(block_text):
+        """Takes the given block of text and cleans it up"""
+        clean = sub('\w(\s{2,})\w', '', block_text)
+        clean = sub(' +', ' ', clean)
+        clean = sub('\n+ ', '\n', clean)
+        return clean
 
     def _update_from_db(self, podcast):
         """Update podcast information from existing entries in the database"""
@@ -134,8 +159,10 @@ class Podcast(object):
         """Add new podcast to the database"""
         logger.debug(f'Adding new podcast from {self.rss}')
         published = self.published
-        pod = Pod(title=self.title, subtitle=self.subtitle, link=self.link, rss=self.rss, author=self.author,
-                  email=self.email, image=self.image, summary=self.summary, published=published)
+        subtitle = self._clean_up(self.subtitle)
+        summary = self._clean_up(self.summary)
+        pod = Pod(title=self.title, subtitle=subtitle, link=self.link, rss=self.rss, author=self.author,
+                  email=self.email, image=self.image, summary=summary, published=published)
         self.session.add(pod)
         self.session.commit()
         self.id = pod.id
@@ -170,7 +197,10 @@ class Podcast(object):
         print('Valid episodes:')
         for episode in self.episodes:
             played = 'Played' if episode.done else '      '
-            print(f' {played} [{episode.id:02d}]: {episode.title}')
+            click.secho(f' {played} ', fg='green', bg='black', nl=False)
+            click.secho(f'[{episode.id:02d}]', fg='magenta', bg='black', nl=False)
+            click.secho(': ', fg='green', bg='black', nl=False)
+            click.secho(f'{episode.title}', fg='white', bg='black', nl=True)
 
     def get_episode(self, episode_id):
         """Grabs an episode from the database"""
@@ -203,35 +233,38 @@ class Podcast(object):
     def add_new_episodes_to_db(self, shows):
         """Add a new episode to the database"""
         logger.debug(f'Adding {len(shows)} to the database')
-        for episode in shows:
-            # remove extra parameters from file link if they exist
-            file_link = format_link(episode.links[1].href)
-            duration_time = format_duration(episode.itunes_duration)
-            published = format_date(episode.published_parsed)
 
-            show = Episode(pod_id=self.id, title=episode.title, file=file_link, duration=duration_time,
-                           published=published, summary=sub('<.*?>', '', episode.summary))
-            self.session.add(show)
-            self.session.commit()
-            logger.debug(f'Added: [{show.id}] {show.title}')
+        with click.progressbar(shows, label="Adding episodes to database") as bar:
+            for episode in bar:
+                # remove extra parameters from file link if they exist
+                file_link = format_link(episode.links[1].href)
+                duration_time = format_duration(episode.itunes_duration)
+                published = format_date(episode.published_parsed)
+
+                show = Episode(pod_id=self.id, title=episode.title, file=file_link, duration=duration_time,
+                               published=published, summary=sub('<.*?>', '', episode.summary))
+                self.session.add(show)
+                self.session.commit()
+                logger.debug(f'Added: [{show.id}] {show.title}')
 
         self._update_status()
 
     def get_random_episode(self, pod_id=None):
         """Retrieves a random show from the database"""
-        if not self.complete:
-            if pod_id:
-                logger.debug(f'Retrieving a random episode for podcast {pod_id}')
-                episodes = self.get_episodes_from_db(pod_id)
-            else:
-                episodes = [episode for episode in self.episodes if episode.done is False]
+        if self.rss:
+            if not self.complete:
+                if pod_id:
+                    logger.debug(f'Retrieving a random episode for podcast {pod_id}')
+                    episodes = self.get_episodes_from_db(pod_id)
+                else:
+                    episodes = [episode for episode in self.episodes if episode.done is False]
 
-            episode = choice(episodes)
-            return episode
-        else:
-            logger.debug('There are no more unplayed episodes')
-            print('You have already played all of the episodes!')
-            return None
+                episode = choice(episodes)
+                return episode
+            else:
+                logger.debug('There are no more unplayed episodes')
+                print('You have already played all of the episodes!')
+                return None
 
     def mark_episode_done(self, episode):
         """Update an episode as done in the database"""
@@ -253,12 +286,26 @@ class Podcast(object):
         return podcast
 
     @staticmethod
+    def download_episode(episode):
+        """Download an episode"""
+        episodes_dir = 'episodes'
+        check_dir(episodes_dir)
+        link = episode.file
+        mp3 = link.split('/')[-1]
+        mp3_path = os.path.join(episodes_dir, mp3)
+        cmd = f'wget -c {link} -O {mp3_path}'
+
+        # I tried doing this withing Python, but couldn't get a progress bar working
+        os.system(cmd)
+
+    @staticmethod
     def email_episode(episode):
         """Email the selected episode"""
         # TODO: Setup email handler
         # could use os.environ to retrieve credentials
         logger.debug(f'Attempting to mail episode {episode}')
-        pass
+        click.secho('Emailing episodes is not implemented yet', fg='red', bold=True)
 
     def __repr__(self):
-        return f'Podcast "{self.title}" with {len(self.episodes)} episodes>'
+        return f'<Podcast (id={self.id}, title={self.title}, updated={self.published}, episodes={len(self.episodes)},' \
+               f' status={self.status})>'
