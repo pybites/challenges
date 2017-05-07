@@ -16,15 +16,25 @@ from sqlalchemy.orm.exc import NoResultFound
 from podcaster.models import Base, Episode, Pod
 from podcaster.utils.utils import check_dir, format_date, format_duration, format_link
 
+USER_HOME = os.path.expanduser('~')
+PODCASTER_DIR = os.path.join(USER_HOME, '.podcaster')
+LOGS_DIR = os.path.join(PODCASTER_DIR, 'logs')
+LOG_FILE = os.path.join(LOGS_DIR, 'podcaster.log')
+MUSIC_DIR = os.path.join(USER_HOME, 'Music')
+EPISODES_DIR = os.path.join(MUSIC_DIR, 'Podcasts')
+DATABASE = os.path.join(PODCASTER_DIR, 'podcaster_db.sqlite')
+
+check_dir(PODCASTER_DIR)
+check_dir(LOGS_DIR)
+
 # setup some logging
-# TODO: Make log file directory configurable
-check_dir('logs')
+LOGS = os.path.join(LOGS_DIR, LOG_FILE)
 logger = logging.getLogger(__name__)
 # logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
-file_handler = logging.FileHandler('logs/podcaster.log')
+file_handler = logging.FileHandler(LOG_FILE)
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -39,9 +49,8 @@ logger.addHandler(file_handler)
 class Podcast(object):
     def __init__(self, rss):
         """Constructor requires the url to the rss feed"""
-        # TODO: Make database location configurable
-        check_dir('.podcaster')
-        engine = create_engine('sqlite:///.podcaster/podcaster_db.sqlite')
+        check_dir(PODCASTER_DIR)
+        engine = create_engine(f'sqlite:///{DATABASE}')
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         self.session = Session()
@@ -75,7 +84,8 @@ class Podcast(object):
     def update(self):
         """Internal method for retrieving the rss feed"""
         if self.rss:
-            click.secho('DOWNLOADING FEED', blink=True, bold=True)
+            click.secho('DOWNLOADING FEED:', blink=True, nl=False)
+            click.secho(f'{self.rss}', bold=True)
             logger.debug(f'Retrieving: {self.rss}')
             response = feedparser.parse(self.rss)
 
@@ -288,11 +298,10 @@ class Podcast(object):
     @staticmethod
     def download_episode(episode):
         """Download an episode"""
-        episodes_dir = 'episodes'
-        check_dir(episodes_dir)
+        check_dir(EPISODES_DIR)
         link = episode.file
         mp3 = link.split('/')[-1]
-        mp3_path = os.path.join(episodes_dir, mp3)
+        mp3_path = os.path.join(EPISODES_DIR, mp3)
         cmd = f'wget -c {link} -O {mp3_path}'
 
         # I tried doing this withing Python, but couldn't get a progress bar working

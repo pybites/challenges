@@ -91,7 +91,7 @@ def episodes(podcast_id, eid, download):
                     else:
                         click.secho(f'{eid} is not a valid Episode ID!'.upper(), fg='red', bold=True)
                 else:
-                     selected.list_episodes()
+                    selected.list_episodes()
 
 
 @main.command()
@@ -173,11 +173,10 @@ def check_pid(pid):
 
 
 def empty_message():
-        click.secho('There are no podcasts in the database!'.upper(), fg='red', bold=True)
-        click.echo('Here are some good ones to check out:')
-        for feed in FEEDS:
-            click.echo('  ' + feed)
-        exit(0)
+    click.secho('There are no podcasts in the database!'.upper(), fg='red', bold=True)
+    click.secho('Check the help message for further details: ', nl=False)
+    click.secho(' --help ', fg='cyan', bold=True)
+    exit(0)
 
 
 if __name__ == '__main__':
