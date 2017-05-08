@@ -25,15 +25,17 @@ The `episodes` argument is used to list all of the episodes that are available f
 
 ![episodes](img/episodes.png)
 
-For example `episodes 1` will list all of the available podcasts.
+For example `episodes 1` will list all of the available podcasts. Not shown in the image, the space to the left of the podcast ID displays **Played** if the episode has already been downloaded.
 
-![episode-list](img/episodes_list.png) 
+![episode-list](img/episodes_list.png)
 
 If you desire further details about an episode, you can additionally specify it by its Episode ID.
 
 `episodes 1 --eid 10 `
 
 `episodes 1 -e 10`
+
+The extra information includes a more in depth summary of the episode, its duration, if it's been played, and at the end the **url** for the actual file.
 
 ![episode-detail](img/episode_detail.png)
 
@@ -50,9 +52,11 @@ If your download is interrupted or you quit it for whatever reason, when you att
 #### podcasts
 The `podcasts` argument will list all of the podcasts that you have entered into the database. If none exists it will let you know.
 
+The podcast ID, date last updated, how many episodes are available, the title, and subtitle of the podcast are displayed.
+
 ![podcasts](img/podcasts.png)
 
-You can get further detail about the podcast by specifying it by it's Podcast ID.
+You can get further details about the podcast by specifying it's Podcast ID. This will include the author's name, their email address, a complete summary, and your progress status of how many episodes you've already downloaded.
 
 `podcasts -p 1`
 
@@ -75,7 +79,7 @@ I've provided some preloaded podcasts for ease of use. You have the option of ad
 
 #### random
 The use of the `random` argument will randomly select and unplayed episode from all of the available podcasts and download it for you. Once the download completes, that episode is marked off as having been played.
- 
+
 This option would be perfect for creating an entry into your cron and setting it to download a random episode automatically for you. Check out this [CronHowTo](https://help.ubuntu.com/community/CronHowto) if you need a cron refresher.
 
 ![random](img/random.png)
