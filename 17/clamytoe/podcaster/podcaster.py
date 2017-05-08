@@ -302,7 +302,7 @@ class Podcast(object):
         link = episode.file
         mp3 = link.split('/')[-1]
         mp3_path = os.path.join(EPISODES_DIR, mp3)
-        cmd = f'wget -c {link} -O {mp3_path}'
+        cmd = f'wget --no-verbose --show-progress -c {link} -O {mp3_path}'
 
         # I tried doing this withing Python, but couldn't get a progress bar working
         os.system(cmd)
