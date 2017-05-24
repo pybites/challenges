@@ -14,22 +14,36 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
    1 time
    1 datetime
 """
+import glob
+import re
+from collections import Counter
+
 
 def gen_files(pat):
-    pass
+    yield from glob.glob(pat)
+
 
 def gen_lines(files):
-    pass
+    for filepath in files:
+        with open(filepath, 'r') as file:
+            yield from file.readlines()
+
 
 def gen_grep(lines, pattern):
-    pass
+    regex = re.compile(pattern)
+    for line in lines:
+        if regex.match(line):
+            yield regex.sub("", line).strip()
+
 
 def gen_count(lines):
-    pass
-
+    yield from sorted(Counter(lines).items(), key=lambda pair: (pair[1], pair[0]), reverse=True)
 
 if __name__ == "__main__":
     # call the generators, passing one to the other
     files = gen_files('../*/*.py')
     lines = gen_lines(files)
-    # etc
+    imports = gen_grep(lines, "^import")
+    counts = gen_count(imports)
+    for k, v in counts:
+        print(v, k)
