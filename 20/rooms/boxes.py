@@ -21,6 +21,10 @@ class Room(object):
     def __repr__(self):
         return self.door_description
 
+    def add_destination(self, room):
+        if isinstance(room, Room):
+            self.destinations.append(room.door_description)
+
 
 class Actor(object):
     """A non player character or immobile object for the Player to interact with.
