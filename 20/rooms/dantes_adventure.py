@@ -2,6 +2,15 @@ from boxes import Actor, Room, EndActor
 
 
 class Level(object):
+    """Instantiates all the rooms and actors for the game.
+    Must have an EndActor in a reachable Room, with a proper and acquirable item_trigger to win the game
+    After Rooms have been instantiated, 'doors' must be created by using room.add_destination(other_room)
+    
+    Attributes:
+        start: The Room where the Player object is placed at the start of the game
+        rooms: List of Rooms included in this level
+            
+    """
     def __init__(self):
         boss = Actor(dialog='Hello frined!',
                      name="A weird guy that I don't know. He looks friendly.",
@@ -21,8 +30,8 @@ class Level(object):
                         door_description='A place with a strange aura')
         self.end = Room(description='This normal looking room has a weird guy standing against the wall', content=[boss],
                    door_description='The light at the end of the tunnel')
-        self.start.destinations.append(self.alt_room.door_description)
-        self.alt_room.destinations.append(self.start.door_description)
-        self.alt_room.destinations.append(self.end.door_description)
-        self.end.destinations.append(self.alt_room.door_description)
+        self.start.add_destination(self.alt_room)
+        self.alt_room.add_destination(self.start)
+        self.alt_room.add_destination(self.end)
+        self.end.add_destination(self.alt_room)
         self.rooms = [self.start, self.alt_room, self.end]
