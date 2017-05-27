@@ -16,6 +16,20 @@ The game ends when the Player's "win" attribute is set to True.
 
 Items are merely strings of text added to the Player's inventory, which is a list of strings.
 
+How to start the game
+=========
+
+Execute rooms.py with the level.py you created as an argument.
+
+If no argument is provided, rooms.py will try to play the sample level "Dante's Adventure".
+
+How to play
+=========
+
+The actions you can take will be numbered, starting from 1.
+
+Explore the rooms and interact with your environment to win!
+
 Dante's Adventure
 =========
 
