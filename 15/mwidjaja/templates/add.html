@@ -1,0 +1,21 @@
+<!DOCTYPE HTML> 
+<html lang="en">
+<head>
+    <title>Add New Item</title>
+</head>
+<body>
+<form action="/add" method="POST">
+
+      Name: <input type="text" name="item_name"
+                    value="{{ request.form['item_name'] }}">
+
+      Quantity: <input type="text" name="quantity" value="{{
+                    request.form['quantity'] }}">
+
+      Unit Price: <input type="text" name="unit_price" value="{{
+                    request.form['unit_price'] }}">
+
+      <input type="submit">
+    </form>
+</body>
+</html>
