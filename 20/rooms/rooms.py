@@ -1,17 +1,18 @@
 import platform
 import os
+import sys
 from boxes import Player
-import dantes_adventure
 
 """
 Rooms main loop that runs any level
 """
 
 __author__ = "Dante"
-__version__ = "0.3.0"
+__version__ = "0.4"
 
 
 def clear_screen():
+    """ Clears the screen using the correct method for the user's OS """
     if platform.system() == 'Windows':
         os.system('cls')
     else:
@@ -19,6 +20,7 @@ def clear_screen():
 
 
 def print_current_room(r):
+    """ Prints the player's current room description, followed by the contents of said Room, with proper spacing """
     print(r.description)
     print()
     print('-=-')
@@ -35,6 +37,8 @@ def print_current_room(r):
 
 
 def print_targets(targets):
+    """ Prints the player's current possible action targets, including Actors, movement to other Rooms,
+     and inventory checking """
     print('Actions:')
     for k in targets[0]:
         print(f'{k}) {targets[0][k]}')
@@ -46,13 +50,24 @@ def print_targets(targets):
 
 
 def ask_for_command():
+    """ Asks the user to pick an action or exit """
     return input('Choose your action / exit: ')
 
 
 def main():
-    """ Main entry point of the app """
-    map = dantes_adventure.DanteLevel()
-    player = Player(map.start)
+    """ Main entry point of the app, runs level provided as argument in a loop until the player wins """
+    try:
+        level = __import__(sys.argv[1].replace('.py', '')).Level()
+    except IndexError:
+        print('No argument provided, using sample level')
+        input('Press enter to continue...')
+        level = __import__('dantes_adventure').Level()
+    except ModuleNotFoundError:
+        print('Level not found, using sample level')
+        input('Press enter to continue...')
+        level = __import__('dantes_adventure').Level()
+
+    player = Player(level.start)
     clear_screen()
     while not player.win:
         r = player.location
@@ -71,7 +86,7 @@ def main():
             print_current_room(r)
             print_targets(targets)
             command = ask_for_command()
-        player.perform_action(command, map)
+        player.perform_action(command, level)
         print()
         input('Press enter to continue...')
         clear_screen()
