@@ -1,7 +1,7 @@
 from boxes import Actor, Room, EndActor
 
 
-class DanteLevel(object):
+class Level(object):
     def __init__(self):
         boss = Actor(dialog='Hello frined!',
                      name="A weird guy that I don't know. He looks friendly.",
