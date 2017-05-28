@@ -1,120 +1,136 @@
-import argparse
 from datetime import date, timedelta
 import math
+import os
+import sys
+import time
 
+import click
 import schedule
+from twilio.rest import Client
+
+ACCOUNT_SID = (os.environ.get('TWILIO_SID') or
+               sys.exit('need account sid'))
+AUTH_TOKEN = (os.environ.get('TWILIO_TOK') or
+              sys.exit('need auth token'))
+CLIENT = Client(ACCOUNT_SID, AUTH_TOKEN)
+FROM_PHONE = (os.environ.get('TWILIO_PHONE') or
+              sys.exit('need Twilio (verified) phone'))
 
 
 class Resource:
 
-    def __init__(self, title, comments_url, units, day_task, start=None):
+    def __init__(self, title, units, day_task, start=None):
         self.title = title.title()
-        self.comments_url = comments_url
         self.units = int(units)
         self.day_task = int(day_task)
         self.num_days = math.ceil(self.units / self.day_task)
         self.start = start if start else date.today()
         self.end = self.start + timedelta(days=self.num_days)
+        self.tasks = self._get_daily_task()
 
-    def get_daily_task(self):
+    def _get_daily_task(self):
         days = range(1, self.num_days + 1)
         for day in days:
             dt = self.start + timedelta(days=day)
             till = min(day * self.day_task, self.units)
-            # self.unit_name (defined in child) magically works in parent
-            yield '{} -> you will have completed: {} {} ({:.1f}%)'.format(
-                    dt, till, self.unit_name, float(till)/self.units*100)
+            yield '{} goal: reach {} {} ({:.1f}% done)'.format(
+                  dt, till, self.unit_name,
+                  float(till)/self.units*100)
 
     def __str__(self):
         return ('Title: {title}\n'
-                'comments_url: {comments_url}\n'
                 'Planning: {num_days} days ({start} - {end})\n'
-                '{unit_name}: {units} ({day_task} {unit_name}/day)'
-               ).format(title=self.title,
-                        comments_url=self.comments_url,
-                        num_days=self.num_days,
-                        start=self.start,
-                        end=self.end,
-                        unit_name=self.unit_name,
-                        units=self.units,
-                        day_task=self.day_task)
+                'Total: {unit_name}: {units} '
+                '(speed: {day_task} {unit_name}/day)').format(
+                title=self.title,
+                num_days=self.num_days,
+                start=self.start,
+                end=self.end,
+                unit_name=self.unit_name,
+                units=self.units,
+                day_task=self.day_task)
 
 
 class Book(Resource):
 
-    def __init__(self, title, comments_url, units, day_task, start=None):
-        super().__init__(title, comments_url, units, day_task, start)
+    def __init__(self, title, units, day_task, start=None):
+        super().__init__(title, units, day_task, start)
 
-        # cool thing is I define this attribute on child but
-        # can already use (plan for it) in parent!
+        # cool: defined attribute child, but also using it in parent
         self.unit_name = 'pages'
 
 
 class Video(Resource):
 
-    def __init__(self, title, comments_url, units, day_task, start=None, hours=None):
-        '''Default is minutes, but allow hours as optional arg on this child'''
-        units = hours * 60 if hours else units
-        super().__init__(title, comments_url, units, day_task, start)
+    def __init__(self, title, units,
+                 day_task, start=None):
+        super().__init__(title, units, day_task, start)
         self.unit_name = 'minutes'
 
-    # Could write other specialized methods for Video (as opposed to Resource / Book)
+    # future specialized methods ...
 
 
-class Message:
-    def __init__(self, resource, mails):
-        self.res = resource
-        if not isinstance(mails, list):
-            raise TypeError('expecting list of emails')
-        self.mails = list(mails)
+def send_sms(res, task, to_phones):
+    sids = []
+    for phone in to_phones:
+        message = CLIENT.messages.create(
+            from_=FROM_PHONE,
+            to=phone,
+            body=task
+        )
+        sids.append(message.sid)
+    return sids
 
-    def send(self, task):
-        subject = 'New Study Task: {} {} of {}'.format(
-                self.res.day_task, self.res.unit_name, self.res.title)
-        msg = ['Planning:']
-        msg.append(str(self.res))
-        msg.append('Task for today: ')
-        msg.append(task)
-        msg.append('Enjoy!')
-        print()
-        print('Subject: \n{}'.format(subject))
-        print('\nBody: \n{}'.format('\n\n'.join(msg)))
 
-        # TODO mail or SMS even?!
+@click.command()
+@click.option('--resource', help='resource type (book, video)')
+@click.option('--title', help='title of resource')
+@click.option('--total_units',
+              help='total units resource (book = pages, video = min)')
+@click.option('--units_per_day',
+              help='total units (book = pages, video = min) per day')
+@click.option('--start_in_days',
+              help='number of days from now we kick this off (optional)',
+              required=False)
+@click.option('--to_phones', help='list of phone numbers to notify')
+def main(resource, title, total_units,
+         units_per_day, start_in_days, to_phones):
+
+    if start_in_days:
+        start_date = date.today() + timedelta(days=int(start_in_days))
+    else:
+        start_date = date.today()
+
+    to_phones = to_phones.split()
+
+    resource = resource.lower()
+    if resource == 'book':
+        Resource_ = Book
+    elif resource == 'video':
+        Resource_ = Video
+    else:
+        raise ValueError('What resource? I know about Book and Video')
+
+    resource = Resource_(title, total_units,
+                         units_per_day, start=start_date)
+    print(resource)
+
+    def job():
+        try:
+            task = next(resource.tasks)
+        except StopIteration:
+            print('Resource done')
+            sys.exit(0)
+        print(task)
+        # send_sms(resource, task, to_phones)
+
+    # schedule.every().day.at("10:30").do(job)
+    schedule.every(3).minutes.do(job)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 if __name__ == '__main__':
-    '''
-    # Book
-    start = date.today() + timedelta(days=2)
-    b = Book('superintelligence', 326, 10, start=start)
-    print(b)
-    for i in b.get_daily_task():
-        print(i)
-
-    print()
-
-    # Video
-    v = Video('data analysis', 0, 18, start=start, hours=3.4)
-    print(v)
-    for j in v.get_daily_task():
-        print(j)
-    '''
-
-    # TODO: argparse to retrieve title, book/video, units (pages/min), emails
-
-    start = date.today() + timedelta(days=2)
-    resource = Book('superintelligence', 'http://osn.some.url.com', 326, 10, start=start)
-    task_gen = resource.get_daily_task()
-
-    mails = ['bob@gmail.com']
-    m = Message(resource, mails)
-
-    def job():
-        task = next(task_gen)
-        m.send(task)
-
-    #schedule.every().day.at("10:30").do(job)
-    for i in range(5):
-        job()
-        print('---\n')
+    main()
