@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description"
+          content="PyBites challenge 16, playing around with API's.">
+    <meta name="author" content="Martin Uribe">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+    {% if gh_user %}
+    <title>GitHub Profiler | {{ gh_user.name }}</title>
+    {% else %}
+    <title>GitHub Profiler</title>
+    {% endif %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset-fonts-grids.css') }}"
+          media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resume.css') }}" media="all"/>
+
+</head>
+<body>
+<span class="spacer">&nbsp;</span>
+<form action="/user" method="post">
+    <span>GitHub User:</span>
+    <input type="text" name="username" placeholder="github account">
+    <button type="submit">Search</button>
+    <button type="reset">Reset</button>
+</form>
+{% if error %}
+<div class="error"><h1>{{ error }}</h1></div>
+{% elif gh_user %}
+<div id="doc2" class="yui-t7">
+    <div id="inner">
+
+        <div id="hd">
+            <div class="yui-gc">
+                <div class="yui-u first">
+                    {% if gh_user.name %}<h1>{{ gh_user.name }}</h1>{% endif %}
+                    <div class="avatar"><img src="{{ gh_user.avatar_url }}" alt="Avatar"/></div>
+                    {% if gh_user.location %}<h2>{{ gh_user.location }}</h2>{% endif %}
+                </div>
+
+                <div class="yui-u">
+                    <div class="contact-info">
+                        <h3><a id="gh" href="{{ gh_user.html_url }}">GitHub Profile</a></h3>
+                        {% if gh_user.email %}
+                        <h3><a href="mailto:{{ gh_user.email }}">{{ gh_user.email }}</a></h3>
+                        {% else %}
+                        <h3>EMAIL: Not Public</h3>
+                        {% endif %}
+                        {% if gh_user.company %}
+                        <h3>{{ gh_user.company }}</h3>
+                        {% else %}
+                        <h3>Company Uknown</h3>
+                        {% endif %}
+                        {% if gh_user.blog %}
+                        <h3><a href="{{ gh_user.blog }}">{{ gh_user.blog }}</a></h3>
+                        {% endif %}
+                    </div><!--// .contact-info -->
+                </div>
+            </div><!--// .yui-gc -->
+        </div><!--// hd -->
+
+        <div id="bd">
+            <div id="yui-main">
+                <div class="yui-b">
+                    {% if gh_user.bio %}
+                    <div class="yui-gf">
+                        <div class="yui-u first">
+                            <h2>Bio</h2>
+                        </div>
+                        <div class="yui-u">
+                            <p class="enlarge">
+                                {{ gh_user.bio }}
+                            </p>
+                        </div>
+                    </div><!--// .yui-gf -->
+                    {% endif %}
+
+                    <div class="yui-gf">
+                        <div class="yui-u first">
+                            <h2>Repos</h2>
+                        </div>
+                        <div class="yui-u">
+                            {% if gh_repos %}
+                            {% for repo in gh_repos %}
+
+                            <div {% if repo == gh_repos[-1] %} class="job last"{% else %} class="job"{% endif %}>
+                                <h2><a href="{{ repo.html_url }}">{{ repo.name }}</a>
+                                    {% if repo.fork %} <span class="fork"> (fork)</span>{% endif %}
+                                </h2>
+                                <h3>{% if repo.language %}<strong>{{ repo.language }}</strong>{% endif %}</h3>
+                                <h4>{{ repo.created_at[:10] }}/{{ repo.pushed_at[:10] }}</h4>
+                                {% if repo.description %}<p>{{ repo.description }}</p>{% endif %}
+                            </div>
+
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div><!--// .yui-gf -->
+
+                    <div class="yui-gf last">
+                        <div class="yui-u first">
+                            <h2>Gists</h2>
+                        </div>
+                        <div class="yui-u">
+                            {% if gh_gists %}
+                            {% for gist in gh_gists %}
+                            <div class="project">
+                                <h2><a href="{{ gist.html_url }}">{{ gist.filename }}</a></h2>
+                                <p>{{ gist.description }}</p>
+                            </div>
+
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div><!--// .yui-gf -->
+
+
+                </div><!--// .yui-b -->
+            </div><!--// yui-main -->
+        </div><!--// bd -->
+
+        <div id="ft">
+            <p>{% if gh_user.name %}{{ gh_user.name }}{% endif %}
+                {% if gh_user.email %} &mdash; <a href="mailto:{{ gh_user.email }}">{{ gh_user.email }}</a>{% endif %}
+            </p>
+        </div><!--// footer -->
+
+    </div><!-- // inner -->
+
+
+</div><!--// doc -->
+{% endif %}
+<div id="footer"
+    <p><a href="https://github.com/clamytoe">Copyright &copy; 2017 Martin Uribe</a> -
+        <a href="https://twitter.com/mohhinder">@mohhinder</a></p>
+</div>
+<!-- page template based on: http://sampleresumetemplate.net/srt-resume.html //-->
+</body>
+</html>
+
