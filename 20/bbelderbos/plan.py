@@ -114,6 +114,7 @@ def main(resource, title, total_units,
     resource = Resource_(title, total_units,
                          units_per_day, start=start_date)
     print(resource)
+    print()
 
     def job():
         try:
@@ -122,10 +123,11 @@ def main(resource, title, total_units,
             print('Resource done')
             sys.exit(0)
         print(task)
-        # send_sms(resource, task, to_phones)
+        send_sms(resource, task, to_phones)
 
-    # schedule.every().day.at("10:30").do(job)
-    schedule.every(3).minutes.do(job)
+    schedule.every().day.at("8:00").do(job)
+    # replace line for quick test
+    schedule.every(1).minutes.do(job)
 
     while True:
         schedule.run_pending()
