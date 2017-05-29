@@ -3,8 +3,8 @@ class Room(object):
     """A container for Actors and/or the Player.    
     
     Attributes:
-        destinations: A List of strings to be displayed to the user. 
-        For sanity, destinations may be appended after instancing the Rooms
+        destinations: A dictionary with strings as keys and rooms as values
+        For sanity, destinations may be appended after instancing the Rooms with the add_destination method
         description:  A string describing the room
         content: A list of Actors
         door_description: A string, describing how the user sees this room from other rooms
@@ -106,7 +106,7 @@ class Player(object):
     """A Player character. Moves between Rooms, interacts with Actors and holds items.
 
     Attributes:
-        start_location: A Room object
+        location: A Room object
         win:  A bool, starts at False, is set to True by an Actor, signaling the end of the game
         inventory: A list of strings
     """
@@ -117,40 +117,38 @@ class Player(object):
 
     @property
     def actions_and_moves(self):
-        actions, exits = self.location.possible_actions_and_exits
-        actions.append('Inventory')
-        return self.list_to_dict(actions, 1), self.list_to_dict(exits, 1+len(actions))
+        return {**self.actions, **self.moves}
+
+    @property
+    def actions(self):
+        actions, _ = self.location.possible_actions_and_exits
+        action_dict = {f'{i}) {action}': (action.interact, self) for i, action in enumerate(actions, start=1)}
+        action_dict[f'{len(actions)+1}) Inventory'] = (self.check_inventory, None)
+        return action_dict
+
+    @property
+    def moves(self):
+        _, exits = self.location.possible_actions_and_exits
+        return {f'{i}) {room}': (self.move, self.location.destinations[room]) for i, room in enumerate(exits, start=len(self.actions)+1)}
 
     @staticmethod
     def list_to_dict(l, start):
         return {str(i): a for i, a in enumerate(l, start=start)}
 
-    def perform_action(self, target_number):
-        all_targets = {**self.actions_and_moves[0], **self.actions_and_moves[1]}
-        target = all_targets[target_number]
-        try:
-            return self.move(self.location.destinations[target])
-        except KeyError:
-            pass
-        try:
-            return print(target.interact(self))
-        except AttributeError:
-            pass
-        if target == 'Inventory':
-            return self.check_inventory()
-        raise TypeError('Invalid action, something is wrong')
+    @staticmethod
+    def perform_action(action):
+        f, p = action
+        if not p:
+            return f()
+        return f(p)
 
     def move(self, room):
         if isinstance(room, Room):
             self.location = room
-            print(f'I move into {room.door_description.lower()}')
-            return
+            return f'I move into {room.door_description.lower()}'
         raise TypeError("Can't move to something that is not a Room")
 
     def check_inventory(self):
-        print('In my bag I have:')
         if not self.inventory:
-            print('Nothing...')
-            return
-        for item in self.inventory:
-            print(item)
+            return 'My bag is empty...'
+        return '\n'.join([line for line in ['In my bag I have:'] + self.inventory[:]])

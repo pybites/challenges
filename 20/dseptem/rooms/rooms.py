@@ -8,7 +8,7 @@ Rooms main loop that runs any level
 """
 
 __author__ = "Dante"
-__version__ = "0.4.1"
+__version__ = "0.5"
 
 
 def clear_screen():
@@ -21,10 +21,7 @@ def clear_screen():
 
 def print_current_room(r):
     """ Prints the player's current room description, followed by the contents of said Room, with proper spacing """
-    print(r.description)
-    print()
-    print('-=-')
-    print()
+    print(f'{r.description}\n\n-=-\n')
 
     if len(r.content) > 1:
         print('Here I can see...')
@@ -32,21 +29,19 @@ def print_current_room(r):
             print(a.name)
     elif len(r.content) == 1:
         print(f'Here I see {r.content[0].name.lower()}.\n')
-    else:
-        print()
 
 
-def print_targets(targets):
+def print_targets(actions, moves):
     """ Prints the player's current possible action targets, including Actors, movement to other Rooms,
      and inventory checking """
     print('Actions:')
-    for k in targets[0]:
-        print(f'{k}) {targets[0][k]}')
-    print()
-    print('Exits:')
-    for k in targets[1]:
-        print(f'{k}) {targets[1][k]}')
-    print()
+    for k in actions:
+        print(k)
+    print('\nExits:')
+    for k in moves:
+        print(k)
+    else:
+        print()
 
 
 def ask_for_command():
@@ -68,28 +63,24 @@ def main():
         level = __import__('dantes_adventure').Level()
 
     player = Player(level.start)
-    clear_screen()
+
     while not player.win:
         r = player.location
-        targets = player.actions_and_moves
+        options = {k[0]: k for k in player.actions_and_moves.keys()}
+
+        clear_screen()
         print_current_room(r)
-        print_targets(targets)
+        print_targets(player.actions, player.moves)
 
         command = ask_for_command()
-
-        while command not in targets[0] and command not in targets[1]:
-            print()
-            print('Invalid action, try again.')
+        if command not in options:
+            print('\nInvalid action, try again.')
             input('Press enter to continue...')
-            clear_screen()
-            print_current_room(r)
-            print_targets(targets)
-            command = ask_for_command()
-        print()
-        player.perform_action(command)
-        print()
+            continue
+
+        player_func, param = player.actions_and_moves[options[command]]
+        print(f'\n{player_func()}\n') if not param else print(f'\n{player_func(param)}\n')
         input('Press enter to continue...')
-        clear_screen()
     print('You win!')
 
 if __name__ == "__main__":

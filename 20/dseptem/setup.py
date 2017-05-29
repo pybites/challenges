@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='Rooms',
-    version='0.4.1',
+    version='0.5',
     author='Dante Septem',
     author_email='d.septem@gmail.com',
     packages=['rooms', 'tests'],
