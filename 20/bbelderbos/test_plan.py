@@ -6,7 +6,8 @@ from plan import Book, Video
 
 TODAY = date(2017, 5, 28)
 
-book1 = Book('superintelligence', 328, 10)
+book1 = Book('superintelligence', 328, 10, 
+             start=TODAY)
 book2 = Book('4HWW', 416, 20,
              start=TODAY+timedelta(days=7))
 video1 = Video('Effective Data Analysis Using Python',

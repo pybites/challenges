@@ -15,6 +15,7 @@ AUTH_TOKEN = (os.environ.get('TWILIO_TOK') or
 CLIENT = Client(ACCOUNT_SID, AUTH_TOKEN)
 FROM_PHONE = (os.environ.get('TWILIO_PHONE') or
               sys.exit('need Twilio (verified) phone'))
+SMS_FREQ = 7
 
 
 class Resource:
@@ -70,13 +71,13 @@ class Video(Resource):
     # future specialized methods ...
 
 
-def send_sms(res, task, to_phones):
+def send_sms(msg, to_phones):
     sids = []
     for phone in to_phones:
         message = CLIENT.messages.create(
             from_=FROM_PHONE,
             to=phone,
-            body=task
+            body=msg
         )
         sids.append(message.sid)
     return sids
@@ -101,7 +102,10 @@ def main(resource, title, total_units,
     else:
         start_date = date.today()
 
-    to_phones = to_phones.split()
+    if ' ' in to_phones:
+        to_phones = to_phones.split()
+    else:
+        to_phones = [to_phones]
 
     resource = resource.lower()
     if resource == 'book':
@@ -113,21 +117,32 @@ def main(resource, title, total_units,
 
     resource = Resource_(title, total_units,
                          units_per_day, start=start_date)
-    print(resource)
-    print()
+
+    welcome = 'Welcome to the challenge: \n\n' + str(resource) + '\n\nEnjoy!'
+    print(welcome)
+    send_sms(welcome, to_phones)
+
+    def gen_sms(tasks):
+        tasks = list(tasks)
+        for week, i in enumerate(range(0, len(tasks), SMS_FREQ), 1):
+            yield week, '\n'.join(tasks[i:i+SMS_FREQ])
+
+    sms_msgs = gen_sms(resource.tasks)
 
     def job():
         try:
-            task = next(resource.tasks)
+            week, msg = next(sms_msgs)
+            sms = 'Week {}:\n{}'.format(week, msg)
+            print(sms)
+            send_sms(sms, to_phones)
         except StopIteration:
             print('Resource done')
             sys.exit(0)
-        print(task)
-        send_sms(resource, task, to_phones)
 
-    schedule.every().day.at("8:00").do(job)
-    # replace line for quick test
-    schedule.every(1).minutes.do(job)
+    # test
+    # schedule.every(1).seconds.do(job)
+    # live
+    schedule.every().monday.at("8:00").do(job)
 
     while True:
         schedule.run_pending()
