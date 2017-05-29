@@ -4,7 +4,7 @@ import pytest
 
 from plan import Book, Video
 
-TODAY = date(2017, 5, 28)
+TODAY = date(2017, 5, 29)
 
 book1 = Book('superintelligence', 328, 10, 
              start=TODAY)

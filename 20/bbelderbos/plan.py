@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 import math
 import os
 import sys
@@ -26,14 +26,14 @@ class Resource:
         self.day_task = int(day_task)
         self.num_days = math.ceil(self.units / self.day_task)
         self.start = start if start else date.today()
-        self.end = self.start + timedelta(days=self.num_days)
+        self.end = self.start + timedelta(days=self.num_days-1) 
         self.tasks = self._get_daily_task()
 
     def _get_daily_task(self):
-        days = range(1, self.num_days + 1)
+        days = range(self.num_days)
         for day in days:
             dt = self.start + timedelta(days=day)
-            till = min(day * self.day_task, self.units)
+            till = min((day+1) * self.day_task, self.units)
             yield '{} goal: reach {} {} ({:.1f}% done)'.format(
                   dt, till, self.unit_name,
                   float(till)/self.units*100)
@@ -118,7 +118,7 @@ def main(resource, title, total_units,
     resource = Resource_(title, total_units,
                          units_per_day, start=start_date)
 
-    welcome = 'Welcome to the challenge: \n\n' + str(resource) + '\n\nEnjoy!'
+    welcome = 'Welcome to the {} challenge: \n\n{}\n\nEnjoy!'.format(resource.__class__.__name__, resource)
     print(welcome)
     send_sms(welcome, to_phones)
 
@@ -150,4 +150,9 @@ def main(resource, title, total_units,
 
 
 if __name__ == '__main__':
+
+    if datetime.today().weekday() != 0:
+        print('Run on Monday')
+        sys.exit(1)
+
     main()
