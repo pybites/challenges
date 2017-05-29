@@ -71,8 +71,7 @@ def main():
     clear_screen()
     while not player.win:
         r = player.location
-        targets = player.possible_action_targets
-
+        targets = player.actions_and_moves
         print_current_room(r)
         print_targets(targets)
 
@@ -86,7 +85,8 @@ def main():
             print_current_room(r)
             print_targets(targets)
             command = ask_for_command()
-        player.perform_action(command, level)
+        print()
+        player.perform_action(command)
         print()
         input('Press enter to continue...')
         clear_screen()
