@@ -1,6 +1,8 @@
 import unittest
-from dseptem.rooms import boxes
 
+# https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
+import rooms
+from rooms import boxes
 
 class TestBoxes(unittest.TestCase):
     def setUp(self):

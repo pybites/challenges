@@ -42,3 +42,13 @@ It contains:
 * Two actors
 
 * One item
+
+
+Note PyBites 
+=========
+
+Requires Python 3.6 (uses syntax: {**self.actions, **self.moves} which did not work with < 3.6)
+
+To run tests: 
+
+    $ python -m unittest tests.tests
