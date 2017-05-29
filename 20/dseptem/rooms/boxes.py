@@ -15,7 +15,7 @@ class Room(object):
             self.content = []
         else:
             self.content = content
-        self.destinations = []
+        self.destinations = {}
         self.door_description = door_description
 
     def __repr__(self):
@@ -23,7 +23,11 @@ class Room(object):
 
     def add_destination(self, room):
         if isinstance(room, Room):
-            self.destinations.append(room.door_description)
+            self.destinations[room.door_description] = room
+
+    @property
+    def possible_actions_and_exits(self):
+        return self.content.copy(), self.destinations.copy()
 
 
 class Actor(object):
@@ -112,35 +116,41 @@ class Player(object):
         self.inventory = []
 
     @property
-    def possible_action_targets(self):
-        actions = []
-        exits = []
-        for a in self.location.content:
-            actions.append(a)
-        for e in self.location.destinations:
-            exits.append(e)
+    def actions_and_moves(self):
+        actions, exits = self.location.possible_actions_and_exits
         actions.append('Inventory')
-        return {str(i): a for i, a in enumerate(actions, start=1)}, {str(i): a for i, a in enumerate(exits, start=1+len(self.location.content)+1)}
+        return self.list_to_dict(actions, 1), self.list_to_dict(exits, 1+len(actions))
 
-    def perform_action(self, target_number, level):
-        print()
+    @staticmethod
+    def list_to_dict(l, start):
+        return {str(i): a for i, a in enumerate(l, start=start)}
+
+    def perform_action(self, target_number):
+        all_targets = {**self.actions_and_moves[0], **self.actions_and_moves[1]}
+        target = all_targets[target_number]
         try:
-            target = self.possible_action_targets[0][target_number]
+            return self.move(self.location.destinations[target])
         except KeyError:
-            target = self.possible_action_targets[1][target_number]
-        for r in level.rooms:
-            if target == repr(r):
-                self.location = r
-                print(f'I move into {target.lower()}')
-                return
-        if isinstance(target, Actor):
-            print(target.interact(self))
-        elif target == 'Inventory':
-            print('In my bag I have:')
-            if not self.inventory:
-                print('Nothing...')
-                return
-            for item in self.inventory:
-                print(item)
-        else:
             pass
+        try:
+            return print(target.interact(self))
+        except AttributeError:
+            pass
+        if target == 'Inventory':
+            return self.check_inventory()
+        raise TypeError('Invalid action, something is wrong')
+
+    def move(self, room):
+        if isinstance(room, Room):
+            self.location = room
+            print(f'I move into {room.door_description.lower()}')
+            return
+        raise TypeError("Can't move to something that is not a Room")
+
+    def check_inventory(self):
+        print('In my bag I have:')
+        if not self.inventory:
+            print('Nothing...')
+            return
+        for item in self.inventory:
+            print(item)
