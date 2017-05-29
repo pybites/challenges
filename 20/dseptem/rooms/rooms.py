@@ -8,7 +8,7 @@ Rooms main loop that runs any level
 """
 
 __author__ = "Dante"
-__version__ = "0.4"
+__version__ = "0.4.1"
 
 
 def clear_screen():
