@@ -1,5 +1,5 @@
 import unittest
-from rooms import boxes
+from dseptem.rooms import boxes
 
 
 class TestBoxes(unittest.TestCase):
@@ -11,8 +11,8 @@ class TestBoxes(unittest.TestCase):
                                         item_trigger='Dudething', item_dialog='YOU WIN DUDE', done_dialog='This should not happen')
         self.room_one = boxes.Room('A description', 'A door description', content=[self.actor_win])
         self.room_two = boxes.Room('A second description', 'A second door', content=[self.actor_one])
-        self.room_one.destinations.append(self.room_two)
-        self.room_two.destinations.append(self.room_one)
+        self.room_one.add_destination(self.room_two)
+        self.room_two.add_destination(self.room_one)
         self.player = boxes.Player(self.room_one)
 
     def test_starting_location(self):
