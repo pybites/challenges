@@ -17,7 +17,7 @@ __version__ = "0.4"
 __license__ = "MIT"
 
 app = Flask(__name__)
-app.config.from_object('config')
+app.config.from_object('conf')
 db = SQLAlchemy(app)
 
 
