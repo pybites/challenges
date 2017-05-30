@@ -19,4 +19,4 @@ Features:
 How to start the app
 =========
 
-Simple: python app.py
+Simple: python wattapp.py

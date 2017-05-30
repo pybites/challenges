@@ -6,7 +6,7 @@ setup(
     author='Dante Septem',
     author_email='d.septem@gmail.com',
     packages=['wattapp', 'tests'],
-    scripts=['wattapp/app.py'],
+    scripts=['wattapp/wattapp.py'],
     url='http://127.0.0.1:5000',
     license='LICENSE',
     description='Wattage Consumption Cost Calculator App',
