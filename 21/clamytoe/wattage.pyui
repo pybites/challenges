@@ -1,0 +1,208 @@
+[
+  {
+    "selected" : false,
+    "frame" : "{{0, 0}, {380, 480}}",
+    "class" : "View",
+    "nodes" : [
+      {
+        "selected" : false,
+        "frame" : "{{15, 147}, {347, 202}}",
+        "class" : "View",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "border_width" : 1,
+          "frame" : "{{140, 190}, {100, 100}}",
+          "border_color" : "RGBA(0.883895,0.883895,0.883895,1.000000)",
+          "corner_radius" : 6,
+          "class" : "View",
+          "uuid" : "E3C41504-2FC7-436F-82D5-CFD0E7291EB1",
+          "name" : "bg"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{15, 20}, {181, 32}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{45, 104}, {150, 32}}",
+          "uuid" : "7D6A713E-266F-46C5-BACF-63FE5FDAB5A3",
+          "class" : "Label",
+          "alignment" : "right",
+          "text" : "Watts per hour",
+          "name" : "w_label",
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{204, 20}, {158, 32}}",
+        "class" : "TextField",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "placeholder" : "1500",
+          "font_name" : "<System>",
+          "frame" : "{{20, 104}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "FB8058E1-20E1-47A5-A372-0AC61F3F332D",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "name" : "w_field",
+          "font_size" : 17
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{15, 60}, {181, 32}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "name" : "h_label",
+          "frame" : "{{45, 104}, {150, 32}}",
+          "uuid" : "7D6A713E-266F-46C5-BACF-63FE5FDAB5A3",
+          "class" : "Label",
+          "alignment" : "right",
+          "text" : "Hours used",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{204, 60}, {158, 32}}",
+        "class" : "TextField",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "placeholder" : "3",
+          "font_name" : "<System>",
+          "frame" : "{{20, 104}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "FB8058E1-20E1-47A5-A372-0AC61F3F332D",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "font_size" : 17,
+          "name" : "h_field"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{15, 357}, {350, 57}}",
+        "class" : "Button",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "action" : "how_much",
+          "border_width" : 1,
+          "frame" : "{{80, 104}, {80, 32}}",
+          "title" : "CALCULATE",
+          "class" : "Button",
+          "uuid" : "4826858D-DFC6-4BDB-AF7E-0048EE8AA7D0",
+          "corner_radius" : 5,
+          "border_color" : "RGBA(0.780899,0.780899,0.780899,1.000000)",
+          "font_size" : 40,
+          "name" : "button"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{15, 100}, {181, 32}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{45, 104}, {150, 32}}",
+          "uuid" : "7D6A713E-266F-46C5-BACF-63FE5FDAB5A3",
+          "class" : "Label",
+          "alignment" : "right",
+          "text" : "Cost per kilowatt hour",
+          "name" : "c_label",
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{204, 100}, {158, 32}}",
+        "class" : "TextField",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "placeholder" : "0.11",
+          "font_name" : "<System>",
+          "frame" : "{{20, 104}, {200, 32}}",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "uuid" : "FB8058E1-20E1-47A5-A372-0AC61F3F332D",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "name" : "c_field",
+          "font_size" : 17
+        }
+      },
+      {
+        "selected" : true,
+        "frame" : "{{15, 147}, {347, 95}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "font_name" : "HelveticaNeue",
+          "frame" : "{{115, 224}, {150, 32}}",
+          "uuid" : "440C3C52-51BA-4227-8C7D-9B72CC681492",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "",
+          "name" : "results",
+          "font_size" : 22
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{15, 250}, {350, 99}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "uuid" : "719A980D-8C50-4F06-83F1-DB8F5469FA22",
+          "corner_radius" : 0,
+          "frame" : "{{115, 224}, {150, 32}}",
+          "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "border_width" : 0,
+          "alignment" : "center",
+          "text_color" : "RGBA(1.000000,0.000000,0.000000,1.000000)",
+          "text" : "",
+          "font_name" : "HelveticaNeue-Bold",
+          "class" : "Label",
+          "name" : "total",
+          "font_size" : 40
+        }
+      }
+    ],
+    "attributes" : {
+      "flex" : "",
+      "enabled" : true,
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "name" : "Wattage Calculator",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)"
+    }
+  }
+]
