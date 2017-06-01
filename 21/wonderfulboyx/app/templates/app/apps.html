@@ -1,16 +1,10 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-  <form method="post">
-      {# まずはSelectでなくてもいいから登録できるようにして、フォームとモデルのやりとりを実現させるべき #}
+  {{form.cost}}
+  <form action="/" method="post">
       {% csrf_token %}
-      <select name="d">
-        {% for d in devices %}
-          <option value="{{ d.name }}">
-            {{ d.name }}
-          </option>
-        {% endfor %}
-      </select>
+      {{ form }}
       <button type="submit">Save</button>
   </form>
 {% endblock %}

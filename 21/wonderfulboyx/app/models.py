@@ -5,46 +5,25 @@ class Device(models.Model):
     consumption = models.FloatField()
 
     def __str__(self):
-        return self.name
+        return self.name + "(" + str(self.consumption) +  "W)"
 
-class Person(models.Model):
-    user = models.CharField(max_length=50)
-    device = models.ForeignKey(Device,on_delete=models.CASCADE)
-    time = models.FloatField()
-    cost = models.FloatField()
+class Campany(models.Model):
+    name = models.CharField(max_length=50)
+    charge = models.FloatField()
 
     def __str__(self):
-        return self.user
+        return self.name + "(" + str(self.charge) + "/kWh)"
 
-TITLE_CHOICES = (
-    ('MR', 'Mr.'),
-    ('MRS', 'Mrs.'),
-    ('MS', 'Ms.'),
-)
+class Calc(models.Model):
+    campany = models.ForeignKey(Campany,on_delete=models.CASCADE)
+    device = models.ForeignKey(Device,on_delete=models.CASCADE)
+    time = models.FloatField()
 
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-    title = models.CharField(max_length=3, choices=TITLE_CHOICES)
-    birth_date = models.DateField(blank=True, null=True)
+    @property
+    def cost(self):
+        print('HELLOS')
+        cost = str(float(self.campany.charge)*float(self.device.consumption)*float(self.time))
+        return cost
 
-    def __str__(self):              # __unicode__ on Python 2
-        return self.name
-
-class Book(models.Model):
-    name = models.CharField(max_length=100)
-    authors = models.ManyToManyField(Author)
-
-
-from django import forms
-
-class AuthorForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    title = forms.CharField(
-        max_length=3,
-        widget=forms.Select(choices=TITLE_CHOICES),
-    )
-    birth_date = forms.DateField(required=False)
-
-class BookForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    authors = forms.ModelMultipleChoiceField(queryset=Author.objects.all())
+    def __str__(self):
+        return self.cost

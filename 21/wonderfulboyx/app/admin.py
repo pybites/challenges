@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Device, Person
+from .models import Device, Calc
 
-@admin.register(Device, Person)
+@admin.register(Device, Calc)
 class MyAdmin(admin.ModelAdmin):
     pass

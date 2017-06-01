@@ -1,11 +1,8 @@
 from django import forms
-from .models import Device, Person
+from .models import Calc
 
-class PersonForm(forms.ModelForm):
-
+class CalcForm(forms.ModelForm):
+    # device = forms.ModelChoiceField(queryset=Device.objects.all())
     class Meta:
-        model = Person
-        fields = ('user','device','time','cost')
-
-class NameForm(forms.Form):
-    your_name = forms.CharField(label='Your name', max_length=100)
+         model = Calc
+         fields = ('campany', 'device','time')
