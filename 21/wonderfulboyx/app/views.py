@@ -9,13 +9,15 @@ def apps(request):
         if form.is_valid():
             print('valid')
             form = form.save()
-            render(request, 'app/apps.html',{'form':form})
-            #return render(request, 'app/apps.html',{'form':form})
+            cost = form.cost
         else:
             print('invalid')
     else:
-        form = CalcForm()
-    return render(request, 'app/apps.html',{'form':form})
-
+        cost = 0
+    form = CalcForm()
+    return render(request, 'app/apps.html',{'form':form ,'cost':cost,'calc':Calc.objects.all()})
 # def result(request):
 #     return(request, 'app/result.html')
+
+def show(request):
+    return render(request, 'app/show.html',{'calc':Calc.objects.all()})

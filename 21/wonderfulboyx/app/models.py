@@ -12,18 +12,17 @@ class Campany(models.Model):
     charge = models.FloatField()
 
     def __str__(self):
-        return self.name + "(" + str(self.charge) + "/kWh)"
+        return self.name + "(" + str(self.charge) + "$/kWh)"
 
 class Calc(models.Model):
-    campany = models.ForeignKey(Campany,on_delete=models.CASCADE)
+    company = models.ForeignKey(Campany,on_delete=models.CASCADE)
     device = models.ForeignKey(Device,on_delete=models.CASCADE)
     time = models.FloatField()
 
     @property
     def cost(self):
-        print('HELLOS')
-        cost = str(float(self.campany.charge)*float(self.device.consumption)*float(self.time))
+        cost = str(float(self.company.charge)*float(self.device.consumption)/1000*float(self.time))
         return cost
 
     def __str__(self):
-        return self.cost
+        return self.cost+'$'

@@ -4,7 +4,13 @@
   {{form.cost}}
   <form action="/" method="post">
       {% csrf_token %}
-      {{ form }}
-      <button type="submit">Save</button>
+      {{ form.as_p }}
+      <button type="submit">calculate</button>
   </form>
+  <p>
+    cost = {{cost}} $
+  </p>
+  <p>
+    <a href="{% url 'show' %}">show history</a>
+  </p>
 {% endblock %}
