@@ -58,7 +58,7 @@ def how_much(sender):
 	total_decimal = D(str(total))
 	total_cost = total_decimal.quantize(cent, rounding=decimal.ROUND_UP)
 	
-	results.text = '{} kWh per hour\n{} kWh per day\n{} kWh per month'.format(w_hour, k_hours, kWh)
+	results.text = '{0:.3f} kWh per hour\n{1:.2f} kWh per day\n{2:.2f} kWh per month'.format(w_hour, k_hours, kWh)
 	t_label.text = '${}'.format(total_cost)
 
 def main():
