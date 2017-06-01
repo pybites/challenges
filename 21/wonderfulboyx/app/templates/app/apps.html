@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <form method="post">
+      {# まずはSelectでなくてもいいから登録できるようにして、フォームとモデルのやりとりを実現させるべき #}
+      {% csrf_token %}
+      <select name="d">
+        {% for d in devices %}
+          <option value="{{ d.name }}">
+            {{ d.name }}
+          </option>
+        {% endfor %}
+      </select>
+      <button type="submit">Save</button>
+  </form>
+{% endblock %}
