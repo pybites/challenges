@@ -7,4 +7,5 @@
 **config.py
 **.cache
 **sqlite
+**sqlite3
 .idea
