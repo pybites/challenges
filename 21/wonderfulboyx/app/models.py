@@ -7,7 +7,7 @@ class Device(models.Model):
     def __str__(self):
         return self.name + "(" + str(self.consumption) +  "W)"
 
-class Campany(models.Model):
+class Company(models.Model):
     name = models.CharField(max_length=50)
     charge = models.FloatField()
 
@@ -15,7 +15,7 @@ class Campany(models.Model):
         return self.name + "(" + str(self.charge) + "$/kWh)"
 
 class Calc(models.Model):
-    company = models.ForeignKey(Campany,on_delete=models.CASCADE)
+    company = models.ForeignKey(Company,on_delete=models.CASCADE)
     device = models.ForeignKey(Device,on_delete=models.CASCADE)
     time = models.FloatField()
 
