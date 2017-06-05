@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+
 from .forms import *
 
 def create_company(request):
@@ -28,6 +29,7 @@ def apps(request):
         cost = 0
     form = CalcForm()
     return render(request, 'app/apps.html',{'form':form ,'cost':cost})
+
 
 def show(request):
     return render(request, 'app/show.html',{'calc':Calc.objects.all()})
