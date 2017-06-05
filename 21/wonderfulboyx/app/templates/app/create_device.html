@@ -10,12 +10,12 @@
   <table class="table">
     <tr>
       <th>name</th>
-      <th>Charge(/kWh):</th>
+      <th>consumption(W)</th>
     </tr>
     {% for d in device %}
       <tr>
         <td>{{d.name}}</td>
-        <td>{{d.device}}</td>
+        <td>{{d.consumption}}</td>
       </tr>
     {% endfor %}
   </table>
