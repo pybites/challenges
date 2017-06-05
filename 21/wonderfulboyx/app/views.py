@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import *
 from .forms import *
 
-
 def create_company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
