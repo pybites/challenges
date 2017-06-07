@@ -7,7 +7,13 @@ class Device(models.Model):
     def __str__(self):
         return self.name + "(" + str(self.consumption) +  "W)"
 
+<<<<<<< HEAD
 class Company(models.Model):
+=======
+
+class Company(models.Model):
+
+>>>>>>> upstream/community
     name = models.CharField(max_length=50)
     charge = models.FloatField()
 

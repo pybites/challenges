@@ -2,5 +2,9 @@
 *~
 __pycache__
 myvenv
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/community
 /static
 .DS_Store

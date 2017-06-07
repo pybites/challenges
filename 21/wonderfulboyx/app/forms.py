@@ -1,5 +1,9 @@
 from django.utils.translation import ugettext_lazy as _
 from django import forms
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/community
 from .models import Calc, Company, Device
 
 class CalcForm(forms.ModelForm):

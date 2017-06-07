@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 Django==1.11.2
 pytz==2017.2
+=======
+
+Django==1.11.2
+pytz==2017.2
+>>>>>>> upstream/community

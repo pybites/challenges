@@ -1,0 +1,28 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Wattage Consumption Cost</h1>
+<form action="" method="post" name="wcc">
+    {{ form.hidden_tag() }}
+    <p>
+        Wattage consumption of the device:<br>
+        {{ form.consumption(size=80) }}<br>
+    </p>
+    <br>
+    <p>
+        Hours the device is on:<br>
+        {{ form.hours(size=80) }}<br>
+    </p>
+    <br>
+    <p>
+        Cost per kW/h consumed:<br>
+        {{ form.cost_per_kwh(size=80) }}<br>
+    </p>
+    <br>
+    <p><input type="submit" value="Calculate Cost"></p>
+</form>
+<form action="/history" method="get">
+    <input type="submit" value="History"/>
+</form>
+{% endblock %}
