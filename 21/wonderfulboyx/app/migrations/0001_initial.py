@@ -6,7 +6,10 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/community
 class Migration(migrations.Migration):
 
     initial = True
@@ -16,7 +19,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/community
+=======
+
+>>>>>>> 76fd51af860d509e78465a3f06371c03cd114e1a
             name='Calc',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -39,7 +49,14 @@ class Migration(migrations.Migration):
                 ('consumption', models.FloatField()),
             ],
         ),
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/community
+=======
+
+>>>>>>> 76fd51af860d509e78465a3f06371c03cd114e1a
         migrations.AddField(
             model_name='calc',
             name='company',
@@ -50,5 +67,12 @@ class Migration(migrations.Migration):
             name='device',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.Device'),
         ),
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/community
+=======
+
+>>>>>>> 76fd51af860d509e78465a3f06371c03cd114e1a
     ]
