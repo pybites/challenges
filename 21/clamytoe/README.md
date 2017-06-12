@@ -7,13 +7,13 @@
 [![License][license-image]][license-url]
 [![Twitter][twitter-image]][twitter-url]
 
-Since now everyone has an iPhone or Pythonista 3, here are some screenshots of it.
+Since not everyone has an iPhone or Pythonista 3, here are some screenshots of it.
 
 ![](ui.png)
 
 ## Installation
 
-Easiest way would be to navigate to the [github repo page](https://github.com/clamytoe/Wattage-Calculator) and copy the source code and paste it into a new file. Apples doesn't make it easy to import scripts. You could also, write your own script within Pythonista to download the files, which might be a better option, just not as easy.
+Easiest way would be to navigate to the [github repo page](https://github.com/clamytoe/Wattage-Calculator) and copy the source code and paste it into a new file. Apple doesn't make it easy to import scripts. You could also, write your own script within Pythonista to download the files, which might be a better option, just not as easy.
 
 ## Usage example
 

@@ -2,6 +2,13 @@
 *~
 __pycache__
 myvenv
-db.sqlite3
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/community
+=======
+
+>>>>>>> 76fd51af860d509e78465a3f06371c03cd114e1a
 /static
 .DS_Store
