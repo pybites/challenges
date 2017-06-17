@@ -1,18 +1,19 @@
 In exchange for PR / review, please submit some feedback so we can adjust/improve where necessary. 
 
-This meta data (anonymous averages) will also help others considering taking these challenges. 
+This meta data (from which we will calculate anonymous averages) also helps others considering taking these challenges. 
 
-Thanks for your input! @bbelderbos and @hobojoe1848 from @pybites
+Thanks for your input! Julian + Bob from @pybites
 
-### Difficulty level
+(mark one x per question)
+
+### Difficulty level:
 - [ ] 1) too easy
 - [ ] 2) doable, pretty easy
 - [ ] 3) doable, not too easy
 - [ ] 4) challenging
-- [ ] 5) very challenging
-- [ ] 6) too difficult
+- [ ] 5) very challenging, almost too difficult
 
- ### Time spent
+ ### Estimated time spent:
 - [ ] 1) \< 1 hour
 - [ ] 2) 1-2 hour
 - [ ] 3) 2-4 hours
@@ -20,19 +21,18 @@ Thanks for your input! @bbelderbos and @hobojoe1848 from @pybites
 - [ ] 5) \> 8 hours
 - [ ] 6) did not measure
 
-### Completed challenge requirements?
+### Completed challenge requirements:
 - [ ] 1) Yes
-- [ ] 2) No
-- [ ] 3) Partly
-- [ ] 4) Yes, but went my own way
+- [ ] 2) Yes, but went my own way
+- [ ] 3) Partially
+- [ ] 4) No
 
-### Rating - did you like this? Please comment below if \< 3
+### Do you feel you stretched your coding skills?
 - [ ] 1) nah 
 - [ ] 2) somewhat
-- [ ] 3) it was ok
-- [ ] 4) good
-- [ ] 5) pretty cool
-- [ ] 6) awesome
+- [ ] 3) yes
+- [ ] 4) definitely
+- [ ] 5) yes + more than other teaching methods
 
 ### Share any feedback below
 ...
