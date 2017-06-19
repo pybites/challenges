@@ -1,5 +1,7 @@
 # PyBites Code Challenges
 
+[![Join the chat at https://gitter.im/pybites/challenges](https://badges.gitter.im/pybites/challenges.svg)](https://gitter.im/pybites/challenges?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Every Monday we release a code challenge [on our blog](http://pybit.es). 
 End of the week we publish one or more solutions.
 
