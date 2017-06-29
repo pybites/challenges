@@ -98,7 +98,7 @@ pytrack start
 Activating: Put together a README.md file
 ```
 
-You are now tracking this project. If you run the **pytrack** by itself to confirm that the project is now *ACTIVE*.
+You are now tracking this project. You can run **pytrack** by itself to confirm that the project is now *ACTIVE*.
 
 ```bash
 pytrack
