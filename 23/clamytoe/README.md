@@ -1,5 +1,6 @@
 # pyTrack
-> Simple project/task time tracker for Python 3.6.0+.
+
+> Simple project/task time tracker for Python 3.
 
 [![GitHub issues][issues-image]][issues-url]
 [![GitHub forks][fork-image]][fork-url]
@@ -24,6 +25,14 @@ pip install -r requirements.txt
 python setup.py install
 ```
 
+## Uninstall
+
+Uninstalling the package is very simple.
+
+```bash
+pip uninstall pyTrack
+```
+
 ## Usage example
 
 This application is really simple to use. To get help simply add *--help* as an argument. Each command can additionally provide more help information if you add *--help* behind it.
@@ -45,6 +54,7 @@ Commands:
 ```
 
 ### List all projects
+
 To list all of the projects that you are currently tracking:
 
 ```bash
@@ -58,6 +68,7 @@ pytrack
 The project marked with an ``*`` is the currently selected project. This means that the **start** and **stop** commands will apply to that project.
 
 ### Add a new project
+
 To add a new project use the **add** command followed by the name of your project. If longer than one word, enclose it in quotes.
 
 ```bash
@@ -69,6 +80,7 @@ Selected: [3] Replace the motor on the A/C unit
 The project is added and selected as the default project.
 
 ### Remove a project
+
 To remove a project use the **remove** command followed by the project id.
 
 > NOTE: To get the project id, just run **pytrack** by itself.
@@ -83,6 +95,7 @@ Removed [3] Replace the motor on the A/C unit
 You are asked to confirm your action and a confirmation message is displayed.
 
 ### Select a project
+
 To switch the default project, use the **select** command.
 
 ```bash
@@ -91,6 +104,7 @@ Selected: [1] Put together a README.md file
 ```
 
 ### Start tracking the currently selected project
+
 If you are ready to work on a project that you want to track, simply issue the **start** command to start tracking it.
 
 ```bash
@@ -107,6 +121,7 @@ pytrack
 ```
 
 ### Stop tracking the currently ACTIVE project
+
 When you are finished or are read to take a break simply run the **stop** command.
 
 ```bash
@@ -127,6 +142,7 @@ The default project will remain selected until you add a new project or you chan
 > NOTE: Feel free to take as many breaks as needed, you can always start tracking once again at any time.
 
 ### Reset the database
+
 If you have completed all of your projects and you want to start with a clean slate so that your new projects don't start at the last created project id, simply **reset** the database.
 
 ```bash
@@ -139,6 +155,7 @@ All records have been removed.
 > WARNING: This is unrecoverable! Make sure that you truly want to delete all logs!
 
 ## TODO
+
 * I plan on adding an option to output the logs into a csv file.
 
 ## Development setup
@@ -151,6 +168,11 @@ python setup.py develop
 
 ## Release History
 
+* 0.1.0
+    * CHANGE: Moved the database file into the home directory of the user because when installed, the database was getting created from wherever the command was being issued.
+    * CHANGE: Renamed the database file.
+* 0.0.6
+    * CHANGE: Removed all f-strings so that the code could be used in older versions of Python.
 * 0.0.5
     * FIX: Fixed bug when the currently selected project is removed, no other is selected as the default.
 * 0.0.4

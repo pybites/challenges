@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from maya import get_localzone, MayaInterval, now, parse
 
@@ -15,9 +15,9 @@ def get_projects(display=False):
             projects.append(project)
             if display:
                 if project.selected:
-                    print(f'*[{project.id}] {project.duration} {STATE[project.status]}: {project.name}')
+                    print('*[{}] {} {}: {}'.format(project.id, project.duration, STATE[project.status], project.name))
                 else:
-                    print(f' [{project.id}] {project.duration} {STATE[project.status]}: {project.name}')
+                    print(' [{}] {} {}: {}'.format(project.id, project.duration, STATE[project.status], project.name))
     else:
         print('You are not currently tracking any projects.')
     return projects
@@ -32,9 +32,9 @@ def get_selected(display=True):
             selected = project
     if display:
         if selected:
-            print(f'Selected: {selected.name}')
+            print('Selected: {}'.format(selected.name))
         else:
-            print(f'Selected: {selected}')
+            print('Selected: {}'.format(selected))
 
     return selected
 
@@ -74,7 +74,7 @@ def update_project(project):
     project.duration = duration
     project.status = 0
     project.save()
-    print(f'Deactivating: {project.name} with total time of {project.duration}')
+    print('Deactivating: {} with total time of {}'.format(project.name, project.duration))
 
 
 def add_project(name):
@@ -83,12 +83,12 @@ def add_project(name):
     active = get_active()
 
     if active:
-        print(f'There is an active project: [{active.id}] {active.name}')
+        print('There is an active project: [{}] {}'.format(active.id, active.name))
         print('Please close that out before adding another project.')
     else:
         project = Project.create(name=name)
         project.save()
-        print(f'Added Project: [{project.id}] {project.name}')
+        print('Added Project: [{}] {}'.format(project.id, project.name))
         select_project(project.id)
 
 
@@ -98,8 +98,8 @@ def select_project(id):
     active = get_active()
 
     if active:
-        print(f'Cannot make project selection while there is an active project!')
-        print(f'Currently tracking: {active.name}')
+        print('Cannot make project selection while there is an active project!')
+        print('Currently tracking: {}'.format(active.name))
     else:
         projects = get_projects()
 
@@ -114,13 +114,13 @@ def select_project(id):
                 if project.id == id:
                     project.selected = True
                     project.save()
-                    print(f'Selected: [{project.id}] {project.name}')
+                    print('Selected: [{}] {}'.format(project.id, project.name))
                 else:
                     # unselect all others
                     project.selected = False
                     project.save()
         else:
-            print(f'[{id}] is not a valid entry. \nChoose from the following:\n')
+            print('[{}] is not a valid entry. \nChoose from the following:\n'.format(id))
             _ = get_projects(display=True)
 
 
@@ -139,17 +139,17 @@ def remove_project(id):
             select = proj.id
 
     if project:
-        print(f'About to remove [{project.id}] {project.name}')
+        print('About to remove [{}] {}'.format(project.id, project.name))
         answer = input('Are you sure (y/n): ')
         if 'y' in answer.lower():
             project.delete_instance()
-            print(f'Removed [{project.id}] {project.name}')
+            print('Removed [{}] {}'.format(project.id, project.name))
             if selected and select:
                 select_project(select)
         else:
             print('Aborted')
     else:
-        print(f'Project [{id}] does not exists!')
+        print('Project [{}] does not exists!'.format(id))
 
 
 def reset_db():
@@ -172,14 +172,14 @@ def start_tracking():
     active = get_active()
 
     if active:
-        print(f'Already tracking {active.name}!')
+        print('Already tracking {}!'.format(active.name))
     else:
         project = get_selected(display=False)
         log = Log.create(project=project, start_time=now().datetime())
         log.save()
         project.status = 1
         project.save()
-        print(f'Activating: {project.name}')
+        print('Activating: {}'.format(project.name))
 
 
 def stop_tracking():
@@ -198,4 +198,4 @@ def stop_tracking():
                 # update the project's status and duration time
                 update_project(active)
     else:
-        print(f'There are currently no active projects...')
+        print('There are currently no active projects...')
