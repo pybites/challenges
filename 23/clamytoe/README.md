@@ -21,8 +21,27 @@ cd Projects
 git clone https://github.com/clamytoe/pyTrack.git
 python3.6 -m venv venv
 source ./venv/bin/activate
-pip install -r requirements.txt
-python setup.py install
+pip install .
+```
+
+These are all of the packages that get installed:
+
+```bash
+pip freeze
+click==6.7
+dateparser==0.6.0
+humanize==0.5.1
+maya==0.3.2
+peewee==2.10.1
+pendulum==1.2.4
+python-dateutil==2.6.0
+pyTrack==0.1.2
+pytz==2017.2
+pytzdata==2017.2
+regex==2017.6.23
+ruamel.yaml==0.15.15
+six==1.10.0
+tzlocal==1.4
 ```
 
 ## Uninstall
@@ -163,11 +182,13 @@ All records have been removed.
 If you would like to install this in order to play around with the code and make modifications yourself, simply change the last command in the installation instructions above to the following:
 
 ```bash
-python setup.py develop
+pip install -e .
 ```
 
 ## Release History
 
+* 0.1.2
+    * CHANGE: Modified to use pip to install the package.
 * 0.1.1
     * CHANGE: Modified imports to utilize namespaces properly.
 * 0.1.0
