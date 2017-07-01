@@ -168,6 +168,8 @@ python setup.py develop
 
 ## Release History
 
+* 0.1.1
+    * CHANGE: Modified imports to utilize namespaces properly.
 * 0.1.0
     * CHANGE: Moved the database file into the home directory of the user because when installed, the database was getting created from wherever the command was being issued.
     * CHANGE: Renamed the database file.

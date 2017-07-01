@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='pyTrack',
-    version='0.1.0',
+    version='0.1.1',
     author='Martin Uribe',
     author_email='clamytoe@gmail.com',
     url='https://github.com/clamytoe/pyTrack',
