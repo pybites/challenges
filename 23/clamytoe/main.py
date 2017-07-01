@@ -1,13 +1,13 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from sys import argv
 
 import click
 from peewee import OperationalError
 
-from pytrack.models import db, Log, Project
-from pytrack.pytrack import get_projects, add_project, select_project, remove_project
-from pytrack.pytrack import start_tracking, stop_tracking, reset_db
+from pytrack import db, Log, Project
+from pytrack import get_projects, add_project, select_project, remove_project
+from pytrack import start_tracking, stop_tracking, reset_db
 
 
 def main():

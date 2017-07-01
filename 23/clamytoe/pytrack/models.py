@@ -1,8 +1,17 @@
 # -*- coding: utf-8 -*-
+from os import mkdir, path
+
 from peewee import BooleanField, CharField, DateTimeField, ForeignKeyField, PrimaryKeyField
 from peewee import Model, OperationalError, SqliteDatabase
 
-DATABASE = 'pyTrack_db.sqlite'
+DB_NAME = 'pyTrack.db'
+HOME = path.expanduser('~')
+DB_FOLDER = path.join(HOME, '.pytrack')
+DATABASE = path.join(DB_FOLDER, DB_NAME)
+
+if not path.exists(DB_FOLDER):
+    mkdir(DB_FOLDER)
+
 db = SqliteDatabase(DATABASE)
 
 
@@ -21,7 +30,6 @@ class Project(BaseModel):
     status = BooleanField(default=0)
     duration = CharField(default='0:00:00')
 
-
     class Meta:
         db_table = 'projects'
 
@@ -37,6 +45,7 @@ class Log(BaseModel):
 
     class Meta:
         db_table = 'logs'
+
 
 if __name__ == '__main__':
     try:
