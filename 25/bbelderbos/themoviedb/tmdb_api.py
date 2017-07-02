@@ -1,7 +1,7 @@
 import time
 
-from tmdb_init import tmdb
-from decorators import store_results
+from .tmdb_init import tmdb
+from .decorators import store_results
 
 DEFAULT_LANG = 'en'
 DEFAULT_NUM_PAGES = 2
@@ -10,13 +10,10 @@ DEFAULT_MIN_VOTE_COUNT = 1
 
 class Tmdb:
 
-    def __init__(self,
-                 language=DEFAULT_LANG,
-                 num_pages=DEFAULT_NUM_PAGES,
-                 min_vote_count=DEFAULT_MIN_VOTE_COUNT):
-        self.language = language
-        self.num_pages = num_pages
-        self.min_vote_count = min_vote_count
+    def __init__(self, language=None, num_pages=None, min_vote_count=None):
+        self.language = language or DEFAULT_LANG
+        self.num_pages = num_pages or DEFAULT_NUM_PAGES
+        self.min_vote_count = min_vote_count or DEFAULT_MIN_VOTE_COUNT
 
     @store_results
     def get_items(self, obj_method):
@@ -50,7 +47,7 @@ class Tmdb:
 
 class Movies(Tmdb):
 
-    def __init__(self, language, num_pages):
+    def __init__(self, language=None, num_pages=None):
         super().__init__(language, num_pages)
         self.movies = tmdb.Movies()
 
@@ -63,7 +60,7 @@ class Movies(Tmdb):
 
 class Tv(Tmdb):
 
-    def __init__(self, language, num_pages):
+    def __init__(self, language=None, num_pages=None):
         super().__init__(language, num_pages)
         self.tv = tmdb.TV()
 
