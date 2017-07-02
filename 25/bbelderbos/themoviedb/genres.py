@@ -1,7 +1,7 @@
 import os
 import pickle
 
-from api import tmdb
+from .tmdb_init import tmdb
 
 CACHE = 'genres.pkl'
 
