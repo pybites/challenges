@@ -1,6 +1,6 @@
 import time
 
-from api import tmdb
+from tmdb_init import tmdb
 from decorators import store_results
 
 DEFAULT_LANG = 'en'
