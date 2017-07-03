@@ -19,12 +19,21 @@ if not FROM_MAIL or not TO_MAIL:
     print('set FROM_MAIL and TO_MAIL in env')
     sys.exit(1)
 
-# TODO: retrieve director and actors
-TEMPLATE = '''<h4><a href="{link}">{title}</a></h4>
-              <p>Overview: {overview}
-              <img src="{img}" style="float: right;"></p>
-              <p>Genres: {genres} / (first) release: {release}</p>
-              <hr>
+# I know: html tables suck, but necessary in html emails
+# TODO: retrieve director and actors (and filters)
+TEMPLATE = '''<tr>
+                <td style='margin: 5px; vertical-align:top;'>
+                    <img src="{img}" style="float: right;">
+                </td>
+                <td style='margin: 5px; vertical-align:top;'>
+                    <ul>
+                        <li><strong><a href="{link}">{title}</a></strong></li>
+                        <li>Overview: {overview}</li>
+                        <li>Genres: {genres}</li>
+                        <li>(First) release: {release}</li>
+                    </ul>
+                </td>
+              </tr>
             '''
 
 
@@ -32,14 +41,17 @@ def generate_mail_msg(items):
     output = []
 
     for kind in items:
-        output.append('<h2>{}</h2>'.format(kind))
+        output.append('<h2>{}</h2>'.format(kind.upper()))
 
         for listing, entries in items[kind].items():
-            output.append('<h3>{}</h3>'.format(listing))
+            listing_header = listing.replace('_', ' ').title()
+            output.append('<h3>{}</h3>'.format(listing_header))
 
             if not entries:
                 output.append('No new items')
                 continue
+
+            output.append('<table>')
 
             for entry in sorted(entries,
                                 key=lambda x: datetime.strptime(
@@ -58,6 +70,8 @@ def generate_mail_msg(items):
                                               img=img,
                                               genres=genres,
                                               release=entry.release_date))
+                
+            output.append('</table>')
 
     return '\n'.join(output)
 

@@ -4,7 +4,7 @@ import re
 import shelve
 
 CACHE = 'items.shelve'
-DEFAULT_OVERWRITE = True
+DEFAULT_OVERWRITE = False
 
 Item = namedtuple('Item', 'id kind listing title genres overview release_date poster')  # noqa E501
 
