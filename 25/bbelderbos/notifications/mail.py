@@ -52,6 +52,7 @@ def generate_mail_msg(items):
                 continue
 
             output.append('<table>')
+
             for entry in sorted(entries,
                                 key=lambda x: datetime.strptime(
                                               x.release_date, '%Y-%m-%d'),
@@ -69,6 +70,7 @@ def generate_mail_msg(items):
                                               img=img,
                                               genres=genres,
                                               release=entry.release_date))
+                
             output.append('</table>')
 
     return '\n'.join(output)
