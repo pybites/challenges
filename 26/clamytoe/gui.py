@@ -84,6 +84,9 @@ def main():
     # disable resizing
     win.resizable(0, 0)
 
+    # try to keep on top
+    win.wm_attributes('-topmost', 1)
+
     # start application
     win.mainloop()
 
