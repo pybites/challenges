@@ -28,8 +28,8 @@ This app uses:
 
 * Assuming Mac I added `pomodoro.command` to launch the app from Finder. You can click it, or just run it from your terminal:
 
-	$ source venv/bin/activate
-	$ python pomodoro.py
+		$ source venv/bin/activate
+		$ python pomodoro.py
 
 * You get to the main GUI screen:
 
@@ -41,12 +41,12 @@ This app uses:
 
 	![bar chart of progress](printscreens/not-met-goal-yet.png)
 
-* 'Add pomodoro' adds one unit (25 min), no questions asked. 'Add multiple pomodori' lets you add 1-5 pomodori at once. Let's demo that here:
+* On the main screen, 'Add pomodoro' adds one unit (25 min), no questions asked. 'Add multiple pomodori' lets you add 1-5 pomodori at once. Let's demo that here:
 
 	![add multi pomos](printscreens/add-5-pomos.png)
 
-	This adds the select *int* pomodori to the DB's logs table.
+	This adds the selected *int* pomodori to the DB's logs table.
 
-* Now the bar is green because I read for 8 pomodori (> target of 7):
+* Now the bar is green because I read 8 pomodori (> target of 7):
 
 	![met goal](printscreens/met-goal.png)
