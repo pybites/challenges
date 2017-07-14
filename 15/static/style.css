@@ -1,0 +1,20 @@
+/* some styles, add/update/delete as you want */
+
+body {
+	text-align: center;
+}
+
+.centered {
+	margin: auto;
+	width: 20%;
+}
+
+.thick-border {
+	border: 3px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
