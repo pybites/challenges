@@ -1,0 +1,12 @@
+.idea
+*.json
+*.pyc
+*.sqlite
+.podcaster
+*__pycache__
+gmail_test.py
+mail.py
+episodes
+tests
+logs
+venv
