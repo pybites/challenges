@@ -1,0 +1,26 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Wattage Consumption Cost History</h1>
+  {% if history is not none %}
+    {% for query in history %}
+      <p>Query Date: {{query.query_date}}</p>
+<p>Device consumption: {{query.consumption}}w</p>
+<p>Hours used: {{query.hours}}</p>
+<p>Cost per kW/h: ${{query.cost_per_kwh}}</p>
+<p>Total cost: ${{query.total_cost}}</p>
+      <div><form action="/deleterecord/{{query.id}}" method="post"><input type="submit" value=Delete></form></label></div>
+    {% endfor %}
+  <br>
+  <form action="/clearhistory" method="post">
+    <input type="submit" value="Clear History"/>
+  </form>
+  {% else %}
+    <p>Nothing here to be seen!</p>
+  {% endif %}
+  <br>
+  <form action="/" method="get">
+    <input type="submit" value="Go back"/>
+  </form>
+{% endblock %}

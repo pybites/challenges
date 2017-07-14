@@ -1,0 +1,8 @@
+.cache
+.idea
+__pycache__
+build
+dist
+pyTrack.egg-info
+venv
+gui_oop.py
