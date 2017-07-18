@@ -16,6 +16,5 @@ def submit_to_reddit(post, subreddit=DEFAULT_SUBREDDIT):
     title = post.title
     text = '{} - {}'.format(post.summary, post.url)
 
-    reddit.subreddit(subreddit).submit(title,
-                                       url=post.url,
-                                       selftext=text)
+    return reddit.subreddit(subreddit).submit(title,
+                                              selftext=text)
