@@ -5,16 +5,16 @@ import smtplib
 import sys
 
 SUBJECT = 'New PyBites Code Challenge'
-MAIL_MSG = '''Dear Pythonistas, our new code challenge is up:
+MAIL_MSG = '''<p>Dear Pythonistas, our new code challenge is up:</p>
 
-{title}
-{url}
+<p><strong>{title}</strong><br>
+<a href="{url}">{url}</a></p>
 
-Please take a moment to upvote it on reddit:
-{submission}
+<p>Please take a moment to upvote it on reddit: <br>
+<a href="{submission}">{submission}</a></p>
 
-Previous challenges:
-https://pybit.es/pages/challenges.html'''
+<p>Previous challenges:<br>
+<a href="https://pybit.es/pages/challenges.html">https://pybit.es/pages/challenges.html</a></p>'''
 
 FROM_MAIL = os.environ.get('FROM_MAIL')
 TO_MAIL = os.environ.get('TO_MAIL').split()
