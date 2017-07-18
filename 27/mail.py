@@ -22,8 +22,24 @@ if not FROM_MAIL or not TO_MAIL:
     print('Please set FROM_MAIL and TO_MAIL env vars')
     sys.exit(1)
 
+RECIPIENTS_LIST = 'challenge_user_emails.txt'
+if not os.path.isfile(RECIPIENTS_LIST):
+    print('please add recipient emails to {}'.format(RECIPIENTS_LIST))
+    sys.exit(2)
 
-def mail(recipients, msg_body, subject=SUBJECT, from_=FROM_MAIL, to=TO_MAIL):
+
+def get_emails():
+    with open(RECIPIENTS_LIST) as f:
+        return [line.strip() for line in f.readlines() if '@' in line]
+
+
+def mail(msg_body,
+         recipients=None, subject=SUBJECT,
+         from_=FROM_MAIL, to=TO_MAIL):
+
+    if recipients is None:
+        recipients = _get_emails()
+
     if not isinstance(recipients, list):
         raise TypeError('Except a list of recipients')
 
