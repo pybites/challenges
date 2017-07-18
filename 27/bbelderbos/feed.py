@@ -15,7 +15,7 @@ def get_latest_feed_entry(url_match, feed=DEFAULT_FEED,
                           go_back_dt=DEFAULT_LOOK_DAYS_BACK):
     '''Returns most recent feed entry matching url_match regex'''
     for entry in feedparser.parse(feed)['entries']:
-        title = entry['title']
+        title = 'PyBites ' + entry['title']
         url = entry['link']
 
         summary_html = entry.get('summary', 'No summary available')
