@@ -1,0 +1,53 @@
+<!doctype html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Favourite Subreddits</title>
+	
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<h1 class="centered">Favourite Subreddits (Hottest Submissions)</h1>
+
+<body>
+
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 centered btn-group-lg btn-group-vertical">
+		<h2> TIFU </h2>
+		<table class="table-responsive table-striped table-bordered text-left center">
+			<tr>
+				<th>Submission</th>
+			<tr>
+			{% for k, v in tifu_subs.items() %}
+				<td><a href="{{ v }}" target="_blank">{{ k }}</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+		</div>
+		
+		<div class="col-md-6 centered btn-group-lg btn-group-vertical">
+		<h2> Today I Learned </h2>
+		<table class="table-responsive table-striped table-bordered text-left center">
+			<tr>
+				<th>Submission</th>
+			<tr>
+			{% for k, v in til_subs.items() %}
+				<td><a href="{{ v }}" target="_blank">{{ k }}</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+		</div>
+	</div>
+</div>
+
+</body>
+	
