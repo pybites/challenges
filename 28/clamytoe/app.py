@@ -1,4 +1,5 @@
-from csv import DictReader
+import webbrowser
+
 from math import pi
 from os import path
 
@@ -18,10 +19,6 @@ app = Flask(__name__)
 def index():
     filename = 'dfw.csv'
     exists = path.isfile(filename)
-    # tables = pd.read_html('https://en.tutiempo.net/climate/ws-722590.html', header=0)
-    #
-    # # save to csv file
-    # tables[3].to_csv(filename, index=False)
 
     # header info
     #  T: Average annual temperature
@@ -44,12 +41,12 @@ def index():
     # import saved data
     data = pd.read_csv('dfw.csv', header=0)
 
+    # convert data into lists
     time_range = []
     avg_temp = []
     avg_max_temp = []
     avg_min_temp = []
 
-    # collect the data
     for i, year in enumerate(data.Year):
         T = resource_check(data['T'][i])
         TM = resource_check(data['TM'][i])
@@ -131,8 +128,10 @@ def resource_check(data):
 
 
 def celsius_to_fahrenheit(temp):
+    """Simple temperature conversion Cº to Fº"""
     return temp * 1.8 + 32
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    webbrowser.open('http://127.0.0.1:5000')
+    app.run()
