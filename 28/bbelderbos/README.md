@@ -1,8 +1,8 @@
 ## PyBites Code Challenge 28 - Bokeh + Flask
 
-OK I will admit: time was divided between a PyBites wordcount and doing funky visualizations on a movie data set.
+Ideas: PyBites post wordcount over time and/or doing funky visualizations on [our movie data set of challenge 13](https://github.com/pybites/challenges/tree/master/13).
 
-Time allowed for former, latter to be done yet ...
+Time only allowed for former, latter to be done ... (exciting!)
 
 ### What I did so far
 
