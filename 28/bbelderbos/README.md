@@ -4,6 +4,7 @@ Ideas: PyBites post wordcount over time and/or doing funky visualizations on [ou
 
 Time only allowed for former, latter to be done ... (exciting!)
 
+
 ### What I did so far
 
 1. I added some code in `get_data.py` to download our complete [PyBites repo](https://github.com/pybites/pybites.github.io-src).
@@ -12,11 +13,13 @@ Time only allowed for former, latter to be done ... (exciting!)
 
 3. I added labels which was a bit of a challenge (`from bokeh.models import ColumnDataSource, LabelSet`)
 
-### Resulting plot
+
+### Saved plot
 
 ![saved Bokeh plot](bokeh_plot.png)
 
-### TODOs:
+
+### TODO
 
 4. Add a GET parameter to the Flask route to refresh the GH clone of the repo.
 
