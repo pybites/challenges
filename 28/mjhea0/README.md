@@ -6,7 +6,7 @@ App that displays the historical exchange rates for Bitcoin (USD -> Bitcoin) fro
 1. [YoBit](https://yobit.net/)
 1. [Bittrex](https://bittrex.com/)
 
-![](flask_bokeh.png)
+![flask bokeh chart](flask_bokeh.png)
 
 ## Quick Start
 
