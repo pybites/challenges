@@ -3,6 +3,7 @@ ATTENTION: before clicking "Create Pull Request" please submit some meta data, t
 Difficulty level (1-10): []
 Estimated time spent (hours): []
 Completed (yes/no): []
-I stretched my coding skills (yes/no): []
-I want to be notified about new challenges (if yes enter email): []
+I stretched my coding skills (if yes what did you learn?): []
+Please include a short blurb about your submission for our review post: []
 Other feedback (what can we improve?): []
+Email subscription link (soon ...)
