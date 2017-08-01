@@ -1,4 +1,4 @@
-## Code Challenge 30 - Refactoring Part I - Improve Your Code
+## Code Challenge 30 - The Art of Refactoring: Improve Your Code
 
 [Challenge instructions](http://pybit.es/codechallenge30.html).
 
