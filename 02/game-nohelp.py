@@ -10,14 +10,12 @@ NUM_LETTERS = 7
 # re-use from challenge 01
 def calc_word_value(word):
     """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
-    return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
-
+    pass
 
 # re-use from challenge 01
 def max_word_value(words):
     """Calc the max value of a collection of words"""
-    return max(words, key=calc_word_value)
-
+    pass
 
 def main():
     pass

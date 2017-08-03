@@ -10,9 +10,9 @@ from data import DICTIONARY, LETTER_SCORES, POUCH
 NUM_LETTERS = 7
 
 
-def draw_letters():
+def draw_letters(NUM_LETTERS):
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    pass
+    return choice(POUCH)
 
 
 def input_word(draw):
