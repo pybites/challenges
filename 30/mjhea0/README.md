@@ -1,4 +1,4 @@
-# PyBites Code Challenge 28 - The Art of Refactoring: Improve Your Code
+# PyBites Code Challenge 30 - The Art of Refactoring: Improve Your Code
 
 For this challenge I decided to refactor a Flask route handler because of this [issue](https://github.com/realpython/flask-jwt-auth/issues/9) that was added to the [Flask JWT Auth](https://github.com/realpython/flask-jwt-auth) project. Since this project is the example app built for the [Token-Based Authentication With Flask](https://realpython.com/blog/python/token-based-authentication-with-flask/) blog post, I had to update the blog post as well.
 
