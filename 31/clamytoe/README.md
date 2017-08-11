@@ -81,6 +81,9 @@ Here's a sample of the beach thumbnails:
 
 ![thumbnails](img/thumbnails.png)
 
+## Credit
+Most of the credit for this goes to [Real Python](https://realpython.com) for their [Face Recognition with Python, in under 25 lines of code](https://realpython.com/blog/python/face-recognition-with-python/) blog post!
+
 ## Release History
 * 0.0.1
     * Proof of concept
