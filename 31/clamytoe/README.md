@@ -15,6 +15,14 @@ The most difficult thing to install was [OpenCV3](https://github.com/opencv/open
 ### Anaconda
 > UPDATE: Recently I discovered an easier way to install OpenCV3 under Anaconda. If you are not using Anaconda, my write-up on OpenCV should be of some use. If you are using Anaconda, do the following:
 
+If you just want to install it quickly use my Anaconda environment export:
+
+```bash
+conda env create -f conda_venv.yml
+```
+
+Otherwise, if you want to build it by hand, do the following:
+
 This command will tell you how to install OpenCV3:
 ```bash
 anaconda show menpo/opencv3
