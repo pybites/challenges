@@ -8,8 +8,69 @@
 [![Twitter][twitter-image]][twitter-url]
 
 ## Installation
+The most difficult thing to install was [OpenCV3](https://github.com/opencv/opencv.git). I've included an additional [document](opencv/OpenCV.md) on what I had to go through to get it working, hopefully it'll be of some use. I've also included a sample script so that you can test your installation. Both can be found in the *opencv* folder.
+
 > DISCLAIMER: Now I must admit that I am using [Anaconda](https://www.continuum.io/) so the only hurdle I had with this was installing [OpenCV](https://github.com/opencv/opencv.git). Everything else was already installed. So the following has not been verified to work.
 
+### Anaconda
+> UPDATE: Recently I discovered an easier way to install OpenCV3 under Anaconda. If you are not using Anaconda, my write-up on OpenCV should be of some use. If you are using Anaconda, do the following:
+
+This command will tell you how to install OpenCV3:
+```bash
+anaconda show menpo/opencv3
+Using Anaconda API: https://api.anaconda.org
+Name:    opencv3
+Summary:
+Access:  public
+Package Types:  conda
+Versions:
+   + 3.1.0
+   + 3.2.0
+
+To install this package with conda run:
+     conda install --channel https://conda.anaconda.org/menpo opencv3
+```
+Running that command will install it for you, but before you do that, I would recommend adding that channel to your list of channels.
+
+```bash
+conda config --append channels https://conda.anaconda.org/menpo
+```
+Now that you have that channel installed, all you have to do is create a new virtual environment with the modules that you need:
+
+```bash
+conda create --name thumbler python=3.6.2 opencv3 pillow
+```
+That command will create a new virtual environment called thumbler with Python 3.6.2 as the interpreter and install OpenCV3 and Pillow into it.
+
+If done correctly, all of these packages will be installed as dependencies for those:
+
+```bash
+conda list
+# packages in environment at /home/mohh/anaconda3/envs/thumbler:
+#
+freetype                  2.5.5                         2  
+jbig                      2.1                           0  
+jpeg                      9b                            0  
+libpng                    1.6.27                        0  
+libtiff                   4.0.6                         3  
+mkl                       2017.0.3                      0  
+numpy                     1.13.1                   py36_0  
+olefile                   0.44                     py36_0  
+opencv3                   3.1.0                    py36_0    menpo
+openssl                   1.0.2l                        0  
+pillow                    4.2.1                    py36_0  
+pip                       9.0.1                    py36_1  
+python                    3.6.2                         0  
+readline                  6.2                           2  
+setuptools                27.2.0                   py36_0  
+sqlite                    3.13.0                        0  
+tk                        8.5.18                        0  
+wheel                     0.29.0                   py36_0  
+xz                        5.2.2                         1  
+zlib                      1.2.8                         3
+```
+
+### Normal Install
 The usual will get you almost there:
 
 ```bash
@@ -20,8 +81,7 @@ python3.6 -m venv venv
 source venv/bin/activate
 pip install -r requirements
 ```
-### Installing OpenCV
-The most difficult thing to install was [OpenCV3](https://github.com/opencv/opencv.git). I've included an additional [document](opencv/OpenCV.md) on what I had to go through to get it working, hopefully it'll be of some use. I've also included a sample script so that you can test your installation. Both can be found in the *opencv* folder.
+After this step, make sure to follow my instructions on installing OpenCV.
 
 ## Usage Example
 The script is really simple to use. Initially I was going to put in the option to just scan a directory full of images and have it extract the faces, but since the HAAR profile that I'm using is only for frontal images, it's really picky. The size of the image seems to play a part on its results as well.
