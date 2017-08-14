@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>PyBites Banner Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+  <header>
+    <h1>PyBites Banner Generator</h1>
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <br>
+  <hr>
+  <footer>
+    <p>Created by <a href="https://pybit.es" target="_blank">PyBites</a> for <a href="https://pybit.es/codechallenge31.html" target="_blank">Code Challenge 31</a></p>
+  </footer>
+</body>
+</html>
+
