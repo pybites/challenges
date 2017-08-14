@@ -7,21 +7,27 @@ from forms import ImageForm
 from banner.banner import generate_banner
 from banner.banner import DEFAULT_OUTPUT_FILE as outfile
 
-IN_FILE = 'input.png'
+IMAGES = 'images'
 
 app = Flask(__name__)
 
 
-def download_url(url, in_file=IN_FILE, chunk_size=2000):
-    print('Downloading {}'.format(url))
-    r = requests.get(url, stream=True)
-    print('Saving as {}'.format(in_file))
+def _download_image(from_url, to_file, chunk_size=2000):
+    r = requests.get(from_url, stream=True)
 
-    with open(in_file, 'wb') as fd:
+    with open(to_file, 'wb') as fd:
         for chunk in r.iter_content(chunk_size):
             fd.write(chunk)
 
-    return in_file
+
+def get_image(image_url):
+    basename = os.path.basename(image_url)
+    local_image = os.path.join(IMAGES, basename)
+
+    if not os.path.isfile(local_image):
+        _download_image(image_url, local_image)
+
+    return local_image
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -29,12 +35,13 @@ def image_inputs():
     form = ImageForm(request.form)
 
     if request.method == 'POST' and form.validate():
-        print(form)
-        args = [form.image_url1.data]
-        args.append(form.image_url2.data)
-        args.append(form.text.data)
-        if form.background.data:
-            args.append(1)
+        image1 = form.image_url1.data
+        image2 = get_image(form.image_url2.data)
+        text = form.text.data
+        print(text)
+        background = form.background.data
+
+        args = [image1, image2, text, background]
 
         generate_banner(args)
 
@@ -47,4 +54,4 @@ def image_inputs():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

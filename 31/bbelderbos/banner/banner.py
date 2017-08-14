@@ -14,8 +14,8 @@ DEFAULT_TOP_MARGIN = int(((1 - 0.8) * DEFAULT_HEIGHT) / 2)
 WHITE, BLACK = (255, 255, 255), (0, 0, 0)
 WHITE_TRANSPARENT_OVERLAY = (255, 255, 255, 178)
 TEXT_SIZE = 24
-TEXT_FONT_TYPE = os.path.join(ASSET_DIR, 'SourceSansPro-Regular.otf')
-TEXT_PADDING_HOR, TEXT_PADDING_VERT = 20, 40
+TEXT_FONT_TYPE = os.path.join(ASSET_DIR, 'Ubuntu-R.ttf')
+TEXT_PADDING_HOR, TEXT_PADDING_VERT = 10, 40
 
 Font = namedtuple('Font', 'ttf text color size offset')
 ImageDetails = namedtuple('Image', 'left top size')
@@ -52,7 +52,7 @@ class Banner:
             left = self.image.size[0] - img.size[0]
 
         offset = (left, top)
-        self.image.paste(img, offset, mask=img)
+        self.image.paste(img.convert('RGBA'), offset, mask=img.convert('RGBA'))
 
         img_details = ImageDetails(left=left, top=top, size=img.size)
         self.image_coords.append(img_details)
@@ -96,7 +96,7 @@ def generate_banner(args):
     image1 = args[0]
     image2 = args[1]
     text = args[2]
-    bg = True if len(args) == 4 else False
+    bg = bool(args[3]) if len(args) == 4 else False
 
     banner = Banner()
 
