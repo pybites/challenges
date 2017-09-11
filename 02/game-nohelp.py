@@ -42,7 +42,7 @@ class UserBoard:
         possible_words = []
         # possible to do w/o nested list?
         for x in range(1, len(self.letters) + 1):
-            comb_lists = itertools.combinations(self.letters, x)
+            comb_lists = itertools.permutations(self.letters, x)
             for lis in comb_lists:
                 if self._valid_word(''.join(lis)):
                     possible_words.append(''.join(lis))
@@ -104,6 +104,8 @@ def main():
     max_word_points = calc_word_value(max_word)
     print('The optimal word, {}, is worth {} points!'
           .format(max_word, max_word_points))
+    print('You scored {} points!'
+          .format(((word_value / max_word_points) * 100)))
 
 
 if __name__ == "__main__":
