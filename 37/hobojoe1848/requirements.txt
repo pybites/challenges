@@ -1,0 +1,11 @@
+certifi==2017.7.27.1
+chardet==3.0.4
+feedparser==5.2.1
+idna==2.6
+PyJWT==1.5.3
+PySocks==1.6.7
+pytz==2017.2
+requests==2.18.4
+six==1.11.0
+twilio==6.7.0
+urllib3==1.22
