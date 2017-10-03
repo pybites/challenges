@@ -1,4 +1,4 @@
-XML Steam Scraper
+## XML Steam Scraper
 
 A program to parse the steam XML feed for new titles.
 
