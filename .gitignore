@@ -5,6 +5,5 @@
 **venv
 **drafts
 **.cache
-**sqlite
-**sqlite3
+**sqlite*
 .idea
