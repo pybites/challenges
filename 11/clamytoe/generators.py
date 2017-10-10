@@ -16,15 +16,18 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
    1 datetime
 """
 import fnmatch
+import glob
 import os
 import re
 
 def gen_files(pat):
-    top, filepat = pat.rsplit('*/', 1)
+    yield from glob.glob(pat)
+    # top, filepat = pat.rsplit('*/', 1)
 
-    for path, dirlist, filelist in os.walk(top):
-        for name in fnmatch.filter(filelist, filepat):
-            yield os.path.join(path, name)
+    # for path, dirlist, filelist in os.walk(top):
+    #     if path in fnmatch.filter():
+    #         for name in fnmatch.filter(filelist, filepat):
+    #             yield os.path.join(path, name)
 
 
 def gen_lines(files):
