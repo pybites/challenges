@@ -30,6 +30,6 @@ def gen_count(lines):
 
 if __name__ == "__main__":
     # call the generators, passing one to the other
-    files = gen_files('../*/*.py')
+    files = gen_files('../../*/*.py')
     lines = gen_lines(files)
     # etc
