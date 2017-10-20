@@ -22,7 +22,7 @@ def find_prs():
     statements = ['It\'s not too late to start!', 'Off to a great start, keep going!',
      'Half way there, keep it up!','So close!','Way to go!','Now you\'re just showing off!']
     try:
-        prs = gh.search_issues('', author=username, type='pr', created='2017-10-15T00:00:00-12:00..2017-10-31T23:59:59-12:00')
+        prs = gh.search_issues('', author=username, type='pr', created='2017-09-30T00:00:00-12:00..2017-10-31T23:59:59-12:00')
     except github.GithubException:
         pass
     pr_data={"urls":[],"titles":[],"dates_of_creation":[]}
