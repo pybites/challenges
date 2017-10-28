@@ -15,7 +15,6 @@ def get_events(uname):
 	url = "https://api.github.com/search/issues?\
 q=-label:invalid+created:2017-09-30T00:00:00-12:00..2017-10-31T23:59:59-12:00\
 +type:pr+is:public+author:{}".format(uname)
-	print(url)
 	req = urllib.request.Request(url)
 	with urllib.request.urlopen(req) as response:
 		result = json.loads(response.read().decode('utf-8'))
