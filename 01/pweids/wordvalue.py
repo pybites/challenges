@@ -11,10 +11,7 @@ def load_words():
 def calc_word_value(word):
     """Calculate the value of the word entered into function
     using imported constant mapping LETTER_SCORES"""
-    try:
-        return sum(LETTER_SCORES[letter.capitalize()] for letter in word) 
-    except: #some values have a dash...?
-        return 0
+    return sum(LETTER_SCORES.get(letter.capitalize(),0) for letter in word) 
 
 def max_word_value(words=load_words()):
     """Calculate the word with the max value, can receive a list
