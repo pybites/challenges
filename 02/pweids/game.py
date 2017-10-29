@@ -21,24 +21,25 @@ def input_word(draw):
     word = input('Enter word: ').lower()
     try:
         _validation(word, draw)
-    except:
-        print("Not a valid word")
+    except ValueError as err:
+        print("Invalid word: {}".format(err))
         input_word(draw)
     return word
 
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    if word not in DICTIONARY:
-        raise ValueError("{} not in dictionary".format(word))
     draw_copy = draw.copy()
     try:
         for letter in word:
             draw_copy.remove(letter.upper())
     except:
-        print('letter count')
-        raise ValueError("{}")
-    return True
+        raise ValueError("\"{}\" cannot be made from available letters".format(word))
+
+    if word not in DICTIONARY:
+        raise ValueError("\"{}\" is not in the dictionary".format(word))
+    else:
+        return True
 
 # From challenge 01:
 def calc_word_value(word):
