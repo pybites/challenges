@@ -1,6 +1,6 @@
-## Code Challenge 39 - Writing Tests With Pytest
+## Code Challenge 41 - Daily Python Tip Part 2 - Build an API
 
-[Challenge instructions](http://pybit.es/codechallenge39.html).
+[Challenge instructions](http://pybit.es/codechallenge41.html).
 
 [To follow along with our challenges](https://github.com/pybites/challenges/blob/master/INSTALL.md).
 
