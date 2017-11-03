@@ -1,3 +1,4 @@
 .cache/
 .idea/
+__pycache__/
 test_regex.py
