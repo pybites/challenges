@@ -1,2 +1,3 @@
+.cache/
 .idea/
 test_regex.py
