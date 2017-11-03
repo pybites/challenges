@@ -1,4 +1,4 @@
-## Code Challenge 42 - Daily Python Tip Part 2 - Build an API
+## Code Challenge 42 - Mastering Regular Expressions
 
 [Challenge instructions](http://pybit.es/codechallenge42.html).
 
