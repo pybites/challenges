@@ -4,3 +4,4 @@ Flask==0.12.2
 Flask-Cors==3.0.3
 Flask-RESTful==0.3.6
 requests==2.18.4
+twitterscraper==0.3.0
