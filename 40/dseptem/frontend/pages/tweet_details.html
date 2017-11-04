@@ -1,0 +1,38 @@
+<h1>{{tweet.tags}}</h1>
+
+<!-- <ul>
+    <li>Producer: {{beer.producer}}</li>
+    <li>ABV: {{beer.abv}}%</li>
+    <li>Styles: {{beer.styles.join(', ')}}</li>
+</ul> -->
+
+<table class="table table-striped table-condensed">
+    <thead>
+    <tr>
+        <th style="width: 150px;"> </th>
+        <th style="min-width: 80px;"> </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Date:</td>
+        <td> {{tweet.date}}</td>
+    </tr>
+    <tr>
+        <td>Text:</td>
+        <td>{{tweet.text}}%</td>
+    </tr>
+    <tr>
+        <td>Likes:</td>
+        <td>{{tweet.likes}}</td>
+    </tr>
+    <tr>
+        <td>Retweets:</td>
+        <td>{{tweet.retweets}}</td>
+    </tr>
+        
+    </tbody>
+</table>
+
+<a href="#/" class="btn btn-small btn-primary">Go to Search</a>
+<a href="#/tweets" class="btn btn-small btn-primary">See All Tweets</a>
