@@ -1,6 +1,9 @@
 **pyc
 **swp
+**log
 **__pycache__
 **venv
-**config.py
+**drafts
 **.cache
+**sqlite
+.idea
