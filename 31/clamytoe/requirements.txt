@@ -1,0 +1,3 @@
+numpy==1.13.1
+olefile==0.44
+Pillow==4.2.1

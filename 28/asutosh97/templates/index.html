@@ -1,0 +1,64 @@
+<html>
+<head>
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.6.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.6.min.js"></script>
+
+</head>
+<body>
+<H1>Country Data Analysis</H1>
+
+<form action="/" method="post">
+
+<label>
+	First Country
+	<select name="first_country_name">
+		{% for country in country_names %}
+			{% if first_country == country %}
+				<option selected value="{{ country }}">{{ country }}</option>
+			{% else %}
+				<option value="{{ country }}">{{ country }}</option>
+			{% endif %}
+		{% endfor %}
+	</select>
+</label>
+
+<label>
+	Second Country
+	<select name="second_country_name">
+    {% for country in country_names %}
+		{% if second_country == country %}
+			<option selected value="{{ country }}">{{ country }}</option>
+		{% else %}
+			<option value="{{ country }}">{{ country }}</option>
+		{% endif %}
+	{% endfor %}
+	</select>
+</label>
+
+<label>
+	Attribute
+	<select name="attribute_name">
+	{% for attribute in attribute_names %}
+		{% if current_attribute_name == attribute %}
+			<option selected value="{{ attribute }}">{{ attribute }}</option>
+		{% else %}
+			<option value="{{ attribute }}">{{ attribute }}</option>
+		{% endif %}
+	{% endfor %}
+	</select>
+</label>
+<input type="submit">
+</form>
+
+{{ script|safe }}
+{{ div|safe }}
+
+</body>
+</html>
