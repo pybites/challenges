@@ -13,6 +13,7 @@ Instructions:
 Usage:
 
 Tag the bot on a message saying "latest" to get the latest xkcd strip.
+
 You can also tag the bot while saying "#123" to get xkcd's strip number 123. Same applies to any other strip number.
 
-Enjoy!
+Enjoy! :cookie:
