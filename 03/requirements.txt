@@ -1,0 +1,4 @@
+nltk==3.2.5
+plotly==2.2.1
+feedparser==5.2.1
+
