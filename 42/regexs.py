@@ -10,7 +10,7 @@ def extract_course_times():
                     'Afterword 1 Lecture 05:02')
     return re.findall('\d{1,2}:\d{1,2}', flask_course)
 
-'''
+
 def split_on_multiple_chars():
     
     #Use re.split to split log line by ; , .
@@ -19,8 +19,8 @@ def split_on_multiple_chars():
     
     logline = ('2017-11-03T01:00:02;challenge time,regex!.'
                'hope you join ... soon')
-    return re.split(...)
-'''
+    return re.split(r'[;,.]', logline, maxsplit=3)
+
 
 
 def get_all_hashtags_and_links():
