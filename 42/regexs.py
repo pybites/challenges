@@ -8,7 +8,7 @@ def extract_course_times():
                     'Getting Technical!  4 Lectures 41:51'
                     'Challenge 2 Lectures 27:48'
                     'Afterword 1 Lecture 05:02')
-    return re.findall('\d{0,2}:\d{0,2}', flask_course)
+    return re.findall('\d{1,2}:\d{1,2}', flask_course)
 
 '''
 def split_on_multiple_chars():
