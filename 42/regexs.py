@@ -22,7 +22,6 @@ def split_on_multiple_chars():
     return re.split(r'[;,.]', logline, maxsplit=3)
 
 
-
 def get_all_hashtags_and_links():
     '''Use re.findall to extract the URL and 2 hashtags of this tweet'''
     tweet = ('New PyBites article: Module of the Week - Requests-cache '
