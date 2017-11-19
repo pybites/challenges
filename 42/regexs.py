@@ -12,11 +12,11 @@ def extract_course_times():
 
 
 def split_on_multiple_chars():
-    
-    #Use re.split to split log line by ; , .
-    #   but not on the last ... so list should have len of 4
-    #   (hint check re.split docs for extra switches)
-    
+    '''
+    Use re.split to split log line by ; , .
+       but not on the last ... so list should have len of 4
+       (hint check re.split docs for extra switches)
+    '''
     logline = ('2017-11-03T01:00:02;challenge time,regex!.'
                'hope you join ... soon')
     return re.split(r'[;,.]', logline, maxsplit=3)
@@ -29,7 +29,6 @@ def get_all_hashtags_and_links():
              'for Repeated API Calls - http://pybit.es/requests-cache.html '
              '#python #APIs')
     return re.findall(r'((?:#|http)\S+)',tweet)
-
 
 
 def match_first_paragraph():
