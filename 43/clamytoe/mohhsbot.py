@@ -64,9 +64,9 @@ def soup_magic(url):
 
 def search_for_topic(topic, channel, username):
     """
-    Receives commands directed at the bot and determines if they are valid.
+    Receives the search string directed at the bot and searches for the topic.
 
-    If so, then acts on the commands. If not, returns back what it needs for clarification.
+    If a match is found it returns a the image, if not, it lets the user know.
 
     :param topic: String - the topic that was given to the bot
     :param channel: String - the name of the channel from where the command was given
