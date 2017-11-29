@@ -42,11 +42,15 @@ def soup_magic(url):
     :param url: String - the URL of the page to scrape
     :return: None or bs4.element.Tag - the bs4 image tag object
     """
-    # search for the topic and pick a random thumbnail
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'html5lib')
-    thumb_tags = soup.find_all('a', {'class': 'preview'})
-    images = [html_tag['href'] for html_tag in thumb_tags]
+    # handle a no connection error
+    try:
+        # search for the topic and pick a random thumbnail
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, 'html5lib')
+        thumb_tags = soup.find_all('a', {'class': 'preview'})
+        images = [html_tag['href'] for html_tag in thumb_tags]
+    except requests.exceptions.ConnectionError:
+        return None
 
     # handle a no match situation
     try:
