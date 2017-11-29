@@ -1,12 +1,18 @@
 # mohhsbot (wally)
 > Small Slack bot that will get you a random desktop wallpaper based on your search pattern.
 
+[![GitHub issues][issues-image]][issues-url]
+[![GitHub forks][fork-image]][fork-url]
+[![GitHub Stars][stars-image]][stars-url]
+[![License][license-image]][license-url]
+![Python version][python-version]
+
 This is a **Python 3.6** script that I wrote using [Anaconda](https://anaconda.org/) but you should have no problem running it in just a Python installation. This is loosely based on my *bash* implementation of [randPic](https://github.com/clamytoe/randPic).
 
 ## Anaconda Installation
 ```bash
 cd Documents\Projects\
-git clone ...
+git clone https://github.com/clamytoe/MohhsBot.git
 cd MohhsBot
 conda env create -f environment.yml
 ```
@@ -14,7 +20,7 @@ conda env create -f environment.yml
 ## Regular Installation
 ```bash
 cd Documents/Projects/
-git clone ...
+git clone https://github.com/clamytoe/MohhsBot.git
 cd MohhsBot
 python -m venv venv
 source ./venv/bin/activate
@@ -72,3 +78,13 @@ Bot connected and running!
 Make sure to add the bot to one of your channels in order to have it response to image search commands. Here is a sample run:
 
 ![wally](demo.png)
+
+[issues-image]:https://img.shields.io/github/issues/clamytoe/MohhsBot.svg
+[issues-url]:https://github.com/clamytoe/MohhsBot/issues
+[fork-image]:https://img.shields.io/github/forks/clamytoe/MohhsBot.svg
+[fork-url]:https://github.com/clamytoe/MohhsBot/network
+[stars-image]:https://img.shields.io/github/stars/clamytoe/MohhsBot.svg
+[stars-url]:https://github.com/clamytoe/MohhsBot/stargazers
+[license-image]:https://img.shields.io/github/license/clamytoe/MohhsBot.svg
+[license-url]:https://github.com/clamytoe/MohhsBot/blob/master/LICENSE
+[python-version]:https://img.shields.io/badge/python-3.6%2B-brightgreen.svg
