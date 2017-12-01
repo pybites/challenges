@@ -19,7 +19,8 @@ def calc_word_value(word):
     value = 0
     word = word.upper()
     for letter in word:
-        value += LETTER_SCORES[letter]
+        if letter in LETTER_SCORES:
+            value += LETTER_SCORES[letter]
     return value
 
 def max_word_value(words=None):
@@ -27,14 +28,8 @@ def max_word_value(words=None):
     of words as arg, if none provided uses default DICTIONARY"""
     if words == None:
         words = load_words()
-
     max_word = reduce(lambda w1, w2: comp_words(w1, w2), words)
     return max_word
 
 if __name__ == "__main__":
-    # pass # run unittests to validate
-    a = "Ababua"
-    b = "aback"
-    print(calc_word_value(a))
-    print(calc_word_value(b))
-    print(comp_words(a, b))
+    pass # run unittests to validate
