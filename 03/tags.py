@@ -42,7 +42,6 @@ def get_similarities(tags):
 if __name__ == "__main__":
     tags = get_tags()
     top_tags = get_top_tags(tags)
-    print(len(tags))
     print('* Top {} tags:'.format(TOP_NUMBER))
     for tag, count in top_tags:
          print('{:<20} {}'.format(tag, count))
