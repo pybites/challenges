@@ -3,7 +3,7 @@ from data import LETTER_SCORES
 
 def load_words():
     """Load dictionary into a list and return list"""
-    with open('dictionary.txt') as f:
+    with open('dictionary.txt','r') as f:
         lines = f.read().splitlines()
     return lines
 
