@@ -16,11 +16,9 @@ def calc_word_value(word):
     using imported constant mapping LETTER_SCORES"""
     word_value = 0
 
-    if "-" in word:
-        word = word.replace("-", "")
-
-    for letter in word:
-        word_value += LETTER_SCORES[letter.upper()]
+    for letter in word.upper():
+        if letter in LETTER_SCORES:
+            word_value += LETTER_SCORES[letter]
 
     return word_value
 
