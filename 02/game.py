@@ -28,9 +28,10 @@ def input_word(draw):
 
 
 def _validation(word, draw):
+    unused_letters = list(draw) # copied because we are mutating the list
     for char in word.upper():
-        if char in draw:
-            draw.remove(char)
+        if char in unused_letters:
+            unused_letters.remove(char)
         else:
           raise ValueError("{} is not a valid word!".format(word))
     if not word.lower() in DICTIONARY:
