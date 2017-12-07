@@ -1,4 +1,4 @@
-from regex import (extract_course_times, split_on_multiple_chars,
+from regexs import (extract_course_times,split_on_multiple_chars,
                    get_all_hashtags_and_links, match_first_paragraph,
                    find_double_words, match_ip_v4_address)
 
