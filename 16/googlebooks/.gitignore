@@ -1,0 +1,6 @@
+__pycache__
+*pyc
+*swp
+*sqlite
+venv
+flask_session/

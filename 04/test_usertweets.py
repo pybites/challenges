@@ -10,7 +10,7 @@ HANDLE = 'pybites'
 MAX_ID = '819831370113351680'
 TWEETS = (
     """5 cool things you can do with itertools https://t.co/Nk4s3yL6zL #python""",
-    """How to create a nice-looking HTML page of your #Kindle book highlights (notes) https://t.co/HKFK7inhUa #python""",
+    """RT @guyfig: Just before 2016 is ending, here is a great answer from last week by Zuck.  @mkennedy @TalkPython #Python #devops https://t.co/…"""
 )
 USER = UserTweets(HANDLE, max_id=MAX_ID)
 
