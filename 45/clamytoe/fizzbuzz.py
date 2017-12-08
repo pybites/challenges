@@ -1,14 +1,28 @@
 def fizz_check(num):
-    if num % 3 == 0 and num % 5 == 0:
-        return 'FizzBuzz'
-    elif num % 3 == 0:
-        return 'Fizz'
-    elif num % 5 == 0:
-        return 'Buzz'
+    if isinstance(num, str):
+        raise ValueError
     else:
-        return num
+        num = int(num)
+        if num % 3 == 0 and num % 5 == 0:
+            return 'FizzBuzz'
+        elif num % 3 == 0:
+            return 'Fizz'
+        elif num % 5 == 0:
+            return 'Buzz'
+        else:
+            return num
 
 
-def num_gen(max_num):
-    for n in range(1, max_num + 1):
-        yield n
+def fizz_gen(max_num=100):
+    if isinstance(max_num, str):
+        raise TypeError
+    else:
+        for num in range(1, max_num + 1):
+            yield fizz_check(num)
+
+
+if __name__ == '__main__':
+    stop_at = 15
+    results = fizz_gen(stop_at)
+    for _ in range(stop_at):
+        print(next(results))
