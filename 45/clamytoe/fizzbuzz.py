@@ -7,3 +7,7 @@ def fizzbuzz(num):
         return 'Buzz'
     else:
         return num
+
+
+def num_gen(max_num):
+    psas
