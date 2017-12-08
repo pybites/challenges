@@ -1,12 +1,12 @@
-from fizzbuzz import fizzbuzz, num_gen
+from fizzbuzz import fizz_check, num_gen
 from pytest import raises
 
 
 def test_fizzbuzz():
-    assert fizzbuzz(1) == 1
-    assert fizzbuzz(3) == 'Fizz'
-    assert fizzbuzz(5) == 'Buzz'
-    assert fizzbuzz(15) == 'FizzBuzz'
+    assert fizz_check(1) == 1
+    assert fizz_check(3) == 'Fizz'
+    assert fizz_check(5) == 'Buzz'
+    assert fizz_check(15) == 'FizzBuzz'
 
 
 def test_num_gen():
