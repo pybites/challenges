@@ -1,4 +1,5 @@
 from fizzbuzz import fizzbuzz, num_gen
+from pytest import raises
 
 
 def test_fizzbuzz():
@@ -12,4 +13,3 @@ def test_num_gen():
     numbers = num_gen(2)
     assert next(numbers) == 1
     assert next(numbers) == 2
-    assert next(numbers) == StopIteration

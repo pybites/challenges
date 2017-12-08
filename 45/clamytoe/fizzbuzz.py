@@ -10,4 +10,5 @@ def fizzbuzz(num):
 
 
 def num_gen(max_num):
-    psas
+    for n in range(1, max_num + 1):
+        yield n
