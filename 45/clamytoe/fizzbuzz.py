@@ -21,6 +21,10 @@ def fizz_gen(max_num=100):
             yield fizz_check(num)
 
 
+def fizzbuzz(limit):
+    pass
+
+
 if __name__ == '__main__':
     stop_at = 15
     results = fizz_gen(stop_at)
