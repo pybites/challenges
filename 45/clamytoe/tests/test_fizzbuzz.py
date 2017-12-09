@@ -18,5 +18,5 @@ def test_fizz_gen():
     with raises(StopIteration):
         next(numbers)
     word = fizz_gen('World!')
-    with raises(TypeError):
+    with raises(ValueError):
         next(word)

@@ -1,32 +1,33 @@
-def fizz_check(num):
-    if isinstance(num, str):
+def check_value(value):
+    if isinstance(value, bool):
         raise ValueError
     else:
-        num = int(num)
-        if num % 3 == 0 and num % 5 == 0:
-            return 'FizzBuzz'
-        elif num % 3 == 0:
-            return 'Fizz'
-        elif num % 5 == 0:
-            return 'Buzz'
-        else:
-            return num
+        try:
+            tested_value = int(value)
+            return tested_value
+        except ValueError:
+            raise ValueError
+        except TypeError:
+            raise TypeError
 
 
-def fizz_gen(max_num=100):
-    if isinstance(max_num, str):
-        raise TypeError
-    else:
-        for num in range(1, max_num + 1):
-            yield fizz_check(num)
+def fizz_check(num):
+    value = check_value(num)
+    return 'Fizz' * (value % 3 == 0) + 'Buzz' * (value % 5 == 0) or value
 
 
-def fizzbuzz(limit):
-    pass
+def fizz_gen(limit=100):
+    max_num = check_value(limit)
+    for num in range(1, max_num + 1):
+        yield fizz_check(num)
+
+
+def fizzbuzz(limit=100):
+    value = check_value(limit)
+    gen = fizz_gen(value)
+    for _ in range(value):
+        print(next(gen))
 
 
 if __name__ == '__main__':
-    stop_at = 15
-    results = fizz_gen(stop_at)
-    for _ in range(stop_at):
-        print(next(results))
+    fizzbuzz()
