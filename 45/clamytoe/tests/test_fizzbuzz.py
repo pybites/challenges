@@ -1,4 +1,4 @@
-from fizzbuzz import check_value, fizz_gen, fizz_check
+from fizzbuzz import check_value, fizzbuzz, fizz_check, fizz_gen
 from pytest import raises
 
 
@@ -39,3 +39,24 @@ def test_fizz_gen():
     word = fizz_gen('World!')
     with raises(ValueError):
         next(word)
+
+
+def test_fizzbuzz(capsys):
+    """ Sample valid test run """
+    fizzbuzz(15)
+    out, err = capsys.readouterr()
+    assert out == ('1\n'
+                   '2\n'
+                   'Fizz\n'
+                   '4\n'
+                   'Buzz\n'
+                   'Fizz\n'
+                   '7\n'
+                   '8\n'
+                   'Fizz\n'
+                   'Buzz\n'
+                   '11\n'
+                   'Fizz\n'
+                   '13\n'
+                   '14\n'
+                   'FizzBuzz\n')
