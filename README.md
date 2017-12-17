@@ -1,10 +1,8 @@
 # PyBites Code Challenges
 
-Every Tuesday we release [a new code challenge](https://pybit.es/pages/challenges.html). Next Monday we publish submissions that have been PR'd. 
+Every beginning of the month we release [2 new code challenges](https://pybit.es/pages/challenges.html) and the reviews (PR submissions) of the ones of the last month.
 
 Follow [these instructions](https://github.com/pybites/challenges/blob/master/INSTALL.md) to get coding.
-
-To receive a weekly email notification [subscribe here](https://pybites-notifier.herokuapp.com).
 
 Remember, we don't strive for the 'best' solution, it's not a competition.  Learning more + better Python is the main objective. Respect the newbie.
 
