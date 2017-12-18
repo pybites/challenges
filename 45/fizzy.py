@@ -1,6 +1,3 @@
-
-
-
 def fizzbuzz(i):
     """
     Returns numbers from 1 to 100.
