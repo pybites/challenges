@@ -17,3 +17,4 @@ def fizzbuzz(i):
 
 for i in range(1,101):
     number = fizzbuzz(i)
+
