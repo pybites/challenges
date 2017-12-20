@@ -4,7 +4,7 @@ Every month we release [2-4 new Python code challenges](https://pybit.es/pages/c
 
 Update 20th of December 2017: we launched our new [Code Challenges Platform](https://codechalleng.es/). Please start using it and let us know what you think! Used to the old instructions they are still [here](https://github.com/pybites/challenges/blob/master/INSTALL.md). 
 
-You can read more about it [here](https://pybit.es/special-new-codechallenge-platform.html).
+You can read more about it [here](https://pybit.es/special-birthday-new-platform.html).
 
 ## Code of conduct
 
