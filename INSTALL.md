@@ -4,9 +4,9 @@
 
 Update 20th of Dec 2017: we did it! We built our platform around these challenges and more. We highly encourage to use it to guide you through the setup for our challenges: [https://codechalleng.es](https://codechalleng.es). If for some reason you like the old instructions though see below.
 
->>> from pybites import Bob, Julian
+	>>> from pybites import Bob, Julian
 
-Keep Calm and Code in Python!
+	Keep Calm and Code in Python!
 
 
 ## I. First time around
