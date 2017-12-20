@@ -103,3 +103,4 @@ schedule.every().day.at("7:00").do(job)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
