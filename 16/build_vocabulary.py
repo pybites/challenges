@@ -91,7 +91,6 @@ def email_notification(message):
 
 
 
-api_key = 'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'
 api_key = os.environ.get('api_key')
 date = datetime.datetime.today().strftime('%Y-%m-%d')
 url = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?'+ 'date='+date+'&'+'api_key='+api_key
