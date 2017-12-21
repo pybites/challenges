@@ -3,8 +3,10 @@ import requests
 import json
 import datetime
 import smtplib
-import schedule
+import logging
 from email.mime.text import MIMEText
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def fetch_response(url=None):
@@ -17,6 +19,7 @@ def fetch_response(url=None):
     response = requests.get(url)
     byte_response = response.content
     unicode_response = byte_response.decode("utf-8")
+    logging.info("JSON response is fetched")
     parse_response(unicode_response)
 
 
@@ -37,6 +40,7 @@ def parse_response(response):
     meaning = json_response["definitions"][0]["text"]
     part_of_speech = json_response["definitions"][0]["partOfSpeech"]
     source = json_response["definitions"][0]["source"]
+    logging.info("Parsed JSON response")
 
     format_response(word_of_the_day, origin, date, usage, meaning, part_of_speech, source)
 
@@ -75,19 +79,19 @@ def email_notification(message):
     smtp_password = os.environ.get('MAIL_PASSWORD')
     mailto = os.environ.get('MAILTO')
     msg = json.dumps(message, indent=4)
-    print(msg)
     smtp_server.ehlo()
     smtp_server.starttls()
     try:
         smtp_server.login(smtp_account, smtp_password)
     except smtplib.SMTPAuthenticationError:
-        print('Could not login to the smtp server please check your username and password')
+        logging.error('Could not login to the smtp server please check your username and password')
         sys.exit(1)
     msg = MIMEText(msg)
     msg['Subject'] = 'Word Of The Day!'
     msg['From'] = smtp_account
     msg['To'] = mailto
     smtp_server.send_message(msg)
+    logging.info("Email notification sent!")
     smtp_server.quit()
 
 
