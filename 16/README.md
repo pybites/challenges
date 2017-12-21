@@ -39,6 +39,7 @@ Get a word into your mail box Daily!!
 Before running the script use the following enviornment variables to configure mail service.
 
 ```
+export api_key = api key which you get by sign up on wordlink
 export MAIL_ACCOUNT= your mail address
 export MAIL_PASSWORD= mail password
 export MAILTO= recipient's mail address
@@ -46,7 +47,11 @@ export MAILTO= recipient's mail address
 ``` 
 
 
-TODO
 
-1) Schedule this script to run as a cron job. In order to retrieve one word per day.
+Schedule this script to run as a cron job. In order to retrieve one word per day.
 
+```
+sudo cp build_vocabulary.py /etc/cron.daily
+chmod a+x build_vocabulary.py
+
+```
