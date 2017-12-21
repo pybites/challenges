@@ -4,7 +4,6 @@ import json
 import datetime
 import smtplib
 import schedule
-import time
 from email.mime.text import MIMEText
 
 
@@ -92,15 +91,10 @@ def email_notification(message):
     smtp_server.quit()
 
 
-def job():
-    api_key = os.environ.get('api_key')
-    date = datetime.datetime.today().strftime('%Y-%m-%d')
-    url = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?'+ 'date='+date+'&'+'api_key='+api_key
-    fetch_response(url)
 
-schedule.every().day.at("7:00").do(job)
+api_key = os.environ.get('api_key')
+date = datetime.datetime.today().strftime('%Y-%m-%d')
+url = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?'+ 'date='+date+'&'+'api_key='+api_key
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+fetch_response(url)
 
