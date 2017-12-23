@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+{{ js_resources|indent(4)|safe }}
+{{ css_resources|indent(4)|safe }}
+{{ plot_script|indent(4)|safe }}
+
+<div class="body-content">
+  <div class="row">
+    <h1>Historical Rates</h1>
+    <hr><br>
+    {{ plot_div|indent(4)|safe }}
+    <br>
+    <p>Total Data Points - {{ points }}</p>
+  </div>
+</div>
+
+{% endblock %}
