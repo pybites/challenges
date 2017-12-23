@@ -1,3 +1,0 @@
-py==1.4.34
-pyperclip==1.5.27
-pytest==3.2.3
