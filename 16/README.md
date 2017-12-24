@@ -36,7 +36,7 @@ etc.
 Last leap left to actually make it worth the use. 
 
 Get a word into your mail box Daily!!
-Before running the script use the following enviornment variables to configure mail service.
+Write a bash script eg: `do-it-all.sh` to set the following enviornment variables to configure mail service.
 
 ```
 export api_key = api key which you get by sign up on wordlink
@@ -46,12 +46,33 @@ export MAILTO= recipient's mail address
 
 ``` 
 
+Do `which Python`  on your shell it'll show the path to the folder which has Python executable installed.
 
+Eg:
+
+`/home/mridu/challenges/16/venv/bin/python`
+
+Add the path to run the python file in your bash script `do-it-all.sh`.
+
+```
+/home/mridu/challenges/16/venv/bin/python /home/mridu/challenges/16/build_vocabulary.py
+
+```
+
+```
+NOTE:
+
+You'll have to make the bashscript executable. By changing permissions.
+
+```
 
 Schedule this script to run as a cron job. In order to retrieve one word per day.
 
-```
-sudo cp build_vocabulary.py /etc/cron.daily
-chmod a+x build_vocabulary.py
+On shell do `crontab -e`. Add time on which you wish to schedule the task. And give full path to file.
 
 ```
+00 04 * * * challenges/16/do-it-all.sh
+
+```
+
+Yay! Everyday at 4:00 am you'll have a email notification containing Word Of The Day.
