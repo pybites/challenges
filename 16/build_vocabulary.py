@@ -41,7 +41,6 @@ def parse_response(response):
     part_of_speech = json_response["definitions"][0]["partOfSpeech"]
     source = json_response["definitions"][0]["source"]
     logging.info("Parsed JSON response")
-
     format_response(word_of_the_day, origin, date, usage, meaning, part_of_speech, source)
 
 
@@ -95,8 +94,7 @@ def email_notification(message):
     smtp_server.quit()
 
 
-
-api_key = os.environ.get('api_key')
+api_key = os.environ.get('API_KEY')
 date = datetime.datetime.today().strftime('%Y-%m-%d')
 url = 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?'+ 'date='+date+'&'+'api_key='+api_key
 
