@@ -39,6 +39,8 @@ Get a word into your mail box Daily!!
 Write a bash script eg: `do-it-all.sh` to set the following enviornment variables to configure mail service.
 
 ```
+#!/bin/bash
+
 export api_key = api key which you get by sign up on wordlink
 export MAIL_ACCOUNT= your mail address
 export MAIL_PASSWORD= mail password
