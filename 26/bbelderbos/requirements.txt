@@ -1,3 +1,0 @@
-easygui
-matplotlib
-Pillow
