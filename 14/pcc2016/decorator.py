@@ -4,14 +4,14 @@ from random import random
 import time
 
 logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',  # noqa E501
                     datefmt='%H:%M:%S',
                     filename='decorators.log',
                     filemode='a')
 
 
 def timeit(func):
-    ''' a simple one - from Python cookbook 3rd ed '''
+    """a simple one - from Python cookbook 3rd ed"""
     @wraps(func)
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -24,10 +24,14 @@ def timeit(func):
 
 
 def mute_exception(func=None, *, reraise=False, default_return=None):
-    ''' Technique: http://pybit.es/decorator-optional-argument.html (Python cookbook 3rd ed)
-        Inspiration: https://www.blog.pythonlibrary.org/2016/06/09/python-how-to-create-an-exception-logging-decorator/ '''
+    """Technique:
+       http://pybit.es/decorator-optional-argument.html
+       (Python cookbook 3rd ed)
+       Inspiration: https://www.blog.pythonlibrary.org/2016/06/09/
+       python-how-to-create-an-exception-logging-decorator/"""
     if func is None:
-        return partial(mute_exception, reraise=reraise, default_return=default_return)
+        return partial(mute_exception, reraise=reraise,
+                       default_return=default_return)
 
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -35,7 +39,9 @@ def mute_exception(func=None, *, reraise=False, default_return=None):
             logging.debug(f'{func.__name__} called for args {args}')
             return func(*args, **kwargs)
         except Exception as e:
-            logging.error(f'{func.__name__} raised exception {e.__class__.__name__} for args: {args}')
+            exc = f'{func.__name__} raised exception \
+                    {e.__class__.__name__} for args: {args}'
+            logging.error(exc)
             if reraise:
                 raise
             return default_return
@@ -44,19 +50,23 @@ def mute_exception(func=None, *, reraise=False, default_return=None):
 
 if __name__ == '__main__':
 
-    @timeit                                             # decorator to time the operation
-
-                                                        # second (stacked decorator)
-    #@mute_exception                                    # works: no args provided = takes defaults (no reraise, returns None)
-    #@mute_exception(reraise=True)                      # works: raises the ZeroDivisionError = crash
-
-    @mute_exception(reraise=False, default_return=0)    # works: does not reraise ZeroDivisionError and returns 0 in that case 
+    # decorator to time the operation
+    @timeit
+    # second (stacked decorator)
+    # works: no args provided = takes defaults (no reraise, returns None)
+    # @mute_exception
+    # works: raises the ZeroDivisionError = crash
+    # @mute_exception(reraise=True)
+    # works: does not reraise ZeroDivisionError and returns 0 in that case
+    @mute_exception(reraise=False, default_return=0)
     def div(i, j):
-        time.sleep(random())                            # take a bit of time to make timeit useful
+        # take a bit of time to make timeit useful
+        time.sleep(random())
         return i/j
 
     a = (1, 2, 3)
-    b = (4, 5, 0)                                       # last element triggers ZeroDivisionError
+    # last element triggers ZeroDivisionError
+    b = (4, 5, 0)
 
     for i, j in zip(a, b):
         res = div(i, j)
