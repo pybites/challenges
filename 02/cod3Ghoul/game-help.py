@@ -8,17 +8,23 @@ import random
 from data import DICTIONARY, LETTER_SCORES, POUCH
 
 NUM_LETTERS = 7
-
+players_drawn_letters = []
 
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    pass
+    players_drawn_letters = random.choices(POUCH, k=NUM_LETTERS)
+    return players_drawn_letters
 
 
 def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
-    pass 
+    players_word = input('Enter a valid word from the letters you\'ve drawn: ')
+    if _validation(players_word, players_drawn_letters): # TODO: define _validation
+        print('Your word "{}" scores you {} points.'.format(players_word, calc_word_value(players_word)))
+    else:
+        print('Your word "{}" is not a valid word.'.format(players_word))
+        
 
 
 
