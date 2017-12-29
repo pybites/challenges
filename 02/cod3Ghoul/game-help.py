@@ -10,6 +10,7 @@ from data import DICTIONARY, LETTER_SCORES, POUCH
 NUM_LETTERS = 7
 players_drawn_letters = []
 
+
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
     players_drawn_letters = random.choices(POUCH, k=NUM_LETTERS)
@@ -20,17 +21,19 @@ def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
-    if _validation(players_word, players_drawn_letters): # TODO: define _validation
-        print('Your word "{}" scores you {} points.'.format(players_word, calc_word_value(players_word)))
-    else:
+    while not _validation(players_word, players_drawn_letters): # TODO: define _validation to return a False or True Boolean
         print('Your word "{}" is not a valid word.'.format(players_word))
-        
-
+        players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
+    else:
+        print('Your word "{}" scores you {} points.'.format(players_word, calc_word_value(players_word))
 
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    pass
+    for letter in list(players_word):
+        for letter_in_draw in players_drawn_letters:
+            if letter == letter_in_draw:
+                
 
 
 # From challenge 01:
