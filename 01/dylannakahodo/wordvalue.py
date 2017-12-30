@@ -9,13 +9,7 @@ def load_words():
 def calc_word_value(word):
     """Calculate the value of the word entered into function
     using imported constant mapping LETTER_SCORES"""
-    value = 0
-    for char in word:
-        try:
-            value += LETTER_SCORES[char.upper()]
-        except:
-            pass
-    return value
+    return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
 def max_word_value(word_list=load_words()):
     """Calculate the word with the max value, can receive a list
