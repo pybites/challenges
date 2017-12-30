@@ -1,4 +1,4 @@
-## Code Challenge 46 - Code Challenge 46 - Add Continuous Integration (CI) to Your Project
+## Code Challenge 46 - Add Continuous Integration (CI) to Your Project
 
 [Challenge instructions](http://pybit.es/codechallenge46.html).
 
