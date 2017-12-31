@@ -8,30 +8,30 @@ import random
 from data import DICTIONARY, LETTER_SCORES, POUCH
 
 NUM_LETTERS = 7
-players_drawn_letters = []
+players_draw = []
+players_word = ''
 
 
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    players_drawn_letters = random.choices(POUCH, k=NUM_LETTERS)
-    return players_drawn_letters
+    return random.choices(POUCH, k=NUM_LETTERS)
 
 
-def input_word(draw):
-    """Ask player for a word and validate against draw.
-    Use _validation(word, draw) helper."""
+def input_word(players_draw):
+    """Ask player for a word and validate against players_draw.
+    Use _validation(players_word, players_draw) helper."""
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
-    while not _validation(players_word, players_drawn_letters): # TODO: define _validation to return a False or True Boolean
-        print('Your word "{}" is not a valid word.'.format(players_word))
+    while not _validation(players_word, players_draw):
+        print(f"Your word '{players_word}' is not a valid word.")
         players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
     else:
-        print('Your word "{}" scores you {} points.'.format(players_word, calc_word_value(players_word))
+        return players_word
 
 
-def _validation(word, draw):
-    """Validations: 1) only use letters of draw, 2) valid dictionary word"""
+def _validation(players_word, players_draw):
+    """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
     for letter in list(players_word):
-        for letter_in_draw in players_drawn_letters:
+        for letter_in_draw in players_draw:
             if letter == letter_in_draw:
                 
 
@@ -42,18 +42,18 @@ def calc_word_value(word):
     return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
 
-# Below 2 functions pass through the same 'draw' argument (smell?).
+# Below 2 functions pass through the same 'players_draw' argument (smell?).
 # Maybe you want to abstract this into a class?
 # get_possible_dict_words and _get_permutations_draw would be instance methods.
-# 'draw' would be set in the class constructor (__init__).
-def get_possible_dict_words(draw):
-    """Get all possible words from draw which are valid dictionary words.
+# 'players_draw' would be set in the class constructor (__init__).
+def get_possible_dict_words(players_draw):
+    """Get all possible words from players_draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
     pass
 
 
-def _get_permutations_draw(draw):
-    """Helper for get_possible_dict_words to get all permutations of draw letters.
+def _get_permutations_draw(players_draw):
+    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
     Hint: use itertools.permutations"""
     pass
 
@@ -66,19 +66,18 @@ def max_word_value(words):
 
 def main():
     """Main game interface calling the previously defined methods"""
-    draw = draw_letters()
-    print('Letters drawn: {}'.format(', '.join(draw)))
+    players_draw = draw_letters()
+    print(f"Letters drawn: {', '.join(players_draw)}")
+    players_word = input_word(players_draw)
+    print(f"Your word '{players_word}' scores you {calc_word_value(players_word)} points.")
+    # word_score = calc_word_value(players_word)
+    # print(f"Word chosen: {players_word} (value: {word_score})")
 
-    word = input_word(draw)
-    word_score = calc_word_value(word)
-    print('Word chosen: {} (value: {})'.format(word, word_score))
-
-    possible_words = get_possible_dict_words(draw)
+    possible_words = get_possible_dict_words(players_draw)
 
     max_word = max_word_value(possible_words)
     max_word_score = calc_word_value(max_word)
-    print('Optimal word possible: {} (value: {})'.format(
-        max_word, max_word_score))
+    print(f"Optimal word possible: {max_word} (value: {max_word_score})")
 
     game_score = word_score / max_word_score * 100
     print('You scored: {:.1f}'.format(game_score))
