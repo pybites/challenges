@@ -31,15 +31,11 @@ def get_similarities(tags):
     Hint 2: use SequenceMatcher (imported) to calculate the similarity ratio
     Bonus: for performance gain compare the first char of each tag in pair and continue if not the same"""
 
-    similar_tags = list()
-
+    similar_tags = set()
     for w1, w2 in product(set(tags), repeat=2):
-        s = SequenceMatcher(None, w1, w2).ratio()
-        if (w1 != w2) and (s > SIMILAR) and (w1 not in similar_tags):
-            if len(w1) < len(w2):
-                similar_tags.append((w1, w2))
-    print("Length of similar_tags: ", len(similar_tags))
-    print(similar_tags)
+        r = SequenceMatcher(None, w1, w2).ratio()
+        if SIMILAR < r < 1.0:
+            similar_tags.add( (min(w1, w2) , max(w1, w2)) )
     return similar_tags
 
 
