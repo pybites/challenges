@@ -31,9 +31,10 @@ def input_word(players_draw):
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
     for letter in list(players_word):
-        for letter_in_draw in players_draw:
-            if letter == letter_in_draw:
-                
+        if contains(players_draw, letter) and contains(DICTIONARY, players_word):
+        	return True
+        else:
+        	return False
 
 
 # From challenge 01:
@@ -46,16 +47,24 @@ def calc_word_value(word):
 # Maybe you want to abstract this into a class?
 # get_possible_dict_words and _get_permutations_draw would be instance methods.
 # 'players_draw' would be set in the class constructor (__init__).
-def get_possible_dict_words(players_draw):
-    """Get all possible words from players_draw which are valid dictionary words.
-    Use the _get_permutations_draw helper and DICTIONARY constant"""
-    pass
 
 
-def _get_permutations_draw(players_draw):
-    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
-    Hint: use itertools.permutations"""
-    pass
+class WordPossibilities(players_draw):
+	
+	def __init__(self, players_draw):
+	    self.players_draw = players_draw
+	
+	
+	def get_possible_dict_words(players_draw):
+	    """Get all possible words from players_draw which are valid dictionary words.
+	    Use the _get_permutations_draw helper and DICTIONARY constant"""
+	    pass
+	
+	
+	def _get_permutations_draw(players_draw):
+	    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
+	    Hint: use itertools.permutations"""
+	    pass
 
 
 # From challenge 01:
