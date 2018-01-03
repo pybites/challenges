@@ -49,22 +49,25 @@ def calc_word_value(word):
 # 'players_draw' would be set in the class constructor (__init__).
 
 
-class WordPossibilities(players_draw):
+class WordPossibilities(self, players_draw, n):
 	
 	def __init__(self, players_draw):
 	    self.players_draw = players_draw
+	    self.n = len(players_draw)
 	
 	
 	def get_possible_dict_words(players_draw):
 	    """Get all possible words from players_draw which are valid dictionary words.
 	    Use the _get_permutations_draw helper and DICTIONARY constant"""
-	    pass
+	    perms = list(_get_permutations_draw(players_draw))
+	    return list(filter(lambda word: word in DICTIONARY, perms))
 	
 	
-	def _get_permutations_draw(players_draw):
+	def _get_permutations_draw(players_draw, n):
 	    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
 	    Hint: use itertools.permutations"""
-	    pass
+	    with players_draw.sort() as draw:
+	    	return itertools.permutations(draw)
 
 
 # From challenge 01:
@@ -82,7 +85,7 @@ def main():
     # word_score = calc_word_value(players_word)
     # print(f"Word chosen: {players_word} (value: {word_score})")
 
-    possible_words = get_possible_dict_words(players_draw)
+    possible_words = WordPossibilities(players_draw)
 
     max_word = max_word_value(possible_words)
     max_word_score = calc_word_value(max_word)
