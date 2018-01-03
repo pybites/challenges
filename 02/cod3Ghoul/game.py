@@ -4,6 +4,7 @@
 
 import itertools
 import random
+from operator import contains
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
 
@@ -49,24 +50,23 @@ def calc_word_value(word):
 # 'players_draw' would be set in the class constructor (__init__).
 
 
-class WordPossibilities(self, players_draw, n):
+class WordPossibilities:
 	
 	def __init__(self, players_draw):
 	    self.players_draw = players_draw
-	    self.n = len(players_draw)
 	
 	
-	def get_possible_dict_words(players_draw):
+	def get_possible_dict_words(self, players_draw):
 	    """Get all possible words from players_draw which are valid dictionary words.
 	    Use the _get_permutations_draw helper and DICTIONARY constant"""
-	    perms = list(_get_permutations_draw(players_draw))
-	    return list(filter(lambda word: word in DICTIONARY, perms))
+	    self.perms = list(_get_permutations_draw(self.players_draw))
+	    return list(filter(lambda word: word in DICTIONARY, self.perms))
 	
 	
-	def _get_permutations_draw(players_draw, n):
+	def _get_permutations_draw(self, players_draw, n):
 	    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
 	    Hint: use itertools.permutations"""
-	    with players_draw.sort() as draw:
+	    with self.players_draw.sort() as draw:
 	    	return itertools.permutations(draw)
 
 
