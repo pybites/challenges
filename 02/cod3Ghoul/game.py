@@ -33,9 +33,9 @@ def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
     for letter in list(players_word):
         if contains(players_draw, letter) and contains(DICTIONARY, players_word):
-        	return True
+            return True
         else:
-        	return False
+            return False
 
 
 # From challenge 01:
@@ -63,7 +63,7 @@ class WordPossibilities:
 	    return list(filter(lambda word: word in DICTIONARY, self.perms))
 	
 	
-	def _get_permutations_draw(self, players_draw, n):
+	def _get_permutations_draw(self, players_draw):
 	    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
 	    Hint: use itertools.permutations"""
 	    with self.players_draw.sort() as draw:
