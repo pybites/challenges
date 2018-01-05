@@ -50,12 +50,45 @@ def calc_word_value(word):
 def get_possible_dict_words(draw):
     """Get all possible words from draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
+    print("draw:", draw)
+
+    perm = len(_get_permutations_draw(draw))
+    temp_word = ""
+
+    print("permutation possibilities:", perm)
+    for i in _get_permutations_draw(draw):
+        #print("i:", i)
+        temp_word = "".join(i)
+        #print("i_str:", temp_word)
+        for x in DICTIONARY:
+            if (temp_word == str(x)):
+                print("MATCH")
+
     pass
 
 
 def _get_permutations_draw(draw):
     """Helper for get_possible_dict_words to get all permutations of draw letters.
     Hint: use itertools.permutations"""
+    #print("draw:", draw)
+
+    value = 0
+    return_list = []
+    #print("length of draw:", len(draw))
+    for i in range(1,len(draw)+1):
+        value = value + len(list(itertools.permutations(draw,i)))
+        #return_list.append(list(itertools.permutations(draw,i)))
+        #print("DEBUG:", return_list)
+        for x in list(itertools.permutations(draw,i)):
+            #print("x:",x)
+            return_list.append(x)
+            #print("LENGTH:", len(return_list))
+        #print("value:", value)
+
+    #print("length:", len(return_list))
+    #print("RET:", return_list)
+    return(return_list)
+
     pass
 
 
