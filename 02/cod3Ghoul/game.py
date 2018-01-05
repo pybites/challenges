@@ -7,6 +7,7 @@ import random
 from operator import contains
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
+from game_classes import WordPossibilities
 
 NUM_LETTERS = 7
 players_draw = []
@@ -44,32 +45,6 @@ def calc_word_value(word):
     return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
 
-# Below 2 functions pass through the same 'players_draw' argument (smell?).
-# Maybe you want to abstract this into a class?
-# get_possible_dict_words and _get_permutations_draw would be instance methods.
-# 'players_draw' would be set in the class constructor (__init__).
-
-
-class WordPossibilities:
-	
-	def __init__(self, players_draw):
-	    self.players_draw = players_draw
-	
-	
-	def get_possible_dict_words(self, players_draw):
-	    """Get all possible words from players_draw which are valid dictionary words.
-	    Use the _get_permutations_draw helper and DICTIONARY constant"""
-	    self.perms = list(_get_permutations_draw(self.players_draw))
-	    return list(filter(lambda word: word in DICTIONARY, self.perms))
-	
-	
-	def _get_permutations_draw(self, players_draw):
-	    """Helper for get_possible_dict_words to get all permutations of players_draw letters.
-	    Hint: use itertools.permutations"""
-	    with self.players_draw.sort() as draw:
-	    	return itertools.permutations(draw)
-
-
 # From challenge 01:
 def max_word_value(words):
     """Calc the max value of a collection of words"""
@@ -81,9 +56,8 @@ def main():
     players_draw = draw_letters()
     print(f"Letters drawn: {', '.join(players_draw)}")
     players_word = input_word(players_draw)
-    print(f"Your word '{players_word}' scores you {calc_word_value(players_word)} points.")
-    # word_score = calc_word_value(players_word)
-    # print(f"Word chosen: {players_word} (value: {word_score})")
+    word_score = calc_word_value(players_word)
+    print(f"Your word '{players_word}' scores you {word_score} points.")
 
     possible_words = WordPossibilities(players_draw)
 
@@ -91,8 +65,8 @@ def main():
     max_word_score = calc_word_value(max_word)
     print(f"Optimal word possible: {max_word} (value: {max_word_score})")
 
-    game_score = word_score / max_word_score * 100
-    print('You scored: {:.1f}'.format(game_score))
+    game_score = round(word_score / max_word_score * 100, 1)
+    print(f'You scored: {game_score}.')
 
 
 if __name__ == "__main__":
