@@ -34,6 +34,22 @@ def input_word(draw):
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
+    print("validation method here")
+    print("word:", word)
+    print("draw:", draw)
+
+    temp_list = list(draw)
+    for i in word.upper():
+        if i in temp_list:
+            print("foo")
+            temp_list.remove(i)
+        else:
+            raise ValueError("Not a valid word")
+
+    if not word.lower() in DICTIONARY:
+        raise ValueError("Not valid in dictionary")
+
+    return (word)
     pass
 
 
@@ -55,15 +71,18 @@ def get_possible_dict_words(draw):
     perm = len(_get_permutations_draw(draw))
     temp_word = ""
 
+    possible_comb = []
     print("permutation possibilities:", perm)
     for i in _get_permutations_draw(draw):
         #print("i:", i)
-        temp_word = "".join(i)
-        #print("i_str:", temp_word)
-        for x in DICTIONARY:
-            if (temp_word == str(x)):
-                print("MATCH")
 
+        temp_word = "".join(i).lower()
+        #print("i_str:", temp_word)
+        if temp_word in DICTIONARY:
+            #print("Found a match:", temp_word)
+            possible_comb.append(temp_word)
+
+    return(possible_comb)
     pass
 
 
