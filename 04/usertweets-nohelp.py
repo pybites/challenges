@@ -24,7 +24,7 @@ class UserTweets(object):
 
 if __name__ == "__main__":
 
-    for handle in ('pybites', 'techmoneykids', 'bbelderbos'):
+    for handle in ('pybites', '_juliansequeira', 'bbelderbos'):
         print('--- {} ---'.format(handle))
         user = UserTweets(handle)
         for tw in user[:5]:
