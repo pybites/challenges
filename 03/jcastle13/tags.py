@@ -21,13 +21,23 @@ def get_tags():
     for rss in file:
         #print("rss:", rss)
         temp = re.findall(TAG_HTML,rss)
+        #print("temp:", temp)
 
-        print("temp:", temp)
+    #print("temp size:", len(temp))
 
-    print("temp size:", len(temp))
+    new_temp = []
+    for i in temp:
+        replace_dash = i.replace("-", " ")
+        replace_dash = replace_dash.lower()
+        new_temp.append(replace_dash)
+
+    print("New Temp:", new_temp)
+    print("Size of New Temp:", len(new_temp))
+    print("Updated set New Temp size:", len(set(new_temp)))
+
     file.close()
 
-    return(temp)
+    return(new_temp)
 
     pass
 
