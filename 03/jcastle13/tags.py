@@ -14,7 +14,7 @@ def get_tags():
     """Find all tags (TAG_HTML) in RSS_FEED.
     Replace dash with whitespace.
     Hint: use TAG_HTML.findall"""
-    print("get_tags method here")
+    #print("get_tags method here")
 
     temp = []
     file = open(RSS_FEED, "r")
@@ -31,9 +31,9 @@ def get_tags():
         replace_dash = replace_dash.lower()
         new_temp.append(replace_dash)
 
-    print("New Temp:", new_temp)
-    print("Size of New Temp:", len(new_temp))
-    print("Updated set New Temp size:", len(set(new_temp)))
+    #print("New Temp:", new_temp)
+    #print("Size of New Temp:", len(new_temp))
+    #print("Updated set New Temp size:", len(set(new_temp)))
 
     file.close()
 
@@ -45,6 +45,15 @@ def get_tags():
 def get_top_tags(tags):
     """Get the TOP_NUMBER of most common tags
     Hint: use most_common method of Counter (already imported)"""
+
+    #print("get_top_tags method call here")
+    #print("tags:", tags)
+
+    tag_list = Counter(tags).most_common(TOP_NUMBER)
+
+    #print("tag_list:", tag_list)
+
+    return tag_list
     pass
 
 
@@ -53,6 +62,24 @@ def get_similarities(tags):
     Hint 1: compare each tag, use for in for, or product from itertools (already imported)
     Hint 2: use SequenceMatcher (imported) to calculate the similarity ratio
     Bonus: for performance gain compare the first char of each tag in pair and continue if not the same"""
+    print("get_similarities method call here")
+
+    #print("tags:", tags)
+    ret_list = []
+    for x in tags:
+        for y in tags:
+            temp = SequenceMatcher(None, x, y)
+            d = temp.ratio()
+            #print("d:", d)
+            if d > SIMILAR:
+                if d < IDENTICAL:
+                    temp = x,y
+                    ret_list.append(temp)
+
+    print("ret_list:", ret_list)
+
+
+    return ret_list
     pass
 
 
