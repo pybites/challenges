@@ -70,14 +70,13 @@ def get_similarities(tags):
         for y in tags:
             temp = SequenceMatcher(None, x, y)
             d = temp.ratio()
-            #print("d:", d)
             if d > SIMILAR:
                 if d < IDENTICAL:
                     temp = x,y
+                    temp = sorted(temp)
                     ret_list.append(temp)
 
     print("ret_list:", ret_list)
-
 
     return ret_list
     pass
