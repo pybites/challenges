@@ -23,6 +23,26 @@ class UserTweets(object):
         Use _get_tweets() helper to get a list of tweets.
         Save the tweets as data/<handle>.csv"""
         # ...
+        print("init method call here")
+        self.handle = handle
+        self.max_id = max_id
+
+        auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+
+        # Redirect user to Twitter to authorize
+        #redirect_user(auth.get_authorization_url())
+
+        # Set access token
+        auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+
+        # Get access token
+        #auth.get_access_token("verifier_value")
+
+        # Construct the API instance
+        self.api = tweepy.API(auth)
+        #temp = self.api.user_timeline()
+        #print("temp:", temp)
+
         self._tweets = list(self._get_tweets())
         self._save_tweets()
 
@@ -31,6 +51,26 @@ class UserTweets(object):
         See tweepy API reference: http://docs.tweepy.org/en/v3.5.0/api.html
         Use a list comprehension / generator to filter out fields
         id_str created_at text (optionally use namedtuple)"""
+        print("get_tweets method called here")
+
+        ret_list = []
+        #public_tweet = self.api.home_timeline()
+        #public_tweet = self.api.user_timeline()
+        #for tweet in public_tweet:
+        #    print("tweet:", tweet.text)
+
+        #for status in tweepy.Cursor(self.api.user_timeline).pages():
+        for status in self.api.user_timeline():
+            # process status here
+            print("status:", status)
+            print("id_str:", status.id_str)
+            print("created_at:", status.created_at)
+            print("text:", status.text)
+            ret_list.append(Tweet(id_str=status.id_str, created_at=status.created_at, text=status.text))
+
+            #temp = [l for l in status if l not in 'id_str']
+
+        return ret_list
         pass
 
     def _save_tweets(self):
