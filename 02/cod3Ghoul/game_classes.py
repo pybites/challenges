@@ -3,7 +3,7 @@ from itertools import permutations
 from data import DICTIONARY
 
 
-class WordPossibilities:
+class WordPossibilities(itertools.permutation:
 	
 	def __init__(self, players_draw):
 	    self.players_draw = players_draw
