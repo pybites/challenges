@@ -17,7 +17,7 @@ class WordPossibilities(itertools.permutations):
 	
 	def __init__(self, players_draw):
 	    self.players_draw = players_draw
-	    self.perms = list(permutations(self.players_draw.sort()))
+	    self.perms = list(itertools.permutations(self.players_draw.sort()))
 	
 	
 	def get_possible_dict_words(self):
@@ -35,18 +35,20 @@ def input_word(players_draw):
     """Ask player for a word and validate against players_draw.
     Use _validation(players_word, players_draw) helper."""
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
+    players_word = players_word.lower()
     while not _validation(players_word, players_draw):
         print(f"Your word '{players_word}' is not a valid word.")
         players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
+        players_word = players_word.lower()
     else:
-        return players_word
+        return players_word.lower()
 
 
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
     if contains(DICTIONARY, players_word):
-        for letter in list(players_word.upper()):
-            if contains(players_draw, letter):
+        for letter in list(players_word): # TODO: troubleshoot why this is not verifying each letter in draw is only used once
+            if contains(players_draw, letter.upper()):
                 return True
             else:
                 return False
