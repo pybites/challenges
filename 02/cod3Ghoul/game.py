@@ -7,11 +7,23 @@ import random
 from operator import contains
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
-from game_classes import WordPossibilities
 
 NUM_LETTERS = 7
 players_draw = []
 players_word = ''
+
+
+class WordPossibilities(itertools.permutations):
+	
+	def __init__(self, players_draw):
+	    self.players_draw = players_draw
+	    self.perms = list(permutations(self.players_draw.sort()))
+	
+	
+	def get_possible_dict_words(self):
+	    """Get all possible words from players_draw which are valid dictionary words.
+	    Use the _get_permutations_draw helper and DICTIONARY constant"""
+	    return list(filter(lambda word: word in DICTIONARY, self.perms))
 
 
 def draw_letters():
@@ -32,11 +44,12 @@ def input_word(players_draw):
 
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
-    for letter in list(players_word):
-        if contains(players_draw, letter) and contains(DICTIONARY, players_word):
-            return True
-        else:
-            return False
+    if contains(DICTIONARY, players_word):
+        for letter in list(players_word.upper()):
+            if contains(players_draw, letter):
+                return True
+            else:
+                return False
 
 
 # From challenge 01:
