@@ -6,7 +6,7 @@ import itertools
 import random
 from operator import contains
 
-from data import DICTIONARY, LETTER_SCORES, POUCH
+from data import DICTIONARY,LETTER_SCORES,POUCH
 
 NUM_LETTERS = 7
 players_draw = []
@@ -16,42 +16,44 @@ players_word = ''
 class WordPossibilities(itertools.permutations):
 	
 	def __init__(self, players_draw):
-	    self.players_draw = players_draw
-	    self.perms = list(itertools.permutations(self.players_draw.sort()))
+		self.players_draw = players_draw
+		self.perms = list(itertools.permutations(self.players_draw.sort()))
 	
 	
 	def get_possible_dict_words(self):
-	    """Get all possible words from players_draw which are valid dictionary words.
+		"""Get all possible words from players_draw which are valid dictionary words.
 	    Use the _get_permutations_draw helper and DICTIONARY constant"""
-	    return list(filter(lambda word: word in DICTIONARY, self.perms))
+		return list(filter(lambda word: word in DICTIONARY, self.perms))
 
 
 def draw_letters():
-    """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    return random.choices(POUCH, k=NUM_LETTERS)
+	"""Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
+	return random.choices(POUCH, k=NUM_LETTERS)
 
 
 def input_word(players_draw):
     """Ask player for a word and validate against players_draw.
     Use _validation(players_word, players_draw) helper."""
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
-    players_word = players_word.lower()
     while not _validation(players_word, players_draw):
         print(f"Your word '{players_word}' is not a valid word.")
         players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
-        players_word = players_word.lower()
+        players_word = players_word
     else:
-        return players_word.lower()
+        return players_word
 
 
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
-    if contains(DICTIONARY, players_word):
-        for letter in list(players_word): # TODO: troubleshoot why this is not verifying each letter in draw is only used once
+    isValid = bool
+    if contains(DICTIONARY, players_word.lower()):
+        for letter in players_word: # TODO: troubleshoot why this is not verifying each letter in draw is only used once
             if contains(players_draw, letter.upper()):
-                return True
+                isValid = True
             else:
-                return False
+                isValid = False
+
+    return isValid
 
 
 # From challenge 01:
