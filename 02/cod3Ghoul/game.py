@@ -17,7 +17,7 @@ class WordPossibilities(itertools.permutations):
 	
 	def __init__(self, players_draw):
 		self.players_draw = players_draw
-		self.perms = list(itertools.permutations(self.players_draw.sort()))
+		self.perms = itertools.permutations(self.players_draw)
 	
 	
 	def get_possible_dict_words(self):
@@ -52,7 +52,6 @@ def _validation(players_word, players_draw):
                 isValid = True
             else:
                 isValid = False
-
     return isValid
 
 
