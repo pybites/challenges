@@ -2,9 +2,9 @@
 # Code Challenge 02 - Word Values Part II - a simple game
 # http://pybit.es/codechallenge02.html
 
-import itertools
 from random import choice
 from string import ascii_uppercase
+from itertools import permutations, chain
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
 
@@ -26,7 +26,15 @@ def input_word(draw):
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    is_in_draw = all((letter.upper() in draw) for letter in word)
+    is_in_draw_list = []
+    for letter in word:
+        if letter.upper() in draw:
+            is_in_draw_list.append(True)
+            draw.remove(letter.upper())
+        else:
+            is_in_draw_list.append(False)
+    is_in_draw = all(is_in_draw_list)
+
     if word in DICTIONARY and is_in_draw:
         return True
     raise ValueError
@@ -42,16 +50,28 @@ def calc_word_value(word):
 # Maybe you want to abstract this into a class?
 # get_possible_dict_words and _get_permutations_draw would be instance methods.
 # 'draw' would be set in the class constructor (__init__).
+
+
 def get_possible_dict_words(draw):
     """Get all possible words from draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
-    pass
+    draw_lower = [letter.lower() for letter in draw]
+    words = {word for word in DICTIONARY
+             if len(word) < NUM_LETTERS + 1
+             and word.startswith(tuple(draw_lower))}
+
+    permutations_as_set = {''.join(word)
+                           for word in _get_permutations_draw(draw_lower)}
+    return words.intersection(permutations_as_set)
 
 
 def _get_permutations_draw(draw):
     """Helper for get_possible_dict_words to get all permutations of draw letters.
     Hint: use itertools.permutations"""
-    pass
+    all_the_permutations = tuple(
+        tuple(permutations(draw, n)) for n in range(1, NUM_LETTERS + 1))
+
+    return tuple(chain.from_iterable(all_the_permutations))
 
 
 # From challenge 01:
