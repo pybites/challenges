@@ -6,39 +6,49 @@ import itertools
 import random
 from operator import contains
 
-from data import DICTIONARY,LETTER_SCORES,POUCH
+from data import DICTIONARY, LETTER_SCORES, POUCH
 
 NUM_LETTERS = 7
-players_draw = []
-players_word = ''
+valid_perms = []
+possible_perms = []
 
-
-class WordPossibilities(itertools.permutations):
-	
+# class to create an instance object of all possible valid permutations from the letters the player drew
+class WordPossibilities:
 	def __init__(self, players_draw):
-		self.players_draw = players_draw
-		self.perms = itertools.permutations(self.players_draw)
-	
-	
+		self.players_draw = ''.join(players_draw)
+		
+		
 	def get_possible_dict_words(self):
 		"""Get all possible words from players_draw which are valid dictionary words.
-	    Use the _get_permutations_draw helper and DICTIONARY constant"""
-		return list(filter(lambda word: word in DICTIONARY, self.perms))
+		Use the _get_permutations_draw helper and DICTIONARY constant"""
+		run = len(self.players_draw)
+		for c in range(run):
+		    all_perms = self._get_permutations_draw(c)
+		    for w in list(all_perms):
+		        if contains(DICTIONARY, w):
+		            valid_perms.append(w)
+		    run -= 1
+		return valid_perms
+		
+		
+	def _get_permutations_draw(self, cycle):
+	    possible_perms = tuple(itertools.permutations(self.players_draw, cycle))
+	    yield possible_perms
 
 
+# used to draw random letters from the POUCH
 def draw_letters():
-	"""Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-	return random.choices(POUCH, k=NUM_LETTERS)
+    return random.choices(POUCH, k=NUM_LETTERS)
 
 
+# used to get the player's choice of word based on the letters they drew and also validates it against
+# the DICTIONARY file
 def input_word(players_draw):
-    """Ask player for a word and validate against players_draw.
-    Use _validation(players_word, players_draw) helper."""
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
     while not _validation(players_word, players_draw):
         print(f"Your word '{players_word}' is not a valid word.")
         players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
-        players_word = players_word
+        # players_word = players_word
     else:
         return players_word
 
@@ -74,10 +84,8 @@ def main():
     players_word = input_word(players_draw)
     word_score = calc_word_value(players_word)
     print(f"Your word '{players_word}' scores you {word_score} points.")
-
     possible_words = WordPossibilities(players_draw)
-
-    max_word = max_word_value(possible_words)
+    max_word = max_word_value(possible_words.get_possible_dict_words())
     max_word_score = calc_word_value(max_word)
     print(f"Optimal word possible: {max_word} (value: {max_word_score})")
 
