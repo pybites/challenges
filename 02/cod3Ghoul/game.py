@@ -4,9 +4,11 @@
 
 import itertools
 import random
+from collections import Counter
 from operator import contains
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
+
 
 NUM_LETTERS = 7
 valid_perms = []
@@ -45,7 +47,7 @@ def input_word(players_draw):
     while not _validation(players_word, players_draw):
         print(f"Your word '{players_word}' is not a valid word.")
         players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
-        # players_word = players_word
+        players_word = players_word
     else:
         return players_word
 
@@ -53,10 +55,14 @@ def input_word(players_draw):
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
     is_valid = ''
+    counter_draw = Counter(players_draw)
     if contains(DICTIONARY, players_word.lower()):
-        for letter in players_word: # TODO: troubleshoot why this is not verifying each letter in draw is only used once
-            if contains(players_draw, letter.upper()):
+        for letter in players_word:
+            if contains(counter_draw, letter.upper()):
+                counter_draw[letter.upper()] -= 1
                 is_valid = True
+                if counter_draw[letter.upper()] == 0:
+                    del counter_draw[letter.upper()]
             else:
                 is_valid = False
     return is_valid
