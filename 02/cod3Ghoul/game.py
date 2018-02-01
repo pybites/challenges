@@ -12,37 +12,34 @@ NUM_LETTERS = 7
 valid_perms = []
 possible_perms = []
 
-# class to create an instance object of all possible valid permutations from the letters the player drew
 class WordPossibilities:
-	def __init__(self, players_draw):
-		self.players_draw = ''.join(players_draw)
-		
-		
-	def get_possible_dict_words(self):
-		"""Get all possible words from players_draw which are valid dictionary words.
-		Use the _get_permutations_draw helper and DICTIONARY constant"""
-		run = len(self.players_draw)
-		for c in range(run):
-		    all_perms = self._get_permutations_draw(c)
-		    for w in list(all_perms):
-		        if contains(DICTIONARY, w):
-		            valid_perms.append(w)
-		    run -= 1
-		return valid_perms
-		
-		
-	def _get_permutations_draw(self, cycle):
-	    possible_perms = tuple(itertools.permutations(self.players_draw, cycle))
-	    yield possible_perms
+    def __init__(self, players_draw):
+        self.players_draw = ''.join(players_draw)
 
 
-# used to draw random letters from the POUCH
+    def get_possible_dict_words(self):
+        """Get all possible words from players_draw which are valid dictionary words.
+        Use the _get_permutations_draw helper and DICTIONARY constant"""
+        run = len(self.players_draw)
+        for c in range(run):
+            all_perms = self._get_permutations_draw(run)
+            for w in all_perms:
+                word = ''.join(w).lower()
+                if contains(DICTIONARY, word):
+                    valid_perms.append(word)
+            run -= 1
+        return valid_perms
+
+
+    def _get_permutations_draw(self, cycle):
+        possible_perms = itertools.permutations(self.players_draw, cycle)
+        return list(possible_perms)
+
+
 def draw_letters():
     return random.choices(POUCH, k=NUM_LETTERS)
 
 
-# used to get the player's choice of word based on the letters they drew and also validates it against
-# the DICTIONARY file
 def input_word(players_draw):
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
     while not _validation(players_word, players_draw):
@@ -55,14 +52,14 @@ def input_word(players_draw):
 
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
-    isValid = bool
+    is_valid = ''
     if contains(DICTIONARY, players_word.lower()):
         for letter in players_word: # TODO: troubleshoot why this is not verifying each letter in draw is only used once
             if contains(players_draw, letter.upper()):
-                isValid = True
+                is_valid = True
             else:
-                isValid = False
-    return isValid
+                is_valid = False
+    return is_valid
 
 
 # From challenge 01:
