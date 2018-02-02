@@ -20,21 +20,20 @@ class WordPossibilities:
     def get_possible_dict_words(self):
         """Get all possible words from players_draw which are valid dictionary words.
         Use the _get_permutations_draw helper and DICTIONARY constant"""
-        run = len(self.players_draw)
-        valid_perms = []
-        for c in range(run):
-            while c < 7:
-                all_perms = self._get_permutations_draw(run)
-                for w in all_perms:
-                    word = ''.join(w).lower()
-                    if contains(DICTIONARY, word):
-                        valid_perms.append(word)
-                run -= 1
-        return valid_perms
+        self.valid_perms = []
+        self.run = len(self.players_draw)
+        while 1 < self.run <= 7:
+            self.all_perms = self._get_permutations_draw(self.run)
+            for w in self.all_perms:
+                word = ''.join(w).lower()
+                if contains(DICTIONARY, word):
+                    self.valid_perms.append(word)
+            self.run -= 1
+        return self.valid_perms
 
     def _get_permutations_draw(self, cycle):
-        possible_perms = itertools.permutations(self.players_draw, cycle)
-        return list(possible_perms)
+        self.possible_perms = list(itertools.permutations(self.players_draw, cycle))
+        return self.possible_perms
 
 
 def draw_letters():
@@ -88,7 +87,6 @@ def main():
     max_word = max_word_value(possible_words.get_possible_dict_words())
     max_word_score = calc_word_value(max_word)
     print(f"Optimal word possible: {max_word} (value: {max_word_score})")
-
     game_score = round(word_score / max_word_score * 100, 1)
     print(f'You scored: {game_score}.')
 
