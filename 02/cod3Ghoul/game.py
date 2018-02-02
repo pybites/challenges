@@ -11,8 +11,6 @@ from data import DICTIONARY, LETTER_SCORES, POUCH
 
 
 NUM_LETTERS = 7
-valid_perms = []
-possible_perms = []
 
 
 class WordPossibilities:
@@ -23,13 +21,15 @@ class WordPossibilities:
         """Get all possible words from players_draw which are valid dictionary words.
         Use the _get_permutations_draw helper and DICTIONARY constant"""
         run = len(self.players_draw)
+        valid_perms = []
         for c in range(run):
-            all_perms = self._get_permutations_draw(run)
-            for w in all_perms:
-                word = ''.join(w).lower()
-                if contains(DICTIONARY, word):
-                    valid_perms.append(word)
-            run -= 1
+            while c < 7:
+                all_perms = self._get_permutations_draw(run)
+                for w in all_perms:
+                    word = ''.join(w).lower()
+                    if contains(DICTIONARY, word):
+                        valid_perms.append(word)
+                run -= 1
         return valid_perms
 
     def _get_permutations_draw(self, cycle):
@@ -57,7 +57,6 @@ def _validation(players_word, players_draw):
     if contains(DICTIONARY, players_word.lower()):
         for letter in players_word.upper():
             if contains(counter_draw, letter):
-                is_valid = True
                 counter_draw[letter] -= 1
                 if counter_draw[letter] == 0:
                     del counter_draw[letter]
