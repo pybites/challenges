@@ -14,10 +14,10 @@ NUM_LETTERS = 7
 valid_perms = []
 possible_perms = []
 
+
 class WordPossibilities:
     def __init__(self, players_draw):
         self.players_draw = ''.join(players_draw)
-
 
     def get_possible_dict_words(self):
         """Get all possible words from players_draw which are valid dictionary words.
@@ -31,7 +31,6 @@ class WordPossibilities:
                     valid_perms.append(word)
             run -= 1
         return valid_perms
-
 
     def _get_permutations_draw(self, cycle):
         possible_perms = itertools.permutations(self.players_draw, cycle)
@@ -54,18 +53,17 @@ def input_word(players_draw):
 
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
-    is_valid = ''
     counter_draw = Counter(players_draw)
     if contains(DICTIONARY, players_word.lower()):
-        for letter in players_word:
-            if contains(counter_draw, letter.upper()):
-                counter_draw[letter.upper()] -= 1
+        for letter in players_word.upper():
+            if contains(counter_draw, letter):
                 is_valid = True
-                if counter_draw[letter.upper()] == 0:
-                    del counter_draw[letter.upper()]
+                counter_draw[letter] -= 1
+                if counter_draw[letter] == 0:
+                    del counter_draw[letter]
             else:
-                is_valid = False
-    return is_valid
+                return False
+    return True
 
 
 # From challenge 01:
