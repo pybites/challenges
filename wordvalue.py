@@ -22,6 +22,7 @@ def calc_word_value(word):
 def max_word_value(wordlist=[]):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
+    
     if len(wordlist)==0:
         wordlist = load_words()
     max = 0
