@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% from "_formhelpers.html" import render_field %}
+	<form class="pure-form pure-form-stacked" method=post>
+    <fieldset>
+      {{ render_field(form.image_url1) }}
+      {{ render_field(form.image_url2) }}
+      {{ render_field(form.text) }}
+      {{ render_field(form.background) }}
+      <button type=submit class="pure-button pure-button-primary">Generate banner</button>
+    </fieldset>
+	</form>
+
+{% endblock %}

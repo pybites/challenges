@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <form action="/create_device" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">save</button>
+  </form>
+  device list <br />
+  <table class="table">
+    <tr>
+      <th>name</th>
+      <th>consumption(W)</th>
+    </tr>
+    {% for d in device %}
+      <tr>
+        <td>{{d.name}}</td>
+        <td>{{d.consumption}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <p>
+    <a href="{% url 'apps' %}">back</a>
+  </p>
+{% endblock %}
