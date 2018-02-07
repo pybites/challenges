@@ -18,8 +18,9 @@ class WordPossibilities:
         self.players_draw = ''.join(players_draw)
 
     def get_possible_dict_words(self):
-        """Get all possible words from players_draw which are valid dictionary words.
-        Use the _get_permutations_draw helper and DICTIONARY constant"""
+        """Get all possible words from players_draw which are valid dictionary
+         words. Use the _get_permutations_draw helper and DICTIONARY
+         constant"""
         self.valid_perms = []
         self.run = len(self.players_draw)
         while 1 < self.run <= 7:
@@ -32,7 +33,8 @@ class WordPossibilities:
         return self.valid_perms
 
     def _get_permutations_draw(self, cycle):
-        self.possible_perms = list(itertools.permutations(self.players_draw, cycle))
+        self.possible_perms = list(itertools.permutations(
+                                   self.players_draw, cycle))
         return self.possible_perms
 
 
@@ -44,24 +46,21 @@ def input_word(players_draw):
     players_word = input('Enter a valid word from the letters you\'ve drawn: ')
     while not _validation(players_word, players_draw):
         print(f"Your word '{players_word}' is not a valid word.")
-        players_word = input('Please enter a valid word from the letters you\'ve drawn: ')
+        players_word = input('Please enter a valid word from the letters'
+                             'you\'ve drawn: ')
         players_word = players_word
     else:
         return players_word
 
 
 def _validation(players_word, players_draw):
-    """Validations: 1) only use letters of players_draw, 2) valid dictionary word"""
-    counter_draw = Counter(players_draw)
+    """Validations: 1) only use letters of players_draw,
+       2) valid dictionary word"""
     if contains(DICTIONARY, players_word.lower()):
-        for letter in players_word.upper():
-            if contains(counter_draw, letter):
-                counter_draw[letter] -= 1
-                if counter_draw[letter] == 0:
-                    del counter_draw[letter]
-            else:
-                return False
-    return True
+        draw_counter = Counter(players_draw)
+        word_counter = Counter(players_word.upper())
+        return not any(draw_counter[l] < word_counter[l]
+                       for l in word_counter)
 
 
 # From challenge 01:
