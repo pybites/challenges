@@ -16,8 +16,11 @@ USER = UserTweets(HANDLE, max_id=MAX_ID)
 
 def read_csv():
     with open(USER.output_file) as f:
+        has_header = csv.Sniffer().has_header(f.readline())
+        f.seek(0)
         r = csv.reader(f)
-        next(r, None)  # skip the headers
+        if has_header:
+            next(r, None)  # skip the headers
         return list(r) 
 
 class TestUserTweets(unittest.TestCase):
