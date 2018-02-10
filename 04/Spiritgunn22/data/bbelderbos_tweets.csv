@@ -1,0 +1,9 @@
+Text,Created_At,ID_Str
+RT @LindaLawtonDK: Thats not funny #javascript https://t.co/t8gJhhDQaS,2018-01-24 11:53:57,956132964609482754
+RT @_juliansequeira: Take up the challenge! https://t.co/eoSkYXkgnQ,2018-01-24 11:51:48,956132421539454976
+RT @RealPython: Check out this brand new #Python web scraping tutorial we just posted: https://t.co/uodtGYg8af,2018-01-24 07:12:58,956062253639487488
+RT @pybites: “A brief tour of Python 3.7 data classes” by @anthonypjshaw https://t.co/ClOABPFZkj,2018-01-24 07:12:53,956062229849432066
+"RT @python_tip: Use #pathlib for recursive globbing:
+&gt;&gt;&gt; import pathlib
+&gt;&gt;&gt; images = pathlib.Path('/mypath/').glob('**/*.png')
+&gt;&gt;&gt; list(ima…",2018-01-24 07:12:27,956062121548185603
