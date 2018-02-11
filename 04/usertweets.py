@@ -33,16 +33,18 @@ class UserTweets(object):
 
     def __init__(self, handle, max_id=None):
         self.id = handle
-        self.max_id = max_id
         self.output_file = os.path.join(DEST_DIR, handle + '.' + EXT)
-        self._tweets = [Tweet(tw.id_str, tw.created_at, tw.text) for tw in self._get_tweets()]
+        self.tweets = self.tweets_list(max_id)
         self._2csv()
 
-    def _get_tweets(self, n=NUM_TWEETS):
+    def tweets_list(self, max_id):
+        return [Tweet(tw.id_str, tw.created_at, tw.text) for tw in self._get_tweets(max_id)]
+
+    def _get_tweets(self, max_id, n=NUM_TWEETS):
         data = []
         try:
-            if self.max_id:
-                data = tweepy.Cursor(self.api.user_timeline, id=self.id, max_id=self.max_id).items(limit=n)
+            if max_id:
+                data = tweepy.Cursor(self.api.user_timeline, id=self.id, max_id=max_id).items(limit=n)
             else:
                 data = tweepy.Cursor(self.api.user_timeline, id=self.id).items(limit=n)
         except Exception as e:
@@ -54,16 +56,16 @@ class UserTweets(object):
             spamwriter = csv.writer(csvfile, dialect='excel')
             try:
                 spamwriter.writerow(header)
-                for tw in self._tweets:
+                for tw in self.tweets:
                     spamwriter.writerow(tw)
             except Exception as e:
                 print('Failed: {}'.format(e))
 
     def __len__(self):
-        return len(self._tweets)
+        return len(self.tweets)
 
     def __getitem__(self, item):
-        return self._tweets[item]
+        return self.tweets[item]
 
 
 if __name__ == "__main__":
