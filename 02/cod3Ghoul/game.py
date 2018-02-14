@@ -16,13 +16,14 @@ NUM_LETTERS = 7
 class WordPossibilities:
     def __init__(self, players_draw):
         self.players_draw = ''.join(players_draw)
+        self.valid_perms = []
+        self.run = len(self.players_draw)
+        self.all_perms = []
 
     def get_possible_dict_words(self):
         """Get all possible words from players_draw which are valid dictionary
          words. Use the _get_permutations_draw helper and DICTIONARY
          constant"""
-        self.valid_perms = []
-        self.run = len(self.players_draw)
         while 1 < self.run <= 7:
             self.all_perms = self._get_permutations_draw(self.run)
             for w in self.all_perms:
@@ -31,6 +32,12 @@ class WordPossibilities:
                     self.valid_perms.append(word)
             self.run -= 1
         return self.valid_perms
+
+    def get_all_perms(self):
+        while 1 < self.run <= 7:
+            self.all_perms = self._get_permutations_draw(self.run)
+            self.run -= 1
+        return self.all_perms
 
     def _get_permutations_draw(self, cycle):
         self.possible_perms = list(itertools.permutations(
@@ -59,17 +66,21 @@ def _validation(players_word, players_draw):
     if contains(DICTIONARY, players_word.lower()):
         draw_counter = Counter(players_draw)
         word_counter = Counter(players_word.upper())
-        return not any(draw_counter[l] < word_counter[l]
-                       for l in word_counter)
+        if any(draw_counter[l] < word_counter[l] for l in word_counter):
+            raise ValueError('You cannot use any letters in your draw '
+                             'more than once and can only use as many of'
+                             ' a letter that you have in your draw.')
+        else:
+            return True
+    else:
+        raise ValueError('Your word is not a valid word in our dictionary.')
 
 
-# From challenge 01:
 def calc_word_value(word):
     """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
     return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
 
-# From challenge 01:
 def max_word_value(words):
     """Calc the max value of a collection of words"""
     return max(words, key=calc_word_value)
