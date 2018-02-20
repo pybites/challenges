@@ -15,10 +15,16 @@ def load_words():
     
     return words
 
-def calc_word_value():
+def calc_word_value(word):
     """Calculate the value of the word entered into function
     using imported constant mapping LETTER_SCORES"""
-    pass
+
+    score = 0
+
+    for letter in word:
+        score += LETTER_SCORES[letter.upper()]
+    
+    return score
 
 def max_word_value():
     """Calculate the word with the max value, can receive a list
