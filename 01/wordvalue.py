@@ -2,7 +2,18 @@ from data import DICTIONARY, LETTER_SCORES
 
 def load_words():
     """Load dictionary into a list and return list"""
-    pass
+    
+    #print("Loading dictionary from file...")
+
+    iFile = open(DICTIONARY, 'r')
+
+    words = []
+    
+    words = [line.strip() for line in iFile]
+    
+    #print("  ", len(words), "words loaded.")
+    
+    return words
 
 def calc_word_value():
     """Calculate the value of the word entered into function
@@ -15,4 +26,5 @@ def max_word_value():
     pass
 
 if __name__ == "__main__":
-    pass # run unittests to validate
+    
+    load_words()
