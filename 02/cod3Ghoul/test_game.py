@@ -30,8 +30,7 @@ class TestGame(unittest.TestCase):
 
     def test_word_possibilities_class(self):
         gen_permutations_n_letters = sum(len(list(itertools.permutations(self.draw, n))) for n in range(1, NUM_LETTERS+1))
-        possible_permutations = WordPossibilities(self.draw)
-        all_permutations = possible_permutations.get_all_perms()
+        all_permutations = WordPossibilities(self.draw)
         game_permutations = all_permutations.get_all_perms()
         self.assertEqual(gen_permutations_n_letters, len(game_permutations))
         alist = range(1,8)
