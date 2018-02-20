@@ -1,4 +1,5 @@
 from data import DICTIONARY, LETTER_SCORES
+import string
 
 def load_words():
     """Load dictionary into a list and return list"""
@@ -22,14 +23,29 @@ def calc_word_value(word):
     score = 0
 
     for letter in word:
-        score += LETTER_SCORES[letter.upper()]
+        if letter not in string.punctuation:
+            score += LETTER_SCORES[letter.upper()]
     
     return score
 
-def max_word_value():
+def max_word_value(words=None):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
-    pass
+    
+    max_value = 0
+    result = None
+    
+    if words == None:
+        words = load_words()
+    
+    for word in words:
+        new_value = calc_word_value(word)
+        if new_value > max_value:
+            max_value = new_value
+            result = word
+            
+    
+    return result
 
 if __name__ == "__main__":
     
