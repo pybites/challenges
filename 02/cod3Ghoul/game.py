@@ -33,9 +33,9 @@ class WordPossibilities:
             self.run -= 1
         return self.valid_perms
 
-    def get_all_perms(self, n_letters=7):
-        while 1 < self.run <= len(n_letters):
-            self.all_perms = self._get_permutations_draw(run)
+    def get_all_perms(self, n_letters=NUM_LETTERS):
+        while 0 < self.run <= n_letters:
+            self.all_perms = self._get_permutations_draw(self.run)
             self.run -= 1
         return self.all_perms
 
