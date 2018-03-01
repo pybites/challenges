@@ -8,7 +8,7 @@ TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
 class TestWordValue(unittest.TestCase):
     def test_load_words(self):
         words = load_words()
-        self.assertEqual(len(words), 235887)
+        self.assertEqual(len(words), 235886)
         self.assertEqual(words[0], 'A')
         self.assertEqual(words[-1], 'Zyzzogeton')
         self.assertNotIn(' ', ''.join(words))
