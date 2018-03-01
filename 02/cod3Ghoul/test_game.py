@@ -27,10 +27,11 @@ class TestGame(unittest.TestCase):
         self.assertEqual(max_word_value(TEST_WORDS), 'barbeque')
 
     def test_word_possibilities_class(self):
+        game_word_possibilities = WordPossibilities(self.draw)
         gen_permutations_n_letters = sum(len(list(itertools.permutations(self.draw, n))) for n in range(1, NUM_LETTERS+1))
-        all_permutations = WordPossibilities(self.draw)
-        game_permutations = all_permutations.get_all_perms()
-        self.assertEqual(gen_permutations_n_letters, len(game_permutations))
+        all_game_permutations = game_word_possibilities.get_permutations_draw()
+        self.assertEqual(gen_permutations_n_letters,
+                         len(all_game_permutations))
         alist = range(1,8)
         gen_permutations_any_list = sum(len(list(itertools.permutations(alist, n))) for n in range(1, NUM_LETTERS+1))
         self.assertEqual(gen_permutations_any_list, gen_permutations_n_letters)

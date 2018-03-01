@@ -15,34 +15,27 @@ NUM_LETTERS = 7
 
 class WordPossibilities:
     def __init__(self, players_draw):
-        self.players_draw = ''.join(players_draw)
-        self.valid_perms = []
-        self.run = len(self.players_draw)
-        self.all_perms = []
+        self.players_draw = ''.join(players_draw).lower()
+        self.num_letters = len(self.players_draw)
+        self.all_perms = self.get_permutations_draw()
+        self.valid_perms = self.get_possible_dict_words()
 
     def get_possible_dict_words(self):
         """Get all possible words from players_draw which are valid dictionary
-         words. Use the _get_permutations_draw helper and DICTIONARY
-         constant"""
-        while 1 < self.run <= 7:
-            self.all_perms = self._get_permutations_draw(self.run)
-            for w in self.all_perms:
-                word = ''.join(w).lower()
-                if contains(DICTIONARY, word):
-                    self.valid_perms.append(word)
-            self.run -= 1
-        return self.valid_perms
+        words.
+        """
+        v_perms = []
+        for perm in self.all_perms:
+            if contains(DICTIONARY, perm):
+                v_perms.append(perm)
+        return v_perms
 
-    def get_all_perms(self, n_letters=NUM_LETTERS):
-        while 0 < self.run <= n_letters:
-            self.all_perms = self._get_permutations_draw(self.run)
-            self.run -= 1
-        return self.all_perms
-
-    def _get_permutations_draw(self, cycle):
-        self.possible_perms = list(itertools.permutations(
-                                   self.players_draw, cycle))
-        return self.possible_perms
+    def get_permutations_draw(self):
+        perms = []
+        for run in range(1, self.num_letters + 1):
+            self.perms.append(list(
+                              itertools.permutations(self.players_draw, run))
+        return perms
 
 
 def draw_letters():
@@ -62,7 +55,8 @@ def input_word(players_draw):
 
 def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw,
-       2) valid dictionary word"""
+       2) valid dictionary word
+    """
     if contains(DICTIONARY, players_word.lower()):
         draw_counter = Counter(players_draw)
         word_counter = Counter(players_word.upper())
