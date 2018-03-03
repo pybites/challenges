@@ -1,14 +1,12 @@
 import itertools
 import unittest
 
-from game import WordPossibilities
 from game import draw_letters, calc_word_value, max_word_value
+from game import get_possible_dict_words, _get_permutations_draw
 from game import _validation
-
 
 NUM_LETTERS = 7
 TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
-
 
 class TestGame(unittest.TestCase):
 
@@ -26,20 +24,21 @@ class TestGame(unittest.TestCase):
     def test_max_word_value(self):
         self.assertEqual(max_word_value(TEST_WORDS), 'barbeque')
 
-    def test_word_possibilities_class(self):
-        game_word_possibilities = WordPossibilities(self.draw)
+    def test_get_permutations_draw(self):
         gen_permutations_n_letters = sum(len(list(itertools.permutations(self.draw, n))) for n in range(1, NUM_LETTERS+1))
-        all_game_permutations = game_word_possibilities.get_permutations_draw()
-        self.assertEqual(gen_permutations_n_letters,
-                         len(all_game_permutations))
+        all_and_valid_game_perms = _get_permutations_draw(self.draw)
+        game_permutations = len(all_and_valid_game_perms[0])
+        self.assertEqual(gen_permutations_n_letters, game_permutations)
         alist = range(1,8)
         gen_permutations_any_list = sum(len(list(itertools.permutations(alist, n))) for n in range(1, NUM_LETTERS+1))
         self.assertEqual(gen_permutations_any_list, gen_permutations_n_letters)
+
+    def test_get_possible_dict_words(self):
         self.fixed_draw = list('garytev'.upper())
-        words = WordPossibilities(self.fixed_draw)
+        words = get_possible_dict_words(self.fixed_draw)
         self.assertEqual(len(words), 137)
 
-    def _validation(self):
+    def test_validation(self):
         draw = list('garytev'.upper())
         word = 'GARYTEV'
         self.assertRaises(ValueError, _validation, word, draw)
@@ -47,7 +46,6 @@ class TestGame(unittest.TestCase):
         self.assertRaises(ValueError, _validation, word, draw)
         word = 'GARETTA'
         self.assertRaises(ValueError, _validation, word, draw)
-
 
 if __name__ == "__main__":
     unittest.main()

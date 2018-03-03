@@ -13,29 +13,26 @@ from data import DICTIONARY, LETTER_SCORES, POUCH
 NUM_LETTERS = 7
 
 
-class WordPossibilities:
-    def __init__(self, players_draw):
-        self.players_draw = ''.join(players_draw).lower()
-        self.num_letters = len(self.players_draw)
-        self.all_perms = self.get_permutations_draw()
-        self.valid_perms = self.get_possible_dict_words()
+def get_possible_dict_words(players_draw):
+    """Get all possible words from players_draw which are valid
+    dictionary words.
+    """
+    lower_c_draw = ''.join(players_draw).lower()
+    all_and_valid_perms = _get_permutations_draw(lower_c_draw)
+    return all_and_valid_perms[1]
 
-    def get_possible_dict_words(self):
-        """Get all possible words from players_draw which are valid dictionary
-        words.
-        """
-        v_perms = []
-        for perm in self.all_perms:
+
+def _get_permutations_draw(players_draw):
+    all_perms = []
+    valid_perms = []
+    for n in range(1, NUM_LETTERS + 1):
+        temp = itertools.permutations(players_draw, n)
+        all_perms.append(temp)
+        for p in temp:
+            perm = ''.join(p)
             if contains(DICTIONARY, perm):
-                v_perms.append(perm)
-        return v_perms
-
-    def get_permutations_draw(self):
-        perms = []
-        for run in range(1, self.num_letters + 1):
-            self.perms.append(list(
-                              itertools.permutations(self.players_draw, run))
-        return perms
+                valid_perms.append(perm)
+    return all_perms, valid_perms
 
 
 def draw_letters():
@@ -54,8 +51,8 @@ def input_word(players_draw):
 
 
 def _validation(players_word, players_draw):
-    """Validations: 1) only use letters of players_draw,
-       2) valid dictionary word
+    """Validations: 1) only use letters of players_draw, 2) valid
+    dictionary word
     """
     if contains(DICTIONARY, players_word.lower()):
         draw_counter = Counter(players_draw)
@@ -71,7 +68,7 @@ def _validation(players_word, players_draw):
 
 
 def calc_word_value(word):
-    """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
+    """Calc a given word value based on LETTER_SCORES mapping"""
     return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
 
@@ -87,8 +84,8 @@ def main():
     players_word = input_word(players_draw)
     word_score = calc_word_value(players_word)
     print(f"Your word '{players_word}' scores you {word_score} points.")
-    possible_words = WordPossibilities(players_draw)
-    max_word = max_word_value(possible_words.get_possible_dict_words())
+    possible_words = get_possible_dict_words(players_draw)
+    max_word = max_word_value(possible_words)
     max_word_score = calc_word_value(max_word)
     print(f"Optimal word possible: {max_word} (value: {max_word_score})")
     game_score = round(word_score / max_word_score * 100, 1)
