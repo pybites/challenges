@@ -5,7 +5,6 @@
 import itertools
 import random
 from collections import Counter
-from operator import contains
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
 
@@ -27,10 +26,13 @@ def _get_permutations_draw(players_draw):
     valid_perms = []
     for n in range(1, NUM_LETTERS + 1):
         temp = itertools.permutations(players_draw, n)
-        all_perms.append(temp)
-        for p in temp:
+        for t in temp:
+            temp_p = ''.join(t)
+            all_perms.append(temp_p)
+        valid_temp = all_perms.copy()
+        for p in valid_temp:
             perm = ''.join(p)
-            if contains(DICTIONARY, perm):
+            if perm in DICTIONARY:
                 valid_perms.append(perm)
     return all_perms, valid_perms
 
@@ -54,7 +56,7 @@ def _validation(players_word, players_draw):
     """Validations: 1) only use letters of players_draw, 2) valid
     dictionary word
     """
-    if contains(DICTIONARY, players_word.lower()):
+    if players_word.lower() in DICTIONARY:
         draw_counter = Counter(players_draw)
         word_counter = Counter(players_word.upper())
         if any(draw_counter[l] < word_counter[l] for l in word_counter):

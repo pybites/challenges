@@ -36,7 +36,7 @@ class TestGame(unittest.TestCase):
     def test_get_possible_dict_words(self):
         self.fixed_draw = list('garytev'.upper())
         words = get_possible_dict_words(self.fixed_draw)
-        self.assertEqual(len(words), 137)
+        self.assertEqual(len(words), 628)
 
     def test_validation(self):
         draw = list('garytev'.upper())
