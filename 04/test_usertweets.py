@@ -9,6 +9,7 @@ from usertweets import UserTweets, NUM_TWEETS
 Tweet = namedtuple('Tweet', ['id_str', 'created_at', 'text'])
 HANDLE = 'pybites'
 MAX_ID = '819831370113351680'
+
 # Here we have 100 tweets for the above settings
 TWEETS = (Tweet(id_str='819831370113351680', created_at=datetime.datetime(2017, 1, 13, 9, 0, 5), text='5 cool things you can do with itertools https://t.co/Nk4s3yL6zL #python'),
 Tweet(id_str='819682682703593472', created_at=datetime.datetime(2017, 1, 12, 23, 9, 15), text='RT @bbelderbos: https://t.co/P4aX1vIUUC - heard of itertools? If not you might want to check it out, can do some cool things with it ... #p…'),

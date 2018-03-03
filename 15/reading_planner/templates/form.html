@@ -1,0 +1,8 @@
+<form class="pure-form" action="/book/add" method="POST">
+	<input type="text" name="title" value="{{ request.form['title'] }}" placeholder="Book title"/>
+	<input type="text" name="pages" value="{{ request.form['pages'] }}" placeholder="Total pages book"/>
+	<input type="text" name="pages_per_day" value="{{ request.form['pages_per_day'] }}" placeholder="Pages to read per day"/>
+	<input type="text" name="start_page" value="{{ request.form['start_page'] }}" placeholder="(Optional) start page"/>
+	<button type="submit" class="pure-button pure-button-primary">Add Book</button>
+</form>
+

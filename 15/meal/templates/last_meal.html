@@ -1,0 +1,27 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<h1>Meal Tracker 5000</h1>
+
+<body>
+
+<div class="main">
+	<form method="POST" action="/">
+		Name:<br>
+		<input type="text" name="name"><br>
+		Last thing you ate:<br>
+		<input type="text" name="food"><br>
+		Last thing you drank:<br>
+		<input type="text" name="drink"><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+<br>
+
+<div class="main">
+	<a href="/meal_history"><button>Meal History</button></a>
+</div>
+
+</body>
