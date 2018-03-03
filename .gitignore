@@ -7,3 +7,4 @@
 **.cache
 **sqlite
 .idea
+.DS_Store
