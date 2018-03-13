@@ -15,7 +15,7 @@ class TestGame(unittest.TestCase):
 
     def test_draw_letters(self):
         letter_str = ''.join(self.draw)
-        self.assertRegex(letter_str, r'^[A-Z]{%s}$' % NUM_LETTERS)
+        self.assertRegexpMatches(letter_str, r'^[A-Z]{%s}$' % NUM_LETTERS)
 
     # from ch01
     def test_calc_word_value(self):
