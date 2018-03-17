@@ -1,0 +1,93 @@
+body {
+    background-color: #eff1f2;
+    width: 800px;
+    margin: 0 auto;
+}
+form {
+    margin: 20px 0;
+}
+table {
+    font-size: 85%;
+}
+th {
+    text-align: left;
+}
+tr {
+    border-bottom: 1pt solid #ddd;
+}
+h1 a {
+    position: relative;
+    bottom: 5px;
+}
+a {
+    color: #900; 
+    text-decoration: none;
+}
+p {
+	margin: 0px; 
+	padding: 0px; 
+}
+
+li {
+	list-style: none;
+}
+
+input { width: 400px; }
+
+ul#cache {
+    margin: 0px; 
+    padding: 0px;
+}
+ul#cache li {
+    margin: 10px; 
+    float: left; 
+}
+ul#cache li img {
+    width: 130px;
+    height: 170px;
+}
+
+ul#action li {
+	margin-bottom: 5px;
+} 
+ul#action li a {
+	width: 130px;
+}
+#bookInfo {
+	margin-top: 20px; 
+}
+#bookInfo li {
+	list-style: square;  /* reset */
+}
+
+/* autocomplete */
+.entry { position: relative; height: 80px;}
+.entry img {position: absolute; top: 0px; left: 0px; width: 65px; height: 80px; }
+.entry p {position: absolute; top: 0px; left: 80px; width: 180px;}
+.entry p a {font-size: 85%;}
+
+/* pure css */
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+	background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+	background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+	background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+	background: rgb(66, 184, 221); /* this is a light blue */
+}

@@ -1,0 +1,6 @@
+venv
+*pyc
+*swp
+__pycache__/
+app.org.py
+*db

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% if error %}
+		<p class='alert'>{{ error }}</p>
+	{% elif book %}
+
+        <p><a href="/"> &laquo; Go back</a></p>
+
+        <h2>{{ book.title }} ({{ book.pages }} pages, start: {{ book.start_page }})</h2>
+        <table class="pure-table">
+            <tr>
+                <th>Date</th>
+                <th>Task</th>
+                <th>Done</th>
+            </tr>
+            {% for task in tasks %}
+            
+                {% if task.done %} 
+                    <tr class="done">
+                {% else %}
+                    <tr>
+                {% endif %}
+
+                    <td>{{ task.date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ task.task }} pages</td>
+                    {% if not task.done %} 
+                        <td><a href="/task/done/{{ task.id }}" class="pure-button button-success">Done</a></td>
+                    {% else %}
+                        <td><a href="/task/undo/{{ task.id }}" class="pure-button button-warning">Undo</a></td>
+                    {% endif %}
+
+                </tr>
+
+            {% endfor %}
+        </table>
+
+	{% endif %}
+
+{% endblock %}

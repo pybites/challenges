@@ -1,0 +1,56 @@
+body {
+    background-color: #eff1f2;
+    width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    margin: 20px 0;
+}
+
+table {
+    font-size: 85%;
+}
+
+th {
+    text-align: left;
+}
+
+tr {
+    border-bottom: 1pt solid #ddd;
+}
+
+.alert { 
+	font-weight: bold; 
+	color: #900; 
+}
+
+.done {
+	text-decoration: line-through;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+	background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+	background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+	background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+	background: rgb(66, 184, 221); /* this is a light blue */
+}
+

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if error %}
+    <p class='alert'>{{ error }}</p>
+{% endif %}
+{% if books %}
+    <ul id='cache'>
+    {% for book_id, thumb in books.items() %}
+       <li><a href="{{ url_for("show_book", book_id=book_id) }}">
+           <img src="{{thumb}}"></a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
