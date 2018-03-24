@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+}
+
+.main {
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: left;
+    border: 10px solid red;
+}

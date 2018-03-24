@@ -1,0 +1,46 @@
+<!doctype HTML>
+
+<head>
+    <title>BMI Calculator App</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
+</head>
+
+<h1>This is the BMI Calculator</h1>
+
+
+<body>
+
+    <div>
+        <p>Please enter your weight (in lbs) & height (in inches).</p>
+        <form class="pure-form" method="POST" action="/">
+            Weight(lbs): <br>
+            <input type="text" name="userweight"><br>
+            Height(in):<br>
+            <input type="text" name="userheight"><br>
+            <button type="submit" class="pure-button pure-button-primary" value="Submit">Submit</button>
+        </form>
+    </div>
+
+<br><br>
+
+<div>
+    <!--
+    {% if weight %}
+        <p>Your weight is {{ weight }}</p>
+    {% endif %}
+    {% if height %}
+        <p>Your height is {{ height }}</p>
+    {% endif %}
+    -->
+    {% if bmi %}
+        <h2>Your BMI is {{ bmi }}</h2>
+    {% endif %}
+</div>
+
+</body>
+
+
+<br><br>
