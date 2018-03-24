@@ -1,12 +1,12 @@
 import unittest
 
 from data import DICTIONARY, LETTER_SCORES
-from wordvalue import load_words, calc_word_value, max_word_value
+from yoavcaspi.wordvalue import load_words, calc_word_value, max_word_value
 
 TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
 
 class TestWordValue(unittest.TestCase):
-    
+
     def test_load_words(self):
         words = load_words()
         self.assertEqual(len(words), 235886)
@@ -25,4 +25,4 @@ class TestWordValue(unittest.TestCase):
         self.assertEqual(max_word_value(), 'benzalphenylhydrazone')
 
 if __name__ == "__main__":
-   unittest.main() 
+   unittest.main()
