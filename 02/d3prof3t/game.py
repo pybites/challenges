@@ -17,10 +17,11 @@ def input_word(draw):
     Use _validation(word, draw) helper."""
     word = input()
     if word:
-        if _validation(word, draw):
+        try:
+            _validation(word, draw) # either returns True or raises ValueError
             return word
-    return ''
-
+        except ValueError:
+            return None
 
 
 def _validation(word, draw):
