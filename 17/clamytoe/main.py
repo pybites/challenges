@@ -20,10 +20,14 @@ def main():
 
 
 @main.command()
-@click.option('--pod1', is_flag=True, default=False, help='Preload with first entry')
-@click.option('--pod2', is_flag=True, default=False, help='Preload with second entry')
-@click.option('--pod3', is_flag=True, default=False, help='Preload with third entry')
-@click.option('--all', is_flag=True, default=False, help='Preload with all entries')
+@click.option('--pod1', is_flag=True, default=False, 
+              help='Preload with first entry')
+@click.option('--pod2', is_flag=True, default=False, 
+              help='Preload with second entry')
+@click.option('--pod3', is_flag=True, default=False, 
+              help='Preload with third entry')
+@click.option('--all', is_flag=True, default=False, 
+              help='Preload with all entries')
 def preload(all, pod1, pod2, pod3):
     """Preload the database with defaults"""
     if pod1:
@@ -60,7 +64,8 @@ def feed(url):
 
 @main.command()
 @click.option('--eid', '-e', default=0, help='ID of the episode to display')
-@click.option('--download', '-d', is_flag=True, default=False, help='Download the episode')
+@click.option('--download', '-d', is_flag=True, default=False, 
+              help='Download the episode')
 @click.argument('podcast_id', type=click.INT)
 def episodes(podcast_id, eid, download):
     """Displays the episodes that are in the podcast"""
@@ -79,17 +84,25 @@ def episodes(podcast_id, eid, download):
                                     selected.mark_episode_done(show)
                                     exit(0)
                                 else:
-                                    click.secho(f'Episode ID: {show.id} ', fg='yellow', bg='blue', bold=True, nl=False)
+                                    click.secho(f'Episode ID: {show.id} ', 
+                                                fg='yellow', bg='blue', 
+                                                bold=True, nl=False)
                                     click.secho('\t\t\t', nl=False)
-                                    click.secho(f' Duration: [{show.duration}] ', fg='magenta', bold=True, nl=False)
-                                    click.secho(f'\t\t Played: {show.done} ', fg='green')
-                                    click.secho(f'{show.title}', fg='green', bold=True)
+                                    click.secho(f' Duration: [{show.duration}] ', 
+                                                fg='magenta', bold=True, 
+                                                nl=False)
+                                    click.secho(f'\t\t Played: {show.done} ', 
+                                                fg='green')
+                                    click.secho(f'{show.title}', fg='green', 
+                                                bold=True)
                                     click.echo('')
-                                    click.secho(show.summary, fg='white', bg='black')
+                                    click.secho(show.summary, fg='white', 
+                                                bg='black')
                                     click.secho(show.file)
                                     click.echo('')
                     else:
-                        click.secho(f'{eid} is not a valid Episode ID!'.upper(), fg='red', bold=True)
+                        click.secho(f'{eid} is not a valid Episode ID!'.upper(), 
+                                    fg='red', bold=True)
                 else:
                     selected.list_episodes()
 
@@ -106,29 +119,38 @@ def podcasts(pid):
                 for pod in PODS:
                     if pod.id == pid:
                         selected = Podcast(pod.rss)
-                        click.secho(f' Podcast ID: {selected.id} ', fg='yellow', bg='blue', bold=True, nl=False)
+                        click.secho(f' Podcast ID: {selected.id} ', 
+                                    fg='yellow', bg='blue', bold=True, 
+                                    nl=False)
                         click.secho('\t\t\t', nl=False)
-                        click.secho(f' Episodes: [{selected.total_episodes}] ', fg='magenta', bold=True, nl=False)
+                        click.secho(f' Episodes: [{selected.total_episodes}] ', 
+                                    fg='magenta', bold=True, nl=False)
                         click.secho('\t\t Progress: ', nl=False)
                         click.secho(f'{selected.status} ', fg='green')
                         click.secho(f'{selected.title}', fg='green', bold=True)
                         click.secho(f'Updated on: {selected.published}')
-                        click.secho(f'{selected.author} (', fg='white', bg='black', nl=False)
-                        click.secho(f'{selected.email}', fg='white', bg='black', bold=True, nl=False)
+                        click.secho(f'{selected.author} (', fg='white', 
+                                    bg='black', nl=False)
+                        click.secho(f'{selected.email}', fg='white', 
+                                    bg='black', bold=True, nl=False)
                         click.secho(') ', fg='white', bg='black')
                         click.echo('')
                         click.secho(selected.summary, fg='white', bg='black')
                         click.secho(selected.link)
                         click.echo('')
             else:
-                click.secho(f'{pid} is not a valid Podcast ID!'.upper(), fg='red', bold=True)
+                click.secho(f'{pid} is not a valid Podcast ID!'.upper(), 
+                            fg='red', bold=True)
         else:
             for pod in PODS:
                 p = Podcast(pod.rss)
-                click.secho(f' Podcast ID: {p.id} ', fg='yellow', bg='blue', bold=True, nl=False)
-                click.secho(f'\t\tUpdated on: {p.published}', bold=True, nl=False)
+                click.secho(f' Podcast ID: {p.id} ', fg='yellow', bg='blue', 
+                            bold=True, nl=False)
+                click.secho(f'\t\tUpdated on: {p.published}', bold=True, 
+                            nl=False)
                 click.secho('\t\t', nl=False)
-                click.secho(f' Episodes: [{p.total_episodes}] ', fg='magenta', bold=True)
+                click.secho(f' Episodes: [{p.total_episodes}] ', fg='magenta', 
+                            bold=True)
                 click.secho(f'{p.title}', fg='green', bold=True)
                 click.secho(p.subtitle, fg='white', bg='black')
                 click.echo('\n')
@@ -173,7 +195,8 @@ def check_pid(pid):
 
 
 def empty_message():
-    click.secho('There are no podcasts in the database!'.upper(), fg='red', bold=True)
+    click.secho('There are no podcasts in the database!'.upper(), fg='red', 
+                bold=True)
     click.secho('Check the help message for further details: ', nl=False)
     click.secho(' --help ', fg='cyan', bold=True)
     exit(0)
