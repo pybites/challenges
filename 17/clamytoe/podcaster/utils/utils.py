@@ -5,7 +5,9 @@ from datetime import datetime
 
 
 def check_dir(dir):
-    """Checks to see if a certain directory exist and creates it if it doesn't"""
+    """Checks to see if a certain directory exist
+    
+    Creates it if it doesn't"""
     pwd = os.path.curdir
     app_path = os.path.join(os.path.abspath(pwd))
     dir_path = os.path.join(app_path, dir)
