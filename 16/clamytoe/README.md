@@ -5,7 +5,7 @@ This Flask application will create a profile page for any valid GitHub user name
 ## Description
 Currently it displays the following if it was made available:
 
-* accounts name
+* account name
 * link to their GitHub page
 * email address
 * company
