@@ -36,7 +36,17 @@ def display_menu():
 
 def update_room():
     """Update the room inventory."""
-    pass
+    print("UPDATE A ROOM".center(80))
+    print("-".center(80, '-'))
+    r = _update_which_room()
+    item = _add_item(room['name'])
+    value = _get_value(item)
+    db.execute('''INSERT into items (item_name, item_value, room_id)
+               VALUES (?, ?, ?)''', (item, value, r))
+    db.commit()
+
+
+
 
 
 def add_room():
@@ -69,6 +79,11 @@ def _get_room_name():
 
 def print_inventory():
     """Print the inventory of the room plus the value."""
+    inventory = db.execute("""SELECT name, i.id, room_id, item_name, item_value
+                from items i JOIN room r on i.room_id = r.id
+                ORDER BY name ASC""").fetchall()
+    inventory = list(inventory)
+    print(inventory)
     pass
 
 
