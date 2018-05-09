@@ -49,9 +49,9 @@ def gen_count(lines):
 
 
 def main():
-    files = gen_read_files('../*/*.py')
-    lines = gen_read_lines(files)
-    lines_with_imports = gen_grep_sed(lines, '^import ')
+    files = gen_files('../*/*.py')
+    lines = gen_lines(files)
+    lines_with_imports = gen_grep(lines, '^import ')
     counts = gen_count(lines_with_imports)
 
     for count in counts:
