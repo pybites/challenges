@@ -19,19 +19,19 @@ $ for i in ../*/*.py; do grep ^import |sed '/s/import //s' ; done | sort | uniq 
 """
 
 
-def gen_read_files(pattern):
+def gen_files(pattern):
     for file in glob.glob(pattern):
         yield file
 
 
-def gen_read_lines(files):
+def gen_lines(files):
     for file in files:
         with open(file) as f:
             for line in f.readlines():
                 yield line
 
 
-def gen_grep_sed(lines, pattern):
+def gen_grep(lines, pattern):
     for line in lines:
         match = re.match(pattern, line)
 
