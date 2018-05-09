@@ -105,8 +105,7 @@ def _get_room_name():
     rooms = [r[0].lower() for r in room_query]
     while room.lower() in rooms:
         print("Room name must be unique. The following room names are taken: ")
-        for r in rooms:
-            print(r)
+        print(', '.join(rooms))
         print('\n')
         room = input("Enter a name for the room: ")
     else:
@@ -119,8 +118,67 @@ def print_inventory():
                 from items i JOIN room r on i.room_id = r.id
                 ORDER BY name ASC""").fetchall()
     inventory = list(inventory)
-    print(inventory)
-    pass
+    choice = 0
+    while choice not in range(1, 3):
+        try:
+            choice = int(input(
+                'Would you like to (1) print one room, (2) print all rooms: '
+                ))
+        except ValueError:
+            print("Please make a valid choice")
+    if choice == 1:
+        room = _get_inv_room()
+        print_room_inv(room)
+    else:
+        inv_values = db.execute("SELECT item_value from items").fetchall()
+        inv_values = list(inv_values)
+        total = sum(val[0] for val in inv_values)
+        rooms = list(db.execute("SELECT id FROM room").fetchall())
+        rooms = [room[0] for room in rooms]
+        for room in rooms:
+            print_room_inv(room)
+        print("=".center(50, "="))
+        print('Grand Total:' + '{0:>28}{1:>10.2f}\n'.format('$', total))
+    display_menu()
+
+
+def _get_inv_room():
+    """Get the room for inventory."""
+    room_query = list(db.execute("SELECT name from room").fetchall())
+    rooms = [r[0].lower() for r in room_query]
+    print('Room choices: ' + ', '.join(rooms))
+    room = input(
+        'Which room would you like to print the inventory for: '
+        ).lower()
+    while room not in rooms:
+        print('That is not a valid room.')
+        room = input('Which room would you like to update: ').lower()
+    r_id = tuple(db.execute("SELECT id from room where name LIKE ? ", (room, )
+                           ).fetchone())[0]
+    return r_id
+
+
+def print_room_inv(room):
+    """Print a single room's inventory."""
+    room_name = tuple(db.execute("SELECT name from room where id = ?", (room, )
+                                ).fetchone())[0]
+    print(f"\nRoom inventory for {room_name}")
+    print("-".center(50, "-"))
+    room_inv = db.execute("""SELECT item_name, item_value from items
+                             WHERE room_id = ?""", (room,)).fetchall()
+    if len(list(room_inv)) == 0:
+        print("Room is empty.\n")
+        return
+    else:
+        room_inv = list(room_inv)
+        w = max(len(item[0]) for item in room_inv)
+        room_total = sum(item[1] for item in room_inv)
+        for item in room_inv:
+            print('.....{0:<{width}}{1:>5}{2:>10.2f}'
+                  .format(item[0], '$', item[1], width=30))
+        print("-".center(50, '-'))
+        print('Total' + '{0:>35}{1:>10.2f}\n'.format('$', room_total))
+    return
 
 
 if __name__ == "__main__":
