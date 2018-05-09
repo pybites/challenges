@@ -39,14 +39,50 @@ def update_room():
     print("UPDATE A ROOM".center(80))
     print("-".center(80, '-'))
     r = _update_which_room()
-    item = _add_item(room['name'])
+    item = _add_item()
     value = _get_value(item)
     db.execute('''INSERT into items (item_name, item_value, room_id)
                VALUES (?, ?, ?)''', (item, value, r))
     db.commit()
+    print(
+        f'''{item.capitalize()} with value of ${value:.2f} has been added to the room.\n'''
+         )
+    display_menu()
 
 
+def _update_which_room():
+    """Get the room to update."""
+    room_query = list(db.execute("SELECT name from room").fetchall())
+    rooms = [r[0].lower() for r in room_query]
+    print('Room choices: ' + ', '.join(rooms))
+    room = input('Which room would you like to update: ').lower()
+    while room not in rooms:
+        print('That is not a valid room.')
+        room = input('Which room would you like to update: ').lower()
+    r_id = tuple(db.execute("SELECT id from room where name LIKE ? ", (room, )
+                           ).fetchone())[0]
+    return r_id
 
+
+def _add_item():
+    """Get the name of the item to add."""
+    item = input("What item would you like to add to the room: ").lower()
+    while item == "":
+        print("Item name is required.")
+        item = input("What item would you like to add to the room: ").lower()
+    return item
+
+
+def _get_value(item):
+    value = 0
+    while value <= 0:
+        try:
+            value = float(input(f'What is the value of the {item}: '))
+            if value < 0:
+                print("The value must be positive.")
+        except ValueError:
+            print("The item's value must be a number.")
+    return value
 
 
 def add_room():
@@ -62,17 +98,17 @@ def add_room():
 def _get_room_name():
     """Get a unique room name from the user."""
     room = input("Enter a name for the room: ")
-    if room == "":
+    while room == "":
         print("Room name is required.")
-        _get_room_name()
+        room = input("Enter a name for the room: ")
     room_query = list(db.execute("SELECT name from room").fetchall())
     rooms = [r[0].lower() for r in room_query]
-    if room.lower() in rooms:
+    while room.lower() in rooms:
         print("Room name must be unique. The following room names are taken: ")
         for r in rooms:
             print(r)
         print('\n')
-        _get_room_name()
+        room = input("Enter a name for the room: ")
     else:
         return room
 
