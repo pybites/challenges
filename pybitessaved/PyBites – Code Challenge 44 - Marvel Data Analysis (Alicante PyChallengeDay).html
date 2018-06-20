@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://pybit.es/codechallenge44.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/style.min.css">
+  <link rel="stylesheet" type="text/css" href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/classic-10_7.css">
+  <link rel="stylesheet" type="text/css" href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/ribbons.css">
+  <link rel="stylesheet" type="text/css" href="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/custom.css">
+
+    <link href="https://pybit.es/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="PyBites Atom">
+
+    <link href="https://pybit.es/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="PyBites RSS">
+
+    <link rel="shortcut icon" href="https://pybit.es/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://pybit.es/favicon.ico" type="image/x-icon">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="">
+
+
+<meta name="author" content="PyBites">
+<meta name="description" content="Hi Pythonistas, this is a very special edition! Today, the 10th of November, we launch our first Live Code Challenge. We partnered up with Python Alicante and we will be hosting this code challenge with them at the University of Alicante. If you don&#39;t happen to live in Alicante but do want to code today 10am-13pm CET you are more than welcome to join this Gitter channel.">
+<meta name="keywords" content="marvel, data, data analysis, csv, collections, namedtuple, Counter, Live Challenge, Python Alicante, Bokeh, coffee">
+<meta property="og:site_name" content="PyBites">
+<meta property="og:title" content="Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)">
+<meta property="og:description" content="Hi Pythonistas, this is a very special edition! Today, the 10th of November, we launch our first Live Code Challenge. We partnered up with Python Alicante and we will be hosting this code challenge with them at the University of Alicante. If you don&#39;t happen to live in Alicante but do want to code today 10am-13pm CET you are more than welcome to join this Gitter channel.">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://pybit.es/codechallenge44.html">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-11-10 08:15:00+01:00">
+<meta property="article:modified_time" content="">
+<meta property="article:author" content="https://pybit.es/author/pybites.html">
+<meta property="article:section" content="Challenge">
+<meta property="article:tag" content="marvel">
+<meta property="article:tag" content="data">
+<meta property="article:tag" content="data analysis">
+<meta property="article:tag" content="csv">
+<meta property="article:tag" content="collections">
+<meta property="article:tag" content="namedtuple">
+<meta property="article:tag" content="Counter">
+<meta property="article:tag" content="Live Challenge">
+<meta property="article:tag" content="Python Alicante">
+<meta property="article:tag" content="Bokeh">
+<meta property="article:tag" content="coffee">
+<meta property="og:image" content="https://pybit.es/images/featured/pb-challenge.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@pybites">
+<meta name="twitter:title" content="Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)">
+<meta name="twitter:description" content="Hi Pythonistas, this is a very special edition! Today, the 10th of November, we launch our first Live Code Challenge. We partnered up with Python Alicante and we will be hosting this code challenge with them at the University of Alicante. If you don&#39;t happen to live in Alicante but do want to code today 10am-13pm CET you are more than welcome to join this Gitter channel.">
+<meta name="twitter:image" content="https://pybit.es/images/featured/pb-challenge.png">
+
+  <title>PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)</title>
+
+
+<script src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/cb=gapi.loaded_2" async=""></script><script src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/cb=gapi.loaded_1" async=""></script><script src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/cb=gapi(2).loaded_0" async=""></script><script id="twitter-wjs" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/widgets.js.download"></script><script async="" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/analytics.js.download"></script><script type="text/javascript" async="" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/embed.js.download"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.3999ac261b914f8b8b5e85df0ff3eaea.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.5f8e47303ecf1055cd7c6905466d140a.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.33067ddbd4792de0b384ceb588602715.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script type="text/javascript" charset="utf-8" async="" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/button.bf357a6ba1a5f1fa0ddb61377ae3add5.js.download"></script><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style><script src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/alfie.f51946af45e0b561c60f768335c9eb79.js.download" async="" charset="UTF-8"></script></head>
+<body>
+
+  <!-- change ribbon color based on topic -->
+  <div class="ribbon right
+      red
+  ">
+    <a href="https://codechalleng.es/" target="_blank">Click here to code!</a>
+  </div>
+
+  <!-- change aside color based on topic -->
+    <aside class="red">
+  
+    <div>
+      <a href="https://pybit.es/">
+          <img src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/challenges.png" alt="PyBites" title="PyBites">
+      </a>
+      <h1><a href="https://pybit.es/">PyBites</a></h1>
+
+<p>Python Code Challenges, Articles and News - One Bite a Day</p>
+      <nav>
+        <ul class="list">
+          <li><a href="https://pybit.es/pages/about.html">About</a></li>
+          <li><a href="https://pybit.es/pages/articles.html">Articles</a></li>
+          <li><a href="https://codechalleng.es/">Code Platform</a></li>
+          <li><a href="https://pybit.es/pages/courses.html">#100DaysOfCode</a></li>
+          <li><a href="https://pybit.es/pages/news.html">Python News</a></li>
+          <li><a href="https://pybit.es/pages/search.html">Search</a></li>
+        </ul>
+      </nav>
+
+
+	      <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 79px; height: 28px;" title="Twitter Follow Button" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/follow_button.c5b006ac082bc92aa829181b9ce63af1.en.html" data-screen-name="pybites"></iframe>
+
+		    <iframe allowtransparency="true" scrolling="no" frameborder="0" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/buttons.html" style="width: 77.5px; height: 28px; border: none;"></iframe>
+
+      <br>
+      <script src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/platform.js.download" gapi_processed="true"></script>
+      <div id="___ytsubscribe_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 109px; height: 24px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 109px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1529491057862" name="I0_1529491057862" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/subscribe_embed.html" data-gapiattached="true"></iframe></div>
+
+	
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    <h1 id="codechallenge44">Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)</h1>
+    <p>
+          Posted by <a href="https://pybit.es/author/pybites.html">PyBites</a> on Fri 10 November 2017 in <a href="https://pybit.es/category/challenge.html">Challenge</a>
+
+
+        • 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <blockquote>
+<p>It's not that I'm so smart, it's just that I stay with problems longer. - A. Einstein</p>
+</blockquote>
+<p>Hi Pythonistas, this is a very special edition! Today, the 10th of November, we launch our first Live Code Challenge. We partnered up with <a href="https://twitter.com/python_alc">Python Alicante</a> and we will be hosting this code challenge with them at the University of Alicante. If you don't happen to live in Alicante but do want to code today 10am-13pm CET you are more than welcome to join <a href="https://gitter.im/pybites/marvel">this Gitter channel</a>.</p>
+<p><img alt="marvel spiderman coffee mug" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/pcc44-coffee-mug.jpg"></p>
+<h2>The Challenge</h2>
+<p>We all love Marvel, don't you? So here's the deal: we found a CSV with Marvel data taken from <a href="http://marvel.wikia.com/wiki/Marvel_Database">this database</a>.</p>
+<p>We are going to have you write some Python to get this data into a usable data structure to answer some questions about the data.</p>
+<h3>Preparation</h3>
+<p>(repo available shortly before start challenge 10/11/2017 10 am CET)</p>
+<ol>
+<li>
+<p>If you don't have git installed, please <a href="https://git-scm.com/downloads">install it now</a>. Then fork <a href="https://github.com/pybites/marvel_challenge">our repo</a> and follow these steps</p>
+<p>After forking the repo make sure you checkout the community branch:</p>
+<div class="highlight"><pre><span></span># https
+$ git clone https://github.com/&lt;your_user&gt;/marvel_challenge -b community
+
+# or use SSH
+$ git clone git@github.com:&lt;your_user&gt;/marvel_challenge.git -b community
+</pre></div>
+
+
+<p>Create your own branch:</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> marvel_challenge
+$ git checkout -b PCC44
+</pre></div>
+
+
+</li>
+<li>
+<p>Open <code>marvel.py</code> in your favorite editor.</p>
+</li>
+<li>
+<p>Code your solution (see next section)</p>
+</li>
+<li>
+<p>Verify your solution:</p>
+<div class="highlight"><pre><span></span>$ python test_marvel.py
+.....
+----------------------------------------------------------------------
+Ran <span class="m">5</span> tests in <span class="m">0</span>.424s
+
+OK
+</pre></div>
+
+
+</li>
+<li>
+<p>Submit your solution by pushing your branch to</p>
+<div class="highlight"><pre><span></span>$ git push origin PCC44
+</pre></div>
+
+
+<p>Then browse to your fork and open a PR again <a href="https://github.com/pybites/marvel_challenge">our repo</a> -&gt; community branch. No worries we are happy to help you if you get stuck.</p>
+</li>
+</ol>
+<h3>Please answer ...</h3>
+<p><code>marvel.py</code> has already some stubs, here is what we want you to try:</p>
+<ol>
+<li>
+<p>Parse the <code>marvel-wikia-data.csv</code> CSV file and load it into a data structure. You probably want a list of dicts or namedtuples, one for each row. Store this in <code>data</code> which will be in the module's namespace (already done in the template).</p>
+</li>
+<li>
+<p>Get the most popular characters based on the number of appearances they made in comics over the years.</p>
+</li>
+<li>
+<p>Get the year with most and least new Marvel characters introduced respectively, return a (max_year, min_year) tuple. Expect min/max to be pretty far apart.</p>
+</li>
+<li>
+<p>What percentage of the comics characters is female? Please give us the percentage rounded to 2 digits.</p>
+</li>
+<li>
+<p>Good vs bad characters: return a dictionary of bad vs good vs neutral characters per sex. The keys are <em>Bad Characters</em>, <em>Good Characters</em>, <em>Neutral Characters</em>, the values are integer percentages. Who plays the villain more often, a man or a woman?</p>
+</li>
+</ol>
+<h3>Data Viz Bonus</h3>
+<p>OK you know Python inside out, and this was pretty easy. Sounds like you? Please surprise us with:</p>
+<ul>
+<li>Use your favorite Python visualization library and make one or more plots for 2.-5.</li>
+<li>Or try to answer some question you might have about this data set. </li>
+<li>Feel free to use <a href="https://pybit.es/nbviewer.jupyter.org">nbviewer</a> and just PR the link to your notebook. </li>
+<li>You could even write a quick Flask app to wrap your graph, like <a href="https://pybit.es/codechallenge28_review.html">we did here</a>.</li>
+</ul>
+<p>Here for example we used <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a> to plot newly introduced characters per year:</p>
+<p><img alt="example bokeh plot for bonus" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/pcc44-bokeh-plot.png"></p>
+<h2>Win a Python book!</h2>
+<p>The best part, right? You can win a hardcopy of <a href="https://automatetheboringstuff.com/">Automate the Boring Stuff</a> (it's cool, it <a href="https://pybit.es/automate_the_boring_stuff_review.html">surely helped us</a>).</p>
+<p>There are 2 conditions though:</p>
+<ul>
+<li>You can only PR once, that's the PR that counts, so make sure you have a working solution before you hit that button.</li>
+<li>Only PRs submitted before 13 CET (10th of Nov) are taken into account.</li>
+</ul>
+<p>We will determine the winner by a simple algorithm: solution * 0.5 + speed * 0.3 + design * 0.2 (does it work / how fast did you PR / PEP8 + code quality)</p>
+<p><img alt="flyer announcement" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/pcc44-flyer.jpeg"></p>
+<h2>Pybites Slack</h2>
+<p>You like these challenges? We have published <a href="https://github.com/pybites/challenges">quite a few</a> and we're not planning to stop anytime soon.</p>
+<p>You really like them and plan on PR'ing more in the future? Then consider joining our private Slack channel sending us <a href="mailto:pybitesblog@gmail.com">an email</a>. This way you get the unique opportunity to learn from other passionate Pythonistas and share some of your experience.</p>
+<h2>About</h2>
+<p>Our goal is to learn and teach you Python through practical exercises. Learning a programming language is way more fun as a community!</p>
+<p>For any feedback, issues or ideas use <a href="https://github.com/pybites/challenges/issues">GH Issues</a>, <a href="https://twitter.com/pybites">tweet us</a> or <a href="mailto:pybitesblog@gmail.com">drop us an email</a>.</p>
+<hr>
+<p>Keep Calm and Code in Python!</p>
+<p>-- PyBites</p>
+  </div>
+
+  <hr>
+  <p><strong>See an error in this post? Please submit a pull request <a href="https://github.com/pybites/pybites.github.io-src" target="_blank">on Github.</a></strong></p>
+
+<!-- Begin MailChimp Signup Form -->
+<hr class="softDivider">
+<div id="mc_embed_signup">
+<form action="https://pybit.us14.list-manage.com/subscribe/post?u=822043293f280259d4b8d2a3e&amp;id=ac7e2eb9ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+    
+<div class="mc-field-group">
+  <p><a href="http://us14.campaign-archive1.com/home/?u=822043293f280259d4b8d2a3e&amp;id=ac7e2eb9ef">Join our community</a> and grab our <i>Become a Better Python Developer</i> cheat sheet. Learn Python. Receive bonus material. Challenge yourself! (<a href="https://pybit.es/pages/privacy-policy">Privacy Policy</a>)</p>
+    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+</div>
+    <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_822043293f280259d4b8d2a3e_ac7e2eb9ef" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Join Us" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+  <div class="tag-cloud">
+    <p>
+      <a href="https://pybit.es/tag/marvel.html">marvel</a>
+      <a href="https://pybit.es/tag/data.html">data</a>
+      <a href="https://pybit.es/tag/data-analysis.html">data analysis</a>
+      <a href="https://pybit.es/tag/csv.html">csv</a>
+      <a href="https://pybit.es/tag/collections.html">collections</a>
+      <a href="https://pybit.es/tag/namedtuple.html">namedtuple</a>
+      <a href="https://pybit.es/tag/counter.html">Counter</a>
+      <a href="https://pybit.es/tag/live-challenge.html">Live Challenge</a>
+      <a href="https://pybit.es/tag/python-alicante.html">Python Alicante</a>
+      <a href="https://pybit.es/tag/bokeh.html">Bokeh</a>
+      <a href="https://pybit.es/tag/coffee.html">coffee</a>
+    </p>
+  </div>
+
+  <div class="center social-share">
+    <p>    Like this article? Share it with your friends!
+</p>
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+  </div>
+
+
+
+<div id="disqus_thread"><iframe id="dsq-app248" name="dsq-app248" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 651px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+    var disqus_shortname = 'http-pybit-es';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+</article>
+
+    <footer>
+<p>© pybites </p>
+<p>    Powered by <a href="https://getpelican.com/" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com/" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89294245-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+	<script>window.twttr = (function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0],
+		t = window.twttr || {};
+	if (d.getElementById(id)) return t;
+	js = d.createElement(s);
+	js.id = id;
+	js.src = "https://platform.twitter.com/widgets.js";
+	fjs.parentNode.insertBefore(js, fjs);
+	t._e = [];
+	t.ready = function(f) {
+		t._e.push(f);
+	};
+	return t;
+	}(document, "script", "twitter-wjs"));</script>
+
+  <script async="" defer="" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/buttons.js.download"></script>
+	
+    <script type="text/javascript" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/addthis_widget.js.download" async="async"></script>
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " PyBites ",
+  "url" : "https://pybit.es",
+  "image": "https://pybit.es/theme/img/profile.png",
+  "description": "Python Code Challenges, Articles and News - One Bite a Day"
+}
+</script>
+
+<iframe style="display: none;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/saved_resource(1).html"></iframe><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/widget_iframe.c5b006ac082bc92aa829181b9ce63af1.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe name="oauth2relay878068734" id="oauth2relay878068734" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -1000px; top: -1000px;"><table cellpadding="0" cellspacing="0" dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" width="100%" id="I0_1529491059102" name="I0_1529491059102" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/subscribe_embed(1).html"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/border_3.gif"></td><td class="gc-reset"><table cellpadding="0" cellspacing="0" style="width:100%" class="gc-reset"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/spacer.gif"></td></tr></tbody></table></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./PyBites – Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files/saved_resource(2).html"></iframe></body></html>

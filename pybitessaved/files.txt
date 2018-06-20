@@ -1,0 +1,190 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 0675-1D00
+
+ Directory of C:\Users\Alex\Desktop\pybites
+
+20/06/2018  12:05    <DIR>          .
+20/06/2018  12:05    <DIR>          ..
+20/06/2018  12:05                 0 files.txt
+20/06/2018  11:39            34,986 PyBites - Code Challenge 01 - Word Values Part I - Review.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 01 - Word Values Part I - Review_files
+20/06/2018  11:39            24,839 PyBites - Code Challenge 01 - Word Values Part I.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 01 - Word Values Part I_files
+20/06/2018  11:39            29,129 PyBites - Code Challenge 02 - Word Values Part II - A Simple Game - Review.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 02 - Word Values Part II - A Simple Game - Review_files
+20/06/2018  11:39            27,920 PyBites - Code Challenge 02 - Word Values Part II - A Simple Game.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 02 - Word Values Part II - A Simple Game_files
+20/06/2018  11:39            28,656 PyBites - Code Challenge 03 - PyBites Blog Tag Analysis - Review.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 03 - PyBites Blog Tag Analysis - Review_files
+20/06/2018  11:39            26,669 PyBites - Code Challenge 03 - PyBites Blog Tag Analysis.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 03 - PyBites Blog Tag Analysis_files
+20/06/2018  11:39            29,964 PyBites - Code Challenge 04 - Twitter data analysis Part 1_ Getting Data - Review.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 04 - Twitter data analysis Part 1_ Getting Data - Review_files
+20/06/2018  11:39            33,192 PyBites - Code Challenge 04 - Twitter data analysis Part 1_ Getting Data.html
+20/06/2018  11:39    <DIR>          PyBites - Code Challenge 04 - Twitter data analysis Part 1_ Getting Data_files
+20/06/2018  11:40            34,917 PyBites - Code Challenge 05 - Twitter data analysis Part 2_ Similar Tweeters - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 05 - Twitter data analysis Part 2_ Similar Tweeters - Review_files
+20/06/2018  11:40            29,008 PyBites - Code Challenge 06 - PyPI 100K Packages Prediction - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 06 - PyPI 100K Packages Prediction - Review_files
+20/06/2018  11:40            24,251 PyBites - Code Challenge 06 - PyPI 100K Packages Prediction.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 06 - PyPI 100K Packages Prediction_files
+20/06/2018  11:40            29,724 PyBites - Code Challenge 07 - Twitter Sentiment Analysis - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 07 - Twitter Sentiment Analysis - Review_files
+20/06/2018  11:40            25,731 PyBites - Code Challenge 07 - Twitter Sentiment Analysis.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 07 - Twitter Sentiment Analysis_files
+20/06/2018  11:40            27,935 PyBites - Code Challenge 08 - House Inventory Tracker - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 08 - House Inventory Tracker - Review_files
+20/06/2018  11:40            25,006 PyBites - Code Challenge 08 - House Inventory Tracker.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 08 - House Inventory Tracker_files
+20/06/2018  11:40            27,029 PyBites - Code Challenge 09 - The With Statement and Context Managers - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 09 - The With Statement and Context Managers - Review_files
+20/06/2018  11:40            26,208 PyBites - Code Challenge 09 - The With Statement and Context Managers.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 09 - The With Statement and Context Managers_files
+20/06/2018  11:40            26,309 PyBites - Code Challenge 10 - Build a Hangman Game - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 10 - Build a Hangman Game - Review_files
+20/06/2018  11:40            24,309 PyBites - Code Challenge 10 - Build a Hangman Game.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 10 - Build a Hangman Game_files
+20/06/2018  11:40            28,141 PyBites - Code Challenge 11 - Generators for Fun and Profit - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 11 - Generators for Fun and Profit - Review_files
+20/06/2018  11:40            27,414 PyBites - Code Challenge 11 - Generators for Fun and Profit.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 11 - Generators for Fun and Profit_files
+20/06/2018  11:40            31,081 PyBites - Code Challenge 12 - Build a Tic-tac-toe Game - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 12 - Build a Tic-tac-toe Game - Review_files
+20/06/2018  11:40            25,327 PyBites - Code Challenge 12 - Build a Tic-tac-toe Game.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 12 - Build a Tic-tac-toe Game_files
+20/06/2018  11:40            27,549 PyBites - Code Challenge 13 - Highest Rated Movie Directors - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 13 - Highest Rated Movie Directors - Review_files
+20/06/2018  11:40            30,400 PyBites - Code Challenge 13 - Highest Rated Movie Directors.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 13 - Highest Rated Movie Directors_files
+20/06/2018  11:40            28,198 PyBites - Code Challenge 14 - Write DRY Code With Decorators - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 14 - Write DRY Code With Decorators - Review_files
+20/06/2018  11:40            26,216 PyBites - Code Challenge 14 - Write DRY Code With Decorators.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 14 - Write DRY Code With Decorators_files
+20/06/2018  11:40            28,152 PyBites - Code Challenge 15 - Create a Simple Flask App - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 15 - Create a Simple Flask App - Review_files
+20/06/2018  11:40            26,213 PyBites - Code Challenge 15 - Create a Simple Flask App.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 15 - Create a Simple Flask App_files
+20/06/2018  11:40            28,227 PyBites - Code Challenge 16 - Query Your Favorite API - Review.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 16 - Query Your Favorite API - Review_files
+20/06/2018  11:40            27,523 PyBites - Code Challenge 16 - Query Your Favorite API.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 16 - Query Your Favorite API_files
+20/06/2018  11:40            26,223 PyBites - Code Challenge 17 - Never Miss a Good Podcast - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 17 - Never Miss a Good Podcast - Review_files
+20/06/2018  11:40            26,682 PyBites - Code Challenge 17 - Never Miss a Good Podcast.html
+20/06/2018  11:40    <DIR>          PyBites - Code Challenge 17 - Never Miss a Good Podcast_files
+20/06/2018  11:41            25,991 PyBites - Code Challenge 18 - Get Recommendations - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 18 - Get Recommendations - Review_files
+20/06/2018  11:41            25,854 PyBites - Code Challenge 18 - Get Recommendations.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 18 - Get Recommendations_files
+20/06/2018  11:41            26,493 PyBites - Code Challenge 19 - Post to Your Favorite API - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 19 - Post to Your Favorite API - Review_files
+20/06/2018  11:41            26,423 PyBites - Code Challenge 19 - Post to Your Favorite API.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 19 - Post to Your Favorite API_files
+20/06/2018  11:41            26,480 PyBites - Code Challenge 20 - Object Oriented Programming Fun - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 20 - Object Oriented Programming Fun - Review_files
+20/06/2018  11:41            28,269 PyBites - Code Challenge 20 - Object Oriented Programming Fun.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 20 - Object Oriented Programming Fun_files
+20/06/2018  11:41            26,216 PyBites - Code Challenge 21 - Electricity Cost Calculation App - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 21 - Electricity Cost Calculation App - Review_files
+20/06/2018  11:41            26,364 PyBites - Code Challenge 21 - Electricity Cost Calculation App.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 21 - Electricity Cost Calculation App_files
+20/06/2018  11:41            36,040 PyBites - Code Challenge 22 - Packt Free Ebook Web Scraper - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 22 - Packt Free Ebook Web Scraper - Review_files
+20/06/2018  11:41            28,320 PyBites - Code Challenge 22 - Packt Free Ebook Web Scraper.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 22 - Packt Free Ebook Web Scraper_files
+20/06/2018  11:41            29,863 PyBites - Code Challenge 23 - Challenge Estimated Time API - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 23 - Challenge Estimated Time API - Review_files
+20/06/2018  11:41            28,373 PyBites - Code Challenge 23 - Challenge Estimated Time API.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 23 - Challenge Estimated Time API_files
+20/06/2018  11:41            26,626 PyBites - Code Challenge 24 - Use Dunder _ Special Methods to Enrich a Class - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 24 - Use Dunder _ Special Methods to Enrich a Class - Review_files
+20/06/2018  11:41            27,367 PyBites - Code Challenge 24 - Use Dunder _ Special Methods to Enrich a Class.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 24 - Use Dunder _ Special Methods to Enrich a Class_files
+20/06/2018  11:41            27,745 PyBites - Code Challenge 25 - Notification Service of Now Playing and Upcoming Movies - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 25 - Notification Service of Now Playing and Upcoming Movies - Review_files
+20/06/2018  11:41            28,081 PyBites - Code Challenge 25 - Notification Service of Now Playing and Upcoming Movies.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 25 - Notification Service of Now Playing and Upcoming Movies_files
+20/06/2018  11:41            24,914 PyBites - Code Challenge 26 - Create a Simple Python GUI - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 26 - Create a Simple Python GUI - Review_files
+20/06/2018  11:41            25,714 PyBites - Code Challenge 26 - Create a Simple Python GUI.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 26 - Create a Simple Python GUI_files
+20/06/2018  11:41            25,849 PyBites - Code Challenge 27 - PRAW_ The Python Reddit API Wrapper - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 27 - PRAW_ The Python Reddit API Wrapper - Review_files
+20/06/2018  11:41            27,631 PyBites - Code Challenge 27 - PRAW_ The Python Reddit API Wrapper.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 27 - PRAW_ The Python Reddit API Wrapper_files
+20/06/2018  11:41            26,861 PyBites - Code Challenge 28 - Integrate a Bokeh Chart Into Flask - Review.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 28 - Integrate a Bokeh Chart Into Flask - Review_files
+20/06/2018  11:41            26,442 PyBites - Code Challenge 28 - Integrate a Bokeh Chart Into Flask.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 28 - Integrate a Bokeh Chart Into Flask_files
+20/06/2018  11:41            25,771 PyBites - Code Challenge 29 - Create a Simple Django App - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 29 - Create a Simple Django App - Review_files
+20/06/2018  11:41            26,839 PyBites - Code Challenge 29 - Create a Simple Django App.html
+20/06/2018  11:41    <DIR>          PyBites - Code Challenge 29 - Create a Simple Django App_files
+20/06/2018  11:42            27,470 PyBites - Code Challenge 30 - The Art of Refactoring_ Improve Your Code - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 30 - The Art of Refactoring_ Improve Your Code - Review_files
+20/06/2018  11:42            28,277 PyBites - Code Challenge 30 - The Art of Refactoring_ Improve Your Code.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 30 - The Art of Refactoring_ Improve Your Code_files
+20/06/2018  11:42            26,211 PyBites - Code Challenge 31 - Image Manipulation With Pillow - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 31 - Image Manipulation With Pillow - Review_files
+20/06/2018  11:42            27,286 PyBites - Code Challenge 31 - Image Manipulation With Pillow.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 31 - Image Manipulation With Pillow_files
+20/06/2018  11:42            24,866 PyBites - Code Challenge 32 - Test a Simple Django App With Selenium - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 32 - Test a Simple Django App With Selenium - Review_files
+20/06/2018  11:42            30,009 PyBites - Code Challenge 32 - Test a Simple Django App With Selenium.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 32 - Test a Simple Django App With Selenium_files
+20/06/2018  11:42            26,146 PyBites - Code Challenge 33 - Build a Django Tracker, Weather or Review App - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 33 - Build a Django Tracker, Weather or Review App - Review_files
+20/06/2018  11:42            28,619 PyBites - Code Challenge 33 - Build a Django Tracker, Weather or Review App.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 33 - Build a Django Tracker, Weather or Review App_files
+20/06/2018  11:42            25,423 PyBites - Code Challenge 34 - Build a Simple API With Django REST Framework - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 34 - Build a Simple API With Django REST Framework - Review_files
+20/06/2018  11:42            30,352 PyBites - Code Challenge 34 - Build a Simple API With Django REST Framework.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 34 - Build a Simple API With Django REST Framework_files
+20/06/2018  11:42            27,833 PyBites - Code Challenge 35 - Improve Your Python Code With BetterCodeHub - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 35 - Improve Your Python Code With BetterCodeHub - Review_files
+20/06/2018  11:42            28,155 PyBites - Code Challenge 35 - Improve Your Python Code With BetterCodeHub.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 35 - Improve Your Python Code With BetterCodeHub_files
+20/06/2018  11:42            24,842 PyBites - Code Challenge 36 - Create an AWS Lambda Function - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 36 - Create an AWS Lambda Function - Review_files
+20/06/2018  11:42            26,040 PyBites - Code Challenge 36 - Create an AWS Lambda Function.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 36 - Create an AWS Lambda Function_files
+20/06/2018  11:42            24,284 PyBites - Code Challenge 37 - Automate a Task With Twilio - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 37 - Automate a Task With Twilio - Review_files
+20/06/2018  11:42            25,751 PyBites - Code Challenge 37 - Automate a Task With Twilio.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 37 - Automate a Task With Twilio_files
+20/06/2018  11:42            25,716 PyBites - Code Challenge 38 - Build Your Own Hacktoberfest Checker With Bottle - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 38 - Build Your Own Hacktoberfest Checker With Bottle - Review_files
+20/06/2018  11:42            27,088 PyBites - Code Challenge 38 - Build Your Own Hacktoberfest Checker With Bottle.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 38 - Build Your Own Hacktoberfest Checker With Bottle_files
+20/06/2018  11:42            23,946 PyBites - Code Challenge 39 - Writing Tests With Pytest - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 39 - Writing Tests With Pytest - Review_files
+20/06/2018  11:42            26,034 PyBites - Code Challenge 39 - Writing Tests With Pytest.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 39 - Writing Tests With Pytest_files
+20/06/2018  11:42            25,200 PyBites - Code Challenge 40 - Daily Python Tip Part 1 - Make a Web App - Review.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 40 - Daily Python Tip Part 1 - Make a Web App - Review_files
+20/06/2018  11:42            26,956 PyBites - Code Challenge 40 - Daily Python Tip Part 1 - Make a Web App.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 40 - Daily Python Tip Part 1 - Make a Web App_files
+20/06/2018  11:42            26,993 PyBites - Code Challenge 41 - Daily Python Tip Part 2 - Build an API.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 41 - Daily Python Tip Part 2 - Build an API_files
+20/06/2018  11:43            29,855 PyBites - Code Challenge 41-44 Review - APIs, Regex, Chatbots and Marvel Data Analysis.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 41-44 Review - APIs, Regex, Chatbots and Marvel Data Analysis_files
+20/06/2018  11:42            27,398 PyBites - Code Challenge 42 - Mastering Regular Expressions.html
+20/06/2018  11:42    <DIR>          PyBites - Code Challenge 42 - Mastering Regular Expressions_files
+20/06/2018  11:43            30,161 PyBites - Code Challenge 43 - Build a Chatbot Using Python.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 43 - Build a Chatbot Using Python_files
+20/06/2018  11:43            31,310 PyBites - Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay).html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 44 - Marvel Data Analysis (Alicante PyChallengeDay)_files
+20/06/2018  11:43            27,484 PyBites - Code Challenge 45 - TDD_ Code FizzBuzz Writing Tests First!.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 45 - TDD_ Code FizzBuzz Writing Tests First!_files
+20/06/2018  11:43            30,104 PyBites - Code Challenge 46 - Add Continuous Integration (CI) to Your Project.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 46 - Add Continuous Integration (CI) to Your Project_files
+20/06/2018  11:43            29,901 PyBites - Code Challenge 47 - PyBites First Year in Data (Special).html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 47 - PyBites First Year in Data (Special)_files
+20/06/2018  11:43            27,310 PyBites - Code Challenge 48 - Create a Python News Digest Tool.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 48 - Create a Python News Digest Tool_files
+20/06/2018  11:43            28,161 PyBites - Code Challenge 49 - Contribute to Open Source_ Clean up Planet Python.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 49 - Contribute to Open Source_ Clean up Planet Python_files
+20/06/2018  11:43            27,148 PyBites - Code Challenge 50 - Use Celery to Offload an Expensive Task.html
+20/06/2018  11:43    <DIR>          PyBites - Code Challenge 50 - Use Celery to Offload an Expensive Task_files
+              91 File(s)      2,479,983 bytes
+              92 Dir(s)  360,091,959,296 bytes free
