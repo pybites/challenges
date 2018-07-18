@@ -1,9 +1,9 @@
 import unittest
 from selenium import webdriver
 
-BASE_URL = 'http://pybites.pythonanywhere.com/'
+BASE_URL = 'http://pyplanet.herokuapp.com/'
 PAGE_TITLE = 'PyBites 100 Days of Django'
-APP_URL = 'http://pybites.pythonanywhere.com/pyplanet/'
+APP_URL = 'http://pyplanet.herokuapp.com/pyplanet/'
 APP_NAME = 'PyPlanet Article Sharer App'
 USERNAME, PASSWORD = 'guest', 'changeme'
 TABLE_CLASS = 'pure-table'  # TODO: use html id/name

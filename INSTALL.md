@@ -1,4 +1,13 @@
-## To follow along with our challenges
+# PyBites Code Challenges - Setup Instructions
+
+## New Platform
+
+Update 20th of Dec 2017: we did it! We built our platform around these challenges and more. We highly encourage to use it to guide you through the setup for our challenges: [https://codechalleng.es](https://codechalleng.es). If for some reason you like the old instructions though see below.
+
+	>>> from pybites import Bob, Julian
+
+	Keep Calm and Code in Python!
+
 
 ## I. First time around
 
@@ -104,8 +113,5 @@ Finally we will check your code, merge it into our community branch, and feature
 ---
 
 Remember: there is no best solution, only learning more/ better Python. We're looking forward reviewing our and your solutions.
+
 Good luck and have fun!
-
-Keep Calm and Code in Python!
-
--- Bob and Julian
