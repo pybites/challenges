@@ -33,8 +33,6 @@ class UserTweets(object):
 		timeline
 		"""
 		data = api.user_timeline(self.twitter_handle, count=TWEET_COUNT)
-		print(type(data))
-		print(len(data))
 
 		for tweet in data:
 		
