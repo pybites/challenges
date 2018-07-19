@@ -14,7 +14,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.exc import NoResultFound
 
 from podcaster.models import Base, Episode, Pod
-from podcaster.utils.utils import check_dir, format_date, format_duration, format_link
+from podcaster.utils.utils import check_dir, format_date, 
+from podcaster.utils.utils import format_duration, format_link
 
 USER_HOME = os.path.expanduser('~')
 PODCASTER_DIR = os.path.join(USER_HOME, '.podcaster')
@@ -40,7 +41,7 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
-# uncomment these lines if to see debug messages in the terminal
+# uncomment these lines to see debug messages in the terminal
 # stream_handler = logging.StreamHandler()
 # stream_handler.setFormatter(formatter)
 # logger.addHandler(stream_handler)
@@ -171,8 +172,9 @@ class Podcast(object):
         published = self.published
         subtitle = self._clean_up(self.subtitle)
         summary = self._clean_up(self.summary)
-        pod = Pod(title=self.title, subtitle=subtitle, link=self.link, rss=self.rss, author=self.author,
-                  email=self.email, image=self.image, summary=summary, published=published)
+        pod = Pod(title=self.title, subtitle=subtitle, link=self.link, 
+                  rss=self.rss, author=self.author, email=self.email, 
+                  image=self.image, summary=summary, published=published)
         self.session.add(pod)
         self.session.commit()
         self.id = pod.id
@@ -208,7 +210,8 @@ class Podcast(object):
         for episode in self.episodes:
             played = 'Played' if episode.done else '      '
             click.secho(f' {played} ', fg='green', bg='black', nl=False)
-            click.secho(f'[{episode.id:02d}]', fg='magenta', bg='black', nl=False)
+            click.secho(f'[{episode.id:02d}]', fg='magenta', bg='black', 
+                        nl=False)
             click.secho(': ', fg='green', bg='black', nl=False)
             click.secho(f'{episode.title}', fg='white', bg='black', nl=True)
 
@@ -217,7 +220,8 @@ class Podcast(object):
         logger.debug(f'User requested episode {episode_id}')
         if isinstance(episode_id, int):
             try:
-                epi = self.session.query(Episode).filter_by(id=episode_id, pod_id=self.id).one()
+                epi = self.session.query(Episode).filter_by(id=episode_id, 
+                      pod_id=self.id).one()
                 logger.debug(f'Episode {epi.id}: {epi.title}')
                 return epi
             except NoResultFound as e:
@@ -251,8 +255,10 @@ class Podcast(object):
                 duration_time = format_duration(episode.itunes_duration)
                 published = format_date(episode.published_parsed)
 
-                show = Episode(pod_id=self.id, title=episode.title, file=file_link, duration=duration_time,
-                               published=published, summary=sub('<.*?>', '', episode.summary))
+                show = Episode(pod_id=self.id, title=episode.title, 
+                               file=file_link, duration=duration_time,
+                               published=published, 
+                               summary=sub('<.*?>', '', episode.summary))
                 self.session.add(show)
                 self.session.commit()
                 logger.debug(f'Added: [{show.id}] {show.title}')
@@ -313,8 +319,10 @@ class Podcast(object):
         # TODO: Setup email handler
         # could use os.environ to retrieve credentials
         logger.debug(f'Attempting to mail episode {episode}')
-        click.secho('Emailing episodes is not implemented yet', fg='red', bold=True)
+        click.secho('Emailing episodes is not implemented yet', fg='red', 
+                    bold=True)
 
     def __repr__(self):
-        return f'<Podcast (id={self.id}, title={self.title}, updated={self.published}, episodes={len(self.episodes)},' \
+        return f'<Podcast (id={self.id}, title={self.title}, '\
+               f'updated={self.published}, episodes={len(self.episodes)},' \
                f' status={self.status})>'

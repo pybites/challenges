@@ -44,19 +44,22 @@ def how_much(sender):
     try:
         watts = int(w_field.text)
     except ValueError as e:
-        alert_result = console.alert('Watts Error', 'Watts must be a whole number', 'OK')
+        message = 'Watts must be a whole number'
+        alert_result = console.alert('Watts Error', message, 'OK')
         exit()
 
     try:
         hours = int(h_field.text)
     except ValueError as e:
-        alert_result = console.alert('Hours Error', 'Hours must be a whole number', 'OK')
+        message = 'Hours must be a whole number'
+        alert_result = console.alert('Hours Error', message, 'OK')
         exit()
 
     try:
         cost = float(c_field.text)
     except ValueError as e:
-        alert_result = console.alert('Cost Error', 'Cost must be a floating point number', 'OK')
+        message = 'Cost must be a floating point number'
+        alert_result = console.alert('Cost Error', message, 'OK')
         exit()
 
     # setting number of days per month to 30
@@ -74,8 +77,10 @@ def how_much(sender):
     total_cost = total_decimal.quantize(cent, rounding=decimal.ROUND_UP)
 
     # return results to the screen
-    results.text = '{0:.3f} kWh per hour\n{1:.2f} kWh per day\n{2:.2f} kWh per month'.format(w_hour, k_hours, kWh)
-    t_label.text = '${}'.format(total_cost)
+    results.text = f'{w_hour:.3f} kWh per hour\n'\
+                   f'{k_hours:.2f} kWh per day\n'\
+                   f'{kWh:.2f} kWh per month'
+    t_label.text = f'${total_cost}'
 
 
 def main():

@@ -7,7 +7,7 @@
 [![License][license-image]][license-url]
 [![Twitter][twitter-image]][twitter-url]
 
-Since not everyone has an iPhone or Pythonista 3, here are some screenshots of it.
+Since not everyone has an iPhone and Pythonista 3 isn't free, here are some screenshots of it.
 
 ![](ui.png)
 

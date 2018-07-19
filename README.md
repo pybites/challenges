@@ -1,10 +1,12 @@
 # PyBites Code Challenges
 
-Every Tuesday we release [a new code challenge](https://pybit.es/pages/challenges.html). Next Monday we publish submissions that have been PR'd. 
+Every month we release [2-4 new Python code challenges](https://pybit.es/pages/challenges.html) and a review post where we publish solutions and feature merged pull requests. 
 
-Follow [these instructions](https://github.com/pybites/challenges/blob/master/INSTALL.md) to get coding.
+Update 20th of December 2017: we launched our new [Code Challenges Platform](https://codechalleng.es/). Please start using it and let us know what you think! Used to the old instructions they are still [here](https://github.com/pybites/challenges/blob/master/INSTALL.md). 
 
-To receive a weekly email notification [subscribe here](https://pybites-notifier.herokuapp.com).
+You can read more about it [here](https://pybit.es/special-birthday-new-platform.html).
+
+## Code of conduct
 
 Remember, we don't strive for the 'best' solution, it's not a competition.  Learning more + better Python is the main objective. Respect the newbie.
 
@@ -14,6 +16,6 @@ We believe solving code challenges is a very effective way to achieve this. Good
 
 ---
 
-Keep Calm and Code in Python!
+	>>> from pybites import Bob, Julian
 
-Bob and Julian @ [PyBites](http://pybit.es)
+	Keep Calm and Code in Python!
