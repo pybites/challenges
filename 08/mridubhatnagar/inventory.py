@@ -1,3 +1,5 @@
+import sys
+
 class HouseInventory(object):
 
 	def __init__(self, house_structure):
@@ -31,14 +33,11 @@ class HouseInventory(object):
 	        print(k,v) 
 
 
-if __name__ == '__main__':
+def main():
 
 	data_dictionary = dict()
 
-	print("HOUSE INVENTORY TRACKER")
-
 	room_list = str(input("Enter room names seprated by comma")).split(",")
-
 
 	for room in room_list:
 
@@ -69,10 +68,25 @@ if __name__ == '__main__':
 
 	print(s)
 
-
 	room = input("Out of above mentioned room, enter room name you wish to list?")
 
 	if room in data_dictionary.keys():
-	    print(house[room])
+	    house[room]
 	else:
 		print("Invalid Room")
+
+
+
+if __name__ == '__main__':
+
+	
+	print("HOUSE INVENTORY TRACKER")
+
+	while True:
+
+		choice = int(input("Press 1: to start listing rooms and items for 1st time\nPress 2: To exit\n"))
+
+		if choice == 1:
+			main()
+		elif choice == 2:
+			break
