@@ -30,7 +30,20 @@ class HouseInventory(object):
 	def __getitem__(self, key):
 
 	    for k,v in self.house_structure[key].items():
-	        print(k,v) 
+	        print(k,v)
+
+
+class HouseInventoryCost:
+
+	def get_total_item_cost(self, **kwargs):
+
+		total_cost = 0
+
+		for key, value in kwargs.items():
+			for cost in value.values():
+				total_cost = total_cost + int(cost)
+
+		return total_cost
 
 
 def main():
@@ -55,27 +68,7 @@ def main():
 
 		print("=============================================================================")
 
-	house = HouseInventory(data_dictionary)
-
-	house.get_format_output()
-
-	#print(house[room_list[0]])
-
-	print(len(house))
-
-
-	s = ','.join(room_list)
-
-	print(s)
-
-	room = input("Out of above mentioned room, enter room name you wish to list?")
-
-	if room in data_dictionary.keys():
-	    house[room]
-	else:
-		print("Invalid Room")
-
-
+	return data_dictionary
 
 if __name__ == '__main__':
 
@@ -87,6 +80,24 @@ if __name__ == '__main__':
 		choice = int(input("Press 1: to start listing rooms and items for 1st time\nPress 2: To exit\n"))
 
 		if choice == 1:
-			main()
+			data_dictionary = main()
+			house = HouseInventory(data_dictionary)
+			house.get_format_output()
+			print(len(house))
+
+			room_list = [room for room in data_dictionary.keys()]
+
+			s = ','.join(room_list)
+
+			housecost = HouseInventoryCost()
+			print(housecost.get_total_item_cost(**data_dictionary))
+
+
+
+			room = input("Out of above mentioned room, enter room name you wish to list?")
+			if room in data_dictionary.keys():
+				house[room]
+			else:
+				print("Invalid Room")
 		elif choice == 2:
 			break
