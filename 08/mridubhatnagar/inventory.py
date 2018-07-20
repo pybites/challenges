@@ -4,7 +4,7 @@ class HouseInventory(object):
 
 		self.house_structure = house_structure
         
-        
+
 	def get_format_output(self):
 		"""
 		Format the output.
@@ -15,7 +15,7 @@ class HouseInventory(object):
 
 			for item, element in item_list.items():
 
-				print(element + ':' + ' ' + item)
+				print(item + ':' + ' ' + element)
 
 			print("======================================")
 
@@ -27,7 +27,8 @@ class HouseInventory(object):
 
 	def __getitem__(self, key):
 
-	    return self.house_structure[key] 
+	    for k,v in self.house_structure[key].items():
+	        print(k,v) 
 
 
 if __name__ == '__main__':
@@ -59,7 +60,19 @@ if __name__ == '__main__':
 
 	house.get_format_output()
 
-	print(house[room_list[0]])
+	#print(house[room_list[0]])
 
 	print(len(house))
 
+
+	s = ','.join(room_list)
+
+	print(s)
+
+
+	room = input("Out of above mentioned room, enter room name you wish to list?")
+
+	if room in data_dictionary.keys():
+	    print(house[room])
+	else:
+		print("Invalid Room")
