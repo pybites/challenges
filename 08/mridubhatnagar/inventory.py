@@ -9,19 +9,20 @@ class HouseInventory(object):
 
 		global data_dictionary
 
-		item_list = str(input("Enter list of item names present in {}".format(room))).split(",")
+		item_list = str(input("Enter list of item names present in {}".format(self.room_name))).split(",")
 
 		item_dictionary = dict()
 
 		for item in item_list:
 
-			item_cost = str(input("For {} present in {} enter the item cost".format(item, room)))
+			item_cost = str(input("For {} present in {} enter the item cost".format(item, self.room_name)))
 
 			item_dictionary[item] = item_cost
 
-			data_dictionary[room] = item_dictionary
+			data_dictionary[self.room_name] = item_dictionary
 
-			print("=============================================================================")
+
+		print("=============================================================================")
 
 
 	def update_information(self):
@@ -40,7 +41,7 @@ class HouseInventory(object):
 
 					input_cost = input("Enter cost for {}".format(input_item))
 
-					data_dictionary[room][item] = input_cost
+					data_dictionary[self.room_name][item] = input_cost
 		else:
 
 			print("Room {} is not present. To update information you'll have to create room first".format(self.room_name))
@@ -91,8 +92,8 @@ class HouseInventoryCost:
 
 		room_cost = 0
 
-		if room in kwargs.items():
-			for value in kwargs[room].items():
+		if room in kwargs.keys():
+			for value in kwargs[room].values():
 				room_cost += int(value)
 		return room_cost
 
@@ -119,9 +120,9 @@ if __name__ == '__main__':
 
 		choice = int(input("Press 1: Create Rooms\nPress 2: Update information\nPress 3: Delete Rooms\nPress 4:Enter room name you wish to list?\nPress 5: List total number of rooms\nPress 6: Cost of House\nPress 7:Cost of One Room\nPress 8: Exit\n"))
 
-		if choice != 8 and choice!=6:
+		if choice != 8 and choice!=6 and choice != 5:
 
-			room = str(input("Enter Room Name"))
+			room = str(input("Enter Room Name")).strip()
 			house = HouseInventory(room)
 
 		if choice == 1: 
@@ -153,6 +154,8 @@ if __name__ == '__main__':
 		elif choice == 7:
 
 			housecost = HouseInventoryCost()
+
+			print(data_dictionary)
 
 			print("Cost for room {} is".format(room))
 			print(housecost.get_room_cost(room, **data_dictionary))
