@@ -5,7 +5,7 @@ class HouseInventory(object):
 		self.room_name = room_name
 
 
-	def create_rooms(self):
+	def create_room(self):
 
 		global data_dictionary
 
@@ -25,7 +25,7 @@ class HouseInventory(object):
 		print("=============================================================================")
 
 
-	def update_information(self):
+	def update_room(self):
 
 		global data_dictionary
 
@@ -127,11 +127,11 @@ if __name__ == '__main__':
 
 		if choice == 1: 
 
-			house.create_rooms()
+			house.create_room()
 
 		elif choice == 2:
 
-			house.update_information()
+			house.update_room()
 
 		elif choice == 3:
 
