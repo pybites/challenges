@@ -1,27 +1,25 @@
 class HouseInventory(object):
 
-	def __init__(self, room_list=[]):
+	def __init__(self, room_name):
 
-		self.room_list = room_list
+		self.room_name = room_name
 
 
 	def create_rooms(self):
 
 		global data_dictionary
 
-		for room in self.room_list:
+		item_list = str(input("Enter list of item names present in {}".format(room))).split(",")
 
-			item_list = str(input("Enter list of item names present in {}".format(room))).split(",")
+		item_dictionary = dict()
 
-			item_dictionary = dict()
+		for item in item_list:
 
-			for item in item_list:
+			item_cost = str(input("For {} present in {} enter the item cost".format(item, room)))
 
-				item_cost = str(input("For {} present in {} enter the item cost".format(item, room)))
+			item_dictionary[item] = item_cost
 
-				item_dictionary[item] = item_cost
-
-				data_dictionary[room] = item_dictionary
+			data_dictionary[room] = item_dictionary
 
 			print("=============================================================================")
 
@@ -30,30 +28,31 @@ class HouseInventory(object):
 
 		global data_dictionary
 
-		for room in self.room_list:
+		if self.room_name in data_dictionary.keys():
 
-			for k, v in data_dictionary[room].items():
+			for k, v in data_dictionary[self.room_name].items():
 					
 				print(k + ':' + ' ' + v)
 
-			input_item = input("Enter item you wish to Update or add new item?").split(",")
+				input_item = input("Enter item you wish to Update or add new item?").split(",")
 
-			for item in input_item:
+				for item in input_item:
 
-				input_cost = input("Enter cost for {}".format(input_item))
+					input_cost = input("Enter cost for {}".format(input_item))
 
-				data_dictionary[room][item] = input_cost
+					data_dictionary[room][item] = input_cost
+		else:
+
+			print("Room {} is not present. To update information you'll have to create room first".format(self.room_name))
 
 
 	def delete_room(self):
 
 		global data_dictionary
 
-		room = input("Enter Room name to be deleted?")
+		if self.room in data_dictionary.keys():
 
-		if room in data_dictionary.keys():
-
-			del data_dictionary[room]
+			del data_dictionary[self.room]
 
 
 
@@ -76,7 +75,7 @@ class HouseInventory(object):
 
 	def __len__(self):
 
-		return len(self.house_structure)
+		return len(data_dictionary)
 
 
 	def __getitem__(self, key):
@@ -122,8 +121,8 @@ if __name__ == '__main__':
 
 		if choice != 8 and choice!=6:
 
-			room_list = str(input("Enter Room Name")).split(",")
-			house = HouseInventory(room_list)
+			room = str(input("Enter Room Name"))
+			house = HouseInventory(room)
 
 		if choice == 1: 
 
@@ -143,14 +142,10 @@ if __name__ == '__main__':
 			
 		elif choice == 4:
 
-			s = ','.join(room_list)
-			print(s)
-
-			for room in room_list:
-				if room in data_dictionary.keys():
-					house[room]
-				else:
-					print("Invalid Room")
+			if room in data_dictionary.keys():
+				house[room]
+			else:
+				print("Invalid Room")
 
 		elif choice == 5:
 			print("Total number of rooms in house are {}".format(len(house)))
@@ -158,11 +153,9 @@ if __name__ == '__main__':
 		elif choice == 7:
 
 			housecost = HouseInventoryCost()
-			if len(room_list) == 1:
-				room = ''.join(room_list)
-				print("Cost for room {} is".format(room))
-				print(housecost.get_room_cost(room, **data_dictionary))
-				print("Computes cost for only 1 room wrong input")
+
+			print("Cost for room {} is".format(room))
+			print(housecost.get_room_cost(room, **data_dictionary))
 
 		elif choice == 6:
 
