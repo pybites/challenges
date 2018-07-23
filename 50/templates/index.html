@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% if emails_done %}
+
+      <h2 class='ok'>Messages sent! <small>(<a href="/">go back</a>)</small></h2>
+      <table class="pure-table">
+        <thead>
+            <tr>
+              <th>Email</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for email, message in emails_done %}
+            <tr>
+              <td>{{ email }}</td>
+              <td>{{ message|safe }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    {% else %}
+
+      <img src="{{ default_banner }}" alt="PyBites Easter banner">
+      <br>
+
+      <h2>Send your friends a Easter card:</h2>
+      <form id="search" class="pure-form pure-form-stacked" action="/" method="post">
+        <input name="banner" value="{{ banner }}" placeholder="Choose a banner URL (leave empty to use PyBites banner above)">
+        <textarea name="emails" placeholder="Comma separated emails">{{ emails }}</textarea>
+        <textarea name="message" placeholder="Optional message">{{ message }}</textarea>
+        <button type="submit" class="pure-button pure-button-primary">Send</button>
+      </form>
+
+    {% endif%}
+
+{% endblock %}

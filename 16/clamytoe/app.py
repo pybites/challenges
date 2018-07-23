@@ -44,9 +44,11 @@ class Accounts(db.Model):
     updated_at = db.Column(db.String(20))
     etag = db.Column(db.String(32))
 
-    def __init__(self, login, avatar_url, url, html_url, followers_url, following_url, gists_url, starred_url,
-                 subscriptions_url, organizations_url, repos_url, events_url, received_events_url, name, company,
-                 blog, location, email, hireable, bio, public_repos, public_gists, followers, following, created_at,
+    def __init__(self, login, avatar_url, url, html_url, followers_url, 
+                 following_url, gists_url, starred_url, subscriptions_url, 
+                 organizations_url, repos_url, events_url, received_events_url, 
+                 name, company, blog, location, email, hireable, bio, 
+                 public_repos, public_gists, followers, following, created_at,
                  updated_at, etag):
         self.login = login
         self.avatar_url = avatar_url
@@ -93,7 +95,8 @@ class Repos(db.Model):
     pushed_at = db.Column(db.String(20))
     etag = db.Column(db.String(32))
 
-    def __init__(self, repos_id, owner, name, html_url, description, fork, language, created_at, pushed_at, etag):
+    def __init__(self, repos_id, owner, name, html_url, description, fork, 
+                 language, created_at, pushed_at, etag):
         self.repos_id = repos_id
         self.owner = owner
         self.name = name
@@ -147,9 +150,10 @@ def index():
 def get_account():
     """Access account
     
-    Attempts to retrieve account info from the database. If the account is found, it checks to see if the online version
-    has changed. If it has, the info in the database is removed and the new data is pulled from GitHub. If the account
-    does not exist at all in the database, it gets it from GitHub.
+    Attempts to retrieve account info from the database. If the account is 
+    found, it checks to see if the online version has changed. If it has, the 
+    info in the database is removed and the new data is pulled from GitHub. If 
+    the account does not exist at all in the database, it gets it from GitHub.
     """
     username = request.form['username']
     user = username.lower()
@@ -172,10 +176,10 @@ def get_account():
             same = check_etag(user, account.etag)
             if same:
                 gh_user = account
-                if DEBUG: print(f"Pulling account info from db: {gh_user.login}")
+                if DEBUG: print(f"Getting info from db: {gh_user.login}")
                 is_account = True
             else:
-                if DEBUG: print(f'Account etags differ, will have to get an update')
+                if DEBUG: print(f'Account etags differ, getting an update')
                 Accounts.query.filter(Accounts.login == user).delete()
                 db.session.commit()
                 break
@@ -191,12 +195,14 @@ def get_account():
 
         # Handle errors
         if '404' in status:  # 404 Not Found
-            return render_template('index.html', error="User not found! Try a different dude!")
+            err_message = "User not found! Try a different dude!"
+            return render_template('index.html', error=err_message)
         elif '403' in status:  # 403 Forbidden
             remaining = int(response.headers['X-RateLimit-Reset'])
             reset_at = strftime("%H:%M:%S", localtime(remaining))
-            return render_template('index.html',
-                                   error=f"You have exceeded the number of lookups! Come back after {reset_at}!")
+            err_message = "You have exceeded the number of lookups! "\
+                          f"Come back after {reset_at}!"
+            return render_template('index.html', error=err_message)
         else:
             gh_user = add_profile(user)
             if DEBUG: print(f"Retrived {gh_user}")
@@ -213,7 +219,7 @@ def get_account():
                     # Check to see if the repos in the db are still up to date
                     is_repos = check_etag(user + '/repos', repo.etag)
                     if not is_repos:
-                        if DEBUG: print(f'Repos etags differ, will have to get an update')
+                        if DEBUG: print("Repos etags differ, getting an update")
                         Repos.query.filter(Repos.owner == user).delete()
                         db.session.commit()
                         break
@@ -231,7 +237,7 @@ def get_account():
                     # Check to see if they are up to date
                     is_gists = check_etag(user + '/gists', gist.etag)
                     if not is_gists:
-                        if DEBUG: print(f'Gist etags differ, will have to get an update')
+                        if DEBUG: print(f'Gist etags differ, getting an update')
                         Gists.query.filter(Gists.owner == user).delete()
                         db.session.commit()
                         break
@@ -250,7 +256,8 @@ def get_account():
         gh_gists = add_gists(user)
         if DEBUG: print(f"Gists: {gh_gists}")
 
-    return render_template('index.html', gh_user=gh_user, gh_repos=gh_repos, gh_gists=gh_gists)
+    return render_template('index.html', gh_user=gh_user, gh_repos=gh_repos, 
+                           gh_gists=gh_gists)
 
 
 def check_etag(user, old_etag):
@@ -287,12 +294,18 @@ def add_profile(user):
     if DEBUG: print(f"Found {data['name']}")
 
     # add the account
-    add_account = Accounts(data['login'].lower(), data['avatar_url'], data['url'], data['html_url'],
-                           data['followers_url'], data['following_url'], data['gists_url'], data['starred_url'],
-                           data['subscriptions_url'], data['organizations_url'], data['repos_url'], data['events_url'],
-                           data['received_events_url'], data['name'], data['company'], data['blog'], data['location'],
-                           data['email'], data['hireable'], data['bio'], data['public_repos'], data['public_gists'],
-                           data['followers'], data['following'], data['created_at'], data['updated_at'], etag)
+    add_account = Accounts(data['login'].lower(), data['avatar_url'], 
+                           data['url'], data['html_url'], data['followers_url'], 
+                           data['following_url'], data['gists_url'], 
+                           data['starred_url'], data['subscriptions_url'], 
+                           data['organizations_url'], data['repos_url'], 
+                           data['events_url'], data['received_events_url'], 
+                           data['name'], data['company'], data['blog'], 
+                           data['location'], data['email'], data['hireable'], 
+                           data['bio'], data['public_repos'], 
+                           data['public_gists'], data['followers'], 
+                           data['following'], data['created_at'], 
+                           data['updated_at'], etag)
     db.session.add(add_account)
     db.session.commit()
 
@@ -310,9 +323,10 @@ def add_repos(user):
     data = response.json()
     if DEBUG: print(f"Found {len(data)} repos")
 
-    for repo in data:  # repos_id, owner, name, html_url, description, fork, language, created_at, updated_at, etag
-        add_repo = Repos(repo['id'], user, repo['name'], repo['html_url'], repo['description'], repo['fork'],
-                         repo['language'], repo['created_at'], repo['pushed_at'], etag)
+    for repo in data:
+        add_repo = Repos(repo['id'], user, repo['name'], repo['html_url'], 
+                         repo['description'], repo['fork'], repo['language'], 
+                         repo['created_at'], repo['pushed_at'], etag)
         db.session.add(add_repo)
         if DEBUG: print(f"Added repo {repo['name']}")
     db.session.commit()
@@ -338,12 +352,13 @@ def add_gists(user):
     data = response.json()
     if DEBUG: print(f"Found {len(data)} gists")
 
-    for gist in data:  # gist_id, owner, filename, html_url, description, language, etag
+    for gist in data:
         files = []
         for file in gist['files']:
             files.append(file)
         if DEBUG: print(f'{len(files)} Files: {files}')
-        add_gist = Gists(gist['id'], user, files[0], gist['html_url'], gist['description'], etag)
+        add_gist = Gists(gist['id'], user, files[0], gist['html_url'], 
+                         gist['description'], etag)
         db.session.add(add_gist)
         if DEBUG: print(f'Added gist {files[0]}')
     db.session.commit()
