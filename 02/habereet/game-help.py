@@ -27,8 +27,6 @@ def input_word(draw):
 def _validation(word, draw):
     if word not in DICTIONARY:
         return False
-    my_letter_counter = Counter(word.upper())
-    draw_counter = Counter("".join(draw))
     for key in Counter(word.upper()).keys():
         if Counter(word.upper())[key] > Counter("".join(draw))[key]:
             return False
@@ -46,21 +44,26 @@ def calc_word_value(word):
 # get_possible_dict_words and _get_permutations_draw would be instance methods.
 # 'draw' would be set in the class constructor (__init__).
 def get_possible_dict_words(draw):
-    """Get all possible words from draw which are valid dictionary words.
-    Use the _get_permutations_draw helper and DICTIONARY constant"""
-    pass
+    return _get_permutations_draw(draw)
 
 
 def _get_permutations_draw(draw):
-    """Helper for get_possible_dict_words to get all permutations of draw letters.
-    Hint: use itertools.permutations"""
-    pass
+    words = []
+    for count in range(1, NUM_LETTERS+1):
+        for possible_string in itertools.permutations(''.join(draw).lower(), count):
+            if ''.join(possible_string) in DICTIONARY:
+                words.append(''.join(possible_string))
+    return words
 
 
 # From challenge 01:
 def max_word_value(words):
-    """Calc the max value of a collection of words"""
-    return max(words, key=calc_word_value)
+    max=["", 0]
+    for word in words:
+        score = calc_word_value(word)
+        if score > max[1]:
+            max = [word, score]
+    return max
 
 
 def main():
@@ -69,20 +72,19 @@ def main():
     print('Letters drawn: {}'.format(', '.join(draw)))
 
     word = input_word(draw)
-    #word_score = calc_word_value(word)
-    #print('Word chosen: {} (value: {})'.format(word, word_score))
+    word_score = calc_word_value(word)
+    print('Word chosen: {} (value: {})'.format(word, word_score))
 
-    #possible_words = get_possible_dict_words(draw)
+    possible_words = get_possible_dict_words(draw)
 
-    #max_word = max_word_value(possible_words)
-    #max_word_score = calc_word_value(max_word)
-    #print('Optimal word possible: {} (value: {})'.format(
-    #    max_word, max_word_score))
+    max_word = max_word_value(possible_words)
+    
+    print('Optimal word possible: {} (value: {})'.format(max_word[0], max_word[1]))
 
-    #game_score = word_score / max_word_score * 100
-    #print('You scored: {:.1f}'.format(game_score))
+    game_score = word_score / max_word[1] * 100
+    print('You scored: {:.1f}'.format(game_score))
 
 
 if __name__ == "__main__":
     main()
-	#draw_letters()
+	
