@@ -7,7 +7,7 @@ def _load_words():
         return set([word.strip().lower() for word in f.read().split()])
 
 DICTIONARY = _load_words()
-#assert len(DICTIONARY) == 234371
+#assert len(DICTIONARY) == 234319
 
 
 # generated with https://github.com/pybites/blog_code/blob/master/BeautifulSoup/scrabble_distribution.py
