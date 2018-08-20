@@ -19,4 +19,4 @@ def max_word_value(list_of_words):
 
 
 if __name__ == "__main__":
-    # run unittests to validate
+    pass# run unittests to validate
