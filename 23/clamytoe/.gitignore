@@ -1,0 +1,6 @@
+.cache
+.idea
+__pycache__
+pyTrack.egg-info
+pyTrack_db.sqlite
+venv

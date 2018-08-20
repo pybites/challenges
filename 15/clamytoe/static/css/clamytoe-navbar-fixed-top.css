@@ -1,0 +1,16 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+.jumbotron {
+  padding-top: 12px;
+  padding-bottom: 72px;
+}
+#taskNav {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+#taskPanel {
+  padding-top: 0px;
+  margin-top: 0px;
+}
