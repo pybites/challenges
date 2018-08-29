@@ -1,4 +1,4 @@
-from data import DICTIONARY, LETTER_SCORES
++from data import DICTIONARY, LETTER_SCORES
 
 
 def load_words():
