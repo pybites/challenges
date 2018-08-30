@@ -1,5 +1,0 @@
-{
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": false,
-    "python.pythonPath": "/usr/bin/python3.5"
-}
