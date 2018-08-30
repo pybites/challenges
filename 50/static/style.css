@@ -1,0 +1,92 @@
+body {
+	font : 85% "Lucida Grande", Helvetica, "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+  	color:#000;
+    margin: 0 auto;
+    width: 800px;
+}
+
+form {
+    margin: 20px 0;
+}
+
+table {
+    margin: 20px 0;
+    width: 800px;
+}
+
+th {
+    text-align: left;
+}
+
+a {
+	text-decoration: underline !important;
+}
+a.pure-button {
+	text-decoration: underline !important;
+}
+
+td, th {
+    border: 1px solid #ddd !important;
+}
+textarea {
+	height: 50px;
+}
+.pure-form-stacked input, 
+.pure-form-stacked textarea {
+	width: 600px;
+	margin: 10px 0;
+}
+.alert {
+	font-weight: bold;
+	color: #900;
+}
+.ok {
+	font-weight: bold;
+	color: green;
+}
+.done {
+	text-decoration: line-through;
+}
+
+.active {
+    background-color: #000 !important;
+}
+.active a {
+	color: #fff;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+	background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+	background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+	background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+	background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.button-inactive {
+	opacity: 0.3;
+}
+
+.currentDate {
+	border: 2px solid green; 
+}
+.loginSection {
+	padding: 15px 0 0 10px;
+}
