@@ -11,9 +11,8 @@ def calc_word_value(word):
     """Calculate the value of the word entered into function
     using imported constant mapping LETTER_SCORES"""
     for k in list(word):
-        count_word = LETTER_SCORES.get(str(k).upper())
-        if count_word is not None:
-            finish_count += count_word
+        count_word = LETTER_SCORES.get(k.upper(), 0)
+        finish_count += count_word
     return finish_count
 
 def max_word_value(my_dict=load_words()):
