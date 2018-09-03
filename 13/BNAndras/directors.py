@@ -2,7 +2,7 @@ import csv
 from collections import defaultdict, namedtuple
 from statistics import mean
 from operator import itemgetter
-MOVIE_DATA = '/home/anagy/Documents/challenges/13/BNAndras/movie_metadata.csv'
+MOVIE_DATA = 'movie_metadata.csv'
 NUM_TOP_DIRECTORS = 20
 MIN_MOVIES = 4
 MIN_YEAR = 1960
@@ -17,7 +17,7 @@ def get_movies_by_director():
     with open(MOVIE_DATA, encoding='utf-8') as f:
         for row in csv.DictReader(f):
             try:
-                if int(row['title_year']) >= 1960:
+                if int(row['title_year']) >= MIN_YEAR:
                    directors[row['director_name']].append(
                         Movie(
                             title=row['movie_title'].replace("\xa0", ""),
