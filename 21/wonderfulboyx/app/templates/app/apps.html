@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <form action="/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">calculate</button>
+  </form>
+  <p>
+    cost = {{cost}} $
+  </p>
+  <p>
+    <a href="{% url 'create_device' %}">create device</a><br>
+    <a href="{% url 'create_company' %}">create company</a>
+  </p>
+  <p>
+    <a href="{% url 'show' %}">show history</a>
+  </p>
+{% endblock %}
