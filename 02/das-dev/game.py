@@ -18,8 +18,20 @@ def _validation(word, draw):
         if draw.count(char) < word.count(char):
             raise ValueError
 
-        if word.lower() not in DICTIONARY:
-            raise ValueError
+    if word.lower() not in DICTIONARY:
+        raise ValueError
+
+
+def input_word(draw):
+    while True:
+        word = input('Form a valid word: ').upper()
+        try:
+            _validation(word, draw)
+        except ValueError:
+            print('{} is not a valid word'.format(word))
+            continue
+        
+        return word
 
 
 def get_possible_dict_words(draw):
@@ -53,23 +65,17 @@ def max_word_value(words):
 
 
 def main():
-    drawed_letters = draw_letters()
-    print('Letters drawn: {}'.format(', '.join(drawed_letters)))
-    while True:
-        user_word = input('Form a valid word: ').upper()
-        try:
-            _validation(user_word, drawed_letters)
-        except ValueError:
-            continue
-        
-        optimal = max_word_value(get_possible_dict_words(drawed_letters))
-        user_value, optimal_value = map(calc_word_value, (user_word, optimal))
-        scored = user_value / optimal_value
+    draw = draw_letters()
+    print('Letters drawn: {}'.format(', '.join(draw)))
+    
+    word = input_word(draw)
+    optimal = max_word_value(get_possible_dict_words(draw))
+    user_value, optimal_value = map(calc_word_value, (word, optimal))
+    score = user_value / optimal_value * 100
 
-        print('Word chosen: {} (value: {})'.format(user_word, user_value))
-        print('Optimal word possible: {} (value: {})'.format(optimal, optimal_value))
-        print('You scored: {}'.format(scored))
-        break
+    print('Word chosen: {} (value: {})'.format(word, user_value))
+    print('Optimal word possible: {} (value: {})'.format(optimal, optimal_value))
+    print('You scored: {}'.format(score))
 
 
 if __name__ == "__main__":
