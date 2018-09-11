@@ -9,6 +9,10 @@ DATA_URL = 'https://query.data.world/s/ezwk64ej624qyverrw6x7od7co7ftm'
 DATA_CACHED = 'nba.data'
 NBA_DB = 'nba.db'
 
+# start clean
+if os.path.isfile(NBA_DB):
+    os.remove(NBA_DB)
+
 Player = namedtuple('Player', ('name year first_year team college active '
                                'games avg_min avg_points'))
 
@@ -95,9 +99,7 @@ def most_games_per_year_for_veterans():
 
 
 if __name__ == '__main__':
-    # only import the data once!
-    if not os.path.isfile(NBA_DB):
-        import_to_db()
+    import_to_db()
 
     # A. check if the import went well
     def _verify_total_row_count_after_import():
