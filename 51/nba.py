@@ -93,7 +93,7 @@ def year_with_most_drafts():
 
 
 def most_games_per_year_for_veterans():
-    """Top 5 players that are > 10 years active, that have the
+    """Top 6 players that are > 10 years active, that have the
        highest # games / year"""
     pass
 
