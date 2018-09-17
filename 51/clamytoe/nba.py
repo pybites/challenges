@@ -11,8 +11,8 @@ DATA_CACHED = 'nba.data'
 NBA_DB = 'nba.db'
 
 # start clean
-# if os.path.isfile(NBA_DB):
-#     os.remove(NBA_DB)
+if os.path.isfile(NBA_DB):
+    os.remove(NBA_DB)
 
 Player = namedtuple('Player', ('name year first_year team college active '
                                'games avg_min avg_points'))
