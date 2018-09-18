@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <table class="table">
+    <tr>
+      <th>time</th>
+      <th>device</th>
+      <th>company</th>
+      <th>cost</th>
+    </tr>
+    {% for c in calc %}
+      <tr>
+        <td>{{c.time}}</td>
+        <td>{{c.device}}</td>
+        <td>{{c.company}}</td>
+        <td>{{c.cost}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'apps' %}">back</a>
+{% endblock %}

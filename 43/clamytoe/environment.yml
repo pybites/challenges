@@ -1,0 +1,27 @@
+name: mohhsbot
+channels:
+- defaults
+dependencies:
+- beautifulsoup4=4.6.0=py36hd4cc5e8_1
+- certifi=2016.2.28=py36_0
+- colorama=0.3.9=py36_0
+- pip=9.0.1=py36_1
+- py=1.4.34=py36_0
+- pytest=3.2.5=py36hfca598b_0
+- python=3.6.2=0
+- setuptools=36.4.0=py36_1
+- vc=14=0
+- vs2015_runtime=14.0.25420=0
+- wheel=0.29.0=py36_0
+- wincertstore=0.2=py36_0
+- pip:
+  - chardet==3.0.4
+  - html5lib==0.999999999
+  - idna==2.6
+  - requests==2.18.4
+  - six==1.11.0
+  - slackclient==1.1.0
+  - urllib3==1.22
+  - webencodings==0.5.1
+  - websocket-client==0.44.0
+

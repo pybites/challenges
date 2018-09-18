@@ -1,0 +1,6 @@
+data/*
+!data/README.md
+config.py
+requirements.txt
+test_usertweets.py
+tweets.py

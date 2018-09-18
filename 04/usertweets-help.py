@@ -27,18 +27,21 @@ class UserTweets(object):
         self._save_tweets()
 
     def _get_tweets(self):
-        """Hint: use the user_timeline() method on the api you defined in init.
-        See tweepy API reference: http://docs.tweepy.org/en/v3.5.0/api.html
-        Use a list comprehension / generator to filter out fields
-        id_str created_at text (optionally use namedtuple)"""
-        pass
+        return self.api.user_timeline(
+            screen_name=self.user_name, count=count
+        )
 
     def _save_tweets(self):
-        """Use the csv module (csv.writer) to write out the tweets.
-        If you use a namedtuple get the column names with Tweet._fields.
-        Otherwise define them as: id_str created_at text
-        You can use writerow for the header, writerows for the rows"""
-        pass
+        headers = ['id_str', 'created_at', 'text']
+        prepared_datas = self.prepare_data_csv(self._tweets)
+        self._save_in_csv('test', headers, prepared_datas)
+
+    def save_in_csv(self, filename, headers, datas):
+        with open('{}/{}/{}'.format(DEST_DIR, filename, EXT), 'w') as csvfile:
+            writer = csv.writer(csvfile, delimiter=';')
+            writer.writerow(headers)
+            for data in datas:
+                writer.writerow(data)
 
     def __len__(self):
         """See http://pybit.es/python-data-model.html"""

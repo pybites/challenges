@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description"
+          content="PyBites challenge 15, creating a Flask web app that allows you to enter data via a web form. Data is displayed and is persistent with a sqllite3 database using SQLAlchemy.">
+    <meta name="author" content="Martin Uribe">
+    <link rel="icon" href="{{ url_for('static', filename='clamytoe-favicon.ico') }}" type="image/x-icon">
+
+    <title>Clamytoe's Task Manager App</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ url_for('static', filename='css/clamytoe-ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/clamytoe-navbar-fixed-top.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://pybit.es/codechallenge15.html">PyBites: Challenge 15</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Task Manager App</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Other GitHub Projects <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://github.com/clamytoe/comicSnagger">Comic Snagger</a></li>
+                            <li><a href="https://github.com/clamytoe/randPic">Random Picture</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">GitHub Gists</li>
+                            <li><a href="https://gist.github.com/clamytoe/36fa8a8b69966bd1f57fa272461abd45">urldecode.py</a>
+                            </li>
+                            <li><a href="https://gist.github.com/clamytoe/ed3e39e5e943d10c359c">download_images.py</a></li>
+                            <li><a href="https://gist.github.com/clamytoe">More here...</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Page contents -->
+        <div class="jumbotron">
+            <h2>Clamytoe's Task Manager</h2>
+
+            <!-- Task input form -->
+            <form class="navbar-form navbar-left" role="search" action="/add" method="POST">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon container-fluid">Project</span>
+                        <input type="text" name="project" class="form-control" {% for project in projects %}{% if project.project_id == active %}value="{{ project.project_name }}"{% endif %}{% endfor %} placeholder="Project name">
+                        <span class="input-group-addon container-fluid">Task</span>
+                        <input type="text" name="task" class="form-control" placeholder="Add new task" required>
+                        <span class="input-group-addon container-fluid">Status</span>
+                        <select id="status" name="status" class="form-control">
+                            <option value=1 selected>Open</option>
+                            <option value=0>Close</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <span class="spacer">&nbsp;</span>
+                        <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                        </button>
+                        <button type="reset" class="btn btn-default">
+                            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Reset
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- jumbotron -->
+
+        {% if tasks %}
+        <div class="tasks">
+            {% if projects %}
+            <span id="taksNav" class="container">
+                <ul class="nav nav-tabs">
+                    {% for tab in projects %}
+                    {% if tab.project_id == active %}
+                    <li role="presentation" class="active">
+                    {% else %}
+                    <li role="presentation">
+                    {% endif %}
+                        <a href="/project/{{ tab.project_name }}">{{ tab.project_name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </span>
+            {% endif %}
+            <div id="taskPanel" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">&nbsp;
+                        <span class="navbar-right">
+                            <a href="/clear/{{ active }}">
+                                <span class="glyphicon glyphicon-trash" aria-label="Remove All"></span>
+                            </a>
+                            <span class="spacer">&nbsp;</span>
+                        </span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+
+                    <!-- Task table -->
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <td style="width:100%">DESCRIPTION</td>
+                            <td>STATUS</td>
+                            <td align="center">
+                                <a href="/remove/{{ active }}">
+                                    <span class="glyphicon glyphicon-remove" aria-label="Delete"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for task in tasks %}
+                        {% if task.project_id == active %}
+                            {% if task.status %}
+                        <tr class="success">
+                            <td>{{ task.task }}</td>
+                            {% else %}
+                        <tr class="active">
+                            <td><strike>{{ task.task }}</strike></td>
+                            {% endif %}
+                            <td align="center">
+                                <a href="/close/{{ task.task_id }}">
+                                {% if task.status %}
+                                    <span class="glyphicon glyphicon-ok-circle" aria-label="Open"></span>
+                                {% else %}
+                                    <span class="glyphicon glyphicon-ok-sign" aria-label="Close"></span>
+                                {% endif %}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/delete/{{ task.task_id }}">
+                                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div><!-- panel body -->
+            </div><!-- panel -->
+        </div><!-- tasks -->
+        {% endif %}
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+</body>
+</html>
