@@ -33,6 +33,7 @@ def _get_csv_data():
             return session.get(DATA_URL).content.decode("utf-8")
 
 
+
 def load_data():
     """GIVEN:
        Converts NBA CSV data into a list of Player namedtuples"""
