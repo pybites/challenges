@@ -61,23 +61,26 @@ def import_to_db(players=None):
     if players is None:
         players = list(load_data())
 
-    conn.execute('DROP TABLE IF EXISTS players')
-    conn.execute("""CREATE TABLE players (name, year, first_year, team, college,
+    cur.execute('DROP TABLE IF EXISTS players')
+    cur.execute("""CREATE TABLE players (name, year, first_year, team, college,
                           active, games, avg_min, avg_points)""")
-    conn.executemany("""INSERT into players VALUES (?,?,?,?,?,?,?,?,?)""",
-                     players)
+    cur.executemany("""INSERT into players VALUES (?,?,?,?,?,?,?,?,?)""",
+                    players)
     conn.commit()
 
 
 def player_with_max_points_per_game():
     """The player with highest average points per game (don't forget to CAST to
        numeric in your SQL query)"""
-    pass
+    cur.execute('SELECT name, MAX(CAST(avg_points AS float)) from players')
+    return cur.fetchall()[0][0]
 
 
 def number_of_players_from_duke():
     """Return the number of players with college == Duke University"""
-    pass
+    cur.execute("""SELECT COUNT(college) FROM players
+                WHERE college = 'Duke University'""")
+    return cur.fetchall()[0][0]
 
 
 def percentage_of_players_first_year():
@@ -89,7 +92,9 @@ def percentage_of_players_first_year():
 def avg_years_active_players_stanford():
     """Return the average years that players from "Stanford University
        are active ("active" column)"""
-    pass
+    cur.execute("""SELECT AVG(CAST(active AS int)) FROM players
+                WHERE college = 'Stanford University'""")
+    return cur.fetchall()[0][0]
 
 
 def year_with_most_drafts():
