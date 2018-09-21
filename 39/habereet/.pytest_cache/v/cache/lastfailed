@@ -1,0 +1,5 @@
+{
+  "test_wordvalue.py::test_find_max_word": true,
+  "test_wordvalue.py::test_word_value[yellow-6]": true,
+  "test_wordvalue.py::test_wordvalue": true
+}
