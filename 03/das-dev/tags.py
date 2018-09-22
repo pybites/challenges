@@ -1,3 +1,4 @@
+import nltk
 import itertools
 import xml.etree.ElementTree as etree
 from collections import Counter, OrderedDict
@@ -28,6 +29,9 @@ def get_similarities(tags):
     """Find set of tags pairs with similarity ratio of > SIMILAR"""
 
     for pair in itertools.combinations(set(tags), 2):
+        if pair[0][0] != pair[1][0]:
+            continue
+
         if SequenceMatcher(None, *pair).ratio() > SIMILAR:
             yield tuple(sorted(pair))
 
