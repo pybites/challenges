@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <form action="/create_company" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">save</button>
+  </form>
+  company list <br />
+  <table class="table">
+    <tr>
+      <th>name</th>
+      <th>Charge(/kWh)</th>
+    </tr>
+    {% for c in company %}
+      <tr>
+        <td>{{c.name}}</td>
+        <td>{{c.charge}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <p>
+    <a href="{% url 'apps' %}">back</a>
+  </p>
+{% endblock %}

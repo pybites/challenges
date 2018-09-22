@@ -1,0 +1,69 @@
+<html>
+<head>
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.css"
+    rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+    rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css"
+    integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD"
+    crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.6.min.css"
+    rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.6.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+	<div class="col-md-6 centered btn-group-lg btn-group-vertical">
+        <h1>Flask-Bokeh example app</h1>
+
+        <form action = "/" method = "POST">
+        <div class="dropdown">
+            <select name="first_country">
+            	{% for country in country_names %}
+            		{% if first_country == country %}
+            			<option selected value="{{ country }}">{{ country }}</option>
+            		{% else %}
+            			<option value="{{ country }}">{{ country }}</option>
+            		{% endif %}
+            	{% endfor %}
+            </select>
+        </div>
+
+        <select name="second_country">
+            {% for country in country_names %}
+        		{% if second_country == country %}
+        			<option selected value="{{ country }}">{{ country }}</option>
+        		{% else %}
+        			<option value="{{ country }}">{{ country }}</option>
+        		{% endif %}
+        	{% endfor %}
+        </select>
+        <select name="selected_attribute">
+        	{% for attribute in attribute_names %}
+        		{% if selected_attribute == attribute %}
+        			<option selected value="{{ attribute }}">{{ attribute }}</option>
+        		{% else %}
+        			<option value="{{ attribute }}">{{ attribute }}</option>
+        		{% endif %}
+        	{% endfor %}
+        </select>
+        <input type="submit">
+        </form>
+
+        {{ script|safe }}
+        {{ div|safe }}
+    </div>
+</div>
+
+</body>
+</html>
