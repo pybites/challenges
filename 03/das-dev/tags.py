@@ -13,7 +13,7 @@ def get_tags():
     """Find all tags in RSS_FEED.
     Replace dash with whitespace."""
 
-    tree = etree.parse('rss.xml')
+    tree = etree.parse(RSS_FEED)
     root = tree.getroot()
     tags = [node.text for node in root.findall('.//category')]
     return [tag.replace('-', ' ').lower() for tag in tags]
