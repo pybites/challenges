@@ -1,7 +1,9 @@
 from collections import Counter
 from difflib import SequenceMatcher
-from itertools import product
+from itertools import combinations
 import re
+import xml.etree.ElementTree as etree
+import difflib
 
 IDENTICAL = 1.0
 TOP_NUMBER = 10
@@ -11,24 +13,27 @@ TAG_HTML = re.compile(r'<category>([^<]+)</category>')
 
 
 def get_tags():
-    """Find all tags (TAG_HTML) in RSS_FEED.
-    Replace dash with whitespace.
-    Hint: use TAG_HTML.findall"""
-    pass
-
+    tree = etree.parse('rss.xml')
+    root = tree.getroot()
+    all_tags = [node.text for node in root.findall('.//category')]
+    return all_tags
+print(get_tags())
 
 def get_top_tags(tags):
-    """Get the TOP_NUMBER of most common tags
-    Hint: use most_common method of Counter (already imported)"""
-    pass
+    return Counter(get_tags()).most_common(10)
+
+
 
 
 def get_similarities(tags):
-    """Find set of tags pairs with similarity ratio of > SIMILAR
-    Hint 1: compare each tag, use for in for, or product from itertools (already imported)
-    Hint 2: use SequenceMatcher (imported) to calculate the similarity ratio
-    Bonus: for performance gain compare the first char of each tag in pair and continue if not the same"""
-    pass
+    set_list = set(get_tags())
+    need_merge = []
+    for strings in combinations(set_list, 2):
+        if difflib.SequenceMatcher(lambda x: x not in '-', *strings).ratio() > SIMILAR:
+            need_merge.append(strings)
+    return need_merge
+
+
 
 
 if __name__ == "__main__":
