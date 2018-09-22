@@ -13,14 +13,14 @@ TAG_HTML = re.compile(r'<category>([^<]+)</category>')
 
 
 def get_tags():
-    tree = etree.parse('rss.xml')
+    tree = etree.parse(RSS_FEED)
     root = tree.getroot()
     all_tags = [node.text for node in root.findall('.//category')]
     return all_tags
 print(get_tags())
 
 def get_top_tags(tags):
-    return Counter(get_tags()).most_common(10)
+    return Counter(get_tags()).most_common(TOP_NUMBER)
 
 
 
