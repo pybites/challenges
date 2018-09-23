@@ -17,23 +17,19 @@ def get_tags():
     root = tree.getroot()
     all_tags = [node.text for node in root.findall('.//category')]
     return all_tags
-print(get_tags())
+
 
 def get_top_tags(tags):
     return Counter(get_tags()).most_common(TOP_NUMBER)
 
 
-
-
 def get_similarities(tags):
-    set_list = set(get_tags())
+    tags = set(get_tags())
     need_merge = []
-    for strings in combinations(set_list, 2):
+    for strings in combinations(tags, 2):
         if difflib.SequenceMatcher(lambda x: x not in '-', *strings).ratio() > SIMILAR:
             need_merge.append(strings)
     return need_merge
-
-
 
 
 if __name__ == "__main__":

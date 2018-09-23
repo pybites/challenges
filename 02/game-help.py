@@ -4,6 +4,8 @@
 
 import itertools
 import random
+import string
+import argparse
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
 
@@ -12,13 +14,19 @@ NUM_LETTERS = 7
 
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    pass
+    return random.choices(POUCH, k = NUM_LETTERS)
 
+print(draw_letters())
 
 def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
-    pass 
+    parser = argparse.ArgumentParser(description='Type in your word, use only '
+                                                 'the letters from draw')
+    parser.add_argument('word', help = ' a word for validation')
+    draw = parser.parse_args()
+
+    return draw
 
 
 
