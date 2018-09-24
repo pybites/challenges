@@ -1,0 +1,9 @@
+bokeh==0.12.6
+Flask==0.12.2
+Flask-Bootstrap==3.3.7.1
+Flask-DebugToolbar==0.10.1
+Flask-Script==2.0.5
+Flask-SQLAlchemy==2.2
+Flask-Testing==0.6.2
+gunicorn==19.7.1
+psycopg2==2.7.2
