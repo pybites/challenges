@@ -69,6 +69,7 @@ optional arguments:
 Contributions are very welcome. Tests can be run with with `pytest -v`, please ensure that all tests are passing before submitting a pull request. I have also included the following packages that should be used:
 * black
 * isort
+* mypy
 * pyflakes
 * pylint
 
@@ -81,6 +82,7 @@ Distributed under the terms of the [MIT](https://opensource.org/licenses/MIT) li
 If you encounter any problems, please [file an issue](https://github.com/clamytoe/toepack/issues) along with a detailed description.
 
 ## Changelog
+* **v0.2.1** Modified it to exit the program after 8 work cycles and added type hinting.
 * **v0.2.0** FIXED: Bug where config file was not being found when program was not executed from the project's directory.
 * **v0.1.9** Modified logging config so that log level INFO messages would not show up in the console.
 * **v0.1.8** Started logging all of the steps taken so that I can aggregate a possible report feature later on.
