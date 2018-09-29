@@ -1,5 +1,5 @@
-# Pomodoro Timer (*pomodoro_timer*)
-> *Simple no frills Pomodoro Timer that I made for my 100 day coding challenge.*
+# Pomodoro Timer (*pomodoro*)
+> *Simple no frills Pomodoro Timer that I modified and updated for the Pybites coding challenge #52.*
 
 ![Python version][python-version]
 [![Build Status][travis-image]][travis-url]
