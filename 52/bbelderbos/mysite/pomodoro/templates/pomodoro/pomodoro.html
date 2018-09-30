@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="mui-container-fluid">
+    <div class="mui-col-md-8">
+      <h2 class="mui--text-display2"><a href="https://www.entrepreneur.com/article/317602" target="_blank">The 5-Hour Rule</a> Challenge</h2>
+      <br>
+      <h3><blockquote class="mui--text-display1">Hit 12 x 25 minute Pomodori a week!</blockquote></h3>
+      <br>
+    </div>
+
+    <div class="mui-col-md-4">
+      <br>
+      <div class="mui--text-headline">Just hit <i>Start Pomodoro</i> and start reading, do this twelve times and we see you at the top!</div>
+      <br>
+
+      <button style="display: none;" id="cancelTimer" onclick="return cancelPomodoro();" class="mui-btn mui-btn--raised">Cancel</button>
+      <button id="timer" onclick="return countDown();" class="mui-btn mui-btn--primary">Start Pomodoro</button>
+
+      <form id="addPomo" name="addPomo" method="post">
+        {% csrf_token %}
+        <input value="1" name="add" type="hidden">
+      </form>
+    </div>
+  </div>
+
+  <table class="mui-table mui-table--bordered">
+    <thead>
+        <tr>
+          <th>Week</th>
+          <th>Pomodori</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for yyww, pomodori in week_stats %}
+        <tr>
+          <td>{{ yyww }} | {% if pomodori|length >= goal %}😄{% else %}😭{% endif %}</td>
+          <td>
+            {% for _ in pomodori %}🍅{% endfor %}
+            {% for _ in pomos_todo %}📖{% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
