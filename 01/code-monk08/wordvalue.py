@@ -16,3 +16,7 @@ def max_word_value(list_of_words=load_words()):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
     return sorted(list_of_words, reverse=True, key=calc_word_value)[0]
+
+
+if __name__ == '__main__':
+    pass
