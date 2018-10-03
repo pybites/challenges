@@ -6,6 +6,7 @@ def load_words():
     fp=open('dictionary.txt','r')
     for i in fp.readlines():
         llist.append(i.strip())
+    fp.close()    
     return llist
     
 
