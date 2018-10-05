@@ -1,15 +1,15 @@
+import sys
 from os import name, system
 from string import ascii_lowercase
 from typing import List, Set
-import sys
 
-from movies import get_movie as get_word  # keep interface generic
 from graphics import hang_graphics
+from movies import get_movie as get_word  # keep interface generic
 
 ASCII: List[str] = list(ascii_lowercase)
 HANG_GRAPHICS: List[str] = list(hang_graphics())
 ALLOWED_GUESSES: int = len(HANG_GRAPHICS)
-PLACEHOLDER: str = '_'
+PLACEHOLDER: str = "_"
 
 
 class Hangman(object):
@@ -71,7 +71,7 @@ class Hangman(object):
                     continue
                 else:
                     try:
-                        result: str = self.guess(player_guess)
+                        result: bool = self.guess(player_guess)
                         if self.status:
                             self.clear_screen()
                             print("You've won!")
@@ -110,11 +110,11 @@ class Hangman(object):
         exit()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     if len(sys.argv) > 1:
         word: str = sys.argv[1]
     else:
-        word: str = get_word()
+        word = get_word()
     print(word)
 
     game = Hangman(word)
