@@ -1,14 +1,16 @@
 # PyBites Code Challenge 53 - Query the Spotify API
 
-Used [Spotipy](https://github.com/plamere/spotipy) and a little bit of [Flask](http://flask.pocoo.org) to buil this:
+[Challenge URL](https://codechalleng.es/challenges/53/)
+
+I used [Spotipy](https://github.com/plamere/spotipy) and a little bit of [Flask](http://flask.pocoo.org) to build this:
 
 ![screenshot](demo.png)
 
-Requires setting the following two env variables:
+Requires the following two env variables (set in your venv/bin/activate):
 
 	export CLIENT_ID='abc'
 	export CLIENT_SECRET='def'
 
-... which you get making an app on Spotify (after agreeing to dev terms), [fhopp's comment](https://github.com/plamere/spotipy/issues/194#issuecomment-315458391) made the rest very easy!
+... which you get when making an app on Spotify (after agreeing to dev terms).
 
-Take this challenge [here](https://codechalleng.es/challenges/53/)
+[This comment by fhopp](https://github.com/plamere/spotipy/issues/194#issuecomment-315458391) helped a lot getting the auth part working!
