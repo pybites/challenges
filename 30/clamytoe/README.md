@@ -48,9 +48,8 @@ Once you've started downloading a comic, it will continue until it's done. If yo
 ## Contributing
 Contributions are very welcome. Tests can be run with with `pytest -v`, please ensure that all tests are passing before submitting a pull request. I have also included the following packages that should be used:
 * black
-* flake8
 * isort
-* pylint
+* mypy
 
 I am not adhering to them strictly, but try to clean up what's reasonable.
 
