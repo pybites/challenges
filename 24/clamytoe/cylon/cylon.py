@@ -7,6 +7,7 @@ class Cylon(MutableSequence):
     If you need to traverse your list object in either direction,
     then this is the module to use.
     """
+
     def __init__(self, items=None):
         """Initialize object with the list of items that are passed to it"""
         self.items = list() if items is None else items
@@ -35,13 +36,15 @@ class Cylon(MutableSequence):
         return self.items[self._index]
 
     def __repr__(self):
-        info = ''.join([
-            self.__class__.__name__, 
-            '(', 
-            f'items={len(self)} ', 
-            f'index={self._index}', 
-            ')'
-        ])
+        info = "".join(
+            [
+                self.__class__.__name__,
+                "(",
+                f"items={len(self)} ",
+                f"index={self._index}",
+                ")",
+            ]
+        )
         return info
 
     def __setitem__(self, index, value):
@@ -53,12 +56,12 @@ class Cylon(MutableSequence):
         if len(self) > 0:
             return self.items[self._index]
         else:
-            return 'empty'
-    
+            return "empty"
+
     def _find_stop(self, stop):
         """Helper function to wrap stencil"""
         return stop - len(self) if stop > len(self) - 1 else stop
-    
+
     def _next(self):
         """Helper function for next"""
         if self._index == len(self) - 1:
@@ -66,7 +69,7 @@ class Cylon(MutableSequence):
         else:
             next_index = self._index + 1
         return next_index
-    
+
     def _prev(self):
         """Helper function for previous"""
         if self._index == 0:
@@ -92,13 +95,13 @@ class Cylon(MutableSequence):
         return self.items[self._prev()]
 
     def stencil(self, count=2):
-        """Return a list with before and after neighbors of current item 
-        
+        """Return a list with before and after neighbors of current item
+
         Count determines how many of each are displayed.
         """
         stop = self._find_stop(self._index + count + 1)
         before = list(range(self._index - count, self._index))
-        
+
         if stop < self._index:
             end = list(range(self._index, len(self)))
             front = list(range(stop))
