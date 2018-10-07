@@ -1,0 +1,7 @@
+APScheduler==3.4.0
+elasticsearch==5.4.0
+Flask==0.12.2
+Flask-Cors==3.0.3
+Flask-RESTful==0.3.6
+requests==2.18.4
+twitterscraper==0.3.0

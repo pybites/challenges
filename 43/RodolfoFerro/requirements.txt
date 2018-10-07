@@ -1,0 +1,7 @@
+pandas==0.20.3
+geopandas==0.3.0
+geocoder==1.32.1
+googlemaps==2.5.1
+geojsonio==0.0.3
+Shapely==1.6.1
+python-telegram-bot==7.0.1
