@@ -2,7 +2,7 @@
 
 ## Update 9th of Oct 2018
 
-We updated the instructions on the platform and published [an instruction video](https://www.youtube.com/watch?v=vJsyLSZxqVw&t=14s) how to fork/clone/commit/PR your work. We hope this helps. Any feedback just ping us on Twitter/Slack/Email. We are stoked about > 1K forks meaning a lot of you are writing code with us, keep calm and code with Python!
+We updated the instructions on the platform and published [an instruction video](https://www.youtube.com/watch?v=vJsyLSZxqVw&t=14s) how to fork/clone/commit/PR your work. We hope this helps. Any feedback just ping us on Twitter/Slack/Email. We are stoked about > 1K forks meaning a lot of you are writing code with us. Keep calm and code in Python, cheers!
 
 ## New Platform
 
