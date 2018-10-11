@@ -28,10 +28,14 @@ class ClipMonitor:
         return False if previous == current else True
 
     def save_it(self, content: str) -> None:
-        with open(clip_log, "a") as log:
-            now: datetime = datetime.now()
-            log.write(f"{now}\n--\n{content}\n--\n")
-            self.last = content
+        try:
+            with open(clip_log, "a") as log:
+                now: datetime = datetime.now()
+                log.write(f"{now}\n--\n{content}\n--\n")
+                self.last = content
+        except Exception as e:
+            print(e)
+            exit()
 
 
 if __name__ == "__main__":
