@@ -32,19 +32,13 @@ def pomodoro_timer(pomodoro_length=25):
         if minutes == pomodoro_length:
             pomodoros = pomodoros + 1
             os.system('clear')
-            if pomodoros == 1:
-                print('You have completed 1 pomodoro.')
-            else:
-                print(f'You have completed {pomodoros} pomodoros.')
+            print(f'You have completed {pomodoros} '
+                  f'{"pomodoro" if pomodoros == 1 else "pomodoros"}.')
             break
         os.system('clear')
         seconds = seconds + 1
-        if minutes == 1:
-            print(f'Pomodoros Completed: {pomodoros}\n')
-            print(f'1 Min {seconds} Secs')
-        else:
-            print(f'Pomodoros Completed: {pomodoros}\n')
-            print(f'{minutes} Mins {seconds} Secs')
+        print(f'Pomodoros Completed: {pomodoros}\n')
+        print(f'{minutes} {"Min" if minutes == 1 else "Mins"} {seconds} Secs')
         time.sleep(1)
 
 
@@ -66,12 +60,8 @@ def break_between_pomodoros(break_length=5):
             break
         os.system('clear')
         seconds = seconds + 1
-        if minutes == 1:
-            print(f'{break_length} Minute Break: {minutes} Min {seconds} '
-                  f'Secs')
-        else:
-            print(f'{break_length} Minute Break: {minutes} Mins {seconds} '
-                  f'Secs')
+        print(f'{break_length} Minute Break: '
+              f'{minutes} {"Min" if minutes == 1 else "Mins"} {seconds} Secs')
         time.sleep(1)
 
 
