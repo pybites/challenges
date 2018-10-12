@@ -1,4 +1,5 @@
 from collections import namedtuple
+from operator import itemgetter
 import csv
 import os
 import sqlite3
@@ -86,7 +87,13 @@ def number_of_players_from_duke():
 def percentage_of_players_first_year():
     """Return 2 digit percentage of players whose first year it is
        (first_year column)"""
-    pass
+    cur.execute("""SELECT SUM(first_year)
+                from players""")
+    first = cur.fetchall()[0][0]
+    cur.execute("""SELECT COUNT(*)
+                from players""")
+    all = cur.fetchall()[0][0]
+    return round((first / all)*100, 2)
 
 
 def avg_years_active_players_stanford():
@@ -99,13 +106,26 @@ def avg_years_active_players_stanford():
 
 def year_with_most_drafts():
     """Return the year with the most drafts, in SQL you can use GROUP BY"""
-    pass
+    cur.execute("""SELECT COUNT(year), year FROM players GROUP BY year""")
+    draft = cur.fetchall()
+    draft.sort(key=itemgetter(0), reverse=True)
+    return draft[0][1]
 
 
 def most_games_per_year_for_veterans():
     """Top 6 players that are > 10 years active, that have the
        highest # games / year"""
-    pass
+    cur.execute("""SELECT name,
+    (CAST(games as int)) as g,
+    (CAST(active as int)) as y,
+    ((CAST(games as int))/(CAST(active as int)))
+    FROM players WHERE y > 10""")
+    all_names = cur.fetchall()
+    all_names.sort(key=itemgetter(3), reverse=True)
+    top = all_names[0:6]
+    names = [player[0] for player in top]
+    names.sort()
+    return names
 
 
 if __name__ == '__main__':
