@@ -33,14 +33,14 @@ def pomodoro_timer(pomodoro_length):
     while True:
         if seconds >= 59:
             seconds = 0
-            minutes = minutes + 1
+            minutes += 1
         if minutes == pomodoro_length:
             pomodoros += 1
             system('clear')
             display_pomodoros_completed()
             break
         system('clear')
-        seconds = seconds + 1
+        seconds += 1
         display_pomodoros_completed()
         display_timer(minutes, seconds)
         sleep(1)
@@ -57,13 +57,13 @@ def break_timer(break_length):
     while True:
         if seconds >= 59:
             seconds = 0
-            minutes = minutes + 1
+            minutes += 1
         if minutes == break_length:
             system('clear')
             display_break(break_length, 'yes')
             break
         system('clear')
-        seconds = seconds + 1
+        seconds += 1
         display_break(break_length)
         display_timer(minutes, seconds)
         sleep(1)
