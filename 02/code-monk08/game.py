@@ -8,7 +8,6 @@ NUM_LETTERS = 7
 
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    random.shuffle(POUCH)
     return random.choices(POUCH, k=NUM_LETTERS)
 
 
@@ -16,21 +15,21 @@ def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
     while True:
-        print(f"valid word contains the letters which are in the sequence draw: {draw} and word should be in the dictionary ")
-        enteredword = input('enter the valid word ').upper()
+        enteredword = input(f'enter the valid word from the letters you have drawn {draw}').upper()
         if _validation(enteredword, draw):
             return enteredword
-        raise ValueError
+        else:
+            print(f"word '{enteredword}' is not valid, please try again")
 
 
 def _validation(word, draw):
     """1) Only use letters of draw
     2)valid dictionary word"""
-    for char in word:
-        if char.upper() not in draw:
-            return False
+    for letter in word:
+        if letter.upper() not in draw:
+            raise ValueError
     if word.upper() not in DICTIONARY:
-        return False
+        raise ValueError
     return True
 
 
@@ -42,9 +41,7 @@ def get_possible_dict_words(draw):
     """Get all possible words from draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
     answer = _get_permutations_draw(draw)
-    for word in answer:
-        if word not in DICTIONARY:
-            answer.remove(word)
+    answer = [word for word in answer if word in DICTIONARY]
     return answer
 
 
