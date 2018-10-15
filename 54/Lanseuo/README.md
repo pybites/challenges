@@ -1,8 +1,8 @@
 # PyBites Code Challenge 54 - Clipboard
 
-[https://codechalleng.es/challenges/53/](Challenge)
+[https://codechalleng.es/challenges/54/](Challenge)
 
-![Screenshot](https://raw.githubusercontent.com/Lanseuo/challenges/community/53/Lanseuo/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/Lanseuo/challenges/community/54/Lanseuo/screenshot.png)
 
 ## Installation
 
