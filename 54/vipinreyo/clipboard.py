@@ -1,7 +1,5 @@
 """A simple Python script to capture the data copied to Clipboard and store it persistently
 
-The data retention time is set as 30, which can be changed
-
 Pre-requisites:
 Python 3 runtime
 python3 -m venv venv - Create a Virtual environment
@@ -13,9 +11,7 @@ import sqlite3
 from datetime import datetime
 
 
-
 class ClipBoard:
-    DEFAULT_RETENTION_DURATION_DAYS = 30
     CLIPBOARD_DB = 'clipboard.db'
 
     def __init__(self):
@@ -46,13 +42,12 @@ class ClipBoard:
         with sqlite3.connect(self.CLIPBOARD_DB) as conn:
             cur = conn.cursor()
             sql = "INSERT INTO clipboard_data (date, data) values (?, ?)"
-            cur.execute(sql, [datetime.now().strftime('%d-%m-%Y %H-%M-%S'), data])
+            cur.execute(sql, [datetime.now().strftime('%d-%m-%Y %H:%M:%S'), data])
 
 
 def main():
     cb = ClipBoard()
     cb.add_data_to_db(pyperclip.paste())
-
     print(cb.get_clipboard_history())
 
 
