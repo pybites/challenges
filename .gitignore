@@ -6,6 +6,7 @@
 **drafts
 **.cache
 **sqlite
-.idea
+.idea/
 .DS_Store
+.vscode 
 .mypy_cache/

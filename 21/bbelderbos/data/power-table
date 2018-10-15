@@ -1,0 +1,1450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Power consumption of household appliances</title>
+<meta name='description' content="How much electricity are your appliances using?"/>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="en">
+<meta name="p:domain_verify" content="7b4788d0efc4c8763394e5a7ed1d6fef"/>
+<meta name="google-site-verification" content="um4d5dxJr2tJ7EcKTF9WzuwytR3osALLylEwEfcDwLc"/>
+<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'/>
+<base target="_top"/>
+<link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css'/>
+<link rel='stylesheet' type='text/css' href="/css/dist/main.css?_v=current"/>
+<link rel="stylesheet" href="/mobile-menu/dist/css/jquery.mmenu.all.css">
+<link rel="stylesheet" href="/mobile-menu/dist/css/custom-menu.css?_v=current">
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+<link rel='shortcut icon' href='/favicon.ico'/>
+<link rel="apple-touch-icon" href="//ww3.wholesalesolar.com/touch-icon-iphone.png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="//ww3.wholesalesolar.com/touch-icon-ipad.png"/>
+<link rel="apple-touch-icon" sizes="120x120" href="//ww3.wholesalesolar.com/touch-icon-iphone-retina.png"/>
+<link rel="apple-touch-icon" sizes="152x152" href="//ww3.wholesalesolar.com/touch-icon-ipad-retina.png"/>
+<link rel="publisher" href="https://plus.google.com/117801857904210967967"/>
+<link rel="canonical" href="https://www.wholesalesolar.com/solar-information/how-to-save-energy/power-table"/>
+<script>var wholesalesolar = {}; </script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
+<script src='/js/dist/all-header.min.js?_v=current'></script>
+<script src="/bower_components/handlebars/handlebars.min.js"></script>
+<script type="text/javascript">
+        // Initialize variables for later use
+        var itemJson = {};
+
+        // For Google tag manager, or else we see datalayer errors in local
+        if (!dataLayer) {
+            var dataLayer = [];
+        }
+
+        if ($.cookie('dealerloggedin')) {
+            $('head').append($('<link rel="stylesheet"/>').attr('href', '/css/dist/dealer-only.css'));
+            document.write("<script src='/js/dist/dealer-only.js'><\/script>");
+
+            wholesalesolar.dealer = [];
+            wholesalesolar.dealer.loggedIn = true;
+        }
+    </script>
+<!--[if IE 9]>
+    <script src="/js/ie-9-ajax-fix.js"></script>
+
+    <script>
+        // Set CORS for IE
+        $.support.cors = true;
+    </script>
+    <![endif]-->
+<style></style>
+</head>
+<body>
+<script>
+    if (wholesalesolar.dealer && wholesalesolar.dealer.loggedIn === true) {
+        document.body.className += ' ' + 'dealer';
+    }
+</script>
+ 
+<script>
+  dataLayer = [{
+ 'clientIP': '95.156.203.174'
+ }];
+</script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WH9BTZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WH9BTZ');</script>
+ 
+<script> if (isMobileDevice()) {
+        $('body').addClass('mobile-friendly');
+    }</script>
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "Organization",
+"url": "http://www.wholesalesolar.com",
+"logo": "https://ww3.wholesalesolar.com/wss-logo-small.png",
+"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "103"
+  },
+"contactPoint": [
+{
+"@type": "ContactPoint",
+"telephone": "+1-800-472-1142",
+"contactType": "sales",
+"contactOption": "TollFree"
+}
+],
+"sameAs": [
+"https://www.facebook.com/WholesaleSolarInc",
+"https://www.twitter.com/wholesalesolar",
+"https://plus.google.com/117801857904210967967",
+"https://www.youtube.com/user/wholesalesolar"
+]
+}
+
+</script>
+<div class="header-container">
+<div class="hidden-xs ">
+<a href="https://www.wholesalesolar.com">
+<img src="//ww3.wholesalesolar.com/banner/cabin-banner-no-phone.jpg" alt="Wholesale Solar Banner">
+</a>
+<div class="our-phone-number noclick">1-800-472-1142</div>
+</div>
+<div class="visible-xs">
+<a href="https://www.wholesalesolar.com">
+<img src="//ww3.wholesalesolar.com/responsive-logo.svg" alt="Wholesale Solar Logo">
+</a>
+<div class="our-phone-number"><a href="tel:+18004721142"><i class="glyphicon glyphicon-earphone"></i> 1-800-472-1142</a></div>
+</div>
+</div>
+<div id="mobile-current-project-menu" class="dealer">
+<div class=" current-project-mobile-container">
+<div class="dealer-purple" style="z-index: 999; width: 100%; position: fixed; bottom: 0; left: 0; margin: 0; padding: 0.25em; text-align: center; background-image: linear-gradient(180deg,purple,#000); color: white">You're logged in as a dealer. Where applicable, special dealer pricing is shown with a purple "Add to Quote" button instead of the blue "Add to Cart" button.
+</div>
+<div class="col-md-2 hidden-xs hidden-sm visible-md-lg">
+<a href="https://www.wholesalesolar.com/dealers/#/" title="Go back to the Dealer Dashboard" style="padding: 0">
+<button class="btn btn-success" style="width: 100%; background-image: none; background-color: #349D43; border-color: #419641; margin-top: 5px">
+<b class="glyphicon glyphicon-home"></b> Back to Dashboard</button>
+</a>
+</div>
+<div class="col-xs-6 col-sm-3">
+<select name="current-project-menu-selector" id="current-project-menu-selector" class="form-control" onchange="wholesalesolar.dealer.projectSelect(this)" style="display: inline-block; margin-top:5px;">
+<option value="default">Select a project</option>
+</select>
+</div>
+<div id='currentProjectDetails' class="col-xs-6 col-sm-5 col-md-4 text-center" style="line-height: 45px; text-align: left; cursor: pointer" onclick="wholesalesolar.dealer.goToProjectDetails()" title="View current project">
+<span class="badge" id="currentProjectTotalItems" style="vertical-align: text-bottom"></span>
+<span class="glyphicon glyphicon-shopping-cart"></span>
+<span class="hidden-xs">Subtotal: </span>
+<span id="currentProjectsubTotal"></span>
+</div>
+<div class="col-xs-6 col-sm-3 hidden-xs">
+<button class="btn btn-primary dealer-purple" style="width: 100%; margin-top: 5px" onclick="wholesalesolar.dealer.goToProjectDetails()">
+<b class="fa fa-list"></b> View Project</button>
+</div>
+</div>
+</div> 
+<div id="fixed-nav-bar" class="Fixed container">
+<ul class="row-fluid">
+<div class="col-xs-4">
+<span id="fixed-nav-bar-search">
+<a onclick="menuFunctions.showSearch()" title="Search this site" style="cursor: pointer"><span class="glyphicon glyphicon-search" style="line-height: 40px;"></span></a>
+</span>
+</div>
+<div class="col-xs-4 text-center">
+<span id="fixed-nav-bar-cart">
+<a href="/cart-checkout" title="Checkout / View shopping cart" class="dealer-hidden">
+<span class="glyphicon glyphicon-shopping-cart"></span>
+<span class="itemCount">
+<span class="uc-cart-item-count-label"></span>
+</span>
+</a>
+<a href="/dealers/#/" title="View my account" class="dealer-visible">
+<span class="glyphicon glyphicon-home"></span>
+<span class="account-home-text"> My Account</span>
+</a>
+</span>
+</div>
+<div class="col-xs-4">
+<span id="fixed-nav-bar-hamburger" class="text-right" title="Open navigation menu">
+<a href="#wss-mobile-menu" class="pull-right">MENU <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+</span>
+</div>
+</ul>
+</div>
+<div id="mobile-search" class="Fixed container" style="top:40px;">
+<form action="/search" id="cse-search-box" class="row" role="search">
+<div class="form-group">
+<div class="col-xs-4 pull-right" style="padding-left: 0">
+<button type="submit" name="sa" value="Search">Search</button>
+</div>
+<div class="col-xs-8" style="padding-right:0">
+<input type="hidden" name="cx" value="016891376637286370789:57yxrli0cuq"/>
+<input type="hidden" name="cof" value="FORID:11;NB:1"/>
+<input type="hidden" name="ie" value="UTF-8"/>
+<input type="text" name="q" class="search" style="width: 100%"/>
+</div>
+</div>
+</form>
+</div>
+ 
+<div class="mobile-nav-container">
+<nav id="wss-mobile-menu">
+<ul>
+<li><a href="/"><span class='glyphicon glyphicon-home'></span> Home</a></li>
+<li class="Divider">Products</li>
+<li><a href="/grid-tie-packages">Grid-Tied Systems</a></li>
+<li><a href="/grid-tie-battery-backup">Grid-Tied Systems <br>with Battery Backup</a></li>
+<li><a href="/off-grid-packages">Off-Grid Systems</a></li>
+<li><a href="/rv-marine">RV & Marine Systems</a></li>
+<li><a href="/solar-panels">Solar Panels</a></li>
+<li><a href="/specials">Sales & Specials</a></li>
+<li><span>Products by Category...</span>
+<ul>
+<li><a href='/deep-cycle-solar-batteries'>Batteries</a>
+<li><a href='/back-up-power'>Battery Backup Systems</a>
+<li><a href='/solar-battery-banks'>Battery Banks</a>
+<li><a href='/battery-chargers'>Battery Chargers</a>
+<li><a href='/battery-enclosures-and-boxes'>Battery Enclosures & Boxes</a>
+<li><a href='/circuit-breakers'>Breakers</a>
+<li><a href='/cable-wires'>Cables</a>
+<li><a href='/charge-controllers'>Charge Controllers</a>
+<li><a href='/complete-systems'>Complete Systems</a>
+<li><a href='/ac-dc-safety-disconnects'>Disconnects</a>
+<li><a href='/pv-system-fuses'>Fuses</a>
+<li><a href='/generators'>Generators</a>
+<li><a href='/power-inverters'>Inverters</a>
+<li><a href='/solar-lights'>Lighting</a>
+<li><a href='/pv-system-meters'>Meters</a>
+<li><a href='/inverter_systems.html'>Power Centers</a>
+<li><a href='/solar-panel-racking'>Racking</a>
+<li><a href='/solar-panels'>Solar Panels</a>
+<li><a href='/wind-generator-turbines'>Wind Turbines</a>
+</ul>
+</li>
+<li class="Divider">PAGES</li>
+<li><a href="/solar-cost">Solar Cost Calculator</a></li>
+<li><a href="//blog.wholesalesolar.com">Solar Blog</a></li>
+<li><span>Solar Information Center...</span>
+<ul>
+<li class="Divider">Media</li>
+<li><a href="/customer-projects/">Customer Gallery</a></li>
+<li><a href="/fyi-solar-videos">FYI Solar Videos</a></li>
+<li><a href="/solar-tech-tv">Solar Tech TV</a></li>
+<li class="Divider">Articles (Alphabetical list)</li>
+<li><a href="/solar-information/information-center"><b>BROWSE ALL ARTICLES</b></a></li>
+<li><a href='/solar-information/installing-code-compliant-solar-system'>7 Steps to Code Compliance</a></li>
+<li><a href='/solar-information/ac-solar-panels'>AC Solar Panels</a></li>
+<li><a href='/solar-information/ac-watt-dc-watt'>AC Watt DC Watt</a></li>
+<li><a href='/solar-information/anti-islanding'>Anti Islanding</a></li>
+<li><a href='/solar-information/backup-power'>Backup Power</a></li>
+<li><a href='/solar-information/battery-bank-sizing'>Battery Bank Sizing</a></li>
+<li><a href='/solar-information/battery-maintenance'>Battery Maintenance</a></li>
+<li><a href='/solar-information/before-you-call'>Before You Call</a></li>
+<li><a href='/solar-information/charge-controller-article'>Charge Controller Article</a></li>
+<li><a href='/solar-information/commercial-solar-panels'>Commercial Solar Panels</a></li>
+<li><a href='/solar-information/commercial-solar'>Commercial Solar</a></li>
+<li><a href='/solar-information/deep-cycle-battery-info'>Deep Cycle Battery Info</a></li>
+<li><a href='/solar-information/diy-solar'>DIY Solar</a></li>
+<li><a href='/solar-information/electrical-wiring-diagrams'>Electrical Wiring Diagrams</a></li>
+<li><a href='/solar-information/federal-tax-credit'>Federal Tax Credit</a></li>
+<li><a href='/solar-information/financing-solar'>Financing Solar</a></li>
+<li><a href='/solar-information/four-star-solar'>Four Star Solar</a></li>
+<li><a href='/solar-information/freight'>Freight</a></li>
+<li><a href='/solar-information/gridtie-ballpark-cost'>Gridtie Ballpark Cost</a></li>
+<li><a href='/solar-information/grounding-lightning-protection'>Grounding Lightning Protection</a></li>
+<li><a href='/solar-information/information-center'>Information Center</a></li>
+<li><a href='/solar-information/inverter-repair'>Inverter Repair</a></li>
+<li><a href='/solar-information/inverters-article'>Inverters Article</a></li>
+<li><a href='/solar-information/mount-info'>Mount Info</a></li>
+<li><a href='/solar-information/mppt-article'>MPPT Article</a></li>
+<li><a href='/solar-information/off-grid-living'>Off Grid Living</a></li>
+<li><a href='/solar-information/offgrid-ballpark-cost'>Offgrid Ballpark Cost</a></li>
+<li><a href='/solar-information/portable-generators'>Portable Generators</a></li>
+<li><a href='/solar-information/pv-cell-types'>PV Cell Types</a></li>
+<li><a href='/solar-information/pv-industry-net-energy-user-fossil-fuels'>PV Industry Net Energy User Fossil Fuels</a></li>
+<li><a href='/solar-information/return-on-solar-investment'>Return On Solar Investment</a></li>
+<li><a href='/solar-information/rv-marine-solar'>RV Marine Solar</a></li>
+<li><a href='/solar-information/solar-cost'>Solar Cost</a></li>
+<li><a href='/solar-information/solar-leasing-option'>Solar Leasing Option</a></li>
+<li><a href='/solar-information/solar-panel-efficiency'>Solar Panel Efficiency</a></li>
+<li><a href='/solar-information/state-solar-incentives'>State Solar Incentives</a></li>
+<li><a href='/solar-information/sun-hours-us-map'>Sun Hours US Map</a></li>
+<li><a href='/solar-information/voltage-drop'>Voltage Drop</a></li>
+<li><a href='/solar-information/water-pump-info'>Water Pump Info</a></li>
+<li><a href='/solar-information/well-pump-inverter-sizing'>Well Pump Inverter Sizing</a></li>
+<li><a href='/solar-information/what-is-sine-wave'>What Is Sine Wave</a></li>
+<li><a href='/solar-information/wire-sizing'>Wire Sizing</a></li>
+</ul>
+<li><span>About Wholesale Solar...</span>
+<ul>
+<li><a href="/about">About</a></li>
+<li><a href="/contact">Contact Us</a></li>
+<li><a href="/company-culture">Company Culture</a></li>
+<li><a href="/team-videos">Team Videos</a></li>
+<li><a href="/jobs">Jobs</a></li>
+<li><a href="/dealer-login">Dealer Login</a></li>
+<li class="Divider">Legal</li>
+<li><a href="/freight">Freight Delivery Tips</a></li>
+<li><a href="/terms-conditions#shipping">Shipping Policy</a></li>
+<li><a href="//blog.wholesalesolar.com">Solar Blog</a></li>
+<li><a href="/terms-conditions">Terms & Conditions</a></li>
+</ul>
+</li>
+<li class="dealer-mobile-menu-item"><a href="/dealer-login"><b class="glyphicon glyphicon-user"></b> Dealer Login</a></li>
+<li>
+<a class='reView' href='#'>View Desktop Site&nbsp;&nbsp;<span class="fa fa-desktop"></span></a>
+</li>
+</ul>
+</nav>
+</div>
+<div id="toppanel" class="hidden-sm hidden-xs">
+<div class="tab">
+<ul class="login">
+<li id="dealer-portal-link"><a href="/dealer-login" title="Dealers Portal Login">Dealers</a></li>
+<li class="sep">|</li>
+<li class="uc">
+<a href="https://www.wholesalesolar.com/cart-checkout" class="go-to-checkout">
+<table class="uc-cart-summary" border="0">
+<tr class="uc-cart-summary-details">
+<td><img src="//ww3.wholesalesolar.com/cart.svg" style="fill: white; vertical-align: middle; margin-right: 5px" name="Shopping Cart" width="25%" data-svgswap="//ww3.wholesalesolar.com/cart.png" class="svgswap" alt="Shopping Cart Icon">
+</td>
+<td class="uc-cart-item-count-label" style="text-decoration:underline">Items
+</td>
+</tr>
+</table>
+</a></li>
+</ul>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row-fluid">
+ 
+<div class="col-xs-12" style="padding: 0">
+<script>
+                if (reView.mode !== 'default') {
+
+                }
+            </script>
+</div>
+</div>
+<div class="row-fluid">
+<div class="col-xs-12 hidden-xs hidden-sm top-nav-container text-center">
+<span class="top-nav-link"><a href="/" title="Go to Wholesale Solar homepage" class="mainLink">Home</a></span>
+<span class="top-nav-link"><a href="/solar-panels" title="View our solar panel selection" class="mainLink">Solar Panels</a></span>
+<span class="top-nav-link nav-dropdown">
+<a href="/complete-systems" title="View all complete systems" class="mainLink"> Complete Systems</a>
+<ul class="subNav">
+<li><a href="/grid-tie-packages" title="View all grid tie packages" class="mainLink">Grid Tie Systems</a></li>
+<li><a href="/off-grid-packages" title="View all off grid packages" class="mainLink">Off Grid Systems</a></li>
+<li><a href="/grid-assist" title="View all grid assist packages" class="mainLink">Grid-Assisted Systems</a></li>
+<li><a href="/grid-tie-battery-backup" title="View all grid tie battery backup packages" class="mainLink">Grid Tie Battery Backup Systems</a></li>
+<li><a href="/ac-coupling" title="View all AC couple packages" class="mainLink">AC Coupling Systems</a></li>
+<li><a href="/welcome/tiny-homes" title="View tiny homes packages" class="mainLink">Tiny Home Systems</a></li>
+<li><a href="/rv-marine" title="view all RV and Marine packages" class="mainLink">RV & Marine Systems</a></li>
+<li><a href="/remote-telecom" title="View all remote telecom packages" class="mainLink">Remote Telecom Systems</a></li>
+</ul>
+</span>
+<span class="top-nav-link"><a href="/grid-tie-packages" title="View all grid tie packages" class="mainLink">Grid Tie Solar</a></span>
+<span class="top-nav-link"><a href="/off-grid-packages" title="View all off grid packages" class="mainLink">Off Grid Solar</a></span>
+<span class="top-nav-link nav-dropdown">
+<a href="/solar-information/information-center" title="view our information center" class="mainLink">Solar Information</a>
+<ul class="subNav">
+<li><a href="https://www.wholesalesolar.com/solar-information/solar-cost" title="Calculate the cost of your solar system" class="mainLink">Solar Cost Calculator</li></a>
+<li><a href="/solar-information/state-solar-incentives" title="Find solar incentives and solar tax credits" class="mainLink">Incentives and Tax Credits</li></a>
+<li class="nav-dropdown">
+<a>Solar Info Videos</a>
+<ul class="subNav">
+<li><a href="/fyi-solar-videos" title="Watch our general information FYI solar videos series" class="mainLink">FYI Series Solar Videos</a></li>
+<li><a href="/solartech-tv" title="Watch our detailed Technical Solar Videos series" class="mainLink"> Solar Tech TV Series</a></li>
+</ul>
+</li>
+<li><a href="/solar-information/start-here/getting-started" title="Learn how to get started with solar" class="mainLink">Getting Started</a></li>
+<li><a href="https://blog.wholesalesolar.com" title="View our solar blog" class="mainLink">Solar Blog</a></li>
+<li class="nav-dropdown">
+<a href="/solar-information/information-center">Browse All Articles</a>
+<ul class="subNav">
+<li><a href='/solar-information/installing-code-compliant-solar-system'>7 Steps to Code Compliance</a></li>
+<li><a href='/solar-information/ac-solar-panels'>AC Solar Panels</a></li>
+<li><a href='/solar-information/ac-watt-dc-watt'>AC Watt DC Watt</a></li>
+<li><a href='/solar-information/anti-islanding'>Anti Islanding</a></li>
+<li><a href='/solar-information/backup-power'>Backup Power</a></li>
+<li><a href='/solar-information/battery-bank-sizing'>Battery Bank Sizing</a></li>
+<li><a href='/solar-information/battery-maintenance'>Battery Maintenance</a></li>
+<li><a href='/solar-information/before-you-call'>Before You Call</a></li>
+<li><a href='/solar-information/charge-controller-article'>Charge Controller Article</a></li>
+<li><a href='/solar-information/commercial-solar-panels'>Commercial Solar Panels</a></li>
+<li><a href='/solar-information/commercial-solar'>Commercial Solar</a></li>
+<li><a href='/solar-information/deep-cycle-battery-info'>Deep Cycle Battery Info</a></li>
+<li><a href='/solar-information/diy-solar'>DIY Solar</a></li>
+<li><a href='/solar-information/electrical-wiring-diagrams'>Electrical Wiring Diagrams</a></li>
+<li><a href='/solar-information/federal-tax-credit'>Federal Tax Credit</a></li>
+<li><a href='/solar-information/financing-solar'>Financing Solar</a></li>
+<li><a href='/solar-information/four-star-solar'>Four Star Solar</a></li>
+<li><a href='/solar-information/freight'>Freight</a></li>
+<li><a href='/solar-information/gridtie-ballpark-cost'>Gridtie Ballpark Cost</a></li>
+<li><a href='/solar-information/grounding-lightning-protection'>Grounding Lightning Protection</a></li>
+<li><a href='/solar-information/information-center'>Information Center</a></li>
+<li><a href='/solar-information/inverter-repair'>Inverter Repair</a></li>
+<li><a href='/solar-information/inverters-article'>Inverters Article</a></li>
+<li><a href='/solar-information/mount-info'>Mount Info</a></li>
+<li><a href='/solar-information/mppt-article'>MPPT Article</a></li>
+<li><a href='/solar-information/off-grid-living'>Off Grid Living</a></li>
+<li><a href='/solar-information/offgrid-ballpark-cost'>Offgrid Ballpark Cost</a></li>
+<li><a href='/solar-information/portable-generators'>Portable Generators</a></li>
+<li><a href='/solar-information/pv-cell-types'>PV Cell Types</a></li>
+<li><a href='/solar-information/pv-industry-net-energy-user-fossil-fuels'>PV Industry Net Energy User Fossil Fuels</a></li>
+<li><a href='/solar-information/return-on-solar-investment'>Return On Solar Investment</a></li>
+<li><a href='/solar-information/rv-marine-solar'>RV Marine Solar</a></li>
+<li><a href='/solar-information/solar-cost'>Solar Cost</a></li>
+<li><a href='/solar-information/solar-leasing-option'>Solar Leasing Option</a></li>
+<li><a href='/solar-information/solar-panel-efficiency'>Solar Panel Efficiency</a></li>
+<li><a href='/solar-information/state-solar-incentives'>State Solar Incentives</a></li>
+<li><a href='/solar-information/sun-hours-us-map'>Sun Hours US Map</a></li>
+<li><a href='/solar-information/voltage-drop'>Voltage Drop</a></li>
+<li><a href='/solar-information/water-pump-info'>Water Pump Info</a></li>
+<li><a href='/solar-information/well-pump-inverter-sizing'>Well Pump Inverter Sizing</a></li>
+<li><a href='/solar-information/what-is-sine-wave'>What Is Sine Wave</a></li>
+<li><a href='/solar-information/wire-sizing'>Wire Sizing</a></li>
+</ul>
+</li>
+</ul>
+</span>
+<span class="top-nav-link nav-dropdown">
+<a href="/about" title="About wholesale solar" class="mainLink">About Us</a>
+<ul class="subNav">
+<li><a href="/team-videos" title="Videos about our team members" class="mainLink">Team Videos</a></li>
+<li><a href="/company-culture" title="Check out Wholesale Solar company culture" class="mainLink">Company Culture</a></li>
+<li class="nav-dropdown flyout-left">
+<a title="Check out Wholesale Solar company culture" class="mainLink">Customer Showcase</a>
+<ul class="subNav">
+<li><a href="/wholesale-solar-customer-testimonials-reviews-comments" title="Fuind out what our customers have to say about us" class="mainLink">Customer Testimonials</a>
+<li><a href="/installation-of-the-month" title="Pictures and interviews of cusomter installations" class="mainLink">Installation of the Month</a>
+<li><a href="/customer-gallery" title="Check out solar installation pictures" class="mainLink">Customer Gallery</a>
+<li><a href="https://www.google.com/search?q=Wholesale%20Solar,%20Inc.&ludocid=1918852942006376142#lrd=0x0:0x1aa122959080d6ce,1" title="Read our reviews on google" class="mainLink">Google Reviews</a>
+</ul>
+</li>
+<li><a href="/jobs" title="Work at Wholesale Solar" class="mainLink">Jobs</a></li>
+<li><a href="/contact" title="Contact Us" class="mainLink">Contact Us</a></li>
+</ul>
+</span>
+<span class="top-nav-link"><a href="/specials" title="View our selection of products on sale" class="mainLink">Specials</a></span>
+</div>
+</div>
+<div class="row-fluid" id="medium-mobile-search">
+<div class="mobile-filler" style="display: none;   height: 100px;"></div>
+<div class="mobileMenu">
+<div class="mobileSearch mobile-hidden">
+<form action="/search" id="cse-search-box">
+<input type="image" src="//ww3.wholesalesolar.com/ico/search_box_icon.png" class="searchsubmit" title="search" alt="Search">
+<input type="text" name="q" class="search" alt="Search Input"/>
+<input type="hidden" name="cx" value="006435196072562829002:57yxrli0cuq" alt="cx"/>
+<input type="hidden" name="cof" value="FORID:11;NB:1" alt="cof"/> <input type="hidden" name="ie" value="UTF-8" alt="ie"/>
+</form>
+</div>
+</div>
+</div>
+<div class="row-fluid">
+<div class="col-xs-12 js-site-message bg-danger text-danger text-center">
+<p class="col-xs-10 col-sm-11 js-site-message-content"></p>
+<b class="col-xs-1 glyphicon glyphicon-remove js-site-message-close"></b>
+</div>
+</div>
+</div>
+<div class="container-fluid" id="center-container">
+<div class="row-fluid">
+<div class="col-xs-12 text-center" id="full-site-toggler-container">
+<div class="text-center" id="full-site-toggler-button">
+<a class='reView' href='#' style="display: none">[View Desktop Site]</a>
+</div>
+</div>
+</div>
+<script>
+        var reViewContainer = document.getElementById('full-site-toggler-container');
+        reViewContainer.style.display = "none";
+        document.addEventListener('viewportChange', function () {
+            if (reView.mode !== 'default') {
+                reViewContainer.style.display = "none";
+            } else {
+                reViewContainer.style.display = "block";
+            }
+        }, false)
+
+    </script>
+<div class="row-fluid clearfix main-content-row"> 
+<div class="col-md-2 hidden-xs hidden-sm hidden-md" id="left-column-container">
+<div id="left-column">
+<style>#left-column>div{margin-bottom:10px;}</style>
+<div class="social-buttons">
+<a href="https://www.facebook.com/WholesaleSolarInc" target="_blank" title="Wholesale Solar Facebook Page"><img src="//ww3.wholesalesolar.com/facebook.svg" data-svgswap="//ww3.wholesalesolar.com/facebook.png" alt="Facebook Icon" class="svgswap"></a>
+<a href="https://twitter.com/wholesalesolar" target="_blank" title="Wholesale Solar Twitter Feed"><img src="//ww3.wholesalesolar.com/twitter.svg" data-svgswap="//ww3.wholesalesolar.com/twitter.png" class="svgswap" alt="Twitter Icon"></a>
+<a href="https://www.youtube.com/WholesaleSolar" target="_blank" title="Wholesale Solar YouTube Channel"><img src="//ww3.wholesalesolar.com/youtube.svg" data-svgswap="//ww3.wholesalesolar.com/youtube.png" class="svgswap" alt="YouTube Icon"></a>
+<a href="https://plus.google.com/+wholesalesolar" target="_blank" title="Wholesale Solar Google+ Page"><img src="//ww3.wholesalesolar.com/google-plus.svg" data-svgswap="//ww3.wholesalesolar.com/google-plus.png" class="svgswap" alt="Google Plus Icon"></a>
+<a href="https://www.instagram.com/wholesalesolar" target="_blank" title="Wholesale Solar Instagram Feed"><img src="//ww3.wholesalesolar.com/instagram.png" alt="Instagram Icon"></a>
+</div>
+<div>
+<table width="160" cellpadding="0" cellspacing="1" bgcolor="#083972" class="mobileHide search">
+<tr>
+<th class="sidebar-box-header">Search Our Site</th>
+</tr>
+<tr>
+<td bgcolor="#ffffff">
+<form action="/search" id="cse-search-box">
+<input type="hidden" name="cx" value="016891376637286370789:57yxrli0cuq"/>  
+<input type="hidden" name="cof" value="FORID:11;NB:1"/>
+<input type="hidden" name="ie" value="UTF-8"/>
+<input type="text" name="q" class="search" style="margin:5px; width: 150px;"/>
+<input type="submit" name="sa" class="btn" value="Search"/>
+</form>
+</td>
+</tr>
+</table></div>
+<div>
+<a href="/about" class="center-block">
+<img src="//ww3.wholesalesolar.com/EMPLOYEE-OWNED-BTTN-1.png" alt="100 percent employee owned" class="img-responsive"/>
+</a>
+</div>
+<div>
+<table width="160" border="0" cellspacing="1" cellpadding="0" bgcolor="#083972" class="testimonials">
+<tr>
+<th class="sidebar-box-header">Customer Showcase</th>
+</tr>
+<tr bgcolor="#ffffff">
+<td>
+<a href="/wholesale-solar-customer-testimonials-reviews-comments" class="sublink3">Customer Testimonials</a>
+</td>
+</tr>
+<tr bgcolor="#ffffff">
+<td>
+<a href="/installation-of-the-month" class="sublink3">Installation Of The Month</a>
+</td>
+</tr>
+<tr bgcolor="#ffffff">
+<td>
+<a href="/customer-gallery" class="sublink3">Customer Gallery</a>
+</td>
+</tr>
+</table>
+</div>
+<div>
+<a href="/solar-information/state-solar-incentives">
+<img src="//ww3.wholesalesolar.com/ico/stateincentives.png" alt="Solar incentives by state" class="img-responsive" border="0"/>
+</a>
+</div>
+<div class="wssHighlights">
+<span>
+<a class="style01" href="/why-wholesale-solar.html">Why Choose Wholesale Solar?</a></span>
+<b class="clearfix"></b>
+<span>
+<a class="style01" href="/solar-information/solar-cost">Solar Cost</a>
+<span class="style1">What you should know</span>
+</span>
+<b class="clearfix"></b>
+<span>
+<a class="style01" href="/solar-information/financing-solar">Financing Solar</a>
+<span class="style1">Your best options </span>
+</span>
+<b class="clearfix"></b>
+<span>
+<a class="style01" href="/solar-information/solar-leasing-option">Leasing Options</a>
+<span class="style1">Pros and cons</span>
+</span>
+<b class="clearfix"></b>
+<span>
+<a class="style01" href="/request-a-quote">Request a Quote<br/></a>
+<span class="style1">With our easy online form</span>
+</span>
+</div>
+<div class="sidebar-box" id="blog-box"><span class="sidebar-box-header">From Our Blog</span><ul id="recent-blog-posts"><a target="_blank" style="list-style:none;" href="https://blog.wholesalesolar.com/california-renewable-energy-2045/" title="In a time where green energy initiatives are at risk across the country, the state of California seeks to take a stand and reinforce its long history of strong progressive policies: by 2045, 100% of the state’s energy will be powered by renewable sources such as wind and solar. SB100 passed in the senate Wednesday, &#8230;  Read More  Read More"><img class="img-responsive center-block" style="margin-top:8px;margin-left:-8px;" src="https://blog.wholesalesolar.com/wp-content/uploads/2017/06/cali-future-solar-203x101.png" alt="blog article thumbnail"/></a><li style=""><a target="_blank" href="https://blog.wholesalesolar.com/california-renewable-energy-2045/">California Aiming For 100% Renewable Energy by 2045</a> Jun 02, 2017 </li><a target="_blank" style="list-style:none;" href="https://blog.wholesalesolar.com/energy-return-investment-grid-tied/" title="Switching to Solar: It Just Makes Sense One of the main reasons people switch to solar power is to save money. A grid-tied system can help offset monthly power bills or zero them out completely &#8211; utility companies may even afford a homeowner credits on their power bill for the surplus power produced. Getting the &#8230;  Read More  Read More"><img class="img-responsive center-block" style="margin-top:8px;margin-left:-8px;" src="https://blog.wholesalesolar.com/wp-content/uploads/2017/05/grid-tied-guide-203x101.png" alt="blog article thumbnail"/></a><li style=""><a target="_blank" href="https://blog.wholesalesolar.com/energy-return-investment-grid-tied/">Return on Investment With Your Grid-Tied System</a> May 30, 2017 </li><a target="_blank" style="list-style:none;" href="https://blog.wholesalesolar.com/5-costly-mistakes-avoid-racking-solar-panels/" title="Your solar power system is only as good as the racking it’s mounted on. You want to get the most durable, effective, flexible racking for your panels, while also keeping in mind several important factors that can make or break your project. So before you start installing, make sure you’ve considered the following important aspects &#8230;  Read More  Read More"><img class="img-responsive center-block" style="margin-top:8px;margin-left:-8px;" src="https://blog.wholesalesolar.com/wp-content/uploads/2017/05/five-costly-mistakes-header-203x101.png" alt="blog article thumbnail"/></a><li style=""><a target="_blank" href="https://blog.wholesalesolar.com/5-costly-mistakes-avoid-racking-solar-panels/">5 Costly Mistakes to Avoid When Mounting Your Solar Panels</a> May 18, 2017 </li></ul></div><style>.federal-tax-calculator{max-width:225px;display:block;}.federal-tax-calculator>a{text-decoration:none;}.federal-tax-calculator .headlineRed{background-color:#D63D27;color:#ffffff;font-size:1.6em;text-align:center;font-weight:300;}.federal-tax-calculator .headlineWhite{background-color:#ffffff;color:#000000;font-size:1.6em;text-align:center;border:1px solid #D63D27;}.FTCcalculator span{line-height:0.95em;font-size:2.0em;display:inherit;}.federal-tax-calculator label{display:inline-block;}.federal-tax-calculator label:first-child{margin-top:.5em;}.credit{font-size:1.5em!important;}.federal-tax-calculator input{font-size:1em;width:85%;display:inline-block;text-align:right;}::-webkit-input-placeholder{text-align:center;}:-moz-placeholder{text-align:center;}::-moz-placeholder{text-align:center;}:-ms-input-placeholder{text-align:center;}.federal-tax-calculator b{font-size:1.05em;}.federal-tax-calculator .FTCcalculator{border-right:1px solid #083972;border-bottom:1px solid #083972;border-left:1px solid #083972;}.FTCcalculator span:first-child{padding-top:0.5em;display:inline-block;}.calculateFTC{width:90%;margin-top:0.5em;}.totalCredit input{margin-bottom:1.5em;}.FTCcalculator a{margin-bottom:1em;display:block;}.FTCcalculator{text-align:center;}.FTCcalculator label{margin-bottom:0;}.FTCcalculator hr{margin:0.5em 0;}.totalCredit{margin-top:0.5em;}</style>
+<div class="federal-tax-calculator">
+<a href="/solar-information/federal-tax-credit">
+<div class="headlineRed">30% FEDERAL</div>
+<div class="headlineWhite">TAX CREDIT</div>
+</a>
+<div class="FTCcalculator">
+<label>Cost of system</label>
+<br/><b>$</b>
+<input name="systemCost" class="systemCost" placeholder="System Cost"/>
+<span>+</span>
+<label>Cost of installation</label>
+<br/><b>$</b>
+<input name="installCost" class="installCost" placeholder="Installation Cost"/>
+<button class="calculateFTC btn">Calculate</button>
+<hr/>
+<span class="credit">Your Credit</span>
+<b>$</b>
+<input name="totalCredit" class="totalCredit" disabled />
+<a href="/solar-information/federal-tax-credit">Learn More!</a>
+</div>
+</div>
+<script>
+    $('.calculateFTC').on('click', function(){
+        var sc = parseFloat($('.systemCost').val().replace(/(,|\$)/g,''));
+        var ic = parseFloat($('.installCost').val().replace(/(,|\$)/g,''));
+        var tc = parseFloat((sc+ic) * 0.3).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        $('.totalCredit').val(tc);
+    })
+</script> </div>
+</div>
+<div class="col-sm-2 hidden-xs pull-right" id="right-column-container">
+<div id="right-column">
+ 
+ 
+ 
+ 
+ 
+<div id="open-hours">
+<div class='hidden-xs text-center'>Open <strong>Mon</strong>-<strong>Fri</strong> <strong>8</strong> to
+<strong>5</strong> PST
+<br>
+<span style="display: block;  font-size: 1.25em; color:#083972; font-weight: 700" class="text-center"><span class="our-phone-number">1-800-472-1142</span></span>
+</div>
+</div>
+<div id="closed-hours" class="text-center" style="display:none">
+<a href="/contact" style="color: #fff; text-decoration: none">
+<div style="width: 100%;padding: 5px;background-color: #3b89c6;border-radius: 10px;color: #fff; text-align: center;border-bottom: 5px solid #083972; font-family: 'league-gothic', sans-serif;font-style: normal;font-weight: 400; margin-bottom: 1em;">
+<span style="font-family: 'league-gothic', sans-serif !important; font-size: 1.1em; font-weight: 400;">Have A Solar Expert Call You!</span>
+<br>
+<span style="font-family: 'league-gothic', sans-serif !important; font-size: 1.5em; font-weight: 400">CLICK HERE!</span>
+</div>
+</a>
+</div>
+<table class="prodnav">
+<tr>
+<th class="sidebar-box-header">Menu</th>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/sale" class="sublink3">June Free Shipping Sale</a>
+</td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/specials" class="sublink3">Specials</a>
+</td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/back-up-power" class="sublink3">Back-Up Power</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/deep-cycle-solar-batteries" class="sublink3">Batteries</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/solar-battery-banks" class="sublink3">Battery Banks</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/battery-chargers" class="sublink3">Battery Chargers</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/battery-enclosures-and-boxes" class="sublink3">Battery Enclosures & Boxes</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/cable-wires" class="sublink3">Cables<br/> &nbsp;&nbsp;&nbsp;&nbsp;-Wiring<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-MC Connectors
+</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/charge-controllers" class="sublink3">Charge Controllers </a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/solar-information/commercial-solar" class="sublink3">Commercial Solar </a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/complete-systems" class="sublink3">Complete Systems</a><br/> &nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/grid-assist" class="sublink3" title="Grid-assisted systems can draw power from the grid during periods of low sun, but do NOT feed power back into the grid. Useful for areas like Hawaii that prohibit normal grid-tied systems.">Grid-Assisted</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/grid-tie-packages" class="sublink3" title="Grid-intertied systems can feed excess power back to the grid and draw power from the grid during periods of low sun.">
+Grid-Tied</a><br/> &nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/grid-tie-battery-backup" class="sublink3" title="Grid-tied systems with battery backup have all the advantages of normal grid-tied systems, but also have their own battery backup.">Grid-Tied
+Battery
+<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Backup</a><br/> &nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/ac-coupling" class="sublink3">Micro-Grid AC <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coupling</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/off-grid-packages" class="sublink3" title="Off-grid systems work independently from the electrical grid. Avaiable with or without batteries.">Off
+Grid</a><br/> &nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/remote-telecom" class="sublink3" title="These small, standalone systems are good for powering scientific and telecom equipment in remote locations.">Remote
+Telecom</a>
+</td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/ac-dc-safety-disconnects" class="sublink3">Disconnects</a><br/> &nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/circuit-breakers" class="sublink3">Breakers</a><br/> &nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/pv-system-fuses" class="sublink3">Fuses</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/generators" class="sublink3">Generators</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/power-inverters" class="sublink3">Inverters</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/solar-information/inverter-repair" class="sublink3">Inverter
+Repair</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/inverter-accessories" class="sublink3">Inverter Accessories</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/pv-system-meters" class="sublink3">Meters</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/prewired-solar-power-centers" class="sublink3">Power Centers</a><br>&nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/magnum-magnum-power-centers" class="sublink3" title="Pre Wired Power Centers with Magnum Inverters Mount on Magnum Mini Panels">Magnum Energy</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/outback-radian-power-centers" class="sublink3" title="Pre Wired Power Centers with OutBack Inverters Mount on MidNite E-Panels">OutBack Power</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;-
+<a href="/four-star-solar-pv-centers" class="sublink3" title="PV Centers (Charge Controller Centers)">PV Centers</a><br/>
+</td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/solar-panel-racking-mounts" class="sublink3">Racking and Mounts</a>
+</td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/rv-marine" class="sublink3">RV &amp; Marine Power</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/solar-panels" class="sublink3">Solar Panels </a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/bulk-solar-panels-by-the-pallet" class="sublink3">Solar Panels by the Pallet</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img"><a href="/solar-panel-racking-mounts#zomeworks" class="sublink3">Solar Panel
+Trackers</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a href="/wind-generator-turbines" class="sublink3">Wind Generators / Wind Turbines
+</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a title="An index of all our products" href="/all-products" class="sublink3">Browse All Products</a>
+</td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a title="All of the brands we carry or have carried" href="/all-brands" class="sublink3">Browse All
+Brands</a></td>
+</tr>
+<tr>
+<td class="background-bullet-img">
+<a title="HTML Sitemap" href="/html-sitemap" class="sublink3">Sitemap</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="1" cellpadding="0" bgcolor="#083972" class="termsTable">
+<tr>
+<th class="sidebar-box-header">Read our Terms</th>
+</tr>
+<tr bgcolor="#ffffff">
+<td bgcolor="#ffffff"><a href="/terms-conditions" class="sublink3">Terms &amp; Conditions</a></td>
+</tr>
+<tr bgcolor="#ffffff">
+<td><a href="/terms-conditions#shipping" class="sublink3">Shipping Policy</a></td>
+</tr>
+<tr bgcolor="#ffffff">
+<td><a href="/solar-information/freight" class="sublink3">Freight Delivery Tips</a></td>
+</tr>
+</table>
+<br/>
+<div id="SignUp" class="sidebar-box">
+<table class="signupframe" cellspacing="0" cellpadding="4">
+<tr>
+<th class="sidebar-box-header">Newsletter Signup</th>
+</tr>
+<tr>
+<td>
+ 
+<style type="text/css">#mc_embed_signup form{display:block;position:relative;text-align:left;padding:10px 0 10px 3%}#mc_embed_signup h2{font-weight:bold;padding:0;margin:15px 0;font-size:1.4em;}#mc_embed_signup input{border:1px solid #999;-webkit-appearance:none;}#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}#mc_embed_signup input:focus{border-color:#333;}#mc_embed_signup .button{clear:both;background-color:#aaa;border:0 none;border-radius:4px;color:#FFFFFF;cursor:pointer;display:inline-block;font-size:15px;font-weight:bold;height:32px;line-height:32px;margin:0 5px 10px 0;padding:0 22px;text-align:center;text-decoration:none;vertical-align:top;white-space:nowrap;width:auto;}#mc_embed_signup .button:hover{background-color:#777;}#mc_embed_signup .small-meta{font-size:11px;}#mc_embed_signup .nowrap{white-space:nowrap;}#mc_embed_signup .mc-field-group{clear:left;position:relative;width:96%;padding-bottom:3%;min-height:50px;}#mc_embed_signup .size1of2{clear:none;float:left;display:inline-block;width:46%;margin-right:4%;}* html #mc_embed_signup .size1of2{margin-right:2%;}#mc_embed_signup .mc-field-group label{display:block;margin-bottom:3px;}#mc_embed_signup .mc-field-group input{display:block;width:100%;padding:8px 0;text-indent:2%;}#mc_embed_signup .mc-field-group select{display:inline-block;width:99%;padding:5px 0;margin-bottom:2px;}#mc_embed_signup .datefield,#mc_embed_signup .phonefield-us{padding:5px 0;}#mc_embed_signup .datefield input,#mc_embed_signup .phonefield-us input{display:inline;width:60px;margin:0 2px;letter-spacing:1px;text-align:center;padding:5px 0 2px 0;}#mc_embed_signup .phonefield-us .phonearea input,#mc_embed_signup .phonefield-us .phonedetail1 input{width:40px;}#mc_embed_signup .datefield .monthfield input,#mc_embed_signup .datefield .dayfield input{width:30px;}#mc_embed_signup .datefield label,#mc_embed_signup .phonefield-us label{display:none;}#mc_embed_signup .indicates-required{text-align:right;font-size:11px;margin-right:4%;}#mc_embed_signup .asterisk{color:#c60;font-size:200%;}#mc_embed_signup .mc-field-group .asterisk{position:absolute;top:25px;right:10px;}#mc_embed_signup .clear{clear:both;}#mc_embed_signup .mc-field-group.input-group ul{margin:0;padding:5px 0;list-style:none;}#mc_embed_signup .mc-field-group.input-group ul li{display:block;padding:3px 0;margin:0;}#mc_embed_signup .mc-field-group.input-group label{display:inline;}#mc_embed_signup .mc-field-group.input-group input{display:inline;width:auto;border:none;}#mc_embed_signup div#mce-responses{float:left;top:-1.4em;padding:0em .5em 0em .5em;overflow:hidden;width:90%;margin:0 5%;clear:both;}#mc_embed_signup div.response{margin:1em 0;padding:1em .5em .5em 0;font-weight:bold;float:left;top:-1.5em;z-index:1;width:80%;}#mc_embed_signup #mce-error-response{display:none;}#mc_embed_signup #mce-success-response{color:#529214;display:none;}#mc_embed_signup label.error{display:block;float:none;width:auto;margin-left:1.05em;text-align:left;padding:.5em 0;}#mc-embedded-subscribe{clear:both;width:auto;display:block;margin:1em 0 1em 5%;}#mc_embed_signup #num-subscribers{font-size:1.1em;}#mc_embed_signup #num-subscribers span{padding:.5em;border:1px solid #ccc;margin-right:.5em;font-weight:bold;}#mc_embed_signup{background:#fff;clear:left;}</style>
+<div id="mc_embed_signup">
+<form action="//wholesalesolar.us7.list-manage.com/subscribe/post?u=6d468c2d3c73c2b4939d139c1&amp;id=6c3bce618e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div id="mc_embed_signup_scroll">
+<div class="mc-field-group">
+<label for="mce-EMAIL" style="font-weight: bold">Email Address </label>
+<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group input-group">
+Which emails would you like to get?
+<ul>
+<li>
+<input type="checkbox" value="4" name="group[11829][4]" id="mce-group[11829]-11829-0"><label for="mce-group[11829]-11829-0">
+&nbsp; Specials &amp; Deals</label>
+</li>
+<li>
+<input type="checkbox" value="8" name="group[11829][8]" id="mce-group[11829]-11829-1"><label for="mce-group[11829]-11829-1">
+&nbsp; Solar Education</label>
+</li>
+</ul>
+</div>
+<div id="mce-responses" class="clear">
+<div class="response" id="mce-error-response" style="display:none"></div>
+<div class="response" id="mce-success-response" style="display:none"></div>
+</div>
+ 
+<div style="position: absolute; left: -5000px;">
+<input type="text" name="b_6d468c2d3c73c2b4939d139c1_6c3bce618e" tabindex="-1" value="">
+</div>
+<div style="text-align:center;">
+<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn" style="width: 90%">
+</div>
+</div>
+</form>
+<div style="padding:0 10px 0 10px;">
+We will never sell your email or share it with unaffiliated 3rd parties (<a href="/privacy">Privacy Policy</a>).
+<h3>Latest Issue</h3>
+<ul>
+<li><a href="http://mailchi.mp/wholesalesolar/have-a-better-summer-free-your-power-with-grid-tied-solar">June 2017 - Bigger Savings for a Better Summer - Free Shipping on Grid-Tied Systems!</a></li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<script async type="text/javascript" src="/js/jquery.timeago.js"></script>
+<div class="google-reviews-container sidebar-box">
+<span class="sidebar-box-header">Customer Reviews</span>
+<img src="//ww3.wholesalesolar.com//google-plus-logo.png" alt="" class="img-responsive center-block" id="google-plus-logo">
+<div class="review-image business-image text-center">
+<span>reviews</span>
+</div>
+<div id="business-container">
+<script id="google_business_template" type="text/x-handlebars-template">
+        <div class="review-box text-center">
+            <div class="review-info business">
+                <span>
+                    <b><a class="business-link" href="{{link}}">{{name}}</a></b>
+                </span>
+                <span class="review-rating">
+                     <i class='glyphicon glyphicon-star'></i>
+                     <i class='glyphicon glyphicon-star'></i>
+                     <i class='glyphicon glyphicon-star'></i>
+                     <i class='glyphicon glyphicon-star'></i>
+                     <i class='glyphicon glyphicon-star half'></i>
+                </span>
+                <span>{{rating}}</span><br>
+                <a href="https://www.google.com/search?q=Wholesale%20Solar,%20Inc.&ludocid=1918852942006376142#lrd=0x0:0x1aa122959080d6ce,1" id="read-all-google-reviews" target="_blank">Read all reviews</a>
+            </div>
+        </div>
+    </script>
+</div>
+<div id="review-container">
+<script id="google_reviews_template" type="text/x-handlebars-template">
+        {{#each reviews}}
+        <div class="review-box">
+            <div class="review-image">
+                <img src="{{image}}" alt="">
+            </div>
+            <div class="review-info">
+                <span>
+                    <b>{{author}}</b>
+                </span>
+                <span class="review-rating">
+                    {{#each stars}}
+                    <i class='glyphicon glyphicon-star'></i>
+                    {{/each}}
+                    <br>
+                    {{rating}}
+                </span>
+                <span class="review-date"><i>Posted {{date}}</i></span>
+            </div>
+            <div class="review-text">
+                {{text}}
+                <div class="review-text-opacity"></div>
+            </div>
+            <div class="review-read-more">
+                <a onclick="GoogleReviews.reviewShowMore(this)" id="rm">Read entire review</a>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+</div>
+</div>
+<div id="reviewData" class="google-reviews"></div>
+<script>
+
+    var GoogleReviews = (function () {
+        "use strict";
+        // instance stores a reference to this singleton (GoogleReviews)
+        var instance;
+        function init() {
+            // this is a private function that only this instance can call
+            //immediately invokes initReviews to get some data
+            (function initReviews() {
+                var service = new google.maps.places.PlacesService(reviewData);
+                service.getDetails({
+                    placeId: 'ChIJu7oUjljmzVQRztaAkJUioRo'
+                }, function (place, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        // if we receive data back call showReviews
+                        showReviews(place);
+                    }
+                });
+            })();
+            function showReviews(data) {
+                var templates = {};
+                templates.googleReviews = null;
+                templates.googleReviews = Handlebars.compile($('#google_reviews_template').html());
+                // clear the reviews container
+                var reviewContainer = jQuery('#review-container').html('');
+                // if reviews are returned
+                if (data != null) {
+                    $.support.cors = true;
+                    jQuery.ajax({
+                        url:'https://www.googleapis.com/plus/v1/people/117801857904210967967?key=AIzaSyAO8Cv1zn4tLxPJMGqxqhN-P_FcAbLclxw',
+                        type: 'GET',
+                        contentType: "application/json; charset=utf-8",
+                        crossDomain: true,
+                        error: function (request, status, error) {
+                            console.log(error);
+                        },
+                        success: function (placeData) {
+                            templates.googleBusiness = null;
+                            templates.googleBusiness = Handlebars.compile($('#google_business_template').html());
+                            var businessContainer = jQuery('#business-container').html('');
+                            var googleBusiness = placeData;
+                            var place = {};
+                            place.link = placeData.url;
+                            place.name = placeData.displayName;
+                            place.rating = data.rating + " out of 5 stars";
+                            place.image = placeData.image.url.replace(/sz=50/, "sz=60");
+                            var placeHtml = templates.googleBusiness(place);
+                            businessContainer.html(placeHtml);
+                        }
+                    });
+                    // create the objects for the template
+                    var googleReviews = data.reviews;
+                    var gReviews = [];
+                    var r = 0;
+                    //loop through all reviews
+                    for (var i = 0; i < googleReviews.length; i++) {
+                        // if good review counter = 3 break
+                        // if rating is <= 3 break (don't show)
+                        if (r === 3 || googleReviews[i].rating <= 3) {
+                            continue;
+                        }
+                        var d = new Date(0);
+                        var review = {};
+                        if (googleReviews[i].profile_photo_url) {
+                            review.image = googleReviews[i].profile_photo_url + "?sz=60";
+                        } else {
+                            review.image = "//ww3.wholesalesolar.com/review-photo.png";
+                        }
+                        review.author = googleReviews[i].author_name;
+                        review.text = googleReviews[i].text;
+                        review.date = jQuery.timeago(d.setUTCSeconds(googleReviews[i].time));
+                        review.rating = googleReviews[i].rating + " out of 5 stars";
+                        review.stars = {};
+                        for (var j = 0; j < googleReviews[i].rating; j++) {
+                            review.stars[j] = j
+                        }
+                        gReviews.push(review);
+                        //increment the good review counter
+                        r++
+                    }
+                    var reviewsContext = {reviews: gReviews};
+                    var reviewsHtml = templates.googleReviews(reviewsContext);
+                    reviewContainer.html(reviewsHtml);
+                }
+            } // end of private function showReviews();
+            return {
+                getReviews: function() {
+                    return initReviews();
+                }
+            }
+        } // end of GoogleReviews.init()
+        return {
+            // Get the Singleton instance if one exists
+            // or create one if it doesn't
+            // These are public functions accessible via GoogleReviews.nameOfFunction
+            getInstance: function () {
+                if ( !instance ) {
+                    instance = init();
+                }
+                return instance;
+            },
+            reviewShowMore: function(thisReview) {
+                var showmoreofthis = thisReview.parentNode.previousElementSibling,
+                    showmoreofthisfade = showmoreofthis.childNodes[1];
+                showmoreofthis.removeChild(showmoreofthisfade);
+                $(showmoreofthis).animate({height: $(showmoreofthis).get(0).scrollHeight}, 400);
+                $(thisReview).hide(400);
+                dataLayer.push({
+                    'event': 'GAEvent',
+                    'eventCategory': "Google Reviews",
+                    'eventAction': 'Clicked read more',
+                    'eventLabel' : undefined,
+                    'eventValue' : undefined
+                });
+            }
+        };
+    })();
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwyE-0tC9-bUGR6xovO-c0pEZB1e2Pu0&libraries=places&callback=GoogleReviews.getInstance" async defer></script> <br>
+<div align="center">
+<a href="/terms-conditions#terms">
+<img src="//ww3.wholesalesolar.com/payment-methods.svg" style="width: 100px" alt="We accept MasterCard, Visa, Discover, and PayPal" class="img-responsive"/>
+</a>
+</div>
+<br/>
+</div>
+</div>
+<div class="col-xs-12 col-sm-10 col-md-10 col-lg-8" id="center">
+ 
+<div id="site-message-container">
+<div class='siteMessage text-center center-block'>
+<a href="/sale" title='Bigger Savings for a Better Summer' style=" text-decoration: none !important;"><img src="/images/better-summer/bigger-savings-banner.jpg" style="margin: 0;">
+</a>
+<br>
+<span class="siteMessage-buttons">
+<span class="hideFromInternationalVisitors"><a href='/contact' class='btn site-message-button'>Contact Us</a> or </span><a href='/request-a-quote' class='btn site-message-button'>Request a Quote</a>
+</span>
+<br>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<h4><div align="center" class="title2">How Much Power Do Your Appliances Use?</div></h4>
+<p>
+<a href="https://www.amazon.com/dp/B00009MDBU/?tag=wholesalesolar-20" target="_blank"><img src="https://ww3.wholesalesolar.com/kill-a-watt-meter.png" alt="Buy A Kill-A-Watt Power Meter" class="img-responsive vwo_1461168371034 vwo_1461169157943 vwo_1466186322000" align="right" title="A power meter helps you measure the energy consumption of your appliances." width="147" height="160" border="" style="margin-bottom: 1em; margin-left: 1em;"></a>
+These figures are approximate representations, and the actual power consumption of your appliances may vary substantially from these figures. Check the power tags, or better yet, measure the amperage draw with a clamp-on ammeter or <a href="https://www.amazon.com/dp/B00009MDBU/?tag=wholesalesolar-20" target="_blank" id="affiliate-kill-a-watt">Kill-A-Watt meter</a>. You can usually find ammeters at your local hardware store or the easier-to-use Kill-A-Watt meter online. Multiply the hours used on the average day by the wattage listed below. This will give you the watt-hours consumed per day.<br/>
+<br/>
+Remember that some items, such as garage door openers, are used only for a fraction of an hour or minute per day. A 300-watt item used for 5 minutes per day will only consume 25-watt hours per day.
+Where a range of numbers is given, the lower figure often denotes a technologically newer and more efficient model. The letters &ldquo;NA&rdquo; denotes appliances, which would normally be powered by non-electric sources in a PV powered home.
+If you are considering making your own power, we strongly suggest that you invest in a true RMS digital multimeter, a clamp-on type ammeter or a <a href="https://www.amazon.com/dp/B00009MDBU/?tag=wholesalesolar-20" target="_blank" id="affiliate-kill-a-watt">Kill-A-Watt meter</a>. It actually makes sense to know where your power is being used even if you are not producing it, and if you are, these meters are essential diagnostic tools.<br/>
+<br/>
+Click to see our list of <a href="/solar-information/how-to-save-energy/save-energy#StepsToLowerEnergyUse">53 No-Cost and Low-Cost Ways to Conserve Energy.</a> Check out how to <a href="/solar-information/how-to-save-energy/save-energy">save energy and reduce your energy cost.</a></p>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="4" bgcolor="#083972" class="powerTable">
+<tr>
+<td width="25%" height="30%" class="title3"><div align="center"> <a name="Anchor-We-7638" id="Anchor-We-7638"></a>Appliance</div></td>
+<td width="8%" align="center" class="title3"><div align="center">Watts</div></td>
+<td width="25%" class="title3"><div align="center">Appliance</div></td>
+<td width="8%" class="title3"><div align="center">Watts</div></td>
+<td width="26%" class="title3"><div align="center">Appliance</div></td>
+<td width="8%" class="title3"><div align="center">Watts</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Central Air Conditioner NA</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">5,000</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Electric blanket</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">200</div></td>
+<td bgcolor="#e0e0e0">Hedge trimmer</td>
+<td bgcolor="#ffffff"><div align="center">450</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Electric Clothes Dryer NA</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">3,400</div></td>
+<td bgcolor="#e0e0e0">Shaver</td>
+<td align="right" bgcolor="#ffffff"><div align="center">15</div></td>
+<td bgcolor="#e0e0e0">Weed eater</td>
+<td align="right" bgcolor="#ffffff"><div align="center">500</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Oven</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">3,000</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Waterpik</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">100</div></td>
+<td bgcolor="#e0e0e0">1/4&rdquo; drill</td>
+<td align="center" bgcolor="#ffffff"><div align="center">250</div>
+</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Hair Dryer</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,538</div></td>
+<td bgcolor="#e0e0e0">Well Pump (1/3-1 HP)</td>
+<td align="right" bgcolor="#ffffff"><div align="center">480-1200</div></td>
+<td bgcolor="#e0e0e0">1/2&rdquo; drill</td>
+<td align="center" bgcolor="#ffffff"><div align="center">750</div>
+</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Dishwasher</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1200-1500</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Laptop</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">60-250</div></td>
+<td bgcolor="#e0e0e0">1&rdquo; drill</td>
+<td align="right" bgcolor="#ffffff"><div align="center">1000</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Coffee Machine</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,500</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Plasma TV</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">339</div></td>
+<td bgcolor="#e0e0e0">9&rdquo; disc sander</td>
+<td bgcolor="#ffffff"><div align="center">1200</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Microwave</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,500</div></td>
+<td bgcolor="#e0e0e0"><div align="left">LCD TV<br/>
+</div></td>
+<td bgcolor="#ffffff"><div align="center">213</div></td>
+<td bgcolor="#e0e0e0">3&rdquo; belt sander</td>
+<td bgcolor="#ffffff"><div align="center">1000</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Popcorn Popper</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,400</div></td>
+<td bgcolor="#e0e0e0">25&rdquo; color TV</td>
+<td bgcolor="#ffffff"><div align="center">150</div></td>
+<td bgcolor="#e0e0e0">12&rdquo; chain saw</td>
+<td align="right" bgcolor="#ffffff"><div align="center">1100</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Toaster oven</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,200</div></td>
+<td bgcolor="#e0e0e0"><div align="left">19&rdquo; color TV</div></td>
+<td bgcolor="#ffffff"><div align="center">70</div></td>
+<td bgcolor="#e0e0e0">14&rdquo; band saw</td>
+<td align="right" bgcolor="#ffffff"><div align="center">1100</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Hot Plate</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1200</div></td>
+<td bgcolor="#e0e0e0"><div align="left">12&rdquo; black and white TV</div></td>
+<td bgcolor="#ffffff"><div align="center">20</div></td>
+<td bgcolor="#e0e0e0">7-1/4&rdquo; circular saw</td>
+<td align="right" bgcolor="#ffffff"><div align="center">900</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Iron</td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,100</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Stereo</div></td>
+<td bgcolor="#ffffff"><div align="center">10-30</div></td>
+<td bgcolor="#e0e0e0">8-1/4&rdquo; circular saw</td>
+<td align="right" bgcolor="#ffffff"><div align="center">1400</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Toaster</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">1,100</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Satellite dish</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">30</div></td>
+<td bgcolor="#e0e0e0"><strong>Refrigerator/ Freezer**</strong></td>
+<td align="right" bgcolor="#ffffff"><div align="center"></div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Microwave</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">500-1500</div>
+</td>
+<td bgcolor="#e0e0e0"><div align="left">Radiotelephone - Receive</div></td>
+<td bgcolor="#ffffff"><div align="center">5</div></td>
+<td bgcolor="#e0e0e0">20 cu. ft. (AC)</td>
+<td align="center" bgcolor="#ffffff"><div align="center">1411 watt-hours/day*</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Room Air Conditioner NA</td>
+<td width="114" align="center" bgcolor="#FFFFFF"><div align="center">1,100</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Radiotelephone</strong> - Transmit</div></td>
+<td bgcolor="#ffffff"><div align="center">40-150</div></td>
+<td bgcolor="#e0e0e0">16 cu. ft. (AC)</td>
+<td align="right" bgcolor="#ffffff"><div align="center">1200 watt-hours /day*</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Vacuum Cleaner</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">500</div></td>
+<td bgcolor="#e0e0e0"><div align="left"><strong>Lights</strong></div></td>
+<td width="120" align="right" bgcolor="#ffffff">&nbsp;</td>
+<td bgcolor="#e0e0e0"><strong>Freezer</strong></td>
+<td align="right" bgcolor="#ffffff"></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Water heater</td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">479</div></td>
+<td bgcolor="#e0e0e0"><div align="left">100 watt incandescent bulb</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">100</div></td>
+<td bgcolor="#e0e0e0">15 cu. ft. (Upright)</td>
+<td align="right" bgcolor="#ffffff"><div align="center">1240 watt-hours /day*</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Sink Waste Disposal</td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">450</div></td>
+<td bgcolor="#e0e0e0"><div align="left">25 watt compact fluor. bulb</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">28</div></td>
+<td bgcolor="#e0e0e0">15 cu. ft. (Chest)</td>
+<td align="center" bgcolor="#ffffff"><div align="center">1080 watt-hours /day*</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">
+<div align="left">Espresso Machine</div>
+</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">
+<div align="center">360</div>
+</div></td>
+<td bgcolor="#e0e0e0"><div align="left">50 watt DC incandescent</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">50</div></td>
+<td bgcolor="#e0e0e0">Cell Phone - recharge</td>
+<td align="center" bgcolor="#ffffff"><div align="center">2-4 watts</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">
+<div align="left">Dehumidifier</div>
+</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">350</div></td>
+<td bgcolor="#e0e0e0">40 watt DC halogen</td>
+<td align="right" bgcolor="#ffffff"><div align="center">40</div></td> <td bgcolor="#e0e0e0">MP3 Player - recharge</td>
+<td align="center" bgcolor="#ffffff">.25-.40 watts</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Blender</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">
+<div align="center">300</div>
+</div></td>
+<td bgcolor="#e0e0e0">20 watt DC compact fluor.</td>
+<td align="right" bgcolor="#ffffff"><div align="center">22</div></td> <td colspan="2" rowspan="15" valign="top" bgcolor="#ffffff"><p>* TV&rsquo;s,VCR&rsquo;s and other devices left plugged in, but not turned on, still draw power.<br/>
+<br/>
+**To estimate the number of hours that a refrigerator actually operates at its maximum wattage, divide the total time the refrigerator is plugged in by three. Refrigerators, although turned "on" all the time, actually cycle on and off as needed to maintain interior temperatures.<br/><br/>
+</p>
+</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Humidifier</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">300-1000</div></td>
+<td bgcolor="#e0e0e0"><div align="left">CFL Bulb (60-watt equivalent)</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">18</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Video Game Player</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">195</div></td>
+<td bgcolor="#e0e0e0"><div align="left">
+<div align="left">CFL Bulb (40-watt equivalent)</div>
+</div></td>
+<td align="right" bgcolor="#ffffff"><div align="center">11</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Standard TV</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">188</div></td>
+<td bgcolor="#e0e0e0">CFL Bulb (75-watt equivalent)</td>
+<td align="right" bgcolor="#ffffff"><div align="center">20</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">LCD Monitor</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">80-150</div></td>
+<td bgcolor="#e0e0e0">CFL Bulb (100-watt equivalent)</td>
+<td align="right" bgcolor="#ffffff"><div align="center">30</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Desktop Computer (Standard home/business)</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">80-120</div></td>
+<td rowspan="3" bgcolor="#e0e0e0"><div align="left"><strong>Heaters***</strong></div></td>
+<td rowspan="3" align="right" bgcolor="#ffffff">&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Desktop Computer (Gaming)</td>
+<td align="center" style="text-align: center" bgcolor="#FFFFFF">400-1000+</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Laptop Computer</td>
+<td align="center" bgcolor="#FFFFFF" style="text-align: center">40-120</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Portable Fan</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">100</div></td>
+<td bgcolor="#e0e0e0"><div align="left">
+<div align="left">Engine Block Heater NA</div>
+</div></td>
+<td bgcolor="#FFFFFF"><div align="center">
+<div align="center">150-1000</div>
+</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Ceiling Fan</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">100</div></td>
+<td bgcolor="#e0e0e0"><div align="left">
+<div align="left">Portable Heater NA</div>
+</div></td>
+<td bgcolor="#FFFFFF"><div align="center">
+<div align="center">1500</div>
+</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Can Opener</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">100</div></td>
+<td bgcolor="#e0e0e0">Waterbed Heater NA</td>
+<td align="right" bgcolor="#FFFFFF"><div align="center">400</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Curling Iron</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">90</div></td>
+<td bgcolor="#e0e0e0">Stock Tank Heater NA</td>
+<td bgcolor="#FFFFFF"><div align="center">100</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Stereo</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">60</div></td>
+<td bgcolor="#e0e0e0"><div align="left">Furnace Blower</div></td>
+<td bgcolor="#FFFFFF"><div align="center">300-1000</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><div align="left">Cable Box</div></td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">20</div></td>
+<td bgcolor="#e0e0e0">Clothes Dryer - Gas Heated</td>
+<td align="center" bgcolor="#ffffff"><div align="center">300-400</div></td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0">Clock Radio</td>
+<td align="center" bgcolor="#FFFFFF"><div align="center">7</div></td>
+<td bgcolor="#e0e0e0">Well Pump (1/3-1HP)</td>
+<td align="right" bgcolor="#ffffff"><div align="center">480-1200</div></td>
+</tr>
+</table>
+<p>* The daily energy values listed here are for the most efficient units in their class and the information was obtained from Consumer Guide to Home and the General Electric website. </p>
+</div>
+</div>
+<div class="col-xs-12 col-sm-10 col-md-10 col-lg-8" id="lowerContent">  
+</div> 
+</div> 
+</div>  
+<div id="responsive-footer">
+<script> itemJson = {}; </script>
+ 
+<div class="row-fluid">
+<div class="col-xs-12 text-center" style="padding:1em 0 0 0;"><p style="margin: 1em 0 0 0;" class="red"><b>Solar
+questions? Website problems? Please <a href="/contact" title="Wholesale Solar Contact Form" target="_blank">contact us</a>.</b></p>
+</div>
+</div>
+<div class="row-fluid">
+<div class="col-md-12 hidden-xs" style="max-width:1234px;margin: 0 auto 0 auto;text-align:center;display:block;float:none;">
+<div class="footer-icons"><a href="https://norcalsolar.org" title="Member of Northern California Solar Energy Association" target="_blank"><img src="//ww3.wholesalesolar.com/footer/northern-california-solar-energy-association-logo.png" alt="Northern California Solar Energy Association" class="img-responsive"/></a></div>
+<div class="footer-icons"><a href="https://www.nceo.org" title="Member of the National Center for Employee Ownership" target="_blank"><img src="//ww3.wholesalesolar.com/footer/national-center-employee-ownership-logo.png" alt="National Center for Employee Ownership" class="img-responsive"/></a></div>
+<div class="footer-icons"><a href="https://www.gosolarcalifornia.ca.gov" title="Member of Go Solar California" target="_blank"><img src="//ww3.wholesalesolar.com/footer/go-solar-california-logo.png" alt="Go Solar California" class="img-responsive"/></a></div>
+<div class="footer-icons"><a href="https://www.pcisecuritystandards.org" title="Highest security standards PCI compliant shopping cart" target="_blank"><img src="//ww3.wholesalesolar.com/footer/pci-compliant-cart-logo.png" alt="PCI Compliant Shopping Cart" class="img-responsive"/></a></div>
+<div class="footer-icons"><a href="https://www.ultracart.com/resources/pci-compliance" title="Using ultra secure UltraCart" target="_blank"><img style="margin-top:1.5em;" src="//ww3.wholesalesolar.com/footer/ultracart-logo.png" alt="UltraCart" class="img-responsive"/></a>
+</div>
+<div class="footer-icons"><a href="https://e-jedi.org" title="Member of the Jefferson Economic Development Institute" target="_blank"><img src="//ww3.wholesalesolar.com/footer/jefferson-economic-development-institute-logo.png" alt="Jefferson Economic Development Institute" class="img-responsive"/></a></div>
+<div style="width:10%;" class="footer-icons"><a href="https://mtshastachamber.com" title="Member of the Mount Shasta Chamber of Commerce" target="_blank"><img src="//ww3.wholesalesolar.com/footer/mt-shasta-chamber-of-commerce-logo.png" alt="Mount Shasta Chamber of Commerce" class="img-responsive"/></a></div>
+</div>
+</div>
+ 
+<div class="row-fluid">
+<div class="col-xs-12" style="padding: 0">
+<div class="footer-bar">
+<span class="copyright">&copy; 2017 Wholesale Solar &bull; <a href="/terms-and-conditions" style="color: #bbb; text-decoration: none;">Terms & Conditions</a> &bull; <span class="our-phone-number">1-800-472-1142</span> &bull; 412 N Mount Shasta Blvd, Mount Shasta CA 96067</span>
+</div>
+</div>
+</div>
+ 
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/dist/all-footer.min.js?_v=20170531"></script>
+<script type="text/javascript" src="/js/dist/vendor-menu.min.js?_v=20170531"></script>
+<script type="text/javascript" src="https://secure.ultracart.com/cgi-bin/UCMailChimpTrack?merchantId=WSS12" async></script>
+ 
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script type="text/javascript">
+    (function($){
+        $.svgswap = {
+            els: $()
+        }
+
+        $.fn.svgswap = function(options) {
+            var settings = $.extend({}, $.svgswap.defaults, options);
+
+            // Check off of HTML5 Boilerplate's class attribute "lt-ie9" on HTML element to see if IE8- is being used/
+            var checkBrowser = $('html').hasClass('lt-ie9');
+
+            $.svgswap.els = $.svgswap.els.add(this);
+
+            return this.each(function(){
+
+                $(this)
+                    .on('swapres.svgswap', function(){
+                        if (checkBrowser === true) {
+                            $(this).attr('src', $(this).data('svgswap'));
+                        }
+                    })
+                    .trigger('swapres.svgswap');
+            })
+
+        }
+    })(jQuery);
+</script>
+<script type="text/javascript">
+    $(document).ready(
+        function(){ $("img.svgswap").svgswap(); //for IE
+        }
+    );
+</script>
+<![endif]-->
+<script src="//cdn.callrail.com/companies/697412365/36d3dd790d8a082e129a/12/swap.js"></script>
+ 
+ 
+ 
+<script src='/js/site-message.js'></script> <style>#continue-shopping button,#view-cart-modal button{padding:1em}</style>
+<div id="add-to-cart-success" style="display:none" class="container">
+<div class="row">
+<h2 class='added-items col-xs-9' style="margin-top: 0"></h2><span class="col-xs-3"><button class="b-close" id="close">X</button></span>
+</div>
+<div class="row">
+<div class="col-xs-5">
+<img src="//ww3.wholesalesolar.com/coming_soon_product.gif" style="margin:1em 0; max-height: 15em" class='item-pic img-responsive'>
+</div>
+<div class="col-xs-6" style="margin-left: 15px;">
+<h3 class='center item-name' style="text-align: left; padding-bottom: 10px"></h3>
+<b class='Redsmal item-price'></b>
+<span class='Redsmal total-items'></span>
+<br>
+<span class="Redsmal cart-total"></span>
+<br><br>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-6">
+<div class="popup-buttons text-center">
+<a href="#" id="continue-shopping" class="center-block b-close mainLink">
+<button id="modalButtonContinueShopping">Continue Shopping</button>
+</a>
+</div>
+</div>
+<div class="col-xs-6">
+<div class="popup-buttons text-center">
+<a href="https://www.wholesalesolar.com/cart-checkout" id="view-cart-modal" class="center-block mainLink go-to-checkout">
+<button id="modalButtonViewCart">View Cart / Checkout</button>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var cartLinkText = "View Cart / Checkout",
+		cartLink = 'https://' + window.location.hostname + '/cart-checkout',
+		cartLinkButton = $('#modalButtonViewCart');
+
+	// for dealers
+	if (wholesalesolar.dealer && wholesalesolar.dealer.loggedIn === true && $.cookie('dealerPortal.currentProjectId') != 'undefined') {
+		var currentProjectId = $.cookie('dealerPortal.currentDealerProject'),
+
+		cartLinkText = '<b class="fa fa-list"></b> View Project';
+		cartLink =  'https://' + window.location.hostname + '/dealers/#/projects/' + currentProjectId;
+		cartLinkButton.on('click', function (event) {
+			event.preventDefault();
+			wholesalesolar.dealer.goToProjectDetails()
+		});
+		cartLinkButton.addClass('dealer-purple');
+	}
+
+	$('#view-cart-modal').attr("href", cartLink);
+	cartLinkButton.html(cartLinkText);
+</script>
+ 
+<div id="generator-raq-container"></div>
+<div id="new-dealer-project-container"></div>
+<div id="add-to-quote-or-cart-modal-container"></div>
+</div>
+</div> 
+</body>
+</html> 
