@@ -2,7 +2,7 @@
 
 [https://codechalleng.es/challenges/54/](Challenge)
 
-![Screenshot](https://raw.githubusercontent.com/Lanseuo/challenges/community/54/Lanseuo/screenshot.png)
+![Screenshot](https://github.com/pybites/challenges/blob/community/54/Lanseuo/screenshot.png)
 
 ## Installation
 
