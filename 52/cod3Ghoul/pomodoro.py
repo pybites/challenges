@@ -114,20 +114,24 @@ def display_start_menu():
     Length of each long break after one set of pomodoros is completed: 20
     """
     print('\n\tWelcome to Your Pomodoro Timer!!\n\n')
-    print('If you would like to start a set of pomodoros using the default\n'
-          'values of 4 pomodoros per set with the length of each pomodoro\n'
-          '25 minutes long, a 5 minute break between each pomodoro, and a\n'
-          '20 minute break after completing a full set of pomodoros, then\n'
-          'enter "default" at the prompt.\n\n'
-          'However if you would like to specify your\n'
-          'own times and number of pomodoros, '
-          'then enter "set" at the prompt.\n\n')
+    print('If you would like to start a Pomodoro Timer using the default '
+          'settings below, then enter "default" at the prompt.\n\n'
+          '\tDefault values:\n'
+          '\tNumber of pomodoros to complete one set: 4\n'
+          '\tLength of each pomodoro: 25 minutes\n'
+          '\tLength of short breaks between pomodoros: 5 minutes\n'
+          '\tLength of long break after one set of pomodoros: 20 minutes\n\n'
+          'However, if you would like to customize the settings for your '
+          'Pomodoro Timer, then enter "custom" at the prompt.\n\n')
 
 
 def user_defined_settings():
     """Prompts the user to set the variables they would like to use
     for the program, if they choose not to use the defaults.
     """
+    print('\n\n\t** After entering your settings and confirming them, '
+          'your first pomodoro timer will start **\n')
+
     confirmed = False
 
     while confirmed is not True:
@@ -142,11 +146,15 @@ def user_defined_settings():
                                'is completed: ')
 
         print(f'\nYou have set your pomodoro timer up with the following '
-              f'configuration:\n'
+              f'settings:\n'
               f'\n\tNumber of Pomodoros per Set: {num_of_pomos}'
               f'\n\tLength of Each Pomodoro: {len_of_pomos}'
               f'\n\tLength of Each Short Break: {len_of_short_break}'
               f'\n\tLength of Each Long Break: {len_of_long_break}')
+
+        print('\n*Remember, as soon as you enter "confirm" at the prompt '
+              'below, your first pomodoro will start using your chosen '
+              'settings.')
         
         while True:
             confirm = input('\nTo confirm these settings enter "confirm" or '
@@ -168,49 +176,56 @@ def start_pomodoro(settings):
     while True:
         pomodoro_timer(settings[1])
         if pomodoros < settings[0]:
-            short_break = input('Enter B to start a SHORT break: ')
+            short_break = input('Enter "b" to start your short break: ')
             if short_break.lower() == 'b':
                 break_timer(settings[2])
+                print('\n> Enter "s" to start your next pomodoro.')
         if pomodoros == settings[0]:
-            long_break = input('Enter B to start a LONG break: ')
+            long_break = input('Enter "b" to start your long break: ')
             if long_break.lower() == 'b':
                 break_timer(settings[3])
-        con = input('\n1) Enter S to start your next pomodoro.\n'
-                    '2) Enter R to reset your pomodoro count\n'
-                    '   and start a new set of pomodoros.\n'
-                    '3) Enter E to exit.\n\n'
-                    'Choose one of the above options: ')
-        if con.lower() == 's':
-            continue
-        elif con.lower() == 'r':
-            pomodoros = 0
-            continue
-        else:
-            break
-    return
+                print(f'\n** You have completed a set of {settings[0]} '
+                      f'{"pomodoro" if settings[0] == 1 else "pomodoros"}.\n')
+        print('> Enter "r" to reset your pomodoro count '
+              'and start a new set of pomodoros using your '
+              'existing settings.\n'
+              '> Enter "m" to exit to the main menu.\n\n')
+        while True:
+            con = input('Choose one of the above options: ')
+            if con.lower() == 's':
+                break
+            elif con.lower() == 'r':
+                pomodoros = 0
+                break
+            elif con.lower() == 'm':
+                return
+            else:
+                print('\n*You did not enter one of the above options.\n')
+                continue
 
 
 def main():
     """Entry point for program."""
-    display_start_menu()
     while True:
-        start = input('Enter "default" or "set" to begin, ' 
-                      'or "exit" to exit program: ')
-        if start.lower() == 'set':
+        system('clear')
+        display_start_menu()
+        start = input('Enter "default" or "custom" to begin, ' 
+                      'or "quit" to quit the program: ')
+        if start.lower() == 'custom':
             custom_settings = user_defined_settings()
             start_pomodoro(custom_settings)
-            break
+            continue
         elif start.lower() == 'default':
             start_pomodoro(DEFAULT_SETTINGS)
-            break
-        elif start.lower() == 'exit':
+            continue
+        elif start.lower() == 'quit':
+            print('\n\tThank you for using my Pomodoro Timer! '
+                  'I hope you enjoyed using it!!\n')
             break
         else:
-            print('\nYou did not enter "default", "set", or "exit".\n')
+            print('\n*You did not enter "default", "custom", or "quit".\n')
             continue
-    print('\n\tThank you for using my pomodoro. Hope it worked for you!\n')
 
 
 if __name__ == '__main__':
     main()
-
