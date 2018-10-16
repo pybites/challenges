@@ -12,11 +12,22 @@ Movie = namedtuple('Movie', 'title year score')
 def get_movies_by_director():
     '''Extracts all movies from csv and stores them in a dictionary
     where keys are directors, and values is a list of movies (named tuples)'''
-    pass
-
+    directors = defaultdict(list)
+    with open(MOVIE_DATA) as f:
+        reader = csv.DictReader(f)
+        movies = namedtuple('Movies', 'filmed_movies')
+        for row in reader:
+            try:
+                director = row['director_name']
+                movie = row['movie_title'].replace('\xa0', '')
+            except:
+                continue
+            m = movies(filmed_movies = movie)
+            directors[director].append(m)
+    print(directors)
 
 def get_average_scores(directors):
-    '''Filter directors with < MIN_MOVIES and calculate averge score'''
+    '''Filter directors with < MIN_MOVIES and calculate average score'''
     pass
 
 
