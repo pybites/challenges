@@ -16,7 +16,9 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
 """
 
 
-import glob, re, collections
+import glob
+import re
+import collections
 
 
 def gen_files(pat):
@@ -26,24 +28,26 @@ def gen_files(pat):
 def gen_lines(files):
     for file in files:
         with open(file) as f:
-            fil = f.readline()
-            yield fil
+            fil = f.readlines()
+            yield from fil
 
 
 def gen_grep(lin, patt):
     pattern = re.compile(patt)
     for line in lin:
-        if re.match(pattern, line):
+        if pattern.match(line):
             yield pattern.sub("", line).strip()
 
 def gen_count(lines):
     count = collections.Counter(lines)
-    print(count)
+    return(sorted(count.items(), key=lambda x:(x[1], x[0],), reverse=True))
 
 if __name__ == "__main__":
     # call the generators, passing one to the other
     files = gen_files('../*/*.py')
     lines = gen_lines(files)
-    gengrep = gen_grep(lines, '^import ')
-    gen_count(gengrep)
+    gengrep = gen_grep(lines, '^import')
+    gg = gen_count(gengrep)
+    for k,v in gg:
+        print('{} {}'.format(k,v))
     # etc
