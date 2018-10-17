@@ -39,7 +39,7 @@ You have the option of running each of the cells one at a time or you can just r
 To run them all you will have to use the menu: ***Cell > Run All***
 
 ## Visualization of the data
-I go into further detail in the notebook, but here are a few of the graphs that I demonstrate how to create:
+I go into further detail in the notebook, but here are a few of the graphs that I created with the help of [The Python Graph Gallery](https://python-graph-gallery.com/):
 
 ### Number of Pull Requests per Day
 ![prs](images/prs.png)
