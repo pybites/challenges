@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    max-width: 500px;
+}
+
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+   
+}
+
+.header h1 {
+    font-size: 40px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.navbar a{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #666;
+    color: black;
+}
+
+.list a{
+    text-decoration: none;
+    color: black;
+}
+
+.list a:hover {
+    color: rgb(219, 58, 58);
+}
+
+.list h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.list p {
+    font-size: 20px;
+    padding-left: 50px;
+}
+
+.ent h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.pos h3 {
+    font-size: 30px;
+
+}
+.pos p {
+    font-size: 20px;
+    padding-left: 50px;
+}
+
+.cntn {
+    width: auto;
+}
+
+.bottomnav {
+    overflow: hidden;
+    background-color: #333;
+    width: auto;
+}
+
+.bottomnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.bottomnav a:hover {
+    background-color: #666;
+    color: black;
+}
