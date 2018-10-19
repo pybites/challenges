@@ -1,0 +1,8 @@
+name: clipmon
+channels:
+  - defaults
+dependencies:
+  - python=3.7.0
+  - pip:
+    - pyperclip==1.7.0
+
