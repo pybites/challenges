@@ -1,4 +1,4 @@
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 from itertools import islice
 import json
 from math import ceil
@@ -63,7 +63,10 @@ def generate_response(activities):
         "title": CHALLENGE_HASHTAG,
         "version": VERSION,
         "github_repo": GITHUB_REPO,
-        "tasks": list(activities)
+        "tasks": [OrderedDict(day=day,
+                              activity=activity,
+                              done=False)
+                  for day, activity in enumerate(activities, 1)]
     }
     return json.dumps(ret)
 
