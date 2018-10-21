@@ -15,13 +15,19 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
    1 datetime
 """
 
+
+import glob, re, collections
+
+
 def gen_files(pat):
     pass
+
 
 def gen_lines(files):
     pass
 
-def gen_grep(lines, pattern):
+
+def gen_grep(lin, patt):
     pass
 
 def gen_count(lines):
@@ -32,4 +38,6 @@ if __name__ == "__main__":
     # call the generators, passing one to the other
     files = gen_files('../*/*.py')
     lines = gen_lines(files)
+    gengrep = gen_grep(lines, '^import ')
+    gen_count(gengrep)
     # etc
