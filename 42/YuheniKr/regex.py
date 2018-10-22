@@ -25,20 +25,20 @@ def get_all_hashtags_and_links():
     tweet = ('New PyBites article: Module of the Week - Requests-cache '
              'for Repeated API Calls - http://pybit.es/requests-cache.html '
              '#python #APIs')
-    return re.findall('#\S+|http\S+', tweet)
+    return re.findall(r'#\S+|http\S+', tweet)
 
 
 def match_first_paragraph():
     '''Use re.sub to extract the content of the first paragraph (excl tags)'''
     html = ('<p>pybites != greedy</p>'
             '<p>not the same can be said REgarding ...</p>')
-    return re.sub('<p>|</p>', repl=' ', string=html).split('  ')[0].strip()
+    return re.sub(r'<p>|</p>', repl=' ', string=html).split('  ')[0].strip()
 
 
 def find_double_words():
     '''Use re.search(regex, text).group() to find the double word'''
     text = 'Spain is so nice in the the spring'
-    return re.search(r'(\b\S+\b) (\1)', text).group()
+    return re.search(r'(\s\S+)(\1)', text).group().strip()
 
 
 def match_ip_v4_address(ip):
