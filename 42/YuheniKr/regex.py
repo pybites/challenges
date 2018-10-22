@@ -38,7 +38,7 @@ def match_first_paragraph():
 def find_double_words():
     '''Use re.search(regex, text).group() to find the double word'''
     text = 'Spain is so nice in the the spring'
-    return re.search(r'(\s\S+)(\1)', text).group().strip()
+    return re.search(r'(\S+\s)(\1)', text).group().strip()
 
 
 def match_ip_v4_address(ip):
