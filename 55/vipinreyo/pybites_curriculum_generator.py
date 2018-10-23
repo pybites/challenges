@@ -7,7 +7,6 @@ import random
 import requests
 from bs4 import BeautifulSoup
 import json
-from pprint import pprint
 
 
 class CurriculumGenerator:
@@ -52,7 +51,8 @@ class CurriculumGenerator:
         days. Each task is selected random from the pool and none are repeated.
         The result is returned as a JSON string as mandated in the PCC 55 challenge spec."""
 
-        tasks = {'title': 'Pybites 100 days', 'tasks': list()}
+        tasks = {'version': 0.1, 'github_repo': '',
+                 'title': 'Pybites 100 days', 'tasks': list()}
         tasks_list = self._get_challenges() + self._get_bites()
 
         day = 1
@@ -74,4 +74,4 @@ class CurriculumGenerator:
 
 if __name__ == '__main__':
     cg = CurriculumGenerator()
-    pprint(cg.generate_task_list())
+    print(cg.generate_task_list())
