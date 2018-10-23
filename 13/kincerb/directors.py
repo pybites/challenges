@@ -13,10 +13,14 @@ Movie = collections.namedtuple('Movie', 'title year score')
 
 def main():
     directors = collect_director_data()
+    directors = collect_director_avg_scores(directors)
 
 
 def collect_director_avg_scores(directors):
-    for director, movies in directors.items():
+    return {
+        (director, _get_average(movies)): movies
+        for director, movies in directors.items()
+    }
 
 
 def _get_average(movies):
