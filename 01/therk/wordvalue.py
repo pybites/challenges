@@ -5,7 +5,8 @@ from data import DICTIONARY, LETTER_SCORES
 
 def load_words():
     """Load dictionary into a list and return list"""
-    return [line.rstrip('\n') for line in open(DICTIONARY)]
+    with open(DICTIONARY, 'r') as file:
+        return [line.rstrip('\n') for line in file]
 
 
 def calc_word_value(word):
