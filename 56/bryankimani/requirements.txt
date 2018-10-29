@@ -1,0 +1,6 @@
+appdirs==1.4.3
+attrs==18.2.0
+black==18.9b0
+mutagen==1.41.1
+pydub==0.23.0
+toml==0.10.0
