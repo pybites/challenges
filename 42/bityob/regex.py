@@ -35,7 +35,7 @@ def match_first_paragraph():
     return re.sub(r'<p>(.*)</p>.+', r'\1', html)
 
 def find_double_words():
-    '''Use re.search(regex, text).group() to find the double word'''
+    '''Use re.search(regex, text).group() to find the double words'''
     text = 'Spain is so nice in the the spring'
     return re.search(r'(\b\w+\b) (\1)', text).group()
 
