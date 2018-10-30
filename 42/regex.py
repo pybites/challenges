@@ -36,7 +36,7 @@ def match_first_paragraph():
 
 
 def find_double_words():
-    '''Use re.search(regex, text).group() to find the double word'''
+    '''Use re.search(regex, text).group() to find the double words'''
     text = 'Spain is so nice in the the spring'
     return re.search(...
 
