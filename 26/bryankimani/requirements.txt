@@ -1,0 +1,7 @@
+appdirs==1.4.3
+attrs==18.2.0
+black==18.9b0
+Click==7.0
+PyQt5==5.9.2
+sip==4.19.8
+toml==0.10.0
