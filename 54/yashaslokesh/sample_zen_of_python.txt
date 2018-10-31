@@ -1,0 +1,57 @@
+Copied: October 31, 2018 at 01:13:39 PM
+"Beautiful is better than ugly."
+
+Copied: October 31, 2018 at 01:13:42 PM
+"Explicit is better than implicit."
+
+Copied: October 31, 2018 at 01:13:45 PM
+"Simple is better than complex."
+
+Copied: October 31, 2018 at 01:13:48 PM
+"Complex is better than complicated."
+
+Copied: October 31, 2018 at 01:13:51 PM
+"Flat is better than nested."
+
+Copied: October 31, 2018 at 01:13:54 PM
+"Sparse is better than dense."
+
+Copied: October 31, 2018 at 01:13:57 PM
+"Readability counts."
+
+Copied: October 31, 2018 at 01:14:00 PM
+"Special cases aren't special enough to break the rules."
+
+Copied: October 31, 2018 at 01:14:03 PM
+"Although practicality beats purity."
+
+Copied: October 31, 2018 at 01:14:06 PM
+"Errors should never pass silently."
+
+Copied: October 31, 2018 at 01:14:09 PM
+"Unless explicitly silenced."
+
+Copied: October 31, 2018 at 01:14:12 PM
+"In the face of ambiguity, refuse the temptation to guess."
+
+Copied: October 31, 2018 at 01:14:15 PM
+"There should be one-- and preferably only one --obvious way to do it."
+
+Copied: October 31, 2018 at 01:14:18 PM
+"Although that way may not be obvious at first unless you're Dutch."
+
+Copied: October 31, 2018 at 01:14:21 PM
+"Now is better than never."
+
+Copied: October 31, 2018 at 01:14:25 PM
+"Although never is often better than *right* now."
+
+Copied: October 31, 2018 at 01:14:28 PM
+"If the implementation is hard to explain, it's a bad idea."
+
+Copied: October 31, 2018 at 01:14:31 PM
+"If the implementation is easy to explain, it may be a good idea."
+
+Copied: October 31, 2018 at 01:14:34 PM
+"Namespaces are one honking great idea -- let's do more of those!"
+
