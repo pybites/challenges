@@ -75,6 +75,7 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print((f'Usage: python {sys.argv[0]} bookid_1 bookid_2 '
               'bookid_n (in order of reading)'))
+        sys.exit(1)
 
     bookids = sys.argv[1:]
     books = [get_book(bookid) for bookid in bookids]
