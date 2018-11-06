@@ -6,7 +6,7 @@ import requests
 
 from api_key import key
 
-def return_city_state(ip='74.96.141.112'):
+def return_city_state(ip):
     url = f'http://api.ipstack.com/{ip}?access_key={key}'
     r = requests.get(url)
     data = r.json()
