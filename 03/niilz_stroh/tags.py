@@ -11,7 +11,11 @@ def get_tags():
     Replace dash with whitespace."""
     with open(RSS_FEED) as feed:
         feed_lines = feed.read().lower()
-        tags = re.findall(r'\<category\>([\w\s\-\_]+)\<\/category\>', feed_lines)
+
+        tags = re.findall(
+                r'\<category\>([\w\s\-\_]+)\<\/category\>',
+                feed_lines)
+
         tags_dict = {}
         for tag in tags:
             if "-" in tag:
@@ -24,7 +28,10 @@ def get_tags():
 
 
 def get_top_tags(tags):
-    sorted_tags = sorted(tags.items(), key=lambda tag: tag[1], reverse=True)
+    sorted_tags = sorted(tags.items(),
+                        key=lambda tag: tag[1],
+                        reverse=True)
+
     return sorted_tags[0:10]
 
 
@@ -35,7 +42,8 @@ def get_similarities(tags):
             seq = sm(None, tag1, tag2)
             ratio = seq.ratio()
             if ratio >= SIMILAR and tag1 != tag2:
-                similars.append(sorted((tag1, tag2), key=lambda t: len(t)))
+                similars.append(sorted((tag1, tag2),
+                                key=lambda t: len(t)))
     return similars
 
 
