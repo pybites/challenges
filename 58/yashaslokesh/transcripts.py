@@ -1,5 +1,4 @@
 import requests
-import json
 import base64 as b64
 import sqlite3
 import os
@@ -20,12 +19,12 @@ def transcripts(url):
     for num in it.chain(range(0, FIRST_SET_TOTAL_TRANSCRIPTS + 1), 
                         range(SECOND_SET_START, SECOND_SET_END + 1)):
         # Creates file names going 000.txt, ...014.txt, ... 186.txt
-        transcript_num = f'{str(num).zfill(3)}.txt'
+        transcript_num = f'{num:0>3}.txt'
         headers = {'Authorization': f'token {os.environ.get("TPT_OAUTH_TOKEN")}'}
         result = requests.get(url + transcript_num, headers=headers)
 
         # Obtain the textual portion of the file
-        data = json.loads(result.text)['content']
+        data = result.json()['content']
 
         # Decode the base64 text content of the file
         transcript = b64.b64decode(data)
