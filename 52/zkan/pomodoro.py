@@ -5,7 +5,8 @@ from datetime import timedelta
 import time
 
 
-duration = 20 * 60
+input_minutes = input('Set the duration (mins): ')
+duration = int(input_minutes) * 60
 while True:
     print(timedelta(seconds=duration))
     duration -= 1
