@@ -5,14 +5,18 @@
 # now = datetime.today()
 # print(str(now))
 
-import time
+import os
+import time, datetime
 
-duration = 5
+duration = 20
 timeUnit = 1
-unit = "seconds"
+timeDuration = datetime.timedelta(minutes = duration)
+dt = datetime.timedelta(seconds = timeUnit)
 
-print("Pause for {} {}.".format(duration,unit))
+print(f"Pause for {duration} minutes. Hit enter when ready to start the timer.")
+input()
 for i in range(duration):
-    print(i)
+    print(timeDuration)
+    timeDuration-=dt
     time.sleep(timeUnit)
-print("Time over!")
+os.system("echo 'Time over!\a'")
