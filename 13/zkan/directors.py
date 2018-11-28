@@ -1,6 +1,7 @@
 import csv
 from collections import defaultdict, namedtuple
 
+
 MOVIE_DATA = 'movie_metadata.csv'
 NUM_TOP_DIRECTORS = 20
 MIN_MOVIES = 4
