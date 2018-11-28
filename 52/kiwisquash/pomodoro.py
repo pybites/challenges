@@ -10,13 +10,14 @@ import time, datetime
 
 duration = 20
 timeUnit = 1
-timeDuration = datetime.timedelta(minutes = duration)
+timeDuration = datetime.timedelta(seconds = duration)
 dt = datetime.timedelta(seconds = timeUnit)
 
 print(f"Pause for {duration} minutes. Hit enter when ready to start the timer.")
 input()
 for i in range(duration):
-    print(timeDuration)
+    print("\r"+str(timeDuration),end = "")
     timeDuration-=dt
     time.sleep(timeUnit)
+print("\r"+str(timeDuration))
 os.system("echo 'Time over!\a'")
