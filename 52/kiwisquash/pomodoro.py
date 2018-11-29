@@ -9,8 +9,10 @@ import os, sys
 import time, datetime
 
 os.system("clear")
-def alert():
-    os.system("echo '\a'")
+
+def alert(n=1):
+    for _ in range(n):
+        os.system("echo '\a'")
 
 def parameters():
     if len(sys.argv) == 1:
@@ -38,8 +40,10 @@ def countDown(timeAmount,timeUnit = 1):
 
 duration, nLoops, breakTime = parameters() 
 
-print(f"Pause for {duration} minutes. Hit enter when ready to start the timer.")
+print(f"Hit enter when ready to start the timer.")
 input()
+alert()
+print(f"\rStart working! Keep at it for {duration} minutes!")
 while nLoops > 0:
     countDown(duration)
     if nLoops > 1:
@@ -49,5 +53,5 @@ while nLoops > 0:
         alert()
         print(f"\rResume work for {duration} minutes.")
     nLoops-=1
-alert()
+alert(3)
 print("Time over!")
