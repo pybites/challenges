@@ -43,9 +43,11 @@ input()
 while nLoops > 0:
     countDown(duration)
     if nLoops > 1:
+        alert()
         print(f"\rTime for a {breakTime} minute break!")
         countDown(breakTime)
+        alert()
         print(f"\rResume work for {duration} minutes.")
     nLoops-=1
-print("Time over!")
 alert()
+print("Time over!")
