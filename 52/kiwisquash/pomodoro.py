@@ -5,19 +5,47 @@
 # now = datetime.today()
 # print(str(now))
 
-import os
+import os, sys
 import time, datetime
 
-duration = 20
-timeUnit = 1
-timeDuration = datetime.timedelta(seconds = duration)
-dt = datetime.timedelta(seconds = timeUnit)
+os.system("clear")
+def alert():
+    os.system("echo '\a'")
+
+def parameters():
+    if len(sys.argv) == 1:
+        duration = 20
+    else:
+        duration = float (sys.argv[1])
+        if len(sys.argv) == 2:
+            nLoops = 1
+        else:
+            nLoops = float (sys.argv[2])
+            if len(sys.argv)>3:
+                breakTime = float (sys.argv[3])
+            else:
+                breakTime = 5
+    return duration, nLoops, breakTime
+
+def countDown(timeAmount,timeUnit = 1):
+    timeDuration = datetime.timedelta(minutes = timeAmount)
+    dt = datetime.timedelta(seconds = timeUnit)
+    for i in range(int(60*timeAmount)):
+        print("\r"+str(timeDuration),end = "")
+        timeDuration-=dt
+        time.sleep(timeUnit)
+    print("\r"+str(timeDuration))
+
+duration, nLoops, breakTime = parameters() 
 
 print(f"Pause for {duration} minutes. Hit enter when ready to start the timer.")
 input()
-for i in range(duration):
-    print("\r"+str(timeDuration),end = "")
-    timeDuration-=dt
-    time.sleep(timeUnit)
-print("\r"+str(timeDuration))
-os.system("echo 'Time over!\a'")
+while nLoops > 0:
+    countDown(duration)
+    if nLoops > 1:
+        print(f"\rTime for a {breakTime} minute break!")
+        countDown(breakTime)
+        print(f"\rResume work for {duration} minutes.")
+    nLoops-=1
+print("Time over!")
+alert()
