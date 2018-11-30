@@ -1,5 +1,6 @@
 import collections, csv
 
+movieInfo = collections.namedtuple("movieInfo", "title year score")
 with open('../movie_metadata.csv',newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     directorData = collections.defaultdict(list)
@@ -8,7 +9,7 @@ with open('../movie_metadata.csv',newline='') as csvfile:
         score = row['imdb_score']
         year = row['title_year']
         title = row['movie_title']
-        directorData[director].append((title,year,score))
+        directorData[director].append(movieInfo(title,year,score))
 
 for director in directorData:
     print(director,":",directorData[director])
