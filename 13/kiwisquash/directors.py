@@ -16,7 +16,10 @@ with open('../movie_metadata.csv',newline='') as csvfile:
                 director = row['director_name']
                 score = float(row['imdb_score'])
                 title = row['movie_title']
-                directorData[director].append(movie(title,year,score))
+                if movie(title,year,score) in directorData[director]: # Don't add duplicate entries
+                    pass
+                else:
+                    directorData[director].append(movie(title,year,score))
         except:
             pass
 
@@ -73,7 +76,7 @@ maxTitleLength = max(lenList)
 os.system('clear')
 index = 1
 for director in topList:
-    printDirectorStats(director,index,maxTitleLength)
+    printDirectorStats(director,index,maxTitleLength+5)
     index+=1
     print()
     print()
