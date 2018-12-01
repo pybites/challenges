@@ -1,3 +1,4 @@
+import os
 import collections, csv
 
 movieInfo = collections.namedtuple("movieInfo", "title year score")
@@ -16,17 +17,48 @@ with open('../movie_metadata.csv',newline='') as csvfile:
         except:
             pass
 
+def mean(listOfN):
+    l = len(listOfN)
+    if l == 0:
+        return 0
+    return sum(listOfN)/l
+
 def directorScore(director):
+    if director == "":
+        return 0
     scores = []
     for movie in directorData[director]:
         scores.append(movie.score)
-    return sum(scores)/len(scores)
+    return mean(scores) 
+    
+def movieScore(movie):
+    return movie.score 
 
-def getKey(item):
-    return item.score 
-
-print(directorData)
-for director in directorData:
+def printDirectorStats(director, index):
+    print(f"{str(index).zfill(2)}. {director.ljust(30)} {round(directorScore(director),1):>5}")
+    print(30*"-")
+    for movie in directorData[director]:
+        print(f"{movie.year}] {movie.title}"+2*"\t"+f" {movie.score}")
+        
+directorList = []
+for director in directorData.keys():
     if len(directorData[director])>3:
-        # print(director,round(directorScore(director),1))
-        print(director,":",sorted(directorData[director],key = getKey, reverse = True))
+        print(director)
+        directorList.append(director)
+
+topList = sorted(directorList[:20],key = directorScore, reverse=True)
+
+for director in directorList[21:]:
+    for i in range(20):
+        if directorScore(topList[i])<directorScore(director):
+            topList.pop()
+            topList.insert(i,director)
+            break
+
+os.system('clear')
+index = 1
+for director in topList:
+    printDirectorStats(director,index)
+    index+=1
+    print()
+    print()
