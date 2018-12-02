@@ -15,18 +15,15 @@ def alert(n=1):
         os.system("echo '\a'")
 
 def parameters():
-    if len(sys.argv) == 1:
-        duration = 20
-    else:
+    duration = 20
+    nLoops = 1
+    breaktime = 5
+    if len(sys.argv) > 1:
         duration = float (sys.argv[1])
-        if len(sys.argv) == 2:
-            nLoops = 1
-        else:
-            nLoops = float (sys.argv[2])
-            if len(sys.argv)>3:
-                breakTime = float (sys.argv[3])
-            else:
-                breakTime = 5
+    if len(sys.argv) > 2:
+        nLoops = float (sys.argv[2])
+    if len(sys.argv)>3:
+        breakTime = float (sys.argv[3])
     return duration, nLoops, breakTime
 
 def countDown(timeAmount,timeUnit = 1):
