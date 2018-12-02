@@ -17,7 +17,7 @@ def alert(n=1):
 def parameters():
     duration = 20
     nLoops = 1
-    breaktime = 5
+    breakTime = 5
     if len(sys.argv) > 1:
         duration = float (sys.argv[1])
     if len(sys.argv) > 2:
