@@ -14,7 +14,6 @@ def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
     return random.sample(POUCH, NUM_LETTERS)
 
-
 def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
@@ -25,7 +24,6 @@ def input_word(draw):
         break
       except ValueError as e:
         print(e)
-        
     return word
 
 def _validation(word, draw):
@@ -41,7 +39,6 @@ def calc_word_value(word):
     """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
     return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
-
 # Below 2 functions pass through the same 'draw' argument (smell?).
 # Maybe you want to abstract this into a class?
 # get_possible_dict_words and _get_permutations_draw would be instance methods.
@@ -51,21 +48,19 @@ def get_possible_dict_words(draw):
     Use the _get_permutations_draw helper and DICTIONARY constant"""
     return [word for word in _get_permutations_draw(draw) if word.lower() in DICTIONARY]
 
-
 def _get_permutations_draw(draw):
     """Helper for get_possible_dict_words to get all permutations of draw letters.
     Hint: use itertools.permutations"""
-    all_permutations = list()
-    for i in range(len(draw)):
-      all_i_length_words = [''.join(permutation) for permutation in itertools.permutations(draw, i+1)]
-      all_permutations += all_i_length_words
+    all_permutations = []
+    for i in range(1, len(draw)+1):
+      all_i_length_words = [''.join(permutation) for permutation in itertools.permutations(draw, i)]
+      all_permutations = itertools.chain(all_permutations, all_i_length_words)
     return all_permutations
 
 # From challenge 01:
 def max_word_value(words):
     """Calc the max value of a collection of words"""
     return max(words, key=calc_word_value)
-
 
 def main():
     """Main game interface calling the previously defined methods"""
