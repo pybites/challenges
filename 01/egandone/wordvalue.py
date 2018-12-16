@@ -2,9 +2,8 @@ from data import DICTIONARY, LETTER_SCORES
 
 def load_words():
     """Load dictionary into a list and return list"""
-    f = open(DICTIONARY)
-    words = [line.strip() for line in f.readlines()]
-    f.close()
+    with open(DICTIONARY) as f:
+      words = [line.strip() for line in f.readlines()]
     return words
 
 def calc_word_value(word):
