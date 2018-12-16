@@ -12,20 +12,29 @@ NUM_LETTERS = 7
 
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    pass
+    return random.sample(POUCH, NUM_LETTERS)
 
 
 def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
-    pass 
-
-
+    while True:
+      word = input('Enter a word: ')
+      try:
+        _validation(word.strip().upper(), draw)
+        break
+      except ValueError as e:
+        print(e)
+        
+    return word
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    pass
-
+    all_possible_words =  [''.join(permutation) for permutation in itertools.permutations(draw, len(word))]
+    if word not in all_possible_words:
+      raise ValueError(f'{word} not possible from {draw}')
+    elif word.lower() not in DICTIONARY:
+      raise ValueError(f'{word} not a valid dictionary word')
 
 # From challenge 01:
 def calc_word_value(word):
@@ -40,14 +49,17 @@ def calc_word_value(word):
 def get_possible_dict_words(draw):
     """Get all possible words from draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
-    pass
+    return [word for word in _get_permutations_draw(draw) if word.lower() in DICTIONARY]
 
 
 def _get_permutations_draw(draw):
     """Helper for get_possible_dict_words to get all permutations of draw letters.
     Hint: use itertools.permutations"""
-    pass
-
+    all_permutations = list()
+    for i in range(len(draw)):
+      all_i_length_words = [''.join(permutation) for permutation in itertools.permutations(draw, i+1)]
+      all_permutations += all_i_length_words
+    return all_permutations
 
 # From challenge 01:
 def max_word_value(words):
