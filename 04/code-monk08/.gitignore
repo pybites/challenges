@@ -1,0 +1,4 @@
+data/*
+!data/README.md
+config.py
+__pycache__

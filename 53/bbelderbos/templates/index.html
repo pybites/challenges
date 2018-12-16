@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PyBites Code Challenge 53 - Query the Spotify API</title>
+    <link href="//cdn.muicss.com/mui-0.9.41/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.9.41/js/mui.min.js"></script>
+    <style>
+      /**
+      * Body CSS
+      */
+      html,
+      body {
+        height: 100%;
+      }
+
+      html,
+      body,
+      input,
+      textarea,
+      button {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+      }
+
+
+      /**
+      * Header CSS
+      */
+      header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      header ul.mui-list--inline {
+        margin-bottom: 0;
+      }
+
+      header a {
+        color: white;
+      }
+
+      header table {
+        width: 100%;
+      }
+
+
+      /**
+      * Content CSS
+      */
+#content-wrapper {
+        min-height: 100%;
+
+        /* sticky footer */
+        box-sizing: border-box;
+        margin-bottom: -100px;
+        padding-bottom: 100px;
+      }
+
+
+      /**
+      * Footer CSS
+      */
+      footer {
+        box-sizing: border-box;
+        height: 100px;
+        background-color: #eee;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 35px;
+      }
+      #tracks td {
+        position: relative;
+        float: left;
+        width: 300px;
+        height: 300px;
+      }
+      #tracks td div.name {
+        position: absolute;
+        top: 10px;
+        padding: 5px;
+        background: white;
+        opacity: 0.7;
+      }
+      #tracks td audio {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        opacity: 0.7;
+      }
+      #tracks td a {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="mui-appbar mui--z1">
+      <div class="mui-container">
+        <table>
+          <tr class="mui--appbar-height">
+            <td class="mui--text-title"><a href="https://codechalleng.es/challenges/53/" target="_blank">PyBites Code Challenge 53 - Query the Spotify API</a></td>
+            <td>
+              <form class="mui-form--inline">
+                <div class="mui-textfield">
+                  <input type="text" name="artist" value="{{ artist }}">
+                </div>
+                <button class="mui-btn">Search Music</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </header>
+    <div id="content-wrapper" class="mui--text-center">
+      <div class="mui--appbar-height"></div>
+      <br>
+      <br>
+      {% if tracks %}
+        <table class="mui-table mui-table--bordered" id="tracks">
+          <tbody>
+            <tr>
+              {% for track in tracks %}
+                <td>
+                  <a href="{{ track['external_urls']['spotify'] }}" target="_blank">
+                    <div class="name mui--text-body2">{{ track['name'] }}</div>
+                    <img src="{{ track['album']['images'][1]['url'] }}">
+                    {% if track['preview_url'] %}
+                      <audio controls>
+                        <source src="{{ track['preview_url'] }}" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                      </audio>
+                    {% endif %}
+                  </a>
+                </td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+    <footer>
+      <div class="mui-container mui--text-center">
+        Made with ♥ by <a href="https://www.muicss.com">MUICSS</a>
+      </div>
+    </footer>
+  </body>
+</html>

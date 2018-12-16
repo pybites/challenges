@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="pos">
+        <h3>{{ post.title }}</h3>
+        <P>{{ post.text }}</P>
+        <div class="cntn">
+        <div class="bottomnav">
+            <a href="{{ url_for('list') }}">Back</a>
+            <a href="{{ url_for('delete', post_id=post.id) }}">Delete</a>
+        </div>
+        </div>
+    </div>
+{% endblock %}

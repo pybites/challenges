@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <div class="list">
+            <h3>List</h3>
+            {% for item in list_items %}
+                <a href="{{ url_for('show_post', post_id=item.id) }}">
+                    <p>
+                        {{ item.title }}
+                    </p>
+            </a>
+            {% endfor %}
+        </div>
+{% endblock %}

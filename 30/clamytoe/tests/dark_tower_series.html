@@ -1,0 +1,702 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<title>Comic Search</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="https://www.readcomics.io/styles/front/main.css">
+<script type="text/javascript" src="https://readcomics.io/scripts/mootools-core-1.3.2.js"></script>
+<script src="https://www.readcomics.io/scripts/front/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+<div class="main">
+
+
+<div class="header-wrapper">
+<div class="header">
+<div class="mobile-menu-trigger"></div>
+
+<a href="https://www.readcomics.io/" class="logo"><img src="https://www.readcomics.io/images/site/front/logo5.png" alt="Read Comics Online for Free"></a>
+
+<ul class="main-menu">
+<li><a href="https://www.readcomics.io/">Home</a></li>
+<li><a href="https://www.readcomics.io/ongoing-comics">Ongoing Comics</a></li>
+<li><a href="https://www.readcomics.io/comic-list">A-Z List</a></li>
+<li><a href="https://www.readcomics.io/adventure-comics">Browse by Genre</a></li>
+<li><a href="https://www.readcomics.io/advanced-search">Advanced Search</a></li>
+<li><a href="https://www.readcomics.io/comic-updates">Latest</a></li>
+<li><a href="https://www.readcomics.io/new-comics">New Comics</a></li>
+<li><a href="https://www.readcomics.io/popular-comics">Popular Comics</a></li>
+
+</ul>
+
+
+<div class="search-pane">
+<div class="search-trigger" id="searchTrigger"></div>
+<form class="inline-block" id="search-box" method="GET" action="https://www.readcomics.io/comic-search">
+<input type="button" class="search-button">
+<div class="input-area">
+<input name="key" type="text" class="search-input">
+</div>
+</form>
+</div>
+
+
+<div class="user-pane">
+<div class="log-reg-trigger"></div>
+<div class="user-drop">
+<div class="full">
+<span>Make better use Enter site</span><br>
+<span class="user-links">
+<a href="https://www.readcomics.io/account/login">Login</a> or <a href="https://www.readcomics.io/account/register">Register</a>
+</span>
+</div>
+<a href="https://www.readcomics.io/account/oauth/facebook" class="login-fb">Sign in with Facebook</a>
+</div>
+</div>
+
+</div>
+</div>
+ 
+
+
+<div class="wrapper">
+
+
+<div class="right-block-1">
+
+<div class="border-box">
+
+<div class="padding-title">Popular Comics</div>
+
+<div class="elliptic-list lineList">
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">1</div>
+<a href="https://www.readcomics.io/comic/the-wicked-the-divine" class="eb-image">
+<img src="https://readcomics.io/images/series/small/2509.jpg" alt="The Wicked + The Divine Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/the-wicked-the-divine" class="big-link">The Wicked + The Divine</a>
+</div>
+</div>
+</div>
+ </div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">2</div>
+<a href="https://www.readcomics.io/comic/saga" class="eb-image">
+<img src="https://readcomics.io/images/series/small/1897.jpg" alt="Saga Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/saga" class="big-link">Saga</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">3</div>
+<a href="https://www.readcomics.io/comic/old-man-logan" class="eb-image">
+<img src="https://readcomics.io/images/series/small/3089.jpg" alt="Old Man Logan Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/old-man-logan" class="big-link">Old Man Logan</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">4</div>
+<a href="https://www.readcomics.io/comic/star-wars" class="eb-image">
+<img src="https://readcomics.io/images/series/small/2073.jpg" alt="Star Wars Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/star-wars" class="big-link">Star Wars</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">5</div>
+<a href="https://www.readcomics.io/comic/adventure-time" class="eb-image">
+<img src="https://readcomics.io/images/series/small/3515.jpg" alt="Adventure Time Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/adventure-time" class="big-link">Adventure Time</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">6</div>
+<a href="https://www.readcomics.io/comic/daredevil-2016" class="eb-image">
+<img src="https://readcomics.io/images/series/small/617.jpg" alt="Daredevil (2016) Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/daredevil-2016" class="big-link">Daredevil (2016)</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">7</div>
+<a href="https://www.readcomics.io/comic/doctor-strange-2015" class="eb-image">
+<img src="https://readcomics.io/images/series/small/757.jpg" alt="Doctor Strange (2015) Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/doctor-strange-2015" class="big-link">Doctor Strange (2015)</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">8</div>
+<a href="https://www.readcomics.io/comic/justice-league-of-america-2015" class="eb-image">
+<img src="https://readcomics.io/images/series/small/1399.jpg" alt="Justice League of America (2015) Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/justice-league-of-america-2015" class="big-link">Justice League of America (2015)</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">9</div>
+<a href="https://www.readcomics.io/comic/spider-man-2016" class="eb-image">
+<img src="https://readcomics.io/images/series/small/3185.jpg" alt="Spider-Man (2016) Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/spider-man-2016" class="big-link">Spider-Man (2016)</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">10</div>
+<a href="https://www.readcomics.io/comic/harley-quinn" class="eb-image">
+<img src="https://readcomics.io/images/series/small/1071.jpg" alt="Harley Quinn Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/harley-quinn" class="big-link">Harley Quinn</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">11</div>
+<a href="https://www.readcomics.io/comic/deadpool-2016" class="eb-image">
+<img src="https://readcomics.io/images/series/small/2959.jpg" alt="Deadpool (2016) Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/deadpool-2016" class="big-link">Deadpool (2016)</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">12</div>
+<a href="https://www.readcomics.io/comic/dc-comics-bombshells" class="eb-image">
+<img src="https://readcomics.io/images/series/small/3567.jpg" alt="DC Comics: Bombshells Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/dc-comics-bombshells" class="big-link">DC Comics: Bombshells</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">13</div>
+<a href="https://www.readcomics.io/comic/guardians-of-the-galaxy-2015" class="eb-image">
+<img src="https://readcomics.io/images/series/small/1061.jpg" alt="Guardians of the Galaxy (2015) Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/guardians-of-the-galaxy-2015" class="big-link">Guardians of the Galaxy (2015)</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">14</div>
+<a href="https://www.readcomics.io/comic/captain-america-steve-rogers" class="eb-image">
+<img src="https://readcomics.io/images/series/small/4957.jpg" alt="Captain America: Steve Rogers Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/captain-america-steve-rogers" class="big-link">Captain America: Steve Rogers</a>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="elliptic-grid">
+<div class="elliptic-box">
+<div class="eb-number">15</div>
+<a href="https://www.readcomics.io/comic/sex-criminals" class="eb-image">
+<img src="https://readcomics.io/images/series/small/1967.jpg" alt="Sex Criminals Comic">
+</a>
+<div class="eb-right">
+<div class="va">
+<a href="https://www.readcomics.io/comic/sex-criminals" class="big-link">Sex Criminals</a>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+<div class="border-box">
+
+<div class="padding-title">Following</div>
+<div class="padding-notice">
+<p>You need login to follow comics.</p>
+</div>
+</div>
+</div>
+ 
+
+
+<div class="container">
+
+<div class="container-item">
+
+<div class="wbg-content">
+
+<div class="main-title">
+<h1 class="title">Search Result for "dark tower" - Page 1</h1>
+<div class="breadcrumb">
+<span>You are Here: </span>
+<a href="https://www.readcomics.io/">Www.readcomics.io</a> > Ongoing Animes
+</div>
+</div>
+
+
+<div class="eg-list">
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-drawing-of-the-three-lady-of-shadows" class="eg-image"><img src="https://readcomics.io/images/series/small/635.jpg" alt="Read Dark Tower - The Drawing of the Three - Lady of Shadows online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-drawing-of-the-three-lady-of-shadows">Dark Tower - The Drawing of the Three - Lady of Shadows</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/marvel-comics">Marvel</a>, <a href="https://www.readcomics.io/graphic-novels-comics">Graphic Novels</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/mystery-comics">Mystery</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-drawing-of-the-three-lady-of-shadows/chapter-5" class="small-link">Dark Tower - The Drawing of the Three - Lady of Shadows Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/the-dark-tower-the-drawing-of-the-three-house-of-cards" class="eg-image"><img src="https://readcomics.io/images/series/small/2329.jpg" alt="Read The Dark Tower - The Drawing of the Three - House of Cards online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/the-dark-tower-the-drawing-of-the-three-house-of-cards">The Dark Tower - The Drawing of the Three - House of Cards</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/action-comics">Action</a>, <a href="https://www.readcomics.io/adventure-comics">Adventure</a>, <a href="https://www.readcomics.io/marvel-comics">Marvel</a>  </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/the-dark-tower-the-drawing-of-the-three-house-of-cards/chapter-5" class="small-link">The Dark Tower - The Drawing of the Three - House of Cards Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/the-dark-tower-the-drawing-of-the-three-the-prisoner" class="eg-image"><img src="https://readcomics.io/images/series/small/2331.jpg" alt="Read The Dark Tower - The Drawing of the Three - The Prisoner online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/the-dark-tower-the-drawing-of-the-three-the-prisoner">The Dark Tower - The Drawing of the Three - The Prisoner</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/action-comics">Action</a>, <a href="https://www.readcomics.io/adventure-comics">Adventure</a>, <a href="https://www.readcomics.io/marvel-comics">Marvel</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/the-dark-tower-the-drawing-of-the-three-the-prisoner/chapter-5" class="small-link">The Dark Tower - The Drawing of the Three - The Prisoner Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-battle-of-jericho-hill" class="eg-image"><img src="https://readcomics.io/images/series/small/3905.jpg" alt="Read Dark Tower: The Battle of Jericho Hill online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-battle-of-jericho-hill">Dark Tower: The Battle of Jericho Hill</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-battle-of-jericho-hill/chapter-5" class="small-link">Dark Tower: The Battle of Jericho Hill Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-fall-of-gilead" class="eg-image"><img src="https://readcomics.io/images/series/small/3907.jpg" alt="Read Dark Tower: The Fall of Gilead online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-fall-of-gilead">Dark Tower: The Fall of Gilead</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-fall-of-gilead/chapter-6" class="small-link">Dark Tower: The Fall of Gilead Issue #6</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-evil-ground" class="eg-image"><img src="https://readcomics.io/images/series/small/3909.jpg" alt="Read Dark Tower: The Gunslinger - Evil Ground online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-evil-ground">Dark Tower: The Gunslinger - Evil Ground</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/action-comics">Action</a>, <a href="https://www.readcomics.io/adventure-comics">Adventure</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-evil-ground/chapter-2" class="small-link">Dark Tower: The Gunslinger - Evil Ground Issue #2</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-sheemies-tale" class="eg-image"><img src="https://readcomics.io/images/series/small/3911.jpg" alt="Read Dark Tower: The Gunslinger - Sheemie's Tale online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-sheemies-tale">Dark Tower: The Gunslinger - Sheemie's Tale</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-sheemies-tale/chapter-2" class="small-link">Dark Tower: The Gunslinger - Sheemie's Tale Issue #2</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-battle-of-tull" class="eg-image"><img src="https://readcomics.io/images/series/small/3913.jpg" alt="Read Dark Tower: The Gunslinger - The Battle of Tull  online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-battle-of-tull">Dark Tower: The Gunslinger - The Battle of Tull </a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-the-battle-of-tull/chapter-5" class="small-link">Dark Tower: The Gunslinger - The Battle of Tull Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-journey-begins" class="eg-image"><img src="https://readcomics.io/images/series/small/3915.jpg" alt="Read Dark Tower: The Gunslinger: The Journey Begins online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-journey-begins">Dark Tower: The Gunslinger: The Journey Begins</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/graphic-novels-comics">Graphic Novels</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-the-journey-begins/chapter-5" class="small-link">Dark Tower: The Gunslinger: The Journey Begins Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-little-sisters-of-eluria" class="eg-image"><img src="https://readcomics.io/images/series/small/3917.jpg" alt="Read Dark Tower: The Gunslinger - The Little Sisters of Eluria online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-little-sisters-of-eluria">Dark Tower: The Gunslinger - The Little Sisters of Eluria</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/horror-comics">Horror</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-the-little-sisters-of-eluria/chapter-5" class="small-link">Dark Tower: The Gunslinger - The Little Sisters of Eluria Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-man-in-black" class="eg-image"><img src="https://readcomics.io/images/series/small/3919.jpg" alt="Read Dark Tower: The Gunslinger - The Man In Black online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-man-in-black">Dark Tower: The Gunslinger - The Man In Black</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-the-man-in-black/chapter-5" class="small-link">Dark Tower: The Gunslinger - The Man In Black Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-way-station" class="eg-image"><img src="https://readcomics.io/images/series/small/3921.jpg" alt="Read Dark Tower: The Gunslinger - The Way Station online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-the-way-station">Dark Tower: The Gunslinger - The Way Station</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/graphic-novels-comics">Graphic Novels</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/science-fiction-comics">Science Fiction</a> </div>
+ <div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-the-way-station/chapter-5" class="small-link">Dark Tower: The Gunslinger - The Way Station Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-born" class="eg-image"><img src="https://readcomics.io/images/series/small/3923.jpg" alt="Read Dark Tower: The Gunslinger Born online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-born">Dark Tower: The Gunslinger Born</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-born/chapter-7" class="small-link">Dark Tower: The Gunslinger Born Issue #7</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-long-road-home" class="eg-image"><img src="https://readcomics.io/images/series/small/3925.jpg" alt="Read Dark Tower: The Long Road Home online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-long-road-home">Dark Tower: The Long Road Home</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-long-road-home/chapter-5" class="small-link">Dark Tower: The Long Road Home Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-treachery" class="eg-image"><img src="https://readcomics.io/images/series/small/3927.jpg" alt="Read Dark Tower: Treachery online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-treachery">Dark Tower: Treachery</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-treachery/chapter-6" class="small-link">Dark Tower: Treachery Issue #6</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-so-fell-lord-perth" class="eg-image"><img src="https://readcomics.io/images/series/small/3929.jpg" alt="Read Dark Tower: The Gunslinger - So Fell Lord Perth online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-gunslinger-so-fell-lord-perth">Dark Tower: The Gunslinger - So Fell Lord Perth</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-gunslinger-so-fell-lord-perth/chapter-1" class="small-link">Dark Tower: The Gunslinger - So Fell Lord Perth Issue #1</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-sorcerer" class="eg-image"><img src="https://readcomics.io/images/series/small/3931.jpg" alt="Read Dark Tower: Sorcerer online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-sorcerer">Dark Tower: Sorcerer</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-sorcerer/chapter-1" class="small-link">Dark Tower: Sorcerer Issue #1</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-guide-to-gilead" class="eg-image"><img src="https://readcomics.io/images/series/small/3933.jpg" alt="Read Dark Tower: Guide To Gilead online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-guide-to-gilead">Dark Tower: Guide To Gilead</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-guide-to-gilead/chapter-1" class="small-link">Dark Tower: Guide To Gilead Issue #1</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-end-world-almanac" class="eg-image"><img src="https://readcomics.io/images/series/small/3935.jpg" alt="Read Dark Tower End World Almanac online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-end-world-almanac">Dark Tower End World Almanac</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/marvel-comics">Marvel</a>, <a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-end-world-almanac/chapter-1" class="small-link">Dark Tower End World Almanac Issue #1</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-gunslingers-guidebook" class="eg-image"><img src="https://readcomics.io/images/series/small/3937.jpg" alt="Read Dark Tower: Gunslinger's Guidebook online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-gunslingers-guidebook">Dark Tower: Gunslinger's Guidebook</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>, <a href="https://www.readcomics.io/horror-comics">Horror</a>, <a href="https://www.readcomics.io/mature-comics">Mature</a>, <a href="https://www.readcomics.io/supernatural-comics">Supernatural</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-gunslingers-guidebook/chapter-1" class="small-link">Dark Tower: Gunslinger's Guidebook Issue #1</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-drawing-of-the-three-bitter-medicine" class="eg-image"><img src="https://readcomics.io/images/series/small/4595.jpg" alt="Read Dark Tower: The Drawing Of The Three - Bitter Medicine online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-drawing-of-the-three-bitter-medicine">Dark Tower: The Drawing Of The Three - Bitter Medicine</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/marvel-comics">Marvel</a>, <a href="https://www.readcomics.io/fantasy-comics">Fantasy</a> </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-drawing-of-the-three-bitter-medicine/chapter-5" class="small-link">Dark Tower: The Drawing Of The Three - Bitter Medicine Issue #5</a>
+</div>
+</div>
+
+
+<div class="eg-box">
+
+<a href="https://www.readcomics.io/comic/dark-tower-the-drawing-of-the-three-the-sailor" class="eg-image"><img src="https://readcomics.io/images/series/small/5720.jpg" alt="Read Dark Tower: The Drawing Of The Three - The Sailor online" /></a>
+<div class="egb-right">
+<a class="egb-serie" href="https://www.readcomics.io/comic/dark-tower-the-drawing-of-the-three-the-sailor">Dark Tower: The Drawing Of The Three - The Sailor</a>
+<div class="egb-details">
+<strong>Genres :</strong>
+<a href="https://www.readcomics.io/action-comics">Action</a>, <a href="https://www.readcomics.io/adventure-comics">Adventure</a>, <a href="https://www.readcomics.io/fantasy-comics">Fantasy</a>  </div>
+<div class="egb-label">Latest Issue:</div>
+
+<a class="egb-episode" href="https://www.readcomics.io/dark-tower-the-drawing-of-the-three-the-sailor/chapter-5" class="small-link">Dark Tower: The Drawing Of The Three - The Sailor Issue #5</a>
+</div>
+</div>
+
+</div>
+
+
+<div class="general-nav">
+<span>1</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71563093-5', 'auto');
+  ga('send', 'pageview');
+
+</script><strong></strong>
+
+
+</div>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<script src="https://readcomics.io/scripts/front/libs/jquery-1.7.1.min.js"></script>
+<script src="https://readcomics.io/scripts/front/plugins.js"></script>
+<script src="https://readcomics.io/scripts/front/script.js"></script>
+<script>window.jQuery || document.write('<script src="scripts/front/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"663f71814d","applicationID":"43994766","transactionName":"blAEYkIEVkFZAhJeDVcaJ1VEDFdcFwwHWQVYGhVTURdbWg==","queueTime":0,"applicationTime":68,"atts":"QhcHFAoeRU8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

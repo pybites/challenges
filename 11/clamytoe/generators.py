@@ -1,6 +1,5 @@
 """
 Turn the following unix pipeline into Python code using generators
-
 $ grep ^import `ls ../../*/*py | xargs` | awk '{print $2}' | sort | uniq -c | sort -nr
 $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq -c | sort -nr
    4 unittest
@@ -15,19 +14,19 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
    1 time
    1 datetime
 """
-import fnmatch
 import glob
-import os
 import re
+
+from collections import Counter
+
+
+def display_gen(generator):
+    for gen in generator:
+        print(gen)
+
 
 def gen_files(pat):
     yield from glob.glob(pat)
-    # top, filepat = pat.rsplit('*/', 1)
-
-    # for path, dirlist, filelist in os.walk(top):
-    #     if path in fnmatch.filter():
-    #         for name in fnmatch.filter(filelist, filepat):
-    #             yield os.path.join(path, name)
 
 
 def gen_lines(files):
@@ -37,28 +36,23 @@ def gen_lines(files):
                 yield line
 
 
-def gen_grep(lines, pattern):
-    for line in lines:
-        if line.startswith(pattern):
-            yield re.sub(pattern, '', line).rstrip()
+def gen_grep(lines, pat):
+    return (re.sub(pat, '', l).rstrip() for l in lines if l.startswith(pat))
 
 
 def gen_count(lines):
-    entries = {}
-    for line in lines:
-        entries[line] = entries.get(line, 0) + 1
-
-    unique = [[v, k] for k, v in entries.items()]
-
-    for entry in sorted(unique, reverse=True):
-        yield '      {0} {1}'.format(entry[0], entry[1])
+    return (f'{cnt[1]:>7} {cnt[0]}' for cnt in Counter(lines).most_common())
 
 
-if __name__ == "__main__":
+def main():
     # call the generators, passing one to the other
-    files = gen_files('../../*/*.py')
+    files = gen_files('../Projects/challenges/*/*.py')
     lines = gen_lines(files)
     imports = gen_grep(lines, r'import ')
     counts = gen_count(imports)
-    for count in counts:
-        print(count)
+
+    display_gen(counts)
+
+
+if __name__ == "__main__":
+    main()

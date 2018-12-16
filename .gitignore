@@ -6,5 +6,9 @@
 **drafts
 **.cache
 **sqlite
-.idea/
-.DS_Store
+**.idea
+**.vscode
+**.DS_Store
+**.mypy_cache/
+**.pytest_cache/
+**.ipynb_checkpoints/

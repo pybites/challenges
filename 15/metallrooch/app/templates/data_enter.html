@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="ent">
+        <h3>Data Enter</h3>
+        <form action="" method='POST'>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.title.label }}<br>
+                {{ form.title(size=20) }}
+            </p>
+
+            <p>
+                {{ form.text.label }}<br>
+                {{ form.text }}
+            </p>
+
+            <p>
+                {{ form.submit() }}
+            </p>
+        </form>
+    </div>
+    
+{% endblock %}

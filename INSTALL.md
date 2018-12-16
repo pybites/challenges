@@ -1,5 +1,9 @@
 # PyBites Code Challenges - Setup Instructions
 
+## Update 9th of Oct 2018
+
+We updated the instructions on the platform and published [an instruction video](https://www.youtube.com/watch?v=vJsyLSZxqVw&t=14s) how to fork/clone/commit/PR your work. We hope this helps. Any feedback just ping us on Twitter/Slack/Email. We are stoked about > 1K forks meaning a lot of you are writing code with us. Keep calm and code in Python, cheers!
+
 ## New Platform
 
 Update 20th of Dec 2017: we did it! We built our platform around these challenges and more. We highly encourage to use it to guide you through the setup for our challenges: [https://codechalleng.es](https://codechalleng.es). If for some reason you like the old instructions though see below.
