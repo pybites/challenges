@@ -10,6 +10,7 @@ Challenge 13:
 
 import csv
 from collections import namedtuple, defaultdict
+from statistics import mean
 
 Movie = namedtuple('Movie', 'title year score')
 
@@ -20,7 +21,9 @@ MOVIES = 4
 
 
 def main():
-    movies_by_director()
+    directors = movies_by_director()
+    updated = average_scores(directors)
+    print(updated)
 
 
 def movies_by_director():
@@ -32,14 +35,18 @@ def movies_by_director():
     with open(FILE, 'r') as fin:
         reader = csv.DictReader(fin)
         for row in reader:
-            director = row['director_name']
-            title = row['movie_title']
-            score = row['imdb_score']
-            year = row['title_year']
+            try:
+                director = row['director_name']
+                if int(row['title_year']) >= YEAR:
+                    title = row['movie_title'].strip()
+                    score = float(row['imdb_score'])
+                    year = int(row['title_year'])
+                    movie_data[director].append(Movie(title=title,
+                                                      score=score,
+                                                      year=year))
+            except ValueError:
+                continue
 
-            movies = Movie(title=title, year=year, score=score)
-
-        movie_data[director].append(movies)
     return movie_data
 
 
