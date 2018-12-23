@@ -50,13 +50,17 @@ def movies_by_director():
     return movie_data
 
 
-def average_scores(director):
+def average_scores(directors):
     """Take each movies average score from csv.
 
-    :param director: data struct containing all movies from each directo.
+    :param director: data struct containing all movies from each director.
     :return: returns directors that meet criteria.
     """
-
+    average_score = {}
+    for key, movies in directors.items():
+        if len(movies) >= 4:
+            average_score[key] = calc_mean(movies)
+    return average_score
 
 def calc_mean(movies):
     """Given a list of movies from the same director calculate their mean
@@ -65,6 +69,9 @@ def calc_mean(movies):
     :arg movies: average scores from all movies.
     :return: directors mean rating from all movies.
     """
+    # avg = round(mean([movie.score for movie in movies]))
+    avg = mean([movie.score for movie in movies])
+    return avg
 
 
 if __name__ == '__main__':
