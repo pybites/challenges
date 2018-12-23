@@ -77,5 +77,19 @@ def calc_mean(movies):
     return avg
 
 
+def printer(updated_directors):
+    fmt_director_entry = '{counter}. {director:<52} {avg:.1f}'
+    fmt_movie_entry = '{year}] {title:<50} {score}'
+    sep_line = '-' * 60
+    counter = 1
+    for director, info in sorted(updated_directors.items(),
+                                 key=lambda x: x[1][0].avg, reverse=True):
+        if counter < DIRECTORS:
+            # print(director, info[0].avg)
+            print(fmt_director_entry.format(counter=counter, director=director,
+                                            avg=info[0].avg))
+            counter += 1
+
+
 if __name__ == '__main__':
     main()
