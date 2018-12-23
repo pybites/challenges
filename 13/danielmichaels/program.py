@@ -13,6 +13,7 @@ from collections import namedtuple, defaultdict
 from statistics import mean
 
 Movie = namedtuple('Movie', 'title year score')
+Directors = namedtuple('Directors', 'info avg')
 
 FILE = 'movie_metadata.csv'
 DIRECTORS = 20
@@ -23,7 +24,7 @@ MOVIES = 4
 def main():
     directors = movies_by_director()
     updated = average_scores(directors)
-    print(updated)
+    printer(updated)
 
 
 def movies_by_director():
@@ -56,11 +57,13 @@ def average_scores(directors):
     :param director: data struct containing all movies from each director.
     :return: returns directors that meet criteria.
     """
-    average_score = {}
+    updated_directors = defaultdict(list)
     for key, movies in directors.items():
         if len(movies) >= 4:
-            average_score[key] = calc_mean(movies)
-    return average_score
+            avg = calc_mean(movies)
+            updated_directors[key].append(Directors(info=movies[0], avg=avg))
+    return updated_directors
+
 
 def calc_mean(movies):
     """Given a list of movies from the same director calculate their mean
