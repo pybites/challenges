@@ -16,7 +16,7 @@ Movie = namedtuple('Movie', 'title year score')
 Directors = namedtuple('Directors', 'info avg')
 
 FILE = 'movie_metadata.csv'
-DIRECTORS = 20
+DIRECTORS = 21
 YEAR = 1960
 MOVIES = 4
 
@@ -54,14 +54,14 @@ def movies_by_director():
 def average_scores(directors):
     """Take each movies average score from csv.
 
-    :param director: data struct containing all movies from each director.
+    :param directors: data struct containing all movies from each director.
     :return: returns directors that meet criteria.
     """
     updated_directors = defaultdict(list)
     for key, movies in directors.items():
         if len(movies) >= 4:
             avg = calc_mean(movies)
-            updated_directors[key].append(Directors(info=movies[0], avg=avg))
+            updated_directors[key].append(Directors(info=movies, avg=avg))
     return updated_directors
 
 
@@ -72,23 +72,27 @@ def calc_mean(movies):
     :arg movies: average scores from all movies.
     :return: directors mean rating from all movies.
     """
-    # avg = round(mean([movie.score for movie in movies]))
     avg = mean([movie.score for movie in movies])
     return avg
 
 
 def printer(updated_directors):
     fmt_director_entry = '{counter}. {director:<52} {avg:.1f}'
-    fmt_movie_entry = '{year}] {title:<50} {score}'
+    fmt_movie_entry = '[{year}] {title:<50} {score}'
     sep_line = '-' * 60
     counter = 1
     for director, info in sorted(updated_directors.items(),
                                  key=lambda x: x[1][0].avg, reverse=True):
         if counter < DIRECTORS:
-            # print(director, info[0].avg)
             print(fmt_director_entry.format(counter=counter, director=director,
                                             avg=info[0].avg))
+            print(sep_line)
+            for x in info:
+                for y in x[0]:
+                    print(fmt_movie_entry.format(year=y.year, title=y.title,
+                                                 score=y.score))
             counter += 1
+            print(sep_line)
 
 
 if __name__ == '__main__':
