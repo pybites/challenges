@@ -22,12 +22,12 @@ MOVIES = 4
 
 
 def main():
-    directors = movies_by_director()
-    updated = average_scores(directors)
+    directors = get_movies_by_director()
+    updated = get_average_scores(directors)
     printer(updated)
 
 
-def movies_by_director():
+def get_movies_by_director():
     """Extracts all movies and directors from CSV.
 
     :return: data structure containing all movie info for each director."""
@@ -51,7 +51,7 @@ def movies_by_director():
     return movie_data
 
 
-def average_scores(directors):
+def get_average_scores(directors):
     """Take each movies average score from csv.
 
     :param directors: data struct containing all movies from each director.
@@ -60,12 +60,12 @@ def average_scores(directors):
     updated_directors = defaultdict(list)
     for key, movies in directors.items():
         if len(movies) >= 4:
-            avg = calc_mean(movies)
+            avg = _calc_mean(movies)
             updated_directors[key].append(Directors(info=movies, avg=avg))
     return updated_directors
 
 
-def calc_mean(movies):
+def _calc_mean(movies):
     """Given a list of movies from the same director calculate their mean
     rating.
 
@@ -87,10 +87,10 @@ def printer(updated_directors):
             print(fmt_director_entry.format(counter=counter, director=director,
                                             avg=info[0].avg))
             print(sep_line)
-            for x in info:
-                for y in x[0]:
-                    print(fmt_movie_entry.format(year=y.year, title=y.title,
-                                                 score=y.score))
+            for movie in info:
+                for item in movie[0]:
+                    print(fmt_movie_entry.format(year=item.year, title=item.title,
+                                                 score=item.score))
             counter += 1
             print(sep_line)
 
