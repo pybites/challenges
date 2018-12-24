@@ -2,10 +2,9 @@
 Challenge 13:
 
 - parse movie_metadata.csv
-- get 20 highest paid directors based on mean movie ratings
+- get 20 highest rated directors based on mean movie ratings
 - director must have >= 4 titles
 - all movies >= 1960
-- run tests before commit
 """
 
 import csv
@@ -30,7 +29,9 @@ def main():
 def get_movies_by_director():
     """Extracts all movies and directors from CSV.
 
-    :return: data structure containing all movie info for each director."""
+    :return movie_data: data structure containing all movie info for each
+    director.
+    """
 
     movie_data = defaultdict(list)
     with open(FILE, 'r') as fin:
@@ -55,7 +56,7 @@ def get_average_scores(directors):
     """Take each movies average score from csv.
 
     :param directors: data struct containing all movies from each director.
-    :return: returns directors that meet criteria.
+    :return updated_directors: returns directors that meet criteria.
     """
     updated_directors = defaultdict(list)
     for key, movies in directors.items():
@@ -70,13 +71,18 @@ def _calc_mean(movies):
     rating.
 
     :arg movies: average scores from all movies.
-    :return: directors mean rating from all movies.
+    :return avg: directors mean rating from all movies.
     """
     avg = mean([movie.score for movie in movies])
     return avg
 
 
 def printer(updated_directors):
+    """Prints out top 20 directors according to their average IMDB score,
+    including all their movies, by year and score for that movie.
+
+    :param updated_directors: defaultdict
+    """
     fmt_director_entry = '{counter}. {director:<52} {avg:.1f}'
     fmt_movie_entry = '[{year}] {title:<50} {score}'
     sep_line = '-' * 60
@@ -89,7 +95,8 @@ def printer(updated_directors):
             print(sep_line)
             for movie in info:
                 for item in movie[0]:
-                    print(fmt_movie_entry.format(year=item.year, title=item.title,
+                    print(fmt_movie_entry.format(year=item.year,
+                                                 title=item.title,
                                                  score=item.score))
             counter += 1
             print(sep_line)
