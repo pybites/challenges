@@ -15,9 +15,6 @@ class TicTacToe:
 
     # Initializes board
     def __init__(self):
-        self.start_game()
-
-    def start_game(self):
         self.init_board()
         self.ask_game_mode()
         self._num_turns = 0
