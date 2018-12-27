@@ -12,3 +12,7 @@ For this challenge, I decide to work on the existing open-source project called 
 Before refactoring..
 
 ![before refactoring](bettercodehub-before.png)
+
+After remove duplicates..
+
+![bettercodehub after remove duplicates](bettercodehub-after-remove-duplicates.png)
