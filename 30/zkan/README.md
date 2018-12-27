@@ -4,6 +4,7 @@ For this challenge, I decide to work on the existing open-source project called 
 
 ### Progress
 - https://github.com/prontotools/zendesk-tickets-machine/pull/113
+- https://github.com/prontotools/zendesk-tickets-machine/pull/114
 
 ### Some Screenshots from Better Code Hub
 
