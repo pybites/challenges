@@ -4,7 +4,7 @@ import requests
 import toolz
 
 
-OMDB_API_KEY = os.environ.get('OMDB_API_KEY')
+OMDB_API_KEY = os.environ.get('OMDB_API_KEY', '')
 
 
 def main():
