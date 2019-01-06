@@ -28,21 +28,26 @@ def get_all_hashtags_and_links():
              '#python #APIs')
     return re.findall(r'(?:http|#)\S+',tweet)
 
-print(get_all_hashtags_and_links())
+# print(get_all_hashtags_and_links())
 
 def match_first_paragraph():
     '''Use re.sub to extract the content of the first paragraph (excl tags)'''
     html = ('<p>pybites != greedy</p>'
             '<p>not the same can be said REgarding ...</p>')
-    # return re.sub(...
+    return re.sub(r'(<p>([\w\W]+?)</p>)(<p>[\w\W]+?</p>)',r'\2',html)
 
+# print(match_first_paragraph())
 
 def find_double_words():
     '''Use re.search(regex, text).group() to find the double words'''
     text = 'Spain is so nice in the the spring'
-    # return re.search(...
+    return re.search(r'(\b\w+)\W+\1',text).group()
 
+# print(find_double_words())
 
 def match_ip_v4_address(ip):
     '''Use re.match to match an ip v4 address (no need for exact IP ranges)'''
-    # return re.match(...
+    return re.match(r'(?:\d+\.){3}\d',ip)
+
+# print(match_ip_v4_address('132.254.111.10').group())
+# print(match_ip_v4_address('10'))
