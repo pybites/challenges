@@ -1,0 +1,137 @@
+id_str,created_at,text
+1086539031008157696,2019-01-19 08:21:06,RT @jmwatt3: Thanks for sharing @kennethreitz! Copy - @bbelderbos - I second the note on the importance of routines and finding social outl…
+1086390133744693249,2019-01-18 22:29:26,"RT @python_tip: The step parameter in sequence slicing can be negative:
+
+&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6, 7, 8]
+&gt;&gt;&gt; a[::-1] #reverse
+[8, 7, 6, 5,…"
+1086261067284664323,2019-01-18 13:56:34,"@teachingpython @KellyPared @smtibor Hey Sean &amp; Kelly, awesome there is a podcast on teaching Python now, thanks fo… https://t.co/vEqZbWKtpt"
+1086260795917455360,2019-01-18 13:55:30,RT @teachingpython: Episode 7: Teaching with the BBC micro:bit is now live! Includes best practices for teaching Python on the microbit and…
+1086260180407500800,2019-01-18 13:53:03,RT @a1ex_ve9an: I achieved the PyBites Ninja Blue Belt by completing Code Challenges at https://t.co/chzwlph802 - on behalf of @pybites I C…
+1086260150099423232,2019-01-18 13:52:56,"RT @SabineEmden: R1D16: Learned about f-strings in #Python, thanks to @pybites and tis very helpful article https://t.co/A9Bkk1rgbQ at @rea…"
+1086260118147289088,2019-01-18 13:52:48,RT @jmwatt3: Putting some Anki flashcard review to good use re: datetime format. I just cracked Bite of Py 128. Work with datetime's strpti…
+1086214968993824769,2019-01-18 10:53:24,@sulla_puppy @a1ex_ve9an @pybites @TalkPython congrats!
+1086212353149030401,2019-01-18 10:43:00,"RT @a1ex_ve9an: Day 101: #100DaysOfCode progress: https://t.co/MdHf31UgyB 
+#Python #CodeChallenges @pybites @talkpython 
+received ninja cer…"
+1086209188089475073,2019-01-18 10:30:25,I just cracked Bite of Py 2. Regex Fun - on behalf of @pybites I Challenge You!  https://t.co/qPxejQC2Gd #Python #CodeChallenges
+1085958347982032896,2019-01-17 17:53:40,I just cracked Bite of Py 126. The Emoji (Unicode) Bite - on behalf of @pybites I Challenge You!… https://t.co/awXOF0mTxP
+1085851645932519424,2019-01-17 10:49:41,"@OniwaBansho @pybites @TalkPython pytest is an awesome skill + book, didn't know about Mission Python, looks fun!"
+1085851357842567169,2019-01-17 10:48:32,"@pauloxnet @jmwatt3 @pyroma @raffaelecox @MrAtomicBomb_ @pyconit Grazie Paolo, I would but it overlaps with Pycon US :("
+1085486404258463745,2019-01-16 10:38:20,"@jmwatt3 @pyroma @pauloxnet @raffaelecox @MrAtomicBomb_ haha just finished Italian class and seeing this, hell yeah!"
+1085486054608650240,2019-01-16 10:36:57,"Fun way to get some Italian in every day :)
+La rubrica “Tre parole al giorno” / The page “Three words per day” n.8… https://t.co/D2zpb7JWta"
+1085143225587904512,2019-01-15 11:54:40,RT @fisheranalytics: I just cracked Bite of Py 105. Slice and dice - on behalf of @pybites I Challenge You!  https://t.co/HJe81WguAl #Pytho…
+1085143205811838977,2019-01-15 11:54:35,RT @ksurowiecki: I just cracked Bite of Py 7. Parsing dates from logs - on behalf of @pybites I Challenge You!  https://t.co/u7qQCV0vh2 #Py…
+1085142935438585856,2019-01-15 11:53:31,"@mistwire @pybites nice quote, very true"
+1085142754483679232,2019-01-15 11:52:48,"RT @mistwire: This keeps me going: 
+     ""Every great developer you know got there by solving problems they were unqualified to solve until…"
+1084822073200046080,2019-01-14 14:38:31,RT @Cphoto21: Day 8: #100DaysOfCode progress: today I worked on Python Data Structures / D2 (practice) https://t.co/htjRGiDCTM #Python @pyb…
+1084822033530273792,2019-01-14 14:38:22,RT @MichaelStrefel2: Day 81: #100DaysOfCode progress: today I worked on Basic Database Access with SQLite3 / D3 (more coding) https://t.co/…
+1084822015494754307,2019-01-14 14:38:18,RT @ugirishknair: I just cracked Bite of Py 7. Parsing dates from logs - on behalf of @pybites I Challenge You!  https://t.co/8YNgAPYtkr #P…
+1084821859743473666,2019-01-14 14:37:41,"RT @yashaslokesh_: Day 85: Players can now hold down keys to move characters, and the animations for movement will now pause if the player…"
+1084819279172771840,2019-01-14 14:27:25,I just cracked Bite of Py 109. Workout dict lookups and raising an exception - on behalf of @pybites I Challenge Yo… https://t.co/kRu6318FdS
+1084819264954077185,2019-01-14 14:27:22,RT @pybites: I just cracked Bite of Py 155. Split a string by spaces or quoted text - We Challenge You!  https://t.co/gBzA09gYMh #Python #C…
+1084227874738053122,2019-01-12 23:17:23,RT @orlando_v: Day 4: #100DaysOfCode progress: today I worked on Collections module / D1 (lectures) https://t.co/ykutP7TGlH #Python @pybite…
+1084227861630910465,2019-01-12 23:17:20,RT @sulla_puppy: I just cracked Bite of Py 148. Print Car Data Grouped by Manufacturer - on behalf of @pybites I Challenge You!  https://t.…
+1084227830748200961,2019-01-12 23:17:13,RT @kev_esther: I just cracked Bite of Py 101. f-strings and a simple if/else - on behalf of @pybites I Challenge You!  https://t.co/WMBPPY…
+1084227552439341061,2019-01-12 23:16:07,I just cracked Bite of Py 103. Loop through a dictionary and pluralise a word - on behalf of @pybites I Challenge Y… https://t.co/t4H3lcCsF3
+1084108736564809729,2019-01-12 15:23:59,@TheTinkerboi @_juliansequeira @pybites @tferriss a classic!
+1084108668847702021,2019-01-12 15:23:43,RT @FreeCodeMine: Day 22: #100DaysOfCode progress: today I worked on Decorators / D1 (lectures) https://t.co/zYdzKDR2lg #Python @pybites @t…
+1084008222044884992,2019-01-12 08:44:34,RT @_juliansequeira: What a relaxing start to the birthday afternoon with my best mates! Found this gem in the local book store! Cheers eve…
+1083816402820190208,2019-01-11 20:02:21,The Limp Twins - Sunday Driver https://t.co/JYgXxM0yFw via @YouTube
+1083813028309725184,2019-01-11 19:48:56,"@_juliansequeira @jmwatt3 Good luck Jason, get enough sleep!"
+1083812896994406400,2019-01-11 19:48:25,RT @realpython: 🐍📰 How to Write Beautiful Python Code With PEP 8 https://t.co/ZJG8nkejOT
+1083812875368566785,2019-01-11 19:48:20,RT @creingalain: Day 22: #100DaysOfCode progress: today I worked on Decorators / D1 (lectures) https://t.co/E4wJrUxdRs #Python @pybites @ta…
+1083784655382478848,2019-01-11 17:56:12,@clamytoe @coursera @100daysofpython congrats!
+1083784636222918656,2019-01-11 17:56:07,RT @clamytoe: Day 100: #100DaysOfCode All done!! No better way to end the 100 days of code than by earning a cert! Completed the Applied Ma…
+1083668326382034944,2019-01-11 10:13:57,"RT @safaribot: People dig ""Mining the Social Web, 3rd Edition"" on @safari https://t.co/TegpcvxPWK https://t.co/MnlSclwaV4"
+1083668083745656832,2019-01-11 10:12:59,@sulla_puppy @pybites One of my favorites :)
+1083666445035282432,2019-01-11 10:06:28,The Incredible Growth of #Python https://t.co/4wZ1ZiJCnd
+1083666365830123525,2019-01-11 10:06:09,"On our platform you can earn PyBites Ninja Belts the more #Python challenges you solve, earn 50 points and you can… https://t.co/tKwsptNTmz"
+1083660923892625408,2019-01-11 09:44:32,@anthonypjshaw @tsitsi_flora @TalkPython @Pathgather @degreed @TheWiredBean @zimbopy really cool!
+1083660904900841472,2019-01-11 09:44:27,"RT @anthonypjshaw: So impressed with @tsitsi_flora, Sarah and Shingirai. months into the internship and they’ve built an automated (Python-…"
+1083660730539409408,2019-01-11 09:43:46,"RT @realpython: 🐍🎤 Python Community Interview With @mkennedy
+
+Michael is the host of the most popular Python podcast, @TalkPython, as well…"
+1083660698331332608,2019-01-11 09:43:38,"RT @realpython: 📰 Practical Text Classification With Python and Keras 🐍
+
+Learn about Python text classification with Keras. Work your way f…"
+1083660623198732288,2019-01-11 09:43:20,RT @sulla_puppy: I just cracked Bite of Py 113. Filter words with non-ascii characters - on behalf of @pybites I Challenge You!  https://t.…
+1083660450217320448,2019-01-11 09:42:39,RT @sulla_puppy: I just cracked Bite of Py 22. Write a decorator with argument - on behalf of @pybites I Challenge You!  https://t.co/CTjjI…
+1083660418755776512,2019-01-11 09:42:31,RT @sulla_puppy: I just cracked Bite of Py 16. Special PyBites date generator - on behalf of @pybites I Challenge You!  https://t.co/FD66rS…
+1083660402951634944,2019-01-11 09:42:28,RT @fisheranalytics: I just cracked Bite of Py 104. Split and join - on behalf of @pybites I Challenge You!  https://t.co/Pd9WuRd6bt #Pytho…
+1083660323511508992,2019-01-11 09:42:09,RT @sulla_puppy: I just cracked Bite of Py 153. Round a sequence of numbers - on behalf of @pybites I Challenge You!  https://t.co/F7P4Ax2q…
+1083660300329648128,2019-01-11 09:42:03,RT @TBeekley: I achieved the PyBites Ninja Orange Belt by completing Code Challenges at https://t.co/uuxEbrS2E6 - on behalf of @pybites I C…
+1083355036502183937,2019-01-10 13:29:03,I just cracked Bite of Py 154. Write your own data class - on behalf of @pybites I Challenge You!… https://t.co/6FnR6JVScR
+1083343129317642240,2019-01-10 12:41:44,I just cracked Bite of Py 153. Round a sequence of numbers - on behalf of @pybites I Challenge You!… https://t.co/NcV9hDKrNx
+1083317906564435969,2019-01-10 11:01:30,"RT @mistwire: In #Python you can easily create a dict of two sequences using the zip builtin
+
+&gt;&gt;&gt; names = 'bob julian tim sara'.split()
+&gt;&gt;&gt;…"
+1083317891041280000,2019-01-10 11:01:26,"RT @python_tip: #pythontip from @singhjayp:
+
+Use shlex.split() to get shell-like splitting:
+
+&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.split('\s', ""this is 'my…"
+1083317767124779009,2019-01-10 11:00:57,"RT @a1ex_ve9an: Day 101: #100DaysOfCode progress: https://t.co/MdHf31UgyB #Python @pybites @talkpython
+received green ninja belt
+https://t.…"
+1083317721494896640,2019-01-10 11:00:46,"RT @creingalain: Day 21: #100DaysOfCode progress: today I worked on Iteration with itertools / D3 (more coding), worked on all of the Pybit…"
+1083316304680026114,2019-01-10 10:55:08,Bite of Py 101. f-strings and a simple if/else - https://t.co/4ra6DpevKQ #Python #CodeChallenges
+1083316025700036611,2019-01-10 10:54:02,"@_juliansequeira awesome, keep up the writing habit! - cc @jmwatt3"
+1083315917214400513,2019-01-10 10:53:36,"Really enjoyed solving this one, thanks @mh70cz"
+1083309540165279744,2019-01-10 10:28:15,RT @tommyenglert: I just cracked Bite of Py 14. Generate a table of n sequences - on behalf of @pybites I Challenge You!  https://t.co/ahkJ…
+1083309521253081088,2019-01-10 10:28:11,RT @sulla_puppy: I just cracked Bite of Py 44. License key generator - on behalf of @pybites I Challenge You!  https://t.co/mIQEPFTNus #Pyt…
+1083309448649736193,2019-01-10 10:27:54,"Great advice: ""I’d encourage anyone reading this to do the same. Invest in experiences more than anything. If you i… https://t.co/QZltX31HkY"
+1083092660951367681,2019-01-09 20:06:27,"@dsimposters @pybites @ObjectiveObserv @TalkPython Fair enough, thanks - more materials for potential Bite exercises :)"
+1083013609368813574,2019-01-09 14:52:20,"RT @realpython: 🐍📰 PyCoder’s Weekly Issue #350 (Jan. 8, 2019) https://t.co/ExD2fHt6gG"
+1083013594529366016,2019-01-09 14:52:17,"RT @pybites: Reddit thread: ""What does a person mean exactly when they describe code as pythonic?"" - https://t.co/ZcjxqTlO2n"
+1083013584643342336,2019-01-09 14:52:14,RT @ObjectiveObserv: Day 1: #100DaysOfCode progress: today I worked on Playing with Datetimes / D1 (lectures) https://t.co/vRg19hhUwp #Pyth…
+1083013555396464640,2019-01-09 14:52:07,I just cracked Bite of Py 152. Manipulate string decorator - on behalf of @pybites I Challenge You!… https://t.co/bqyl66BzKG
+1083013536941522945,2019-01-09 14:52:03,RT @pybites: Learn #Python from Top 50 Articles for the Past Year (v.2019) by @Mybridge https://t.co/l8QnqaaKoo
+1083009915998924801,2019-01-09 14:37:39,I just cracked Bite of Py 151. Contemporary Composers - on behalf of @pybites I Challenge You!… https://t.co/lQfbkdS8Ip
+1083009687354830849,2019-01-09 14:36:45,"@dsimposters @pybites @ObjectiveObserv @TalkPython Fair enough, not sure about Java but datetimes works pretty well… https://t.co/oy6EUXvzrB"
+1082972248967995392,2019-01-09 12:07:59,Pythonic code: Tip #1 Stop using lists for everything https://t.co/swICawAGuP via @YouTube
+1082965879732822018,2019-01-09 11:42:40,@Gui0delp thanks!
+1082963280895844354,2019-01-09 11:32:21,"RT @python_tip: #pythontip by @PyPrinciples:
+
+You can use | and &amp; for set union and intersection. 
+
+&gt;&gt;&gt; {1, 2} &amp; {2, 3}
+{2}
+&gt;&gt;&gt; {1, 2} | {2…"
+1082963261895704576,2019-01-09 11:32:16,"RT @yashaslokesh_: Day 80: Wrote a small blog post on generator expressions and list, set, and dictionary comprehensions. Explained how and…"
+1082963227863105538,2019-01-09 11:32:08,RT @sulla_puppy: I just cracked Bite of Py 29. Martin's IQ test - on behalf of @pybites I Challenge You!  https://t.co/T3XGob12JA #Python #…
+1082727868726198272,2019-01-08 19:56:54,RT @peripherstudent: Day 16: #100DaysOfCode progress: today I worked on List comprehensions and generators / D1 (lectures) #Python @pybites…
+1082727128154677249,2019-01-08 19:53:58,"RT @_juliansequeira: Finally reading through this TINY gem @__mharrison__. So many nuggets of wisdom.
+s.isspace()
+So simple and useful. 
+Th…"
+1082613623434944512,2019-01-08 12:22:56,RT @pybites: And back-to-back we released another blog code challenge: #60 - Working With #PDF Files in #Python - https://t.co/8I7N8hO57G -…
+1082613601318256642,2019-01-08 12:22:51,RT @pybites: This week we plan to learn some #NLP working with the data set we collected in the previous challenge - join the fun and PR yo…
+1082613562298810368,2019-01-08 12:22:41,RT @wpanayides: Day 1 down | I just cracked Bite of Py 101. f-strings and a simple if/else - on behalf of @pybites I Challenge You!  https:…
+1082613543357300737,2019-01-08 12:22:37,"RT @pybites: ""You do not need to be expert at #Python to be a pro at attending #PyCon. You just need a smidgen of courage ... Challenge you…"
+1082604448243949568,2019-01-08 11:46:28,"RT @pybites: All PRs merged in, we're stoked about all the #Python code you have been submitting to our challenges repo. 
+
+Here is a digest…"
+1082579449961463808,2019-01-08 10:07:08,@possnfiffer @pybites @TalkPython Nice progress Roller!
+1082579425642860545,2019-01-08 10:07:03,RT @possnfiffer: Day 6: #100daysofcode progress: today I worked on Collections module / D3 (more coding) wrote a program https://t.co/qyE8U…
+1082579410828574720,2019-01-08 10:06:59,RT @williamtwynn: Day 28: #100DaysOfCode progress: today I worked on Regular Expressions / D1 (lectures) https://t.co/CQUWiBcHRC #Python @p…
+1082579369644691458,2019-01-08 10:06:49,RT @pybites: Do you guys think we have enough stickers for US @pycon this year? Thanks @stickermule! #stickersforeveryone! @pybites https:/…
+1082579353148502016,2019-01-08 10:06:45,@pybites @pycon @stickermule hell yeah ;)
+1082572866468675584,2019-01-08 09:40:59,"@gauravp3005 Kind of you to share and happy to hear, thanks!"
+1082572760998649857,2019-01-08 09:40:34,"RT @gauravp3005: ""During my 10+ years of programming I have come to know how immensely gratifying it is to build software to make somebody…"
+1082572172198117376,2019-01-08 09:38:13,"RT @Pybonacci: New year, new GitHub: Announcing unlimited free private repos and unified Enterprise offering
+https://t.co/U59bHwVbTZ"
+1082571745234685952,2019-01-08 09:36:31,"RT @creingalain: Day 18: #100DaysOfCode progress: today I worked on List comprehensions and generators / D3 (more coding), was done with Bi…"
+1082571708048072704,2019-01-08 09:36:23,"RT @yashaslokesh_: Day 79: Completed #14 on https://t.co/MrbcKAnk5t, finding the number with the longest Collatz sequence under 1 million.…"
+1082571320431439872,2019-01-08 09:34:50,RT @sulla_puppy: I just cracked Bite of Py 13. Convert dict to namedtuple/json - on behalf of @pybites I Challenge You!  https://t.co/Khifb…
+1082571169125957633,2019-01-08 09:34:14,"RT @JohnnyData22: Quick video on how to refactor your code for speed. #coderefactoring #datascience #python #MachineLearning #revision 
+
+ht…"
+1082303238458798080,2019-01-07 15:49:34,RT @MichaelStrefel2: Day 73: #100DaysOfCode progress: today I worked on Automate tasks with Selenium / D1 (lectures) https://t.co/24ACsAD95…
+1082254404533784577,2019-01-07 12:35:32,RT @sulla_puppy: I just cracked Bite of Py 10. Practice exceptions - on behalf of @pybites I Challenge You!  https://t.co/vXK09exr8B #Pytho…
+1082254392919818240,2019-01-07 12:35:29,RT @SSciere: Day 1: #100DaysOfCode progress: today I worked on Playing with Datetimes / D1 (lectures) https://t.co/XGBLviujz0 #Python @pybi…
+1082254378931769344,2019-01-07 12:35:25,"RT @ThePSF: The PSF is the featured publisher in the @PacktPub Humble Bundle through January 14, 2019! Lots of great Python titles to choos…"
