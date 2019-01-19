@@ -39,6 +39,7 @@ class TestUserTweets(unittest.TestCase):
 
     def test_first_tweet_returned_by_api(self):
         tw_n = 0
+        print(self.user[tw_n])
         self.assertEqual(self.user[tw_n].id_str, MAX_ID)
         self.assertEqual(self.user[tw_n].created_at, TWEETS[tw_n].created_at)
         self.assertEqual(self.user[tw_n].text, TWEETS[tw_n].text)
