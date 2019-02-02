@@ -1,100 +1,107 @@
-import unittest
+import re
+
+import pytest
 from selenium import webdriver
+
 
 BASE_URL = 'http://pyplanet.herokuapp.com/'
 PAGE_TITLE = 'PyBites 100 Days of Django'
 APP_URL = 'http://pyplanet.herokuapp.com/pyplanet/'
 APP_NAME = 'PyPlanet Article Sharer App'
 USERNAME, PASSWORD = 'guest', 'changeme'
-TABLE_CLASS = 'pure-table'  # TODO: use html id/name
+TABLE_CLASS = 'pure-table'
 
 
-class TestPyBitesPyplanet(unittest.TestCase):
+@pytest.fixture(scope='function')
+def driver():
+    driver = webdriver.Chrome()
+    yield driver
+    driver.close()
 
-    def setUp(self):
-        self.driver = webdriver.PhantomJS()
 
-    def tearDown(self):
-        self.driver.close()
+def get_first_article_title(driver):
+    table = driver.find_element_by_xpath(f'//table[@class="{TABLE_CLASS}"]')
+    return table.find_elements_by_xpath(".//td")[0].text
 
-    def _get_first_article_title(self, driver):
-        table = driver.find_element_by_xpath(
-            "//table[@class='{}']".format(TABLE_CLASS))
-        return table.find_elements_by_xpath(".//td")[0].text
 
-    def test_logged_out_views(self):
-        driver = self.driver
-        driver.get(BASE_URL)
+def test_login_logout_process_and_views(driver):
+    driver.get(APP_URL)
 
-        self.assertEqual(PAGE_TITLE, driver.title)
-        h1_text = driver.find_element_by_tag_name('h1').text
-        self.assertEqual(PAGE_TITLE, h1_text)
+    assert '<a href="/">Home</a>' in driver.page_source
+    assert '<a href="/login/">Login</a>' in driver.page_source
+    assert '<a href="/logout/">Logout</a>' not in driver.page_source
 
-        first_app_link_name = driver.find_element_by_xpath(
-            "//main/ul/li[1]/a").text
-        self.assertEqual(APP_NAME, first_app_link_name)
+    driver.find_element_by_link_text('Login').click()
+    username_field = driver.find_element_by_name('username')
+    username_field.send_keys(USERNAME)
+    password_field = driver.find_element_by_name('password')
+    password_field.send_keys(PASSWORD)
 
-        driver.find_element_by_link_text(APP_NAME).click()
-        self.assertEqual(self.driver.current_url, APP_URL)
+    btn_xpath = "//button[contains(@class, 'pure-button-primary')]"
+    login_btn = driver.find_element_by_xpath(btn_xpath)
+    login_btn.click()
 
-        self.assertIn('<th>Title</th>', driver.page_source)
-        self.assertEqual(driver.page_source.count('<td'), 100)
+    driver.get(APP_URL)
 
-        first_article = self._get_first_article_title(driver)
-        driver.find_element_by_link_text(first_article).click()
+    assert '<a href="/login/">Login</a>' not in driver.page_source
+    assert 'Welcome back, guest' in driver.page_source
+    assert '<a href="/logout/">Logout</a>' in driver.page_source
 
-        title_article_page = driver.find_element_by_tag_name('h2').text
-        self.assertEqual(title_article_page, first_article)
-        self.assertIn('Article:', driver.page_source)
-        self.assertIn('(published: ', driver.page_source)
+    first_article = get_first_article_title(driver)
+    driver.find_element_by_link_text(first_article).click()
 
-        self.assertIn('Go back', driver.page_source)
-        go_back_btn = driver.find_element_by_link_text('Go back')
-        go_back_link = go_back_btn.get_attribute('href')
-        self.assertEqual(go_back_link, APP_URL)
-        self.assertNotIn('Tweet this', driver.page_source)
+    assert 'Go back' in driver.page_source
+    assert 'Tweet this' in driver.page_source
+    tweet_btn = driver.find_element_by_link_text('Tweet this')
+    tweet_link_text = tweet_btn.get_attribute('href')
+    regex = r'^https://twitter.com/intent/tweet\?text=.*via=pybites$'
+    assert re.match(regex, tweet_link_text)
 
-    def test_login_logout_process_and_views(self):
-        driver = self.driver
-        driver.get(APP_URL)
+    driver.find_element_by_link_text('Logout').click()
+    assert 'logout' in driver.current_url
+    assert 'See you!' in driver.page_source
+    assert 'successfully logged out.' in driver.page_source
+    assert '<a href="/">Home</a>' in driver.page_source
+    assert '<a href="/login/">Login</a>' in driver.page_source
+    assert '<a href="/logout/">Logout</a>' not in driver.page_source
 
-        self.assertIn('<a href="/">Home</a>', driver.page_source)
-        self.assertIn('<a href="/login/">Login</a>', driver.page_source)
-        self.assertNotIn('<a href="/logout/">Logout</a>', driver.page_source)
 
-        driver.find_element_by_link_text('Login').click()
+def test_homepage_view(driver):
+    driver.get(BASE_URL)
 
-        username_field = driver.find_element_by_name('username')
-        username_field.send_keys(USERNAME)
-        password_field = driver.find_element_by_name('password')
-        password_field.send_keys(PASSWORD)
+    assert PAGE_TITLE == driver.title
+    h1_text = driver.find_element_by_tag_name('h1').text
+    assert PAGE_TITLE == h1_text
 
-        # TODO: need html id/name on button
-        btn_xpath = "//button[contains(@class, 'pure-button-primary')]"
-        login_btn = driver.find_element_by_xpath(btn_xpath)
-        login_btn.click()
+    first_app_link_name = driver.find_element_by_xpath(
+        '//main/ul/li[1]/a').text
+    assert APP_NAME == first_app_link_name
 
-        # TODO: when logging in, need to redirect to previous page
-        driver.get(APP_URL)
 
-        self.assertNotIn('<a href="/login/">Login</a>', driver.page_source)
-        self.assertIn('Welcome back, guest', driver.page_source)
-        self.assertIn('<a href="/logout/">Logout</a>', driver.page_source)
+def test_article_list_view(driver):
+    driver.get(BASE_URL)
 
-        first_article = self._get_first_article_title(driver)
-        driver.find_element_by_link_text(first_article).click()
+    driver.find_element_by_link_text(APP_NAME).click()
+    assert driver.current_url == APP_URL
 
-        self.assertIn('Go back', driver.page_source)
-        self.assertIn('Tweet this', driver.page_source)
-        tweet_btn = driver.find_element_by_link_text('Tweet this')
-        tweet_link_text = tweet_btn.get_attribute('href')
-        regex = r'^https://twitter.com/intent/tweet\?text=.*via=pybites$'
-        self.assertRegex(tweet_link_text, regex)
+    assert '<th>Title</th>' in driver.page_source
+    assert driver.page_source.count('<td') == 100
 
-        driver.find_element_by_link_text('Logout').click()
-        self.assertIn('logout', self.driver.current_url)
-        self.assertIn('See you!', driver.page_source)
-        self.assertIn('successfully logged out.', driver.page_source)
-        self.assertIn('<a href="/">Home</a>', driver.page_source)
-        self.assertIn('<a href="/login/">Login</a>', driver.page_source)
-        self.assertNotIn('<a href="/logout/">Logout</a>', driver.page_source)
+
+def test_single_article_view(driver):
+    driver.get(BASE_URL)
+
+    driver.find_element_by_link_text(APP_NAME).click()
+    first_article = get_first_article_title(driver)
+    driver.find_element_by_link_text(first_article).click()
+
+    title_article_page = driver.find_element_by_tag_name('h2').text
+    assert title_article_page == first_article
+    assert 'Article:' in driver.page_source
+    assert '(published: ' in driver.page_source
+
+    assert 'Go back' in driver.page_source
+    go_back_btn = driver.find_element_by_link_text('Go back')
+    go_back_link = go_back_btn.get_attribute('href')
+    assert go_back_link == APP_URL
+    assert 'Tweet this' not in driver.page_source
