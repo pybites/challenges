@@ -27,7 +27,7 @@ class pomodoro_timer(object):
         print ("{} minutes to go...".format(loopCount))
         self.__time = dt.datetime.now()
         while loopCount > 0:
-            while self.__time + dt.timedelta(seconds=1) > dt.datetime.now():
+            while self.__time + dt.timedelta(seconds=60) > dt.datetime.now():
                 pass
             else:
                 self.__time = dt.datetime.now()
@@ -73,7 +73,7 @@ Use: Press 'CTRL-C' to stop the timer.
         print ("Finished Working: {}".format(endTime))
         print ("Total Time Worked: {}\n".format(endTime - startTime))
 
-    raw_input("Strike ENTER key to exit...")
+    input("Strike ENTER key to exit...")
 
 
 
