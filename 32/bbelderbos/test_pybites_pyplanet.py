@@ -12,7 +12,7 @@ TABLE_CLASS = 'pure-table'  # TODO: use html id/name
 class TestPyBitesPyplanet(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.PhantomJS()
+        self.driver = webdriver.Chrome()
 
     def tearDown(self):
         self.driver.close()
