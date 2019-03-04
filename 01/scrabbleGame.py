@@ -1,4 +1,4 @@
-from data import *
+rom data import *
 
 testWords = []
 
@@ -49,11 +49,14 @@ def dictTopWord(dict):
                 scorelistCount = scorelistCount -1
 
     print('=========================')
+    print('')
     print('We have now iterated over the whole dictionary.')
     print('Here are your top scoring words.')
     print('')
     print('Top Words from given text file: ' + str(topThreeWordList))
     print('Corresponding word Scores: ' + str(topThreeScoreList))
+    print('')
+    print('==========================')
 
 
 def main():
@@ -89,7 +92,7 @@ def main():
     print('GitHub Scrabble Challenge')
     print('=========================')
     print('')
-    print('I was given a massive dictionary of words, and my task was to find the highest value words in the dictionary'
+    print('I was given a massive dictionary of words, and my task was to find the highest value words in the dictionary '
           'based on the given Scrabble scores.')
 
     dictInput = input('Do you want to see what the highest words were? y/n?')
