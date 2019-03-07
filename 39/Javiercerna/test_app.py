@@ -1,4 +1,6 @@
 import json
+import pytest
+
 import app
 
 items = [
@@ -19,63 +21,50 @@ items = [
     },
 ]
 
+
 def test_get_items():
     client = app.app.test_client()
     response = client.get('/api/v1.0/items')
     assert json.loads(response.data)['items'] == items
 
 
-def test_get_one_item():
+@pytest.mark.parametrize('item_id', [(1), (2), (3)])
+def test_get_one_item(item_id):
     client = app.app.test_client()
     
-    response = client.get('/api/v1.0/items/1')
-    assert json.loads(response.data)['items'][0] == items[0]
+    response = client.get(f'/api/v1.0/items/{item_id}')
+    assert json.loads(response.data)['items'][0] == items[item_id-1]
     
-    response = client.get('/api/v1.0/items/2')
-    assert json.loads(response.data)['items'][0] == items[1]
-
-    response = client.get('/api/v1.0/items/3')
-    assert json.loads(response.data)['items'][0] == items[2]
-
     response = client.get('/api/v1.0/items/4')
     assert response.status_code == 404
 
 
-def test_post_item():
+@pytest.mark.parametrize('name, value, id', [
+    ('cd', 10, 4), 
+    ('mp3 player', 300, 5),
+    ('desk', 100, 6)
+])
+def test_post_item(name, value, id):
     client = app.app.test_client()
 
-    item = {'name': 'cd', 'value': 10}
+    item = {'name': name, 'value': value}
     response = client.post('/api/v1.0/items', data=json.dumps(item), content_type='application/json')
     assert response.status_code == 201
-    item['id'] = 4
-    assert json.loads(response.data)['item'] == item
-
-    item = {'name': 'mp3 player', 'value': 300}
-    response = client.post('/api/v1.0/items', data=json.dumps(item), content_type='application/json')
-    assert response.status_code == 201
-    item['id'] = 5
-    assert json.loads(response.data)['item'] == item
-
-    item = {'name': 'desk', 'value': 100}
-    response = client.post('/api/v1.0/items', data=json.dumps(item), content_type='application/json')
-    assert response.status_code == 201
-    item['id'] = 6
+    item['id'] = id
     assert json.loads(response.data)['item'] == item
 
 
-def test_update_item():
+@pytest.mark.parametrize('new_value, id', [
+    (3000, 1), 
+    (200, 2)
+])
+def test_update_item(new_value, id):
     client = app.app.test_client()
 
-    response = client.get('/api/v1.0/items/1')
+    response = client.get(f'/api/v1.0/items/{id}')
     item = json.loads(response.data)['items'][0]
-    item['value'] = 3000
-    response = client.put('/api/v1.0/items/1', data=json.dumps(item), content_type='application/json')
-    assert json.loads(response.data)['item'] == item
-
-    response = client.get('/api/v1.0/items/2')
-    item = json.loads(response.data)['items'][0]
-    item['value'] = 200
-    response = client.put('/api/v1.0/items/2', data=json.dumps(item), content_type='application/json')
+    item['value'] = new_value
+    response = client.put(f'/api/v1.0/items/{id}', data=json.dumps(item), content_type='application/json')
     assert json.loads(response.data)['item'] == item
 
 
