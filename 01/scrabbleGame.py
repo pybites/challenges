@@ -1,4 +1,4 @@
-rom data import *
+from data import *
 
 testWords = []
 
