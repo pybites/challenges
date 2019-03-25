@@ -1,11 +1,12 @@
+from typing import List
+
 from data import DICTIONARY, LETTER_SCORES
 
 
-def load_words():
+def load_words() -> List[str]:
     """Load dictionary into a list and return list"""
-    with open(DICTIONARY, 'r') as dictionary:
-        list_of_words = [word[:-1] for word in dictionary]
-        return list_of_words
+    with open(DICTIONARY, "r") as dictionary:
+        return dictionary.read().splitlines()
 
 
 def calc_word_value(word: str) -> int:
@@ -18,22 +19,18 @@ def calc_word_value(word: str) -> int:
     return score
 
 
-def max_word_value(list_of_words: list=None) -> str:
+def max_word_value(list_of_words: List[str] = load_words()) -> str:
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
-    best_word, best_score = "", 0
-    for word in list_of_words or load_words():
-        if calc_word_value(word) > best_score:
-            best_word = word
-            best_score = calc_word_value(word)
-    return best_word
+    return max(list_of_words, key=lambda word: calc_word_value(word))
 
 
 if __name__ == "__main__":
     list_of_words = load_words()
-    word = list_of_words[5]
+    word = list_of_words[42]
 
-    print(f"The word \"{word}\" is worth {calc_word_value(word)} points.")
-    print(f"The best word is \"{max_word_value(list_of_words)}\" with {calc_word_value(max_word_value(list_of_words))} points.")
-
-    pass  # run unittests to validate
+    print(f"The word '{word}' is worth {calc_word_value(word)} points.")
+    print(
+        f"The best word is '{max_word_value(list_of_words)}' with "
+        f"{calc_word_value(max_word_value(list_of_words))} points."
+    )
