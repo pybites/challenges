@@ -12,7 +12,7 @@ NUM_LETTERS = 7
 
 def draw_letters():
     """Pick NUM_LETTERS letters randomly. Hint: use stdlib random"""
-    pass
+    return [random.choice(POUCH) for i in range(NUM_LETTERS)]
 
 
 def input_word(draw):
@@ -76,4 +76,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    #main()
+    #print(POUCH)
+    print(draw_letters())
