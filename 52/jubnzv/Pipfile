@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+ipython = "*"
+
+[packages]
+wxpython = "==4.0.0b2"
+pgi = "*"
+
+[requires]
+python_version = "3.5.3"

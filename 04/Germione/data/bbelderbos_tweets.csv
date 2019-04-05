@@ -1,0 +1,123 @@
+id_str,created_at,text
+969833565776236544,2018-03-03 07:15:15,RT @_juliansequeira: It's finally here! The @pybites Bites of Py #Python code challenge platform is now open to subscription! The library i…
+969833518070104064,2018-03-03 07:15:04,RT @jcastle13: Day 53: Completed the PyBites Code Challenges | Bite 43. Force keyword arguments https://t.co/cTJGSDRezC. @Pybites100 #100Da…
+969830497852448768,2018-03-03 07:03:03,Free @PacktPub ebook of the day: Building Machine Learning Projects with TensorFlow - https://t.co/plr4ib8Vnc
+969468112025219072,2018-03-02 07:03:04,Free @PacktPub ebook of the day: Mastering C# and .NET Framework - https://t.co/plr4ib8Vnc
+969203189085073408,2018-03-01 13:30:21,"RT @RobHimself1982: @kennethreitz pulled up Hitchhikers Guide to Python on Amazon to buy, saw your website, went there, found your music an…"
+969184747862790144,2018-03-01 12:17:05,"@_juliansequeira @pybites It was, is and will be a blast! Thanks mate, keep it 'challenging' and fun"
+969180467667914753,2018-03-01 12:00:04,RT @pybites: Absolutely stoked to announce that our PyBites in-browser #code challenge platform is now 100% live! Subscribe to Bites of Py…
+969105721106116608,2018-03-01 07:03:03,Free @PacktPub ebook of the day: Principles of Data Science - https://t.co/plr4ib8Vnc
+968979245753094144,2018-02-28 22:40:29,RT @jcastle13: Day 50: Completed PyBites Code Challenges | Bite 32. Don't let mutability fool you https://t.co/yyiXPtymDQ &amp; PyBites Code Ch…
+968743333907652608,2018-02-28 07:03:03,Free @PacktPub ebook of the day: Angular Test-Driven Development - Second Edition - https://t.co/plr4ibqwLM
+968406838164230145,2018-02-27 08:45:57,RT @RobHimself1982: Day 51 of #100DaysOfCode and I just cracked Bite of Py 16. Special PyBites date generator - on behalf of @pybites I Cha…
+968406772808671233,2018-02-27 08:45:41,RT @jcastle13: Day 49: Completed PyBites Code Challenges | Bite 6. PyBites Die Hard https://t.co/dUh0LtKRE6 &amp; PyBites Code Challenges | Bit…
+968380943621918720,2018-02-27 07:03:03,Free @PacktPub ebook of the day: Docker Cookbook - https://t.co/plr4ibqwLM
+968242051174330368,2018-02-26 21:51:08,"RT @PyImageSearch: Fast, more accurate face detection with OpenCV's ""hidden"" deep learning face detector: https://t.co/QWRKoUq9Tv #Python #…"
+968018565302333440,2018-02-26 07:03:05,Free @PacktPub ebook of the day: Implementing DevOps on AWS - https://t.co/plr4ib8Vnc
+967656169132105728,2018-02-25 07:03:03,Free @PacktPub ebook of the day: React Design Patterns and Best Practices - https://t.co/plr4ib8Vnc
+967476411303940101,2018-02-24 19:08:45,"RT @pyconcharlas: Fin de semana, momento de despejar la mente, inspirarse y redactar su propuesta para #PyConCharlas ;) https://t.co/IF5Zbg…"
+967476320669224962,2018-02-24 19:08:24,RT @jcastle13: Day 48: Completed a practical python problem 11 (writhing a prime number checker function). Completed a project euler proble…
+967476228621037568,2018-02-24 19:08:02,"RT @python_tip: Keep a limited history of items with collections.deque:
+
+q = deque([1,2,3], maxlen=3)
+q.append(4)
+
+#python https://t.co/Z3p…"
+967476144701394944,2018-02-24 19:07:42,"RT @isccarrasco: I made a little example of an REST API in #python using #FLask #RESTPlus and #Swagger for documenting the API,  if you wan…"
+967476105878933504,2018-02-24 19:07:33,RT @brnkimani: I learned about @Rasa_HQ (Conversationa #AI) 3 days ago @pybites slack channel. Someone there shared this tutorial(Building…
+967476052120436736,2018-02-24 19:07:20,RT @TalkPython: Join me and @emilymorehouse in episode 152 of @talkpython where we make #Python's AST (abstract syntax tree) less abstract…
+967475853591539713,2018-02-24 19:06:32,RT @pybites: PyBites Newsletter - https://t.co/QaMfjnzPrC - Code Challenge 47 Winner - Mega Flask Tutorial - PyCon US 2018 - https://t.co/t…
+967475822914392065,2018-02-24 19:06:25,"RT @python_tip: You can name your slices:
+
+&gt;&gt;&gt; record = ""01234567890123456789I want this0123456789""
+&gt;&gt;&gt; IWANT = slice(20,31) 
+&gt;&gt;&gt; record[IW…"
+967475761153282051,2018-02-24 19:06:10,RT @mohhinder: Parse a log file? No problem... it was a bit more challenging than I first thought but had lots of fun cracking it.  Give it…
+967475739640688641,2018-02-24 19:06:05,RT @jcastle13: Day 47: Completed the PyBites Code Challenges | Bite 29. Martin's IQ test https://t.co/12AGxQ93bV. @Pybites100 #100DaysOfCode
+967475711220043776,2018-02-24 19:05:59,"RT @RobHimself1982: Dat 48 of #100DaysOfCode, still recovering from surgery but I just cracked Bite of Py 44. License key generator - on be…"
+967293783204184064,2018-02-24 07:03:04,Free @PacktPub ebook of the day: Mastering TypeScript - Second Edition - https://t.co/plr4ib8Vnc
+966931393123987456,2018-02-23 07:03:03,Free @PacktPub ebook of the day: Learning Concurrent Programming in Scala - Second Edition - https://t.co/plr4ib8Vnc
+966569004994199552,2018-02-22 07:03:03,Free @PacktPub ebook of the day: Learning Vulkan - https://t.co/plr4ib8Vnc
+966206621440409603,2018-02-21 07:03:04,Free @PacktPub ebook of the day: Bayesian Analysis with Python - https://t.co/plr4ibqwLM
+965844228281581568,2018-02-20 07:03:03,Free @PacktPub ebook of the day: OpenVPN Cookbook - Second Edition - https://t.co/plr4ib8Vnc
+965481843666468864,2018-02-19 07:03:03,Free @PacktPub ebook of the day: DevOps for Networking - https://t.co/plr4ib8Vnc
+965249524724879360,2018-02-18 15:39:54,RT @jcastle13: Day 43: Completed the PyBites Code Challenges | Bite 15. Enumerate 2 sequences https://t.co/iQsKxiO9eI.  I fell behind for t…
+965119453322031105,2018-02-18 07:03:03,Free @PacktPub ebook of the day: AWS Administration - The Definitive Guide - https://t.co/plr4ib8Vnc
+964757066404438016,2018-02-17 07:03:03,Free @PacktPub ebook of the day: PowerShell Troubleshooting Guide - https://t.co/plr4ib8Vnc
+964394680803717123,2018-02-16 07:03:04,Free @PacktPub ebook of the day: Mastering PHP Design Patterns - https://t.co/plr4ib8Vnc
+964206237075173376,2018-02-15 18:34:15,RT @RobHimself1982: Day 45 of #100DaysOfCode and I just cracked Bite of Py 22. Write a decorator with argument - on behalf of @pybites I Ch…
+964149105869119488,2018-02-15 14:47:14,RT @testdrivenio: Behavior-Driven Development with Django and Aloe &gt;&gt; https://t.co/EUnupL2kqq #Python #Django #BDD
+964032294531952642,2018-02-15 07:03:04,Free @PacktPub ebook of the day: Go Design Patterns - https://t.co/plr4ib8Vnc
+963924023209086977,2018-02-14 23:52:50,Loving Vim’s macro recording/reply and persistent undo https://t.co/UCrANTg4tY #vim
+963923854769950721,2018-02-14 23:52:10,"RT @RobHimself1982: Day 44 of #100DaysOfCode -  I'm working on a @pybites bite of py, ""Write a decorator with argument"". I'm not bad at it…"
+963669903571025920,2018-02-14 07:03:03,Free @PacktPub ebook of the day: Go Programming Blueprints - Second Edition - https://t.co/plr4ibqwLM
+963388966354464768,2018-02-13 12:26:43,"@FerroRodolfo @pybites @richard016 awesome, thanks for the video message and well diserved for your PyBites data an… https://t.co/IxhSkoR0EN"
+963388692143407106,2018-02-13 12:25:37,"RT @FerroRodolfo: Thank you @pybites for this gift!
+#PCC47 Let's keep doing Pythonic stuff!
+Thank you @richard016 for ypur support. :) http…"
+963307517760565248,2018-02-13 07:03:04,Free @PacktPub ebook of the day: Mastering Wireshark - https://t.co/plr4ib8Vnc
+962945124551372800,2018-02-12 07:03:03,Free @PacktPub ebook of the day: Learning PySpark - https://t.co/plr4ib8Vnc
+962664408534175744,2018-02-11 12:27:35,"@_juliansequeira Thanks, great way to keep up. Hope to get some time to provide more tooling doing PCC48 :)"
+962664153491046400,2018-02-11 12:26:34,RT @saykharng_n: @pybites Completed challenges from 1-5. Thanks guys for creating these challenges. They are really well designed and chall…
+962664131768868865,2018-02-11 12:26:29,RT @pybites: Doing #100DaysOfCode and exhausted inspiration? Try a bite of #Python at https://t.co/fox6ullpji
+962664110054891521,2018-02-11 12:26:23,RT @RobHimself1982: Day 39 of #100DaysOfCode and I just cracked Bite of Py 39. Calculate the total duration of a course - on behalf of @pyb…
+962664100395470848,2018-02-11 12:26:21,"RT @pycon: Our Tutorial Schedule is live! You can find a list of tutorials and their details at https://t.co/BNZoatxl7t.
+
+When you've picke…"
+962664067633688576,2018-02-11 12:26:13,"RT @jcastle13: Day 39: Completed 3 more exercise problems from @practice_python.  Last problem I'm working on is a rock, paper, scissor gam…"
+962664043667435521,2018-02-11 12:26:08,RT @pybites: #Django Tips #22 Designing Better Models https://t.co/wGTIV5Sy0e via @vitorfs
+962664021479608321,2018-02-11 12:26:02,"RT @CodeWisdom: ""Debugging is like being the detective in a crime movie where you are also the murderer."" - Filipe Fortes"
+962664007852314630,2018-02-11 12:25:59,"RT @pybites: Too busy to keep up with the news? No worries, here is another edition of our weekly #Python news digest:
+
+Twitter Digest 2018…"
+962663993616797697,2018-02-11 12:25:56,"RT @pybites: Here is a little Python workout for this Sunday - write a simple decorator:
+https://t.co/izVV2VfY2f https://t.co/PT23sQTjrL"
+962582739462455296,2018-02-11 07:03:03,Free @PacktPub ebook of the day: Delphi Cookbook - Second Edition - https://t.co/plr4ib8Vnc
+962361268962254849,2018-02-10 16:23:00,RT @_juliansequeira: @mkennedy Why didn't you tell me about cmder sooner?! I can't believe what I've been missing out on! I've seen the lig…
+962361142554308608,2018-02-10 16:22:30,RT @marcelowmora: I just cracked Bite of Py 5. Parse a list of names - on behalf of @pybites I Challenge You!  https://t.co/IwJ1JQlttn #Pyt…
+962361088494002177,2018-02-10 16:22:17,RT @jcastle13: I received my certificate of completion.  Yay!! @pybites #100DaysOfCode https://t.co/8dra6S7xTe
+962220349923315712,2018-02-10 07:03:03,Free @PacktPub ebook of the day: Angular 2 Cookbook - https://t.co/plr4ib8Vnc
+961857963286671360,2018-02-09 07:03:03,Free @PacktPub ebook of the day: Learning Vue.js 2 - https://t.co/plr4ib8Vnc
+961834493093994499,2018-02-09 05:29:47,RT @pyconcharlas: ¿A quién te gustaría ver en #PyConCharlas? ¡Platícanos en este hilo! Recuerda que la convocatoria sigue abierta https://t…
+961834429705437184,2018-02-09 05:29:32,@Eduardo_Almazan @FerroRodolfo nos vemos alli?!
+961834279872339971,2018-02-09 05:28:56,"RT @pybites: “Coding style matters, the importance of PEP8” by @bbelderbos https://t.co/UO64scQxRi"
+961495573848190976,2018-02-08 07:03:03,Free @PacktPub ebook of the day: Building an RPG with Unity 5.x - https://t.co/plr4ib8Vnc
+961133195734519809,2018-02-07 07:03:05,Free @PacktPub ebook of the day: Programming Kotlin - https://t.co/plr4ibqwLM
+960770800738430976,2018-02-06 07:03:03,Free @PacktPub ebook of the day: Node.js Design Patterns - Second Edition - https://t.co/plr4ib8Vnc
+960408411878801408,2018-02-05 07:03:03,Free @PacktPub ebook of the day: Learning OpenCV 3 Computer Vision with Python - Second Edition - https://t.co/plr4ib8Vnc
+960056091764719616,2018-02-04 07:43:03,RT @markokoron: Tips to Become a Better #Python Developer cheat sheet. Get your own @pybites https://t.co/qYEn1WuCEK
+960055265264590848,2018-02-04 07:39:46,RT @jcastle13: Day 32-33: Completed the BMI calculator app by using Flask framework.  I'm having issues trying to deploy the app through He…
+960046021433634816,2018-02-04 07:03:02,Free @PacktPub ebook of the day: PostgreSQL 9 High Availability Cookbook - https://t.co/plr4ib8Vnc
+959683637296865280,2018-02-03 07:03:03,Free @PacktPub ebook of the day: .NET Design Patterns - https://t.co/plr4ib8Vnc
+959321247602507776,2018-02-02 07:03:03,Free @PacktPub ebook of the day: Mastering Qt 5 - https://t.co/plr4ib8Vnc
+959133043238866944,2018-02-01 18:35:11,RT @PyConES: La #PyConES18 está llegando. ¡Pronto novedades! 😉 https://t.co/PSuTpxdSjQ
+959133006484078592,2018-02-01 18:35:03,"RT @malaga_python: ¡La #PyConES18 será en Málaga del 5 al 7 de octubre! Suscríbete en su web y sé el primero en conocer las novedades.
+
+Per…"
+959041546158034944,2018-02-01 12:31:37,"@_juliansequeira @OReillyMedia @dabeaz @pybites haha cool, prepare to learn a lot of awesome #Python tricks and concepts!"
+959041374510305280,2018-02-01 12:30:56,RT @_juliansequeira: Total surprise when I came home today! You're a champion @bbelderbos! Thanks so much for this! Time to cook some #Pyth…
+958958859028058112,2018-02-01 07:03:03,Free @PacktPub ebook of the day: Ionic 2 Cookbook - Second Edition - https://t.co/plr4ib8Vnc
+958602332895432704,2018-01-31 07:26:20,"RT @RobHimself1982: Day 29 of #100DaysOfCode and I'm onto @pybites blog challenge 4 with classes, magic dunders and the twitter API. Got me…"
+958602079299407872,2018-01-31 07:25:20,RT @dbader_org: Thanks Jeff Bezos! Amazon is offering a random 30% discount on Python Tricks: The Book right now. Get it while it's hot: ht…
+958596474044116992,2018-01-31 07:03:03,Free @PacktPub ebook of the day: Practical Machine Learning - https://t.co/plr4ibqwLM
+958234084798427136,2018-01-30 07:03:03,Free @PacktPub ebook of the day: Kali Linux Wireless Penetration Testing: Beginner's Guide - https://t.co/plr4ib8Vnc
+957940551189483520,2018-01-29 11:36:39,"RT @pybites: Learn how @Mridu__ uses Feedparser, Difflib and Plotly to solve
+#Python Code Challenge 03 - ""PyBites Blog Tag Analysis"" - http…"
+957871695192244224,2018-01-29 07:03:03,Free @PacktPub ebook of the day: Mastering Metasploit - https://t.co/plr4ib8Vnc
+957509310094831616,2018-01-28 07:03:03,Free @PacktPub ebook of the day: Learning Python Application Development - https://t.co/plr4ib8Vnc
+957146921285533696,2018-01-27 07:03:03,Free @PacktPub ebook of the day: Java Deep Learning Essentials - https://t.co/plr4ib8Vnc
+956784530915868672,2018-01-26 07:03:03,Free @PacktPub ebook of the day: Learning Python - https://t.co/plr4ib8Vnc
+956422143465570304,2018-01-25 07:03:03,Free @PacktPub ebook of the day: DevOps for Networking - https://t.co/plr4ib8Vnc
+956132964609482754,2018-01-24 11:53:57,RT @LindaLawtonDK: Thats not funny #javascript https://t.co/t8gJhhDQaS
+956132421539454976,2018-01-24 11:51:48,RT @_juliansequeira: Take up the challenge! https://t.co/eoSkYXkgnQ
+956062253639487488,2018-01-24 07:12:58,RT @RealPython: Check out this brand new #Python web scraping tutorial we just posted: https://t.co/uodtGYg8af
+956062229849432066,2018-01-24 07:12:53,RT @pybites: “A brief tour of Python 3.7 data classes” by @anthonypjshaw https://t.co/ClOABPFZkj
+956062121548185603,2018-01-24 07:12:27,"RT @python_tip: Use #pathlib for recursive globbing:
+&gt;&gt;&gt; import pathlib
+&gt;&gt;&gt; images = pathlib.Path('/mypath/').glob('**/*.png')
+&gt;&gt;&gt; list(ima…"
+956062106482282497,2018-01-24 07:12:23,RT @RobHimself1982: Day 22 of #100DaysOfCode solved yesterday's problems I had with a pair of functions. Now I've got problems with other o…
+956061947660767233,2018-01-24 07:11:45,RT @juzerali: I just cracked Bite of Py 5. Parse a list of names - on behalf of @pybites I Challenge You!  https://t.co/okaqU7TGr6 #Python…
+956061936214519808,2018-01-24 07:11:43,RT @Joao_Santanna: I just cracked Bite of Py 8. Rotate string characters - on behalf of @pybites I Challenge You!  https://t.co/BprU1bqndU…
+956059756950687746,2018-01-24 07:03:03,Free @PacktPub ebook of the day: SFML Game Development By Example - https://t.co/plr4ibqwLM
+955697371622486016,2018-01-23 07:03:04,Free @PacktPub ebook of the day: Practical Internet of Things Security - https://t.co/plr4ib8Vnc

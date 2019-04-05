@@ -1,0 +1,507 @@
+{
+ "title": "100 Days of Awesome Python",
+ "version": 0.1,
+ "github_repo": "https://github.com/pybites/100DaysOfCode",
+ "tasks": [
+  {
+   "day": 1,
+   "activity": "Try out awesome library PyPattyrn at https://github.com/tylerlaberge/PyPattyrn - A simple yet effective library for implementing common design patterns.",
+   "done": false
+  },
+  {
+   "day": 2,
+   "activity": "Try out awesome library bidict at https://github.com/jab/bidict - Efficient, Pythonic bidirectional map data structures and related functionality..",
+   "done": false
+  },
+  {
+   "day": 3,
+   "activity": "Try out awesome library valideer at https://github.com/podio/valideer - Lightweight extensible data validation and adaptation library.",
+   "done": false
+  },
+  {
+   "day": 4,
+   "activity": "Try out awesome library Plan at https://github.com/fengsp/plan - Writing crontab file in Python like a charm.",
+   "done": false
+  },
+  {
+   "day": 5,
+   "activity": "Try out awesome library django-wordpress at https://github.com/istrategylabs/django-wordpress - WordPress models and views for Django.",
+   "done": false
+  },
+  {
+   "day": 6,
+   "activity": "Try out awesome library short_url at https://github.com/Alir3z4/python-short_url - Python implementation for generating Tiny URL and bit.ly-like URLs.",
+   "done": false
+  },
+  {
+   "day": 7,
+   "activity": "Try out awesome library sanitize at https://github.com/Alir3z4/python-sanitize - Bringing sanity to world of messed-up data.",
+   "done": false
+  },
+  {
+   "day": 8,
+   "activity": "Try out awesome library django-elastic-transcoder at https://github.com/StreetVoice/django-elastic-transcoder - Django + [Amazon Elastic Transcoder](https://aws.amazon.com/elastictranscoder/).",
+   "done": false
+  },
+  {
+   "day": 9,
+   "activity": "Try out awesome library dotted at https://github.com/carlosescri/DottedDict - A library that provides a method of accessing lists and dicts with a dotted path notation.",
+   "done": false
+  },
+  {
+   "day": 10,
+   "activity": "Try out awesome library Python-Modernize at https://github.com/mitsuhiko/python-modernize - Modernizes Python code for eventual Python 3 migration.",
+   "done": false
+  },
+  {
+   "day": 11,
+   "activity": "Try out awesome library alipay at https://github.com/lxneng/alipay - Unofficial Alipay API for Python.",
+   "done": false
+  },
+  {
+   "day": 12,
+   "activity": "Try out awesome library python-currencies at https://github.com/Alir3z4/python-currencies - Display money format and its filthy currencies.",
+   "done": false
+  },
+  {
+   "day": 13,
+   "activity": "Try out awesome library forex-python at https://github.com/MicroPyramid/forex-python - Foreign exchange rates, Bitcoin price index and currency conversion.",
+   "done": false
+  },
+  {
+   "day": 14,
+   "activity": "Try out awesome library funcy at https://github.com/Suor/funcy - A fancy and practical functional tools.",
+   "done": false
+  },
+  {
+   "day": 15,
+   "activity": "Try out awesome library django-countries at https://github.com/SmileyChris/django-countries - A Django app that provides country choices for use with forms, flag icons static files, and a country field for models.",
+   "done": false
+  },
+  {
+   "day": 16,
+   "activity": "Try out awesome library MarkupSafe at https://github.com/pallets/markupsafe - Implements a XML/HTML/XHTML Markup safe string for Python.",
+   "done": false
+  },
+  {
+   "day": 17,
+   "activity": "Try out awesome library txZMQ at https://github.com/smira/txZMQ - Twisted based wrapper for the ZeroMQ message library.",
+   "done": false
+  },
+  {
+   "day": 18,
+   "activity": "Try out awesome library pyshorteners at https://github.com/ellisonleao/pyshorteners - A pure Python URL shortening lib.",
+   "done": false
+  },
+  {
+   "day": 19,
+   "activity": "Try out awesome library Demiurge at https://github.com/matiasb/demiurge - PyQuery-based scraping micro-framework.",
+   "done": false
+  },
+  {
+   "day": 20,
+   "activity": "Try out awesome library jinja-assets-compressor at https://github.com/jaysonsantos/jinja-assets-compressor - A Jinja extension to compile and compress your assets.",
+   "done": false
+  },
+  {
+   "day": 21,
+   "activity": "Try out awesome library tinytag at https://github.com/devsnd/tinytag - A library for reading music meta data of MP3, OGG, FLAC and Wave files.",
+   "done": false
+  },
+  {
+   "day": 22,
+   "activity": "Try out awesome library Tomorrow at https://github.com/madisonmay/Tomorrow - Magic decorator syntax for asynchronous code.",
+   "done": false
+  },
+  {
+   "day": 23,
+   "activity": "Try out awesome library PyICU at https://github.com/ovalhub/pyicu - A wrapper of International Components for Unicode C++ library ([ICU](http://site.icu-project.org/)).",
+   "done": false
+  },
+  {
+   "day": 24,
+   "activity": "Try out awesome library simpleq at https://github.com/rdegges/simpleq - A simple, infinitely scalable, Amazon SQS based queue.",
+   "done": false
+  },
+  {
+   "day": 25,
+   "activity": "Try out awesome library PythonRobotics at https://github.com/AtsushiSakai/PythonRobotics - This is a compilation of various robotics algorithms with visualizations.",
+   "done": false
+  },
+  {
+   "day": 26,
+   "activity": "Try out awesome library scikit-video at https://github.com/aizvorski/scikit-video - Video processing routines for SciPy.",
+   "done": false
+  },
+  {
+   "day": 27,
+   "activity": "Try out awesome library audiolazy at https://github.com/danilobellini/audiolazy - Expressive Digital Signal Processing (DSP) package for Python.",
+   "done": false
+  },
+  {
+   "day": 28,
+   "activity": "Try out awesome library django-viewlet at https://github.com/5monkeys/django-viewlet - Render template parts with extended cache control.",
+   "done": false
+  },
+  {
+   "day": 29,
+   "activity": "Try out awesome library pytesseract at https://github.com/madmaze/pytesseract - Another wrapper for [Google Tesseract OCR](https://github.com/tesseract-ocr).",
+   "done": false
+  },
+  {
+   "day": 30,
+   "activity": "Try out awesome library Chronyk at https://github.com/KoffeinFlummi/Chronyk - A Python 3 library for parsing human-written times and dates.",
+   "done": false
+  },
+  {
+   "day": 31,
+   "activity": "Try out awesome library path.py at https://github.com/jaraco/path.py - A module wrapper for [os.path](https://docs.python.org/3/library/os.path.html).",
+   "done": false
+  },
+  {
+   "day": 32,
+   "activity": "Try out awesome library CLPython at https://github.com/metawilm/cl-python - Implementation of the Python programming language written in Common Lisp.",
+   "done": false
+  },
+  {
+   "day": 33,
+   "activity": "Try out awesome library Carteblanche at https://github.com/neuman/python-carteblanche/ - Module to align code with thoughts of users and designers. Also magically handles navigation and permissions.",
+   "done": false
+  },
+  {
+   "day": 34,
+   "activity": "Try out awesome library purl at https://github.com/codeinthehole/purl - A simple, immutable URL class with a clean API for interrogation and manipulation.",
+   "done": false
+  },
+  {
+   "day": 35,
+   "activity": "Try out awesome library hashids at https://github.com/davidaurelio/hashids-python - Implementation of [hashids](http://hashids.org) in Python.",
+   "done": false
+  },
+  {
+   "day": 36,
+   "activity": "Try out awesome library TinyDB at https://github.com/msiemens/tinydb - A tiny, document-oriented database.",
+   "done": false
+  },
+  {
+   "day": 37,
+   "activity": "Try out awesome library money at https://github.com/carlospalol/money - Money class with optional CLDR-backed locale-aware formatting and an extensible currency exchange solution.",
+   "done": false
+  },
+  {
+   "day": 38,
+   "activity": "Try out awesome library Unipath at https://github.com/mikeorr/Unipath - An object-oriented approach to file/directory operations.",
+   "done": false
+  },
+  {
+   "day": 39,
+   "activity": "Try out awesome library pygeoip at https://github.com/appliedsec/pygeoip - Pure Python GeoIP API.",
+   "done": false
+  },
+  {
+   "day": 40,
+   "activity": "Try out awesome library pysolr at https://github.com/django-haystack/pysolr - A lightweight Python wrapper for Apache Solr (incl. SolrCloud awareness).",
+   "done": false
+  },
+  {
+   "day": 41,
+   "activity": "Try out awesome library furl at https://github.com/gruns/furl - A small Python library that makes parsing and manipulating URLs easy.",
+   "done": false
+  },
+  {
+   "day": 42,
+   "activity": "Try out awesome library vowpal_porpoise at https://github.com/josephreisinger/vowpal_porpoise - A lightweight Python wrapper for [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/).",
+   "done": false
+  },
+  {
+   "day": 43,
+   "activity": "Try out awesome library facepy at https://github.com/jgorset/facepy - Facepy makes it really easy to interact with Facebook's Graph API",
+   "done": false
+  },
+  {
+   "day": 44,
+   "activity": "Try out awesome library Box at https://github.com/cdgriffith/Box - Python dictionaries with advanced dot notation access.",
+   "done": false
+  },
+  {
+   "day": 45,
+   "activity": "Try out awesome library python-decouple at https://github.com/henriquebastos/python-decouple - Strict separation of settings from code.",
+   "done": false
+  },
+  {
+   "day": 46,
+   "activity": "Try out awesome library Optimus at https://github.com/ironmussa/Optimus - Cleansing, pre-processing, feature engineering, exploratory data analysis and easy Machine Learning with a PySpark backend.",
+   "done": false
+  },
+  {
+   "day": 47,
+   "activity": "Try out awesome library nude.py at https://github.com/hhatto/nude.py - Nudity detection.",
+   "done": false
+  },
+  {
+   "day": 48,
+   "activity": "Try out awesome library python-patterns at https://github.com/faif/python-patterns - A collection of design patterns in Python.",
+   "done": false
+  },
+  {
+   "day": 49,
+   "activity": "Try out awesome library uvloop at https://github.com/MagicStack/uvloop - Ultra fast implementation of asyncio event loop on top of libuv.",
+   "done": false
+  },
+  {
+   "day": 50,
+   "activity": "Try out awesome library maya at https://github.com/kennethreitz/maya - Datetimes for Humans, Maya is mostly built around the headaches and use-cases around parsing datetime data from websites.",
+   "done": false
+  },
+  {
+   "day": 51,
+   "activity": "Try out awesome library grequests at https://github.com/kennethreitz/grequests - requests + gevent for asynchronous HTTP requests.",
+   "done": false
+  },
+  {
+   "day": 52,
+   "activity": "Try out awesome library Metrics at https://github.com/benhamner/Metrics - Machine learning evaluation metrics.",
+   "done": false
+  },
+  {
+   "day": 53,
+   "activity": "Try out awesome library annoy at https://github.com/spotify/annoy - Approximate Nearest Neighbors in C++/Python optimized for memory usage.",
+   "done": false
+  },
+  {
+   "day": 54,
+   "activity": "Try out awesome library Haul at https://github.com/vinta/Haul - An Extensible Image Crawler.",
+   "done": false
+  },
+  {
+   "day": 55,
+   "activity": "Try out awesome library lassie at https://github.com/michaelhelmick/lassie - Web Content Retrieval for Humans.",
+   "done": false
+  },
+  {
+   "day": 56,
+   "activity": "Try out awesome library gunnery at https://github.com/gunnery/gunnery - Multipurpose task execution tool for distributed systems with web-based interface.",
+   "done": false
+  },
+  {
+   "day": 57,
+   "activity": "Try out awesome library netius at https://github.com/hivesolutions/netius - Asynchronous, very fast.",
+   "done": false
+  },
+  {
+   "day": 58,
+   "activity": "Try out awesome library PyTorch-NLP at https://github.com/PetrochukM/PyTorch-NLP - A toolkit enabling rapid deep learning NLP prototyping for research.",
+   "done": false
+  },
+  {
+   "day": 59,
+   "activity": "Try out awesome library TensorRec at https://github.com/jfkirk/tensorrec - A Recommendation Engine Framework in TensorFlow.",
+   "done": false
+  },
+  {
+   "day": 60,
+   "activity": "Try out awesome library bccb at https://github.com/chapmanb/bcbb - Collection of useful code related to biological analysis.",
+   "done": false
+  },
+  {
+   "day": 61,
+   "activity": "Try out awesome library python-readability at https://github.com/buriy/python-readability - Fast Python port of arc90's readability tool.",
+   "done": false
+  },
+  {
+   "day": 62,
+   "activity": "Try out awesome library django-remote-forms at https://github.com/WiserTogether/django-remote-forms - A platform independent Django form serializer.",
+   "done": false
+  },
+  {
+   "day": 63,
+   "activity": "Try out awesome library PySec at https://github.com/ebranca/owasp-pysec - Hardened version of python that makes it easier for security professionals and developers to write applications more resilient to attacks and manipulations.",
+   "done": false
+  },
+  {
+   "day": 64,
+   "activity": "Try out awesome library esengine at https://github.com/seek-ai/esengine - ElasticSearch ODM (Object Document Mapper) for Python.",
+   "done": false
+  },
+  {
+   "day": 65,
+   "activity": "Try out awesome library django-cacheops at https://github.com/Suor/django-cacheops - A slick ORM cache with automatic granular event-driven invalidation.",
+   "done": false
+  },
+  {
+   "day": 66,
+   "activity": "Try out awesome library moment at https://github.com/zachwill/moment - A Python library for dealing with dates/times. Inspired by [Moment.js](http://momentjs.com/).",
+   "done": false
+  },
+  {
+   "day": 67,
+   "activity": "Try out awesome library python-qrcode at https://github.com/lincolnloop/python-qrcode - A pure Python QR Code generator.",
+   "done": false
+  },
+  {
+   "day": 68,
+   "activity": "Try out awesome library blinker at https://github.com/jek/blinker - A fast Python in-process signal/event dispatching system.",
+   "done": false
+  },
+  {
+   "day": 69,
+   "activity": "Try out awesome library diesel at https://github.com/dieseldev/diesel - Greenlet-based event I/O Framework for Python.",
+   "done": false
+  },
+  {
+   "day": 70,
+   "activity": "Try out awesome library delegator.py at https://github.com/kennethreitz/delegator.py - [Subprocesses](https://docs.python.org/3.6/library/subprocess.html) for Humans\u2122 2.0.",
+   "done": false
+  },
+  {
+   "day": 71,
+   "activity": "Try out awesome library TimeSide at https://github.com/Parisson/TimeSide - Open web audio processing framework.",
+   "done": false
+  },
+  {
+   "day": 72,
+   "activity": "Try out awesome library PyFilesystem2 at https://github.com/pyfilesystem/pyfilesystem2 - Python's filesystem abstraction layer.",
+   "done": false
+  },
+  {
+   "day": 73,
+   "activity": "Try out awesome library untangle at https://github.com/stchris/untangle - Converts XML documents to Python objects for easy access.",
+   "done": false
+  },
+  {
+   "day": 74,
+   "activity": "Try out awesome library libffm at https://github.com/guestwalk/libffm - A library for Field-aware Factorization Machine (FFM).",
+   "done": false
+  },
+  {
+   "day": 75,
+   "activity": "Try out awesome library sumy at https://github.com/miso-belica/sumy - A module for automatic summarization of text documents and HTML pages.",
+   "done": false
+  },
+  {
+   "day": 76,
+   "activity": "Try out awesome library cola at https://github.com/chineking/cola - A distributed crawling framework.",
+   "done": false
+  },
+  {
+   "day": 77,
+   "activity": "Try out awesome library geojson at https://github.com/frewsxcv/python-geojson - Python bindings and utilities for GeoJSON.",
+   "done": false
+  },
+  {
+   "day": 78,
+   "activity": "Try out awesome library bleach at https://github.com/mozilla/bleach - A whitelist-based HTML sanitization and text linkification library.",
+   "done": false
+  },
+  {
+   "day": 79,
+   "activity": "Try out awesome library langid.py at https://github.com/saffsd/langid.py - Stand-alone language identification system.",
+   "done": false
+  },
+  {
+   "day": 80,
+   "activity": "Try out awesome library django-rules at https://github.com/dfunckt/django-rules - A tiny but powerful app providing object-level permissions to Django, without requiring a database.",
+   "done": false
+  },
+  {
+   "day": 81,
+   "activity": "Try out awesome library MechanicalSoup at https://github.com/hickford/MechanicalSoup - A Python library for automating interaction with websites.",
+   "done": false
+  },
+  {
+   "day": 82,
+   "activity": "Try out awesome library pyechonest at https://github.com/echonest/pyechonest - Python client for the [Echo Nest](http://static.echonest.com/enspex/) API.",
+   "done": false
+  },
+  {
+   "day": 83,
+   "activity": "Try out awesome library p at https://github.com/qw3rtman/p - Dead simple interactive Python version management.",
+   "done": false
+  },
+  {
+   "day": 84,
+   "activity": "Try out awesome library CyToolz at https://github.com/pytoolz/cytoolz/ - Cython implementation of Toolz: High performance functional utilities.",
+   "done": false
+  },
+  {
+   "day": 85,
+   "activity": "Try out awesome library Eel at https://github.com/ChrisKnott/Eel - Little library for making simple Electron-like offline HTML/JS GUI apps, with full access to Python capabilities and libraries.",
+   "done": false
+  },
+  {
+   "day": 86,
+   "activity": "Try out awesome library Spiff at https://github.com/knipknap/SpiffWorkflow - A powerful workflow engine implemented in pure Python.",
+   "done": false
+  },
+  {
+   "day": 87,
+   "activity": "Try out awesome library facebook-sdk at https://github.com/mobolic/facebook-sdk - Facebook Platform Python SDK.",
+   "done": false
+  },
+  {
+   "day": 88,
+   "activity": "Try out awesome library webargs at https://github.com/sloria/webargs - A friendly library for parsing HTTP request arguments, with built-in support for popular web frameworks, including Flask, Django, Bottle, Tornado, and Pyramid.",
+   "done": false
+  },
+  {
+   "day": 89,
+   "activity": "Try out awesome library flask-assets at https://github.com/miracle2k/flask-assets - Helps you integrate webassets into your Flask app.",
+   "done": false
+  },
+  {
+   "day": 90,
+   "activity": "Try out awesome library django-cache-machine at https://github.com/django-cache-machine/django-cache-machine - Automatic caching and invalidation for Django models.",
+   "done": false
+  },
+  {
+   "day": 91,
+   "activity": "Try out awesome library solrpy at https://github.com/edsu/solrpy - A Python client for [solr](http://lucene.apache.org/solr/).",
+   "done": false
+  },
+  {
+   "day": 92,
+   "activity": "Try out awesome library m3u8 at https://github.com/globocom/m3u8 - A module for parsing m3u8 file.",
+   "done": false
+  },
+  {
+   "day": 93,
+   "activity": "Try out awesome library pyocr at https://github.com/openpaperwork/pyocr - A wrapper for Tesseract and Cuneiform.",
+   "done": false
+  },
+  {
+   "day": 94,
+   "activity": "Try out awesome library dh-virtualenv at https://github.com/spotify/dh-virtualenv - Build and distribute a virtualenv as a Debian package.",
+   "done": false
+  },
+  {
+   "day": 95,
+   "activity": "Try out awesome library lamson at https://github.com/zedshaw/lamson - Pythonic SMTP Application Server.",
+   "done": false
+  },
+  {
+   "day": 96,
+   "activity": "Try out awesome library algorithms at https://github.com/keon/algorithms - Minimal examples of data structures and algorithms in Python.",
+   "done": false
+  },
+  {
+   "day": 97,
+   "activity": "Try out awesome library honcho at https://github.com/nickstenning/honcho - A Python clone of [Foreman](https://github.com/ddollar/foreman), for managing Procfile-based applications.",
+   "done": false
+  },
+  {
+   "day": 98,
+   "activity": "Try out awesome library Cartridge at https://github.com/stephenmcd/cartridge - A shopping cart app built using the Mezzanine.",
+   "done": false
+  },
+  {
+   "day": 99,
+   "activity": "Try out awesome library fn.py at https://github.com/kachayev/fn.py - Functional programming in Python: implementation of missing features to enjoy FP.",
+   "done": false
+  },
+  {
+   "day": 100,
+   "activity": "Try out awesome library PeachPy at https://github.com/Maratyszcza/PeachPy - x86-64 assembler embedded in Python. Can be used as inline assembler for Python or as a stand-alone assembler for Windows, Linux, OS X, Native Client and Go.",
+   "done": false
+  }
+ ]
+}

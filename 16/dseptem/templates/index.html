@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+		<!-- BASICS -->
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Wisdom of the Ages</title>
+		<link rel="icon" href="static/favicon.ico">
+        <meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/static/css/isotope.css" media="screen" />
+		<!--<link rel="stylesheet" href="static/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />-->
+		<link rel="stylesheet" href="static/css/bootstrap.css">
+		<link rel="stylesheet" href="static/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="static/css/style.css">
+		<!-- skin -->
+		<link rel="stylesheet" href="static/skin/default.css">
+        <!-- =======================================================
+            Theme Name: Amoeba
+            Theme URL: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/
+            Author: BootstrapMade
+            Author URL: https://bootstrapmade.com
+        ======================================================= -->
+		<script>
+		function Refresh() {
+			location.reload();
+		}
+		</script>
+    </head>
+	 
+    <body>
+		<section class="featured">
+			<div class="container"> 
+				<div class="row mar-bot40">
+					<div class="col-md-6 col-md-offset-3">
+						
+						<div class="align-center">
+							<h2 class="slogan">Wisdom of the Ages</h2>
+							<br>
+							{% if quote %}
+							<h2>
+							{{ quote }}
+							</h2>
+							{% if author %}
+								<h2>-{{ author }}</h2>
+								<br>
+							{% else %}
+								<h2>-Anonymous</h2>
+								<br>
+							{% endif %}
+							<button type="button" class="btn btn-info btn-lg" onClick="Refresh()">Another Quote!</button>
+							<br>
+							<br>
+							<p>{{bio}}</p>
+							{% else %}
+							<h2>
+								{{ error }}
+								<br>
+								<button type="button" class="btn btn-info btn-lg" onClick="Refresh()">Try again!</button>
+							</h2>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Data Storage</h1>
+        <p>Allow save and delete some data</p>
+    </div>
+    <div class="navbar">
+        <a href="{{ url_for('data_enter') }}">Data Enter</a>
+        <a href="{{ url_for('list') }}">List</a>
+    </div>
+        
+    {% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+appdirs==1.4.3
+attrs==18.2.0
+black==18.9b0
+certifi==2018.10.15
+chardet==3.0.4
+Click==7.0
+idna==2.7
+praw==6.0.0
+prawcore==1.0.0
+python-dotenv==0.9.1
+requests==2.20.0
+toml==0.10.0
+update-checker==0.16
+urllib3==1.24
