@@ -18,13 +18,24 @@ def draw_letters():
 def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
-    pass 
-
-
+       
+    while True:
+        input_word = input('Form a Valid Word: ').upper()
+        try:
+            return _validation(input_word,draw)
+        except ValueError as e:
+            print(e)
+            continue
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    pass
+    for letter in word:
+        if letter not in draw:
+            raise ValueError('{} is not from given Draw'.format(word))
+    if word.lower() not in DICTIONARY:
+        raise ValueError('{} Not Found in the Dictionary'.format(word))
+    return word
+        
 
 
 # From challenge 01:
@@ -40,13 +51,22 @@ def calc_word_value(word):
 def get_possible_dict_words(draw):
     """Get all possible words from draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
-    pass
+    result = []
+    possible_words = _get_permutations_draw(draw)
+    for word in possible_words:
+        #print(''.join(word))
+        if ''.join(word).lower() in DICTIONARY:
+            result.append(''.join(word).lower())
+    return result
 
 
 def _get_permutations_draw(draw):
     """Helper for get_possible_dict_words to get all permutations of draw letters.
     Hint: use itertools.permutations"""
-    pass
+    result = []
+    for num in range(1,len(draw)):
+        result.extend(itertools.permutations(draw,num))
+    return set(result)
 
 
 # From challenge 01:
@@ -76,6 +96,4 @@ def main():
 
 
 if __name__ == "__main__":
-    #main()
-    #print(POUCH)
-    print(draw_letters())
+    main()
