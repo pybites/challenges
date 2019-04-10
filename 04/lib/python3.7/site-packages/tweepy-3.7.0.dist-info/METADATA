@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: tweepy
+Version: 3.7.0
+Summary: Twitter library for python
+Home-page: http://github.com/tweepy/tweepy
+Author: Joshua Roesslein
+Author-email: tweepy@googlegroups.com
+License: MIT
+Keywords: twitter library
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
+Requires-Dist: requests (>=2.11.1)
+Requires-Dist: requests-oauthlib (>=0.7.0)
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: PySocks (>=1.5.7)
+
+UNKNOWN
+
+
