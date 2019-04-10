@@ -1,3 +1,4 @@
 data/*
+lib/*
 !data/README.md
 config.py
