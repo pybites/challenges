@@ -13,13 +13,6 @@ NUM_TWEETS = 100
 
 
 class UserTweets(object):
-    """TODOs:
-    - create a tweepy api interface
-    - get all tweets for passed in handle
-    - optionally get up until 'max_id' tweet id
-    - save tweets to csv file in data/ subdirectory
-    - implement len() an getitem() magic (dunder) methods"""
-
 
     def create_api(self):
         # Create api object
