@@ -4,7 +4,7 @@
 
 I found the #100daysofcode tutorials shown using Vim quite difficult to follow. 
 
-So I looked online for other turtorials knowing to look for pytest fixtures and parametrization.
+So I looked online for other tutorials knowing to look for pytest fixtures and parametrization.
 
 The tutorial I have used for this is taken directly from the [PyCharm 2019.1 help files](https://www.jetbrains.com/help/pycharm/pytest.html)
 
