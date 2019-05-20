@@ -28,10 +28,12 @@ def max_word_value(words_list):
     return max_word, max_value
 
 
+# Random Selection of Letters from the Pouch [List of repetitive Alphabets]
 def draw_letters():
     return random.sample(POUCH, NUM_LETTERS)
 
 
+# Storing the picked letters in dictionary format. 
 def letters_picked_in_dict_form(letters_picked):
     letters_picked_dict = {}
     for letter in letters_picked:
@@ -43,11 +45,14 @@ def letters_picked_in_dict_form(letters_picked):
     return letters_picked_dict
 
 
+# Selecting the words in dictionary which can be formed from the picked letters
 def possible_words_in_dictionary(letters_picked_dict):
     list_of_possible_words = []
-    list_of_not_possible_words = []
     for each_word in DICTIONARY:
+        '''storing the status of each word in a variable. If this variable is set to 0 while traversing each letter 
+        of it, it implies that the word cannot be formed from the selected letters'''
         can_form = 1
+        # Create a copy since dictionary are passed by refernce so working on passed argument will modify actual dictionary
         letters_picked_dict_replica = letters_picked_dict.copy()
         for each_letter in each_word:
             if each_letter.upper() in letters_picked_dict_replica:
@@ -59,15 +64,16 @@ def possible_words_in_dictionary(letters_picked_dict):
                 break
         if can_form == 1:
             list_of_possible_words.append(each_word)
-        else:
-            list_of_not_possible_words.append(each_word)
 
     return list_of_possible_words
 
 
+# Asking user for input word and then validating whether it can be formed from the drawn letters and is also present in our Predefined Word Dictinary.
 def input_word(letters_picked_dict):
     user_word = input("Enter a word that can be formed from the displayed letters and is meaningful : ")
+    
     if len(user_word) == 0:
+        print("[ERROR] : You haven't entered any word.")
         return user_word, False
 
     # Validate if User input word can be formed from the letters in Random Selected Letters
@@ -105,7 +111,7 @@ def main():
         print("Provided Word is InValid")
         return
 
-    # # Calculate the value of user input word
+    # Calculate the value of user input word
     user_word_value = calc_word_value(user_word)
 
     # Print User Word,its value, Max Word and its value
