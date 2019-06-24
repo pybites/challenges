@@ -29,5 +29,6 @@ def max_word_value(words = load_words()):
             max_valued_word = word
     return max_valued_word
 
+
 if __name__ == "__main__":
     pass # run unittests to validate
