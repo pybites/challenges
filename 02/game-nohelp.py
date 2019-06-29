@@ -3,63 +3,25 @@
 # http://pybit.es/codechallenge02.html
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
-import random
-import itertools
 
 NUM_LETTERS = 7
 
+
+# re-use from challenge 01
 def calc_word_value(word):
-    """Calculate the value of the word entered into function
-    using imported constant mapping LETTER_SCORES"""
-    score = 0
-    for letter in word.upper():
-        if letter in LETTER_SCORES.keys():
-            score += LETTER_SCORES[letter]
-    return score
+    """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
+    return sum(LETTER_SCORES.get(char.upper(), 0) for char in word)
 
-def max_word_value(words=None):
-    """Calculate the word with the max value, can receive a list
-    of words as arg, if none provided uses default DICTIONARY"""
-    if words==None:
-        words = parse_dictionary()
-    
-    maximum = ("None", 0)
 
-    for word in words:
-        score = calc_word_value(word)
-        if score > maximum[1]:
-            maximum = (word,score)
-    return maximum[0]
+# re-use from challenge 01
+def max_word_value(words):
+    """Calc the max value of a collection of words"""
+    return max(words, key=calc_word_value)
 
-def draw():
-    return [random.choice(POUCH) for i in range(NUM_LETTERS)]
-
-def create_words(hand):
-    tup_list = []
-
-    for i in range(7):
-        tup_list.extend(list(itertools.permutations(hand,i)))
-
-    possible = list("".join(tuple_word).lower() for tuple_word in tup_list)
-
-    return set(possible) & DICTIONARY
-
-def parse_dictionary():
-    return [word for word in DICTIONARY]
-
-def check_words(hand):
-    return set(hand) & set(DICTIONARY) 
 
 def main():
-    user_hand = draw()
-    possible_words = create_words(user_hand)
+    pass
 
-    if possible_words:
-        return max_word_value(possible_words)
-    else:
-        print("No possible words for this draw")
 
-#if __name__ == "__main__":
-#    main()
-
-print(main())
+if __name__ == "__main__":
+    main()

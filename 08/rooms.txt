@@ -1,3 +1,0 @@
-Bedroom : Gunpla, 1000, Laptop, 900, Keyboard, 500, Favourite Book, 10, Bed, 66
-Living Room : Sofa, 1000, Cushion, 30, Mirror, 300, TV, 999, Wii, 100
-Bathroom : Bathtub, 100, Bleach, 5, Sink, 100, Shower, 200, Mirror, 10
