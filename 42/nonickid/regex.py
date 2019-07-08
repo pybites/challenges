@@ -44,3 +44,35 @@ def find_double_words():
 def match_ip_v4_address(ip):
     '''Use re.match to match an ip v4 address (no need for exact IP ranges)'''
     return re.match(r'\d+?\.\d+?\.\d+?\.\d+', ip)
+
+
+def find_all_dates():
+    ''' User re.findall to extract all dates '''
+    concerts_dates = ('Metallica - 27 February, 2020'
+                      'Sting - 2 November, 2019'
+                      'Deep Purple - 3 December, 2019'
+                      'Bon Jovi - 12 July, 2019'
+                      'Ed Sheeran - 12 July, 2019')
+    return re.findall(r'([0-9]{1,2} +?\S+, +?[0-9]{4})', concerts_dates)
+
+
+def change_function_name():
+    ''' Use re.sub to change function name process() to process_data() in the log file '''
+    logfile = ('2019-06-24 14:56 - function process() completed')
+    return re.sub(r'(\s+)(process\(\))(\s+)', r'\1process_data()\3', logfile, re.M)
+
+
+def find_flight_connections():
+    ''' Use re.match to find connection at 15:00'''
+    flights = ('12:30 Warsaw - Munich'
+               '14:30 London - Moscow'
+               '15:00 Frankfurt - NewYork'
+               '15:10 Cracow - Frankfurt'
+               '15:18 Milano - Lisbon')
+    return re.search(r'15:00 [A-Za-z]+ ?\- ?[A-Za-z]+', flights).group()
+
+def match_email_address(email):
+    ''' User re.match to match an email address '''
+    return re.match(r'.+?@.+?\.[A-Za-z0-9]{1,3}$', email)
+
+print(find_flight_connections())

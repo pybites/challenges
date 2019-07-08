@@ -1,6 +1,7 @@
 from regex import (extract_course_times, split_on_multiple_chars,
                    get_all_hashtags_and_links, match_first_paragraph,
-                   find_double_words, match_ip_v4_address)
+                   find_double_words, match_ip_v4_address, find_all_dates,
+                   change_function_name, find_flight_connections, match_email_address)
 
 
 def test_extract_course_times():
@@ -38,3 +39,24 @@ def test_match_ip_address():
         assert match_ip_v4_address(valid_ip)
     for bad_ip in bad_ips:
         assert match_ip_v4_address(bad_ip) is None
+
+
+def test_find_all_dates():
+    expected = ['27 February, 2020', '2 November, 2019', '3 December, 2019', '12 July, 2019', '12 July, 2019']
+    assert find_all_dates() == expected
+
+def test_change_function_name():
+    expected = '2019-06-24 14:56 - function process_data() completed'
+    assert change_function_name() == expected
+
+def test_find_flight_connections():
+    expected = '15:00 Frankfurt - NewYork'
+    assert find_flight_connections() == expected
+
+def test_match_email_address():
+    valid_emails = ['john@gmail.com', 'phil@test.de', 'carol_56@yahoo.com']
+    bad_emails = ['adam@gmail', 'megan3@gmail.commmmo']
+    for valid_email in valid_emails:
+        assert match_email_address(valid_email)
+    for bad_email in bad_emails:
+        assert match_email_address(bad_email) is None
