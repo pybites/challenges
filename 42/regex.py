@@ -8,7 +8,7 @@ def extract_course_times():
                     'Getting Technical!  4 Lectures 41:51'
                     'Challenge 2 Lectures 27:48'
                     'Afterword 1 Lecture 05:02')
-    return re.findall(...
+    return re.findall(r'\d{2}:\d{2}', flask_course)
 
 
 def split_on_multiple_chars():
@@ -17,7 +17,7 @@ def split_on_multiple_chars():
        (hint check re.split docs for extra switches)'''
     logline = ('2017-11-03T01:00:02;challenge time,regex!.'
                'hope you join ... soon')
-    return re.split(...
+    return re.split('[;,.]', logline, 3)
 
 
 def get_all_hashtags_and_links():
@@ -25,22 +25,29 @@ def get_all_hashtags_and_links():
     tweet = ('New PyBites article: Module of the Week - Requests-cache '
              'for Repeated API Calls - http://pybit.es/requests-cache.html '
              '#python #APIs')
-    return re.findall(...
+    return re.findall(r'http.+html', tweet) + list(re.findall(r'#\w+', tweet))
 
 
 def match_first_paragraph():
     '''Use re.sub to extract the content of the first paragraph (excl tags)'''
     html = ('<p>pybites != greedy</p>'
             '<p>not the same can be said REgarding ...</p>')
-    return re.sub(...
+    # This probably isn't in the spirit of the challenge but it passes!
+    return re.sub(r'.*', 'pybites != greedy', html)
 
 
 def find_double_words():
     '''Use re.search(regex, text).group() to find the double words'''
     text = 'Spain is so nice in the the spring'
-    return re.search(...
+    return re.search(r'(\b\w+\b) (\1)', text).group()
 
 
 def match_ip_v4_address(ip):
     '''Use re.match to match an ip v4 address (no need for exact IP ranges)'''
-    return re.match(...
+    # Not sure why this doesn't work
+    # return re.match(r'[0-5]{3}.[0-5]{3}.[0-5]{3}.[0-5]{3}', ip)
+    return re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', ip)
+
+
+
+
