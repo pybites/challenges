@@ -32,8 +32,7 @@ def match_first_paragraph():
     '''Use re.sub to extract the content of the first paragraph (excl tags)'''
     html = ('<p>pybites != greedy</p>'
             '<p>not the same can be said REgarding ...</p>')
-    # This probably isn't in the spirit of the challenge but it passes!
-    return re.sub(r'.*', 'pybites != greedy', html)
+    return re.sub(r'<p>(.*?)</p>.*', r'\1', html)
 
 
 def find_double_words():
@@ -47,6 +46,10 @@ def match_ip_v4_address(ip):
     # Not sure why this doesn't work
     # return re.match(r'[0-5]{3}.[0-5]{3}.[0-5]{3}.[0-5]{3}', ip)
     return re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', ip)
+
+
+if __name__ == '__main__':
+    print(match_first_paragraph())
 
 
 
