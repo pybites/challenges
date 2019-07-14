@@ -1,12 +1,21 @@
 import json
 import argparse
-import fire
 import time
 import sys
 import readchar
 from logbook import RotatingFileHandler, info, notice, debug, StreamHandler
 from pathlib import Path
 from datetime import datetime, timedelta
+import argparse
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--short-break-time",  default=5,
+                        help="Set how many minutes break you get for one pom complete.")
+    parser.add_argument("-l", "--long-break-time",  default=15,
+                        help="Set how many minutes break you get for one pom complete.")
+    return parser.parse_args()
 
 def back_to_work():
     info("Back to work!")
@@ -14,23 +23,29 @@ def back_to_work():
     print('\a')
 
 
-def decide_break_time(completed_poms, mini_break_time, long_break_time):
+def decide_break_time(completed_poms, short_break_time, long_break_time):
     """Determine whether or not the user has earned a break, and if so, how long?"""
     break_reward_pom_count = 4
-    if (completed_poms / break_reward_pom_count) == 0:
+    if (completed_poms / break_reward_pom_count) >= 1:
         return(long_break_time)
     else:
-        return(mini_break_time)
+        return(short_break_time)
 
 
-def start(mini_break_time, long_break_time):
+def create_config_path():
     config_path = Path.home() / ".config/pompom"
     config_path.mkdir(parents=True, exist_ok=True)
+    return config_path
+
+
+def main(short_break_time, long_break_time):
+    config_path = create_config_path()
     poms_file = config_path / "Pomodoro.json"
     debug(f"config_path: {config_path} poms_file: {poms_file}")
     Pomodoros = []
     # A single Pomodoro is 25 minutes long.
-    pomodoro_seconds = 60 * 25
+    pom_length = 25
+    pomodoro_seconds = 60 * pom_length
     completed_poms = 0
 
     try:
@@ -51,7 +66,7 @@ def start(mini_break_time, long_break_time):
             info(f"{completed_poms} pomodoros complete!")
             print('\a')
 
-            break_time = decide_break_time(completed_poms, mini_break_time, long_break_time)
+            break_time = decide_break_time(completed_poms, short_break_time, long_break_time)
             info(f"Well done! Take a {break_time} minute break!")
             time.sleep(break_time)
             back_to_work()
@@ -65,7 +80,7 @@ def start(mini_break_time, long_break_time):
         info("Ending session. Hit 'i' if this was an interrupt. Anything else to count this pom.")
         interrupt_prompt = readchar.readchar()
         if interrupt_prompt.lower() is not 'i':
-            finished_one_pom = start_time + timedelta(minutes=25)
+            finished_one_pom = start_time + timedelta(minutes=pom_length)
             if datetime.now() > finished_one_pom:
                 completed_poms = completed_poms + 1
 
@@ -85,4 +100,5 @@ if __name__ == '__main__':
     RotatingFileHandler("Pompom.log").push_application()
     StreamHandler(sys.stderr, level='INFO', bubble=True).push_application()
 
-    fire.Fire(start)
+    args = parse_arguments()
+    main(args.short_break_time, args.long_break_time)

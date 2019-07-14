@@ -1,4 +1,5 @@
 fire
 readchar
 pytest
+logbook
 
