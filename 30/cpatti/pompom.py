@@ -26,7 +26,11 @@ def back_to_work():
 def decide_break_time(completed_poms, short_break_time, long_break_time):
     """Determine whether or not the user has earned a break, and if so, how long?"""
     break_reward_pom_count = 4
-    if (completed_poms / break_reward_pom_count) >= 1:
+    # Didn't complete any poms? No break for you! :)
+    if completed_poms <= 0:
+        return 0
+
+    if (completed_poms % break_reward_pom_count) == 0:
         return(long_break_time)
     else:
         return(short_break_time)
