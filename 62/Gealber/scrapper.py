@@ -91,6 +91,13 @@ class Scrapper:
             return speakers
 
     def do_classify_in_threads(self) -> dict:
+        """
+        Open the the URLS and scrape the info related to the speakers.
+        After that store the info in a dictionary to be classify by gender.
+        Return a dictionary with the following form {'2016': [1, 0, 0, 1], '2018': [0, 1, 0]}
+        where 1 represent a female and 0 a male.
+        :return:
+        """
         speakers_in_year = {}
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
@@ -106,7 +113,7 @@ class Scrapper:
 
         # With the next loops we get a dictionary
         # of this form {'2016': ['female', 'male', 'female']}
-        # and then we substitute 'female' by 1 and other cases by 0.
+        # and then we replace 'female' by 1 and other cases by 0.
         d = gender.Detector()
         for year in speakers_in_year:
             for i, name in enumerate(speakers_in_year[year]):
@@ -114,7 +121,19 @@ class Scrapper:
 
         return speakers_in_year
 
-# def main():
 
-# if __name__ == '__main__':
-#     main()
+def main():
+    import matplotlib.pyplot as plt
+    import numpy as np
+    scrapper = Scrapper()
+    data = scrapper.do_classify_in_threads()
+
+    v = [2013, 2019, 0, 10]
+    plt.axis(v)
+    for year in data:
+        height = np.array(data[year]).sum()
+        plt.bar(int(year), height=height)
+
+
+if __name__ == '__main__':
+    main()
