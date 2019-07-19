@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import codecs
 import gender_guesser.detector as gender
 
+
 URLS_ES = [
     'https://2018.es.pycon.org/#schedule',
     'https://2017.es.pycon.org/es/schedule/',
@@ -125,10 +126,12 @@ class Scrapper:
 def main():
     import matplotlib.pyplot as plt
     import numpy as np
+    import timeit
 
     scrapper = Scrapper()
+    start_time = timeit.default_timer()
     data = scrapper.do_classify_in_threads()
-
+    print(timeit.default_timer - start_time)
     v = [2013, 2019, 0, 10]
     plt.axis(v)
     for year in data:
