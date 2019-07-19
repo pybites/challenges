@@ -4,6 +4,7 @@ import sys
 import concurrent.futures
 from bs4 import BeautifulSoup
 import codecs
+import gender_guesser.detector as gender
 
 URLS = [
     'https://2018.es.pycon.org/#schedule',
@@ -40,7 +41,7 @@ class Scrapper:
             sys.exit()
 
     @staticmethod
-    def scrapper(html, year):
+    def scrapper(html, year: int) -> list:
         """
         Scrape th page given from connect(). Return the list with all
         the speakers in a list.
@@ -89,33 +90,31 @@ class Scrapper:
                 speakers = speakers + speaker
             return speakers
 
+    def do_classify_in_threads(self) -> dict:
+        speakers_in_year = {}
 
-def main():
-    import gender_guesser.detector as gender
-    # total_speakers = []
-    speakers_in_year = {}
-    scrapper = Scrapper()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
-        future_to_url = {executor.submit(scrapper.connect, url): url for url in URLS}
-        for future in concurrent.futures.as_completed(future_to_url):
-            url = future_to_url[future]
-            try:
-                page = future.result()[0]
-                year = future.result()[1]
-                speakers_in_year[str(year)] = scrapper.scrapper(page, year)
-                # total_speakers = total_speakers + scrapper.scrapper(page, year)
-            except Exception as exc:
-                print(f"{url} generated the following exception: \n{exc}")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
+            future_to_url = {executor.submit(self.connect, url): url for url in URLS}
+            for future in concurrent.futures.as_completed(future_to_url):
+                url = future_to_url[future]
+                try:
+                    page = future.result()[0]
+                    year = future.result()[1]
+                    speakers_in_year[str(year)] = self.scrapper(page, year)
+                except Exception as exc:
+                    print(f"{url} generated the following exception: \n{exc}")
 
-    # With the next loops we get a dictionary
-    # of this form {'2016': ['female', 'male', 'female']}
-    d = gender.Detector()
-    for year in speakers_in_year:
-        for i, name in enumerate(speakers_in_year[year]):
-            speakers_in_year[year][i] = d.get_gender(name.split()[0])
+        # With the next loops we get a dictionary
+        # of this form {'2016': ['female', 'male', 'female']}
+        # and then we substitute 'female' by 1 and other cases by 0.
+        d = gender.Detector()
+        for year in speakers_in_year:
+            for i, name in enumerate(speakers_in_year[year]):
+                speakers_in_year[year][i] = 1 if d.get_gender(name.split()[0]) == 'female' else 0
 
-    return speakers_in_year
+        return speakers_in_year
 
+# def main():
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
