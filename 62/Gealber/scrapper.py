@@ -111,9 +111,7 @@ class Scrapper:
                 except Exception as exc:
                     print(f"{url} generated the following exception: \n{exc}")
 
-        # With the next loops we get a dictionary
-        # of this form {'2016': ['female', 'male', 'female']}
-        # and then we replace 'female' by 1 and other cases by 0.
+
         d = gender.Detector()
         for year in speakers_in_year_es:
             for i, name in enumerate(speakers_in_year_es[year]):
