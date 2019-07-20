@@ -50,9 +50,6 @@ def test_main(cmd, error, capfd):
             main()
         out = capfd.readouterr()[0]
         assert out.strip() == error
-        assert out.strip() == error
-        assert out.strip() == error
-        assert out.strip() == error
     with patch("sys.argv", ["netcalc"]):
         with pytest.raises(SystemExit):
             main()
