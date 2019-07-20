@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Simple Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+
+body{
+    background-color: #ffffff;
+    overflow: scroll;
+}
+
+.container{
+    overflow: hidden;
+    height: 170px;
+    width: 335px;
+    position: relative;
+    margin-left: 1em;
+    margin-bottom:1em;
+    background-color: #3f51b5;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+    float:inline-start;
+    color:white;
+    padding-left: 1em;
+}
+
+input[type=submit] {
+
+    z-index: 1100;
+    position: relative;
+    right: -309px;
+    top:-5px;
+    background-color:#2196f3;
+    border: #2196f3;
+    cursor: pointer;
+    border-radius: 50%;
+    height:30px;
+}
+
+.Circle1{
+    z-index: 100;
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    right: -20px;
+    top: -30px;
+    border-radius: 50%;
+    background-color: #64b5f6;
+    animation: enlarge;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.Circle2{
+    z-index: 80;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    right: -50px;
+    top: -70px;
+    border-radius: 50%;
+    background-color: #2196f3;
+    animation: enlarge;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+.Circle3{
+    z-index: 50;
+    position: absolute;
+    height: 220px;
+    width: 220px;
+    right: -70px;
+    top: -100px;
+    border-radius: 50%;
+    background-color: #1e88e5;
+    animation: enlarge;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+}
+
+.sun{
+    z-index: 1000;
+    font-size: 15px !important;
+}
+
+.Condition{
+    z-index: 1000;
+    position: absolute;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    left: 20px;  
+    text-transform: capitalize;
+    top: 10px;  
+}
+
+.Temp{
+    z-index: 1000;
+    position: absolute;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    left: 20px;
+    bottom: 5px;
+    text-transform: capitalize;
+}
+
+#C{
+    z-index: 1000;
+    font-family: "Roboto",sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+
+.Time{
+    z-index: 1000;
+    position: absolute;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    right: 20px;
+    text-transform: capitalize;
+    top: 10px;
+}
+
+.Location{
+    z-index: 1000;
+    position: absolute;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    right: 20px;
+    bottom: 15px;
+    text-transform: capitalize;
+}
+
+.top
+{
+    position: relative;
+    text-align: center;
+}
+
+.input-city
+{
+    padding: 7px 14px 9px;   
+    color: #1e88e5;
+    width: 85%;
+    position: relative;
+    margin-left: auto;
+    margin-right:auto;
+    border-radius: 5px; 
+    border-color: black; 
+}
+
+
+button{
+    border: 1px solid; 
+    border-radius: 5px; 
+    padding: 7px 14px 9px; 
+    color: #1e88e5;
+    border-color: black;  
+ 
+}
+
+
+.text
+{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color:  #1e88e5;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    position: relative;
+}
+
+.sub-text
+{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color:  #1e88e5;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1;
+    position: relative;
+    clear:left;
+}
+
+.cards
+{
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto; 
+}
+
+@keyframes enlarge{
+    50%{
+        transform: scale(1.2);
+    }
+}
+    </style>
+  </head>
+  <body>
+    <div class="head">
+        <h1 class="text">SIMPLE  WEATHER  APP !</h1>
+        <h4 class="sub-text">Indian Standard Time (IST) UTC+05:30.</h4>
+    </div>
+    <div class="top">
+        <form method="POST" class="input-city">
+            <input class="input-city" name="city" type="text" placeholder="Input City : Find Temperature">
+            <button class="button">Add City Card</button>          
+        </form>
+    </div>
+    <div class="cards">
+    {% for weather in weather_data %}
+    <div class="container">
+        <div class="background">
+          <div class="Circle1"></div>
+          <div class="Circle2"></div>
+          <div class="Circle3"></div>
+          <div class="content">
+            <h1 class="Condition"><img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image" width="20px" height="20px" />{{ weather.description }}</h1>
+            <h1 class="Temp">🌡️ {{ weather.temperature }}<span id="C">&#8451;</span></h1>
+            <h1 class="Time">⌛ {{ weather.time }}</h1>
+            <h1 class="Location">📌 {{ weather.city }}</h1>
+          </div>
+        </div>
+        <div class="delete-card">
+            <form method="POST" action="./delete">
+              <input type="hidden" value="{{ weather.city }}" name="citytitle">
+              <input type="submit" class="cross" value="❌">
+            </form>
+          </div>
+    </div>
+    {% endfor %}
+  </div>
+  </body>
+</html>
