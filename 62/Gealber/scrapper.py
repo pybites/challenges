@@ -128,6 +128,7 @@ def main():
 
     scrapper = Scrapper()
     data = scrapper.do_classify_in_threads()
+
     v = [2013, 2019, 0, 10]
     plt.axis(v)
     for year in data:
