@@ -1,6 +1,7 @@
 import netcalc
 import pytest
 import pytest_cov
+import re
 
 from unittest.mock import patch
 from netcalc import (
@@ -23,16 +24,17 @@ def test_main_valid(capfd):
         )
 
 
-no_arg = ""
+@pytest.fixture
+def usage():
+    return "usage: netcalc [-h] ipaddr/prefix\n  e.g. netcalc 10.0.0.1/24\n"
+
+
+no_arg = "netcalc: error: the following arguments are required: ipaddr/prefix"
 notation = "Error: incorrect notation ['10.0.0.1']"
 prefix = "Error: CIDR prefix must be integer ['A1']"
-iplen = "Error: abnormal length IP address ['10.0.0.1.2']"
+iplong = "Error: abnormal length IP address ['10.0.0.1.2']"
+ipshort = "Error: abnormal length IP address ['10.0.1']"
 ipchar = "Error: illegal characters in IP address ['10.0.0.F']"
-# no_arg = "Error: missing argument\nusage: netcalc [-h] ipv4addr/prefix\n  e.g. netcalc  192.168.0.1/28"
-# notation = "Error: incorrect notation (10.0.0.1)\nusage: netcalc [-h] ipv4addr/prefix\n  e.g. netcalc  192.168.0.1/28"
-# prefix = 'Error: CIDR prefix must be integer "A1"\nusage: netcalc [-h] ipv4addr/prefix\n  e.g. netcalc  192.168.0.1/28'
-# iplen = "Error: abnormal length IP address ['10.0.0.1.2']\nusage: netcalc [-h] ipv4addr/prefix\n  e.g. netcalc  192.168.0.1/28"
-# ipchar = "Error: illegal characters in IP address ['10.0.0.F']\nusage: netcalc [-h] ipv4addr/prefix\n  e.g. netcalc  192.168.0.1/28"
 
 
 @pytest.mark.parametrize(
@@ -40,21 +42,22 @@ ipchar = "Error: illegal characters in IP address ['10.0.0.F']"
     [
         ("10.0.0.1", notation),
         ("10.0.0.1/A1", prefix),
-        ("10.0.0.1.2/21", iplen),
+        ("10.0.0.1.2/21", iplong),
+        ("10.0.1/21", ipshort),
         ("10.0.0.F/21", ipchar),
     ],
 )
-def test_main(cmd, error, capfd):
+def test_main_invalid(cmd, error, usage, capsys):
     with patch("sys.argv", ["netcalc", cmd]):
-        with pytest.raises(SystemExit):
+        with pytest.raises(SystemExit, match=re.escape(usage)):
             main()
-        out = capfd.readouterr()[0]
+        out = capsys.readouterr()[0]
         assert out.strip() == error
     with patch("sys.argv", ["netcalc"]):
-        with pytest.raises(SystemExit):
+        with pytest.raises(SystemExit, match="2"):
             main()
-        out = capfd.readouterr()[0]
-        assert out.strip() == no_arg
+        err = capsys.readouterr()[1]
+        assert err.strip() == usage + no_arg
 
 
 @pytest.mark.parametrize(
