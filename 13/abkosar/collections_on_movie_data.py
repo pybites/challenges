@@ -60,6 +60,7 @@ def main():
     director_average_scores = get_average_scores(movies_by_directors.keys())
     directors_sorted = sorted(director_average_scores.items(), key=lambda x: x[1], reverse=True)
     print_results(directors_sorted)
-    
+
+
 if __name__ == "__main__":
     main()
