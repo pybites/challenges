@@ -72,3 +72,8 @@ def parse_args():
 
 def main(args):
 	run_pomodoro(args.sessions)
+
+
+if __name__ == '__main__':
+	args = parse_args()
+	main(args)
