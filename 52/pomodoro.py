@@ -68,3 +68,7 @@ def parse_args():
 		help='Number of 25 minute sessions you want to run')
 
 	return parser.parse_args()
+
+
+def main(args):
+	run_pomodoro(args.sessions)
