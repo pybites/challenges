@@ -90,7 +90,7 @@ def print_results(cnt_tuple):
 
 if __name__ == "__main__":
     # call the generators, passing one to the other
-    files = gen_files("../*/*.py")
+    files = gen_files("../*/*py")
     lines = gen_lines(files)
     grep_results = gen_grep(lines, r"^import (\w+)")
     count_tuples = gen_count(grep_results)
