@@ -23,3 +23,16 @@ def interval_countdown(sessions):
 		sleep(1)
 		remaining_sessions = f'Remaininig sessions: {sessions}'
 		print(f'{interval} - {remaining_sessions}\t\t\t', end='\r')
+
+
+def break_countdown(sessions):
+	'''Timer-like function to keep track of a single break.
+
+	Args:
+		param1 (int): number of sessions left.
+	'''
+	_break = BREAK_LENGTH
+	while _break and sessions >= 1:
+		_break -= timedelta(seconds=1)
+		sleep(1)
+		print(f'Take a break! You have {_break} until the next session', end='\r')
