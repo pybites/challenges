@@ -5,3 +5,7 @@ from datetime import timedelta
 from time import sleep
 import argparse
 
+
+# default interval and break length values
+INTERVAL_LENGTH = timedelta(minutes=25)
+BREAK_LENGTH = timedelta(minutes=5)
