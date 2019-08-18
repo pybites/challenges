@@ -36,3 +36,18 @@ def break_countdown(sessions):
 		_break -= timedelta(seconds=1)
 		sleep(1)
 		print(f'Take a break! You have {_break} until the next session', end='\r')
+
+
+def run_pomodoro(user_input):
+	'''Timer-like function to keep track of the
+	number of sessions that are left.
+
+	Args:
+		param1 (int): number of sessions the user wish the timer to run.
+	'''
+	sessions = user_input
+	while sessions:
+		interval_countdown(sessions)
+		sessions -= 1
+		break_countdown(sessions)
+	print('All done!\t\t\t')
