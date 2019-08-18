@@ -51,3 +51,20 @@ def run_pomodoro(user_input):
 		sessions -= 1
 		break_countdown(sessions)
 	print('All done!\t\t\t')
+
+
+def parse_args():
+	parser = argparse.ArgumentParser(
+		prog='Pomodoro Timer',
+		description='''A barebone implementation of the Pomodoro timer.
+		The program allows the user to specify the number of sessions they wish to run;
+		each session lasts 25 minutes and is followed by a break lasting 5 minutes.''')
+	parser.add_argument(
+		'-s',
+		'--sessions',
+		type=int,
+		action='store',
+		required=True,
+		help='Number of 25 minute sessions you want to run')
+
+	return parser.parse_args()
