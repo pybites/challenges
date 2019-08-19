@@ -8,7 +8,11 @@ Currently the utility is very basic. It just requires the user to
 specify the number of sessions that they wish to run.
 For instance, running only two sessions would require the application to be launched as follows:
 ```bash
-pomodoro.py -s 2
+python pomodoro.py -s 2
+```
+If you are executing it from MinGW, make sure to use the -u flag to avoid buffering related issues:
+```bash
+python -u pomodoro.py -s 2
 ```
 
 ## Help
