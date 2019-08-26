@@ -1,16 +1,16 @@
 import os
-from github import Github, Repository, PullRequest
+from github import Github, Repository, PullRequest, NamedUser
 from bottle import run, template, get, post, request
 from github.PaginatedList import PaginatedList
 from github.PullRequest import PullRequest
+from github.Repository import Repository
 
 
 @get('/hacktoberfest')
 def form():
     return '''<h2>Check Hacktoberfest PR Count</h2>
               <form method="POST" action="/login">
-                Username: <input name="username" type="text" /><br/>
-                Password: <input name="password" type="text" />
+                API Token: <input name="token" type="text" /><br/>
                 <input type="submit" />
               </form>'''
 
@@ -19,23 +19,36 @@ def form():
 def submit():
     pr_count = 0
     # grab data from form
-    username = request.forms.get('username')
-    password = request.forms.get('password')
+    token = request.forms.get('token')
 
-    github = Github(username, password)
+    github = Github(token)
     if github:
-        repos = github.get_repos()
+        user: NamedUser.NamedUser = github.get_user()
+        repos = user.get_repos()
+
         repo: Repository.Repository
         for repo in repos:
+            print(repo.description)
             prs = repo.get_pulls()
-            pr_count = len(list(prs))
+            pr_count += len(list(prs))
+
+        pr_count_str = str(pr_count)
+        hacktoberflag: bool = (pr_count > 4)
+
+        if hacktoberflag:
+            say = "won"
+        else:
+            say = "lost"
 
         return template('''
             <h1>Congrats!</h1>
             <div>
                 You have: {{pr_count}} Pull Requests!
             </div>
-            ''', pr_count)
+            <div>
+                You have {{say}} Hacktoberfest this month!
+            </div>
+            ''', pr_count=pr_count_str,  say=say)
 
 
 if __name__ == '__main__':
