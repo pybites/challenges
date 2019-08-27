@@ -1,9 +1,27 @@
 import os
-from github import Github, Repository, PullRequest, NamedUser
+import datetime
+from github import Github, Repository, PullRequest, NamedUser, BadCredentialsException
 from bottle import run, template, get, post, request
-from github.PaginatedList import PaginatedList
-from github.PullRequest import PullRequest
-from github.Repository import Repository
+
+
+def render_login_form(pr_count):
+    pr_count_str = str(pr_count)
+    hacktoberflag = (pr_count > 4)
+
+    if hacktoberflag:
+        say = "won"
+    else:
+        say = "lost"
+
+    return template('''
+        <h1>Congrats!</h1>
+        <div>
+            You have: {{pr_count}} Pull Requests!
+        </div>
+        <div>
+            You have {{say}} Hacktoberfest this month!
+        </div>
+        ''', pr_count=pr_count_str, say=say)
 
 
 @get('/hacktoberfest')
@@ -17,38 +35,26 @@ def form():
 
 @post('/login')
 def submit():
-    pr_count = 0
-    # grab data from form
-    token = request.forms.get('token')
-
-    github = Github(token)
-    if github:
-        user: NamedUser.NamedUser = github.get_user()
+    try:
+        pr_count = 0
+        # grab data from form
+        token = request.forms.get('token')
+        github = Github(token)
+        user = github.get_user()
         repos = user.get_repos()
 
-        repo: Repository.Repository
         for repo in repos:
-            print(repo.description)
             prs = repo.get_pulls()
-            pr_count += len(list(prs))
+            today = datetime.datetime.now()
+            one_month = datetime.timedelta(days=30)
+            month_ago = today - one_month
+            for pr in prs:
+                if pr.created_at > month_ago:
+                    pr_count += 1
 
-        pr_count_str = str(pr_count)
-        hacktoberflag: bool = (pr_count > 4)
-
-        if hacktoberflag:
-            say = "won"
-        else:
-            say = "lost"
-
-        return template('''
-            <h1>Congrats!</h1>
-            <div>
-                You have: {{pr_count}} Pull Requests!
-            </div>
-            <div>
-                You have {{say}} Hacktoberfest this month!
-            </div>
-            ''', pr_count=pr_count_str,  say=say)
+        return(render_login_form(pr_count))
+    except BadCredentialsException:
+        return("""<h1>Token Invalid, please try again!</h1>""")
 
 
 if __name__ == '__main__':
