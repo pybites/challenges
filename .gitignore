@@ -9,8 +9,6 @@
 **.idea
 **.vscode
 **.DS_Store
-**config.py
-**.http
 **.mypy_cache/
 **.pytest_cache/
 **.ipynb_checkpoints/
