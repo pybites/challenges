@@ -25,14 +25,14 @@ DOWNLOAD_FOLDER = Path.home() / 'Downloads'
 
 class FeaturedImages:
 
-    def __init__(self, images=None, title=None, max_num=None, zip_file=None):
+    def __init__(self, images=None, title=None, max_num=None, zip_files=False):
         self.driver = webdriver.Chrome()
         self.driver.get(TOOL_URL)
 
         self.images = images if images else MATERIAL_IMAGES
         self.title = title
         self.max_num = max_num
-        self.zip_file = zip_file if zip_file else OUTPUT_ZIP
+        self.zip_files = zip_files
 
         self.posts = self._get_posts()
         self._set_canvas_and_top_offset_title()
@@ -63,8 +63,9 @@ class FeaturedImages:
             if self.max_num is not None and self.max_num == i:
                 break
         print(f'{i} images generated')
-        self._zip_images()
-        print(f'Images zipped up, file: {self.zip_file}')
+        if self.zip_files:
+            self._zip_images()
+            print(f'Images zipped up, file: {OUTPUT_ZIP}')
 
     def _create_image(self, title):
         background = random.choice(self.images)
@@ -98,7 +99,7 @@ class FeaturedImages:
         if self.max_num is not None:
             files = files[:self.max_num]
 
-        with ZipFile(self.zip_file, 'w') as myzip:
+        with ZipFile(OUTPUT_ZIP, 'w') as myzip:
             # arcname writes the file not the whole subdir tree
             for file_ in files:
                 fname = file_[0]
@@ -106,5 +107,5 @@ class FeaturedImages:
 
 
 if __name__ == '__main__':
-    fi = FeaturedImages(title='code challenge', max_num=5)
+    fi = FeaturedImages()
     fi()
