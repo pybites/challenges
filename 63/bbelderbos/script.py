@@ -35,7 +35,6 @@ class FeaturedImages:
         self.zip_file = zip_file if zip_file else OUTPUT_ZIP
 
         self.posts = self._get_posts()
-        breakpoint()
         self._set_canvas_and_top_offset_title()
         self.files = []
 
