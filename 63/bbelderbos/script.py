@@ -66,6 +66,7 @@ class FeaturedImages:
         if self.zip_files:
             self._zip_images()
             print(f'Images zipped up, file: {OUTPUT_ZIP}')
+        self.driver.quit()
 
     def _create_image(self, title):
         background = random.choice(self.images)
