@@ -63,7 +63,7 @@ class FeaturedImages:
             if self.max_num is not None and self.max_num == i:
                 break
         print(f'{i} images generated')
-        self._save_images()
+        self._zip_images()
         print(f'Images zipped up, file: {self.zip_file}')
 
     def _create_image(self, title):
@@ -81,13 +81,14 @@ class FeaturedImages:
         self.driver.find_element_by_name(image_id).clear()
         self.driver.find_element_by_name(image_id).send_keys(background)
         self.driver.find_element_by_name(image_id).send_keys(Keys.TAB)
-
         sleep(2)
 
         # save image
         self.driver.find_element_by_id(save_id).click()
 
-    def _save_images(self):
+    def _zip_images(self):
+        # wait a bit for the last image to get saved
+        sleep(2)
         # get latest files N files (could not change Downloads destination
         # dir as used by website / tool)
         files = sorted(
