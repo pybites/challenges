@@ -124,9 +124,16 @@ if __name__ == '__main__':
         "-n", "--max_num", type=int,
         help='max number of images to be created'
     )
+    parser.add_argument(
+        "-z", "--zip_files", action="store_true",
+        help=f'zip created files up in local directory, filename: {OUTPUT_ZIP}'
+    )
     args = parser.parse_args()
 
     images = BAMBOO_IMAGES if args.bamboo is True else MATERIAL_IMAGES
 
-    fi = FeaturedImages(images=images, title=args.title, max_num=args.max_num)
+    fi = FeaturedImages(images=images,
+                        title=args.title,
+                        max_num=args.max_num,
+                        zip_files=args.zip_files)
     fi()
