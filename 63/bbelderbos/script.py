@@ -37,7 +37,7 @@ class FeaturedImages:
 
         self.posts = self._get_posts()
         self._set_canvas_and_top_offset_title()
-        self.files = []
+        self.image_counter = 0
 
     def _get_posts(self):
         return [entry for entry in
@@ -93,16 +93,16 @@ class FeaturedImages:
 
         # save image
         self.driver.find_element_by_id(save_id).click()
+        self.image_counter += 1
 
     def _zip_images(self):
-        # get latest files N files (could not change Downloads destination
-        # dir as used by website / tool)
+        # as downloaded via browser/selenium cannot control download
+        # destination folder, grab the last N files based on the amount of
+        # files we generated
         files = sorted(
             [(fi, fi.stat().st_mtime) for fi in DOWNLOAD_FOLDER.glob('*jpg')],
             key=itemgetter(1), reverse=True
-        )
-        if self.max_num is not None:
-            files = files[:self.max_num]
+        )[:self.image_counter]
 
         with ZipFile(OUTPUT_ZIP, 'w') as myzip:
             # arcname writes the file not the whole subdir tree
