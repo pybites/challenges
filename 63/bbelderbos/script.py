@@ -1,3 +1,4 @@
+import argparse
 from operator import itemgetter
 from pathlib import Path
 import random
@@ -8,7 +9,7 @@ import feedparser
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-from images import BAMBOO_IMAGES, MATERIAL_IMAGES  # noqa F401
+from images import BAMBOO_IMAGES, MATERIAL_IMAGES
 
 PYBITES_FEED = 'https://pybit.es/feeds/all.rss.xml'
 
@@ -106,5 +107,24 @@ class FeaturedImages:
 
 
 if __name__ == '__main__':
-    fi = FeaturedImages(title="unittest it")
+    parser = argparse.ArgumentParser(
+        description='Create a blog featured image'
+    )
+    parser.add_argument(
+        "-t", "--title",
+        help='create images for PyBites feed entries that match this title'
+    )
+    parser.add_argument(
+        "-b", "--bamboo", action="store_true",
+        help='use bamboo theme instead of material theme for background image'
+    )
+    parser.add_argument(
+        "-n", "--max_num", type=int,
+        help='max number of images to be created'
+    )
+    args = parser.parse_args()
+
+    images = BAMBOO_IMAGES if args.bamboo is True else MATERIAL_IMAGES
+
+    fi = FeaturedImages(images=images, title=args.title, max_num=args.max_num)
     fi()
