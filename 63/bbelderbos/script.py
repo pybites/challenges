@@ -26,18 +26,19 @@ DOWNLOAD_FOLDER = Path.home() / 'Downloads'
 
 class FeaturedImages:
 
-    def __init__(self, images=None, title=None, max_num=None,
-                 feed=None, zip_files=False):
+    def __init__(self, title=None, feed=None,
+                 images=None, max_num=None, zip_files=False):
+        self.title = title
+        self.feed = feed if feed else PYBITES_FEED
+        self.posts = self._get_posts()
+
+        self.images = images if images else MATERIAL_IMAGES
+        self.max_num = max_num
+        self.zip_files = zip_files
+
         self.driver = webdriver.Chrome()
         self.driver.get(TOOL_URL)
 
-        self.images = images if images else MATERIAL_IMAGES
-        self.title = title
-        self.max_num = max_num
-        self.feed = feed if feed else PYBITES_FEED
-        self.zip_files = zip_files
-
-        self.posts = self._get_posts()
         self._set_canvas_and_top_offset_title()
         self.image_counter = 0
 
@@ -145,9 +146,9 @@ if __name__ == '__main__':
 
     images = BAMBOO_IMAGES if args.bamboo is True else MATERIAL_IMAGES
 
-    fi = FeaturedImages(images=images,
-                        title=args.title,
-                        max_num=args.max_num,
+    fi = FeaturedImages(title=args.title,
                         feed=args.feed,
+                        images=images,
+                        max_num=args.max_num,
                         zip_files=args.zip_files)
     fi()
