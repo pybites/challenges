@@ -13,7 +13,6 @@ from selenium.webdriver.common.keys import Keys
 from images import BAMBOO_IMAGES, MATERIAL_IMAGES
 
 PYBITES_FEED = 'https://pybit.es/feeds/all.rss.xml'
-
 TOOL_URL = 'http://projects.bobbelderbos.com/featured_image/'
 CANVAS_WIDTH, CANVAS_HEIGHT = 400, 200
 TOP_OFFSET = '40px'
@@ -27,13 +26,15 @@ DOWNLOAD_FOLDER = Path.home() / 'Downloads'
 
 class FeaturedImages:
 
-    def __init__(self, images=None, title=None, max_num=None, zip_files=False):
+    def __init__(self, images=None, title=None, max_num=None,
+                 feed=None, zip_files=False):
         self.driver = webdriver.Chrome()
         self.driver.get(TOOL_URL)
 
         self.images = images if images else MATERIAL_IMAGES
         self.title = title
         self.max_num = max_num
+        self.feed = feed if feed else PYBITES_FEED
         self.zip_files = zip_files
 
         self.posts = self._get_posts()
@@ -42,7 +43,7 @@ class FeaturedImages:
 
     def _get_posts(self):
         ret = [entry for entry in
-               feedparser.parse(PYBITES_FEED).entries
+               feedparser.parse(self.feed).entries
                if self.title is None
                or self.title.lower() in entry.title.lower()]
         if not ret:
@@ -129,6 +130,10 @@ if __name__ == '__main__':
         help='use bamboo theme instead of material theme for background image'
     )
     parser.add_argument(
+        "-f", "--feed",
+        help=f'specify an RSS feed (default = PyBites)'
+    )
+    parser.add_argument(
         "-n", "--max_num", type=int,
         help='max number of images to be created'
     )
@@ -143,5 +148,6 @@ if __name__ == '__main__':
     fi = FeaturedImages(images=images,
                         title=args.title,
                         max_num=args.max_num,
+                        feed=args.feed,
                         zip_files=args.zip_files)
     fi()
