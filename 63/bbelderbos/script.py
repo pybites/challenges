@@ -2,6 +2,7 @@ import argparse
 from operator import itemgetter
 from pathlib import Path
 import random
+import sys
 from time import sleep
 from zipfile import ZipFile
 
@@ -40,10 +41,14 @@ class FeaturedImages:
         self.image_counter = 0
 
     def _get_posts(self):
-        return [entry for entry in
-                feedparser.parse(PYBITES_FEED).entries
-                if self.title is None
-                or self.title.lower() in entry.title.lower()]
+        ret = [entry for entry in
+               feedparser.parse(PYBITES_FEED).entries
+               if self.title is None
+               or self.title.lower() in entry.title.lower()]
+        if not ret:
+            print('No matching posts found')
+            sys.exit(1)
+        return ret
 
     def _set_canvas_and_top_offset_title(self):
         # need to clear the field first
