@@ -63,7 +63,7 @@ class FeaturedImages:
             self._create_image(entry.title)
             if self.max_num is not None and self.max_num == i:
                 break
-        print(f'{i} images generated')
+        print(f'{self.image_counter} images generated')
 
         # wait a bit for the last image to get saved
         sleep(2)
