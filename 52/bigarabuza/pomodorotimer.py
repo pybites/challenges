@@ -8,4 +8,4 @@ end_time = start_time + timedelta(minutes=time_duration)
 while ((end_time - datetime.now())) >= timedelta(seconds=0):
     print(str(end_time - datetime.now()))
 
-print('Time is up!')
+print('Alarm!')
