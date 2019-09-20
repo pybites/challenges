@@ -29,15 +29,16 @@ directors = get_movies_by_director()
 
 def get_directors_min_4_movies(data=directors):
     cnt = Counter()
-    for director, movies in data.items():
-        cnt[director] += len(movies)
-        sum(movies.score)
-    return [(x, y) for (x, y) in cnt.most_common() if y > 4]
-    
+    #for director, movies in data.items():
+    directors_filtered = [{k:v} for k,v in data.items() if len(v) > 4]
+    for director in directors_filtered:
+        for k,v in director:
+            
+get_directors_min_4_movies()        
 
-directors_min4 = get_directors_min_4_movies()
+#directors_min4 = get_directors_min_4_movies()
 
-def get_avg_scores(directors):
-    for director in directors_min4:
-        directors[director]
+#def get_avg_scores(directors):
+#    for director in directors_min4:
+#        directors[director]
 
