@@ -14,7 +14,6 @@ elif len(POMODORO_TIMER_MINUTES) == 1:
 else:
     print("timer range between 1 - 20")
     exit(1)
-
 TIMER = datetime.strptime(POMODORO_TIMER_MINUTES,'%M:%S')
 sp.call('clear', shell=True)
 print(TIMER.strftime("%M:%S"))
