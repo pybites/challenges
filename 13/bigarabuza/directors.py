@@ -2,12 +2,19 @@ import csv
 from pathlib import Path
 from collections import namedtuple, defaultdict, Counter
 
-movie_csv = Path(__file__).resolve().parents[1] / 'movie_metadata.csv'
+MOVIE_DATA = 'movie_metadata.csv'
+NUM_TOP_DIRECTORS = 20
+MIN_MOVIES = 4
+MIN_YEAR = 1960
+
+movie_csv = Path(__file__).resolve().parents[1] / MOVIE_DATA
 
 Movie = namedtuple('Movie', 'title year score')
 
 def get_movies_by_director(data=movie_csv):
-    
+    '''Extracts all movies from csv and stores them in a dictionary
+    where keys are directors, and values is a list of movies (named tuples)'''
+
     directors = defaultdict(list)
 
     with open(data, encoding='utf-8') as f: 
@@ -27,18 +34,38 @@ def get_movies_by_director(data=movie_csv):
 
 directors = get_movies_by_director()
 
-def get_directors_min_4_movies(data=directors):
-    cnt = Counter()
-    #for director, movies in data.items():
-    directors_filtered = [{k:v} for k,v in data.items() if len(v) > 4]
-    for director in directors_filtered:
-        for k,v in director:
-            
-get_directors_min_4_movies()        
+def get_average_scores(data=directors):
+    '''Filter directors with < MIN_MOVIES and calculate average score'''
+    directors_filtered = defaultdict(list, {k:v for k,v in data.items() if len(v) > MIN_MOVIES})
+    
+    for k,v in directors_filtered.items():
+        directors_filtered[k] = _calc_mean(v)
+    return directors_filtered 
 
-#directors_min4 = get_directors_min_4_movies()
+def _calc_mean(movies):
+    '''Helper method to calculate mean of list of Movie namedtuples'''
+    cum_sum = 0
+    for movie in movies:
+        cum_sum += movie.score
+    avg_score = cum_sum/len(movies)
+    return avg_score
+    
+def print_results(directors):
+    '''Print directors ordered by highest average rating. For each director
+    print his/her movies also ordered by highest rated movie.
+    See http://pybit.es/codechallenge13.html for example output'''
+    fmt_director_entry = '{counter}. {director:<52} {avg}'
+    fmt_movie_entry = '{year}] {title:<50} {score}'
+    sep_line = '-' * 60
 
-#def get_avg_scores(directors):
-#    for director in directors_min4:
-#        directors[director]
 
+def main():
+    '''This is a template, feel free to structure your code differently.
+    We wrote some tests based on our solution: test_directors.py'''
+    directors = get_movies_by_director()
+    directors = get_average_scores(directors)
+    print_results(directors)
+
+if __name__ == '__main__':
+    main()
+    
