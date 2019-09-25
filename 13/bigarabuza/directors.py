@@ -32,14 +32,9 @@ def get_movies_by_director(data=movie_csv):
 
     return directors
 
-directors = get_movies_by_director()
-
-def get_average_scores(data=directors):
+def get_average_scores(directors):
     '''Filter directors with < MIN_MOVIES and calculate average score'''
-    directors_filtered = defaultdict(list, {k:v for k,v in data.items() if len(v) > MIN_MOVIES})
-    
-    for k,v in directors_filtered.items():
-        directors_filtered[k] = _calc_mean(v)
+    directors_filtered = defaultdict(list, {(k, _calc_mean(v)):v for k,v in directors.items() if len(v) > MIN_MOVIES})
     return directors_filtered 
 
 def _calc_mean(movies):
@@ -47,8 +42,7 @@ def _calc_mean(movies):
     cum_sum = 0
     for movie in movies:
         cum_sum += movie.score
-    avg_score = cum_sum/len(movies)
-    return avg_score
+    return round(cum_sum/len(movies), 1)
     
 def print_results(directors):
     '''Print directors ordered by highest average rating. For each director
@@ -57,8 +51,15 @@ def print_results(directors):
     fmt_director_entry = '{counter}. {director:<52} {avg}'
     fmt_movie_entry = '{year}] {title:<50} {score}'
     sep_line = '-' * 60
-
-
+    for counter, each in enumerate(sorted(directors.items(), key=lambda x: float(x[0][1]), reverse=True), 1):
+        (director, avg), movies = each
+        print(fmt_director_entry.format(counter=counter, director=director, avg=avg))
+        print(sep_line)        
+        for movie in movies:
+            print(fmt_movie_entry.format(year=movie.year, title=movie.title, score=movie.score))
+        if counter == 20:
+            break
+    
 def main():
     '''This is a template, feel free to structure your code differently.
     We wrote some tests based on our solution: test_directors.py'''
@@ -66,6 +67,6 @@ def main():
     directors = get_average_scores(directors)
     print_results(directors)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
     
