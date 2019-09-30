@@ -10,7 +10,6 @@ def header():
 		f'Keep on working, Pomodoro after Pomodoro, until the task at hand is finished.\n'
 		f'Every 3 Pomodoros take a longer break, (15–30 minutes).\n'
 		f'Enter how many sets do you want. (Each set has 3 Pomodoros)')
-    
 	set_loop(int(input()))
 
 def set_loop(ans):
