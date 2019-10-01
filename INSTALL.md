@@ -27,6 +27,7 @@ Update 20th of Dec 2017: we did it! We built our platform around these challenge
 
 		# assuming using ssh key
 		$ git remote add upstream git@github.com:pybites/challenges.git
+		  (this is to use SSH, for HTTPS use: git remote add upstream https://github.com/pybites/challenges.git)
 		$ git fetch upstream
 
 		# if not on master:
