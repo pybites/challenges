@@ -4,10 +4,10 @@ import json
 
 scope = 'playlist-read-private'
 username = 'sz08l1r9jm94jvyaeohhp9gjm'
-user_id = 'spotify:user:sz08l1r9jm94jvyaeohhp9gjm'
-client_id = '6b1358d2a8f54d6b86356e66d4b5c144'
-client_secret = '06713d07f16643b0ad1c5cafe7b9a09e'
-playlist_id = '2yCf2Kzabxcn8AowvBPoN0'
+user_id = 'spotify:user:something'
+client_id = 'something'
+client_secret = 'something'
+playlist_id = 'something'
 redirect_uri = 'http://google.com/'
 artist_id = 'spotify:artist:7HCqGPJcQTyGJ2yqntbuyr'
 
