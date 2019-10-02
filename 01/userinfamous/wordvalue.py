@@ -28,5 +28,3 @@ def max_word_value(words:list=None) -> str:
         wordvalue_pair.append( (word,score) )
     result = max(wordvalue_pair, key=lambda x: x[1])
     return result[0]
-
-
