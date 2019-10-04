@@ -23,6 +23,7 @@ def get_data_from_marvel_api_endpoint(endpoint):
        https://gateway.marvel.com:443/v1/public/{endpoint}
 
        See: https://developer.marvel.com/documentation/authorization
+       "Authentication for Server-Side Applications" section
        -> you will need to hash ts, public and private key, use hashlib
 
        Endpoints: https://developer.marvel.com/docs
