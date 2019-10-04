@@ -1,18 +1,15 @@
-import hashlib
+import hashlib  # needed for API auth
 import json
 import os
-from time import sleep
-from pathlib import Path
+from time import sleep  # between API pagination calls
 
 import requests
 
+# get from marvel developer account:
 public_key = os.environ['PUBLIC_KEY']
 private_key = os.environ['PRIVATE_KEY']
 
-output_dir = Path('data')
-Path.mkdir(output_dir, exist_ok=True)
-
-endpoints = 'characters comics creators events series stories'.split()
+ENDPOINTS = 'characters comics creators events series stories'.split()
 
 
 # recommended prep work
@@ -33,12 +30,6 @@ def get_data_from_marvel_api_endpoint(endpoint):
     ts = 1
 
 
-def get_data(endpoints=endpoints):
-    """Helper function to loop over the endpoints saving the data
-       in  output_dir, you probably want to use json.dump
-    """
-    pass
-
-
 if __name__ == '__main__':
-    get_data()
+    your_endpoint = ''  # one of ENDPOINTS
+    get_data_from_marvel_api_endpoint(your_endpoint)
