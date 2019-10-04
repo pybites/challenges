@@ -9,6 +9,10 @@ from data import DICTIONARY, LETTER_SCORES, POUCH
 NUM_LETTERS = 7
 
 
+def draw_letters():
+    """Get random letters from the pot"""
+    return random.sample(POUCH, NUM_LETTERS)
+
 # re-use from challenge 01
 def calc_word_value(word):
     """Calc a given word value based on Scrabble LETTER_SCORES mapping"""
@@ -36,7 +40,7 @@ def process_word(letters):
         elif len(word) > 7:
             print("You need to use the letters shown")
             print(*letters)
-        elif set(letters).issuperset(set(word)) and (len(set(letters))-len(set(word)))+len(word) == 7:
+        elif set(letters).issuperset(set(word)) and (len(letters)-len(word))+len(word) == 7:
             print('Good word')
             break
         else:
@@ -47,13 +51,14 @@ def process_word(letters):
 
 
 def main():
-    letters = random.sample(POUCH, NUM_LETTERS)
+    letters = draw_letters()
     print(*letters)
     get_word = process_word(letters)
-    word = input("Enter your word")
-    if word in DICTIONARY:
+    if get_word in DICTIONARY:
         print("congratulations you have chosen a correct word")
-        score = calc_word_value(word)
+        score = calc_word_value(get_word)
+    else:
+        print("Word not in the dictionary.")
     
 
 
