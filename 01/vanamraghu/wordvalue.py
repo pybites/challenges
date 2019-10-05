@@ -21,9 +21,6 @@ def calc_word_value(word):
 def max_word_value(args=None):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
-    """
-    data = ["benzalphenylhydrazone", "formaldehydesulphoxylate"]
-    """
     def func(x): return max(x.values())
     if args:
         data = {data: calc_word_value(data) for data in args}
