@@ -30,14 +30,28 @@ def draw_letters(num_letters=NUM_LETTERS, pouch=POUCH):
     return random.sample(pouch, num_letters)
 
 
-def ask_for_word(draw):
+def _validation(word, draw, dictionary=DICTIONARY):
+    """Validations: 1) only use letters of draw, 2) valid dictionary word"""
+    word = word.upper()
+    if not _validation_against_draw(word, draw):
+        raise ValueError(f"Word not valid: {word} cannot be made from {''.join(draw)}")
+    if word.lower() not in dictionary:
+        raise ValueError(f"Word not valid: {word} not in dictionary")
+    return word.upper()
+
+
+def input_word(draw):
     """Get user's word. If word does not validate, return a dummy string."""
-    print("Your Draw: ".ljust(12), "".join(draw))
-    word = input("Your play: ".ljust(13))
-    return word if validate_word(word, draw) else "-" * NUM_LETTERS
+    word = input("Form a valid word: ")
+    try:
+        word = _validation(word, draw)
+    except ValueError as e:
+        print(e)
+        word = ""
+    return word
 
 
-def validate_word_against_draw(word, draw):
+def _validation_against_draw(word, draw):
     """Check that all letters for writing word are available in draw."""
     word = word.upper()
     word_counter, draw_counter = Counter(word), Counter(draw)
@@ -48,36 +62,35 @@ def validate_word_against_draw(word, draw):
     return True
 
 
-def validate_word(word, draw, dictionary=DICTIONARY):
-    """Check if the word is valid against the draw and the dictionary."""
-    if not validate_word_against_draw(word, draw):
-        print("Invalid: ".ljust(12), f"Cannot form {word.upper()} with {''.join(draw)}")
-        return False
-    if word.lower() not in dictionary:
-        print("Invalid: ".ljust(12), "Not in the dictionary")
-        return False
-    return True
-
-
-def search_best_word(draw, r=None, dictionary=DICTIONARY):
-    """Given a draw, search for the best score word within dictionary."""
-    best_word = ""
+def _get_permutations_draw(draw):
+    """Get all permutations of draw letters. Helper function."""
+    words = []
     for r in range(1, NUM_LETTERS + 1):
-        words = ["".join(word).lower() for word in permutations(draw, r) if "".join(word).lower() in dictionary]
-        if words:
-            word = max(words, key=calc_word_value)
-            best_word = max((best_word, word), key=calc_word_value)
-    return best_word
+        words += ["".join(letters) for letters in permutations(draw, r)]
+    return words
+
+
+def get_possible_dict_words(draw, dictionary=DICTIONARY):
+    """Get all possible words from draw which are valid dictionary words.
+    Use the _get_permutations_draw helper and DICTIONARY constant"""
+    return [word for word in _get_permutations_draw(draw) if word.lower() in dictionary]
 
 
 def main():
     draw = draw_letters()
-    word = ask_for_word(draw)
-    score = calc_word_value(word)
-    best_word = search_best_word(draw)
-    best_score = calc_word_value(best_word)
+    print("Letters drawn: ", ", ".join(draw))
 
-    print("Your score: ".ljust(12), f"{score}/{best_score} pts [{best_word}]")
+    word = input_word(draw)
+    score = calc_word_value(word)
+    print(f"Word chosen: {word} (value: {score})")
+
+    possible_words = get_possible_dict_words(draw)
+    best_word = max_word_value(possible_words)
+    best_score = calc_word_value(best_word)
+    print(f"Optimal word possible: {best_word} (value: {best_score})")
+
+    game_score = score / best_score * 100
+    print(f"You scored: {game_score:.1f}")
 
 
 if __name__ == "__main__":
