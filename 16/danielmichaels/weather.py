@@ -1,37 +1,51 @@
+import datetime
+import sys
+
 from api_secrets import WEATHER_TOKEN
-from utils import datetime_helper
+
 import requests
 import requests_cache
-import logging
 
-logging.basicConfig(level=logging.INFO)
+from requests.exceptions import RequestException
 
 
 class Weather:
-    """A simple class that pulls in weather data from the openweathermap api
-    and formats the response into Discord readable markdown.
+    """A simple class that pulls in weather data from the openweathermap api and formats the response.
 
     """
 
-    def __init__(self, city='perth', country='AU'):
+    def __init__(self, city="london", country="gb"):
         self.city = city
         self.country = country
-        self.url = "http://api.openweathermap.org/data/2.5/weather?q={city}," \
-                   "{country}&units=metric&appid={TOKEN}".format(
-            city=self.city, country=self.country, TOKEN=WEATHER_TOKEN)
+        self.url = (
+            "http://api.openweathermap.org/data/2.5/weather?q={city},"
+            "{country}&units=metric&appid={TOKEN}".format(
+                city=self.city, country=self.country, TOKEN=WEATHER_TOKEN
+            )
+        )
+        self.get_data
 
+    @property
     def get_data(self):
         """Get the weather data in JSON format. Caches the response for
         600 seconds in a sqlite database.
 
         """
-        logging.info(self.url)
         requests_cache.install_cache(expire_after=600)
-        response = requests.get(self.url)
-        if response.status_code != 200:
-            logging.error("API did not return status code of 200")
-        data = response.json()
-        return data
+        try:
+            response = requests.get(self.url)
+            response.raise_for_status()
+            data = response.json()
+            return self.format(data)
+        except requests.exceptions.RequestException as e:
+            # for brevity don't try/except all possible cases
+            print(f"[!] An Error Occurred [!]\n\n{e}")
+            sys.exit(1)
+
+    @staticmethod
+    def client_localtime():
+        """Return localtime."""
+        return datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y")
 
     def format(self, data):
         """Parse out wanted weather info.
@@ -41,16 +55,18 @@ class Weather:
         :return output in markdown.
 
         """
-        location, cc = data['name'], data['sys']['country']
-        temp = data['main']['temp']
-        conditions = [item['description'] for item in data['weather']][0]
-        time = data['dt']
-        local_time = datetime_helper(time)
-        output = """
-        __**WEATHER REPORT**__\n
-        *{0}, {4}*
-        Temp:\t **{1}**
-        Conditions:\t {2}
-        As At:\t **{3}**
-        """.format(location, temp, conditions, local_time, cc)
-        return output
+        location, cc = data["name"], data["sys"]["country"]
+        temp = data["main"]["temp"]
+        conditions = [item["description"] for item in data["weather"]][0]
+        time = data["dt"]
+        degrees = "\u00b0"
+
+        output = f"""
+        [*] {location}, {cc} [*]
+
+        __WEATHER REPORT__\n
+        Temp: {temp:.1f}{degrees + 'C'}
+        Conditions: {conditions.title()}
+        Last Updated: {self.client_localtime()} Local Time
+        """
+        print(output)
