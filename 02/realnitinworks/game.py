@@ -40,7 +40,7 @@ def draw_letters():
     return letters_drawn
 
 
-def letters_check(letters_drawn, word):
+def _letters_check(word, letters_drawn):
     """Validate all letters of word are in draw"""
     return all(
         word.upper().count(letter) <= letters_drawn.count(letter)
@@ -48,36 +48,36 @@ def letters_check(letters_drawn, word):
     )
 
 
-def dictionary_check(word):
+def _dictionary_check(word):
     """Validate the word is in DICTIONARY"""
     return word.lower() in DICTIONARY
 
 
-def validate_word(letters_drawn, word):
+def _validation(word, letters_drawn):
     """Wrapper which validates the input word"""
     if not (
-        letters_check(letters_drawn, word) and
-        dictionary_check(word)
+            _letters_check(word, letters_drawn) and
+            _dictionary_check(word)
     ):
         raise ValueError("Not a valid word combination!")
 
 
-def letter_permutations(letters):
+def _get_permutations_draw(letters):
     """Gets all permutations of the drawn letters"""
-    return (
+    return [
         "".join(item)
         for n in range(1, NUM_LETTERS + 1)
         for item in permutations(letters, n)
-    )
+    ]
 
 
-def valid_words(possibilities):
+def get_possible_dict_words(letters):
     """Filters valid dictionary words from all possible permutations"""
-    return (
+    return [
         word
-        for word in possibilities
-        if dictionary_check(word)
-    )
+        for word in _get_permutations_draw(letters)
+        if _dictionary_check(word)
+    ]
 
 
 def start_game():
@@ -86,13 +86,13 @@ def start_game():
     print(f"Letters drawn: {', '.join(letters_drawn)}")
 
     user_word = input("Form a valid word: ")
-    validate_word(letters_drawn, user_word)
+    _validation(user_word, letters_drawn)
 
     word_value = calc_word_value(user_word)
     print(f"Word chosen: {user_word} (value: {word_value})")
 
     optimal_word = max_word_value(
-        valid_words(letter_permutations(letters_drawn))
+        get_possible_dict_words(letters_drawn)
     )
     optimal_word_value = calc_word_value(optimal_word)
     print(f"Optimal word possible: {optimal_word} (value: {optimal_word_value})")
