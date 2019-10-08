@@ -6,7 +6,7 @@ I had to deal with network drops, server issues, and hitting the max recursion l
 
 ## Most prolific people in comics
 
-The depict the top five of their fields based on how many comics they worked on for those particular roles:
+They depict the top five of their fields based on how many comics they worked on for those particular roles:
 
 ![artists](img/artists.png)
 
