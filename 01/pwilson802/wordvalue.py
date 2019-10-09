@@ -17,7 +17,7 @@ def calc_word_value(word):
             score += LETTER_SCORES[letter.upper()]
     return score
 
-def max_word_value(words):
+def max_word_value(words = load_words()):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
     word_scores = {}
