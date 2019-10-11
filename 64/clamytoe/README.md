@@ -8,24 +8,48 @@ I had to deal with network drops, server issues, and hitting the max recursion l
 
 The depict the top five of their fields based on how many comics they worked on for those particular roles:
 
+### Artists
 ![artists](img/artists.png)
 
+### Colorist
 ![colorist](img/colorists.png)
 
+### Editors
 ![editors](img/editors.png)
 
+### Inkers
 ![inkers](img/inkers.png)
 
+### Letterers
 ![letterers](img/letterers.png)
 
+### Painters
 ![painters](img/painters.png)
 
+### Pencillers
 ![pencillers](img/pencillers.png)
 
+### Writers
 ![writers](img/writers.png)
 
 ## Most used roles
 
-As a final graphic I decided to try and show which roles are the ones that get the most jobs.
+Here I decided to try and show which roles are the ones that are used the most in creating comics.
 
 ![top_roles](img/top_roles.png)
+---
+
+## Character stats
+In this section I concentrated on the characters themselves. Based on the data available from the dataset, I extracted the top 10 characters from each of the following categories:
+
+### Comics
+![comics](img/comics.png)
+
+### Events
+![events](img/events.png)
+
+### Series
+![series](img/series.png)
+
+### Stories
+![stories](img/stories.png)
