@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Spotify Album List</h1>
+    <h3>Enter the Spotify Artist ID of an artist to see their albums!</h3>
+    <div>
+        <form class="mui-form" method="POST" action="/index">
+        <label for="artistchoice">Artist ID</label>
+        <input type="text" class="form-control" id="artistchoice" name="artistchoice" placeholder="Eg: 6H1RjVyNruCmrBEWRbD0VZ"><br>
+        <button type="submit" class="mui-btn mui-btn--raised" value="Submit">Submit</button>
+	</form>
+    </div>
+    <br>
+
+    <br>
+    <div>
+        {% if albums %}
+	    <table class="mui-table mui-table--bordered">
+	        <thead>
+		    <tr>
+		        <th>Album Name</th>
+		    </tr>
+		</thead>
+	        <tbody>
+		    {% for i in albums %}
+		        <tr>
+			    <td>{{ i }}</td>
+			</tr>
+		    {% endfor %}
+		</tbody>
+	    </table>
+	{% endif %}
+    </div>
+{% endblock %}

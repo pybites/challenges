@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Edit Item</title>
+</head>
+<body>
+<h1>Editing {{ edit_item['item_name'] }}</h1>
+<p></p>
+<form action="/edit" method="POST">
+      Quantity: <input type="text" name="quantity" value="{{
+                    request.form['quantity'] }}">
+
+      Unit Price: <input type="text" name="unit_price" value="{{
+                    request.form['unit_price'] }}">
+
+      <input type="hidden" name="id" value="{{ edit_item['id'] }}"/>
+      <input type="submit">
+    </form>
+</body>
+</html>

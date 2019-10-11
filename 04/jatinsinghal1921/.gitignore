@@ -1,0 +1,6 @@
+# Don't track content of these folders
+__pycache__/
+venv/
+
+# Files
+config.py
