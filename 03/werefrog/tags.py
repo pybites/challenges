@@ -27,7 +27,7 @@ def get_top_tags(tags):
     """Get the TOP_NUMBER of most common tags"""
     tags = get_tags()
     tag_count = [Tag(tag, tags.count(tag)) for tag in set(tags)]
-    return sorted(tag_count, key=lambda x: x.count, reverse=True)[:10]
+    return sorted(tag_count, key=lambda x: x.count, reverse=True)[:TOP_NUMBER]
 
 
 def get_similarities(tags):
