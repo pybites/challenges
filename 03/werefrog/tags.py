@@ -27,7 +27,6 @@ def get_top_tags(tags):
 
 def get_similarities(tags):
     """Find set of tags pairs with similarity ratio of > SIMILAR"""
-    tags = set(get_tags())
     return [sorted([a, b]) for (a, b) in combinations(tags, 2) if SequenceMatcher(None, a, b).ratio() >= SIMILAR]
 
 
