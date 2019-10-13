@@ -1,4 +1,4 @@
-from collections import namedtuple
+from collections import Counter
 from difflib import SequenceMatcher
 from itertools import combinations
 
@@ -9,9 +9,6 @@ TOP_NUMBER = 10
 RSS_FEED = 'rss.xml'
 SIMILAR = 0.87
 CATEGORY_PATTERN = r"(?<=<category>).+?(?=</category>)"
-
-
-Tag = namedtuple("Tag", 'tag, count')
 
 
 def get_tags():
@@ -25,9 +22,7 @@ def get_tags():
 
 def get_top_tags(tags):
     """Get the TOP_NUMBER of most common tags"""
-    tags = get_tags()
-    tag_count = [Tag(tag, tags.count(tag)) for tag in set(tags)]
-    return sorted(tag_count, key=lambda x: x.count, reverse=True)[:TOP_NUMBER]
+    return Counter(tags).most_common(TOP_NUMBER)
 
 
 def get_similarities(tags):
