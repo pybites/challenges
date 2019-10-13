@@ -36,7 +36,7 @@ def get_api_endpoint(endpoint):
            f'&apikey={PUBLIC_KEY}&hash={hash_}'
 
 @handle_exceptions
-def cache_marvel_data(endpoint):
+def get_cache_marvel_data(endpoint):
     """Helper function to cache Marvel API JSON data to file"""
     if endpoint not in MARVEL_OBJECTS:
         raise ValueError('Invalid value for endpoint or extra')
@@ -44,15 +44,22 @@ def cache_marvel_data(endpoint):
     #     if extra not in MARVEL_OBJECTS:
     #         raise ValueError('Invalid value for endpoint or extra')
 
-    cach_filename = Path(CACHE_DIR, f'cache_{endpoint}')
-    endpoint = get_api_endpoint(endpoint)
     data = None
-    with request.urlopen(endpoint) as f:
-        data = f.read()
-    breakpoint()
+    cache_filename = Path(CACHE_DIR, f'cache_{endpoint}')
+    if cache_filename.exists():
+        with open(cache_filename) as cache_file:
+            data = cache_file.read()
+        return json.loads(data)
 
+    endpoint = get_api_endpoint(endpoint)
+    with request.urlopen(endpoint) as f:
+        data = json.loads(f.read())
+    
+    with open(cache_filename, 'w') as f:
+        json.dump(data, f)
+    return data
 
 if __name__ == '__main__':
     # 1. cache API data
     # 2. load JSON file(s) and build awesome graphs
-    cache_marvel_data('comics')
+    data = get_cache_marvel_data('comics')
