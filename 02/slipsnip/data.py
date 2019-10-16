@@ -1,11 +1,9 @@
 from collections import namedtuple
-from pathlib import Path
 
 Letter = namedtuple('Letter', 'name amount value')
-dict_file = Path("../dictionary.txt")
 
 def _load_words():
-    with open(dict_file) as f:
+    with open('dictionary.txt') as f:
         return set([word.strip().lower() for word in f.read().split()])
 
 DICTIONARY = _load_words()
