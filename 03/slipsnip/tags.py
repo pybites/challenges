@@ -1,4 +1,5 @@
 import feedparser
+import re
 from difflib import get_close_matches
 from collections import Counter
 from operator import itemgetter
@@ -13,7 +14,7 @@ def get_tags():
     Replace dash with whitespace."""
     feed_data = feedparser.parse(RSS_FEED)
     tag_groups = [channel.get('tags') for channel in feed_data.entries]
-    return [tags['term'] for tag_list in tag_groups for tags in tag_list]
+    return [re.sub('-', ' ', tags['term']) for tag_list in tag_groups for tags in tag_list]
 
 
 def get_top_tags(tags):
