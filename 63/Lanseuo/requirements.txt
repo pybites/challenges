@@ -1,0 +1,2 @@
+feedparser==5.2.1
+selenium==3.141.0
