@@ -1,0 +1,170 @@
+,county,income_tax,towns
+0,Tolland,5751446.0,Andover
+168,New Haven,15737097.0,Ansonia
+167,Windham,5560639.0,Ashford
+166,Hartford,86058222.0,Avon
+165,Litchfield,6799901.0,Barkhamsted
+164,New Haven,9009852.0,Beacon Falls
+163,Hartford,41756456.0,Berlin
+162,New Haven,14596725.0,Bethany
+161,Fairfield,29124336.0,Bethel
+160,Litchfield,6120786.0,Bethlehem
+159,Hartford,40005085.0,Bloomfield
+158,Tolland,10573707.0,Bolton
+157,New London,3990234.0,Bozrah
+156,New Haven,62797677.0,Branford
+155,Fairfield,63872129.0,Bridgeport
+154,Litchfield,5406596.0,Bridgewater
+153,Hartford,67088215.0,Bristol
+152,Fairfield,35161105.0,Brookfield
+151,Windham,8411282.0,Brooklyn
+150,Hartford,24667874.0,Burlington
+149,Litchfield,3655672.0,Canaan
+148,Windham,5724853.0,Canterbury
+147,Hartford,28445144.0,Canton
+146,Windham,2266303.0,Chaplin
+145,New Haven,70826186.0,Cheshire
+144,Middlesex,7954635.0,Chester
+143,Middlesex,23887068.0,Clinton
+142,New London,27559798.0,Colchester
+141,Litchfield,1953989.0,Colebrook
+140,Tolland,9973718.0,Columbia
+139,Litchfield,2853911.0,Cornwall
+138,Tolland,20670726.0,Coventry
+137,Middlesex,32269922.0,Cromwell
+136,Fairfield,77140025.0,Danbury
+135,Fairfield,226297824.0,Darien
+134,Middlesex,9498797.0,Deep River
+133,New Haven,12372223.0,Derby
+132,Middlesex,21615912.0,Durham
+130,Hartford,10133544.0,East Granby
+129,Middlesex,14265135.0,East Haddam
+128,Middlesex,24692638.0,East Hampton
+127,Hartford,37696907.0,East Hartford
+126,New Haven,34040369.0,East Haven
+125,New London,40060793.0,East Lyme
+123,Hartford,14336300.0,East Windsor
+131,Windham,1945467.0,Eastford
+124,Fairfield,30574642.0,Easton
+122,Tolland,33254794.0,Ellington
+121,Hartford,42760909.0,Enfield
+120,Middlesex,22315236.0,Essex
+119,Fairfield,214544445.0,Fairfield
+118,Hartford,86180050.0,Farmington
+117,New London,2900342.0,Franklin
+116,Hartford,126219168.0,Glastonbury
+115,Litchfield,7741365.0,Goshen
+114,Hartford,26568667.0,Granby
+113,Fairfield,765421830.0,Greenwich
+112,New London,11852631.0,Griswold
+111,New London,31955590.0,Groton
+110,New Haven,71749154.0,Guilford
+109,Middlesex,18239649.0,Haddam
+108,New Haven,81488504.0,Hamden
+107,Windham,2879329.0,Hampton
+106,Hartford,55173845.0,Hartford
+105,Hartford,2925139.0,Hartland
+104,Litchfield,10417293.0,Harwinton
+103,Tolland,20815229.0,Hebron
+102,Litchfield,4510941.0,Kent
+101,Windham,13369389.0,Killingly
+100,Middlesex,15241030.0,Killingworth
+99,New London,10401879.0,Lebanon
+98,New London,20732405.0,Ledyard
+97,New London,4730696.0,Lisbon
+96,Litchfield,18483323.0,Litchfield
+95,New London,9981557.0,Lyme
+94,New Haven,64027279.0,Madison
+93,Hartford,71287908.0,Manchester
+92,Tolland,19609793.0,Mansfield
+91,Hartford,15293738.0,Marlborough
+90,New Haven,53311160.0,Meriden
+89,New Haven,25296640.0,Middlebury
+88,Middlesex,9008340.0,Middlefield
+87,Middlesex,59059709.0,Middletown
+86,New Haven,116181524.0,Milford
+85,Fairfield,44819487.0,Monroe
+84,New London,19970930.0,Montville
+83,Litchfield,4641713.0,Morris
+82,New Haven,30950138.0,Naugatuck
+81,Hartford,42285986.0,New Britain
+80,Fairfield,190137495.0,New Canaan
+79,Fairfield,21168446.0,New Fairfield
+78,Litchfield,14523100.0,New Hartford
+77,New Haven,96567123.0,New Haven
+75,New London,17206087.0,New London
+74,Litchfield,38207942.0,New Milford
+76,Hartford,45544542.0,Newington
+73,Fairfield,73637620.0,Newtown
+72,Litchfield,3175184.0,Norfolk
+71,New Haven,24813135.0,North Branford
+70,Litchfield,637293.0,North Canaan
+69,New Haven,49097371.0,North Haven
+68,New London,8499842.0,North Stonington
+67,Fairfield,190008373.0,Norwalk
+66,New London,28699737.0,Norwich
+65,New London,28411090.0,Old Lyme
+64,Middlesex,30569500.0,Old Saybrook
+63,New Haven,39133954.0,Orange
+62,New Haven,25945137.0,Oxford
+61,Windham,11269174.0,Plainfield
+60,Hartford,22619200.0,Plainville
+59,Litchfield,14150946.0,Plymouth
+58,Windham,6811385.0,Pomfret
+57,Middlesex,18196872.0,Portland
+56,New London,6130867.0,Preston
+55,New Haven,16504967.0,Prospect
+54,Windham,5818571.0,Putnam
+53,Fairfield,37324049.0,Redding
+52,Fairfield,112130480.0,Ridgefield
+51,Hartford,39267108.0,Rocky Hill
+50,Litchfield,8105845.0,Roxbury
+49,New London,7883931.0,Salem
+48,Litchfield,7890821.0,Salisbury
+47,Windham,850208.0,Scotland
+46,New Haven,23392663.0,Seymour
+45,Litchfield,6787866.0,Sharon
+44,Fairfield,73145450.0,Shelton
+43,Fairfield,7194685.0,Sherman
+42,Hartford,83349682.0,Simsbury
+41,Tolland,19680925.0,Somers
+38,Hartford,56885512.0,South Windsor
+40,New Haven,43634408.0,Southbury
+39,Hartford,81069073.0,Southington
+37,New London,3389559.0,Sprague
+36,Tolland,13055695.0,Stafford
+35,Fairfield,888615940.0,Stamford
+34,Windham,2586837.0,Sterling
+33,New London,57768016.0,Stonington
+32,Fairfield,66874483.0,Stratford
+31,Hartford,38099944.0,Suffield
+30,Litchfield,10014244.0,Thomaston
+29,Windham,6071834.0,Thompson
+28,Tolland,32414277.0,Tolland
+27,Litchfield,32527802.0,Torrington
+26,Fairfield,84369657.0,Trumbull
+25,Tolland,1025546.0,Union
+24,Tolland,38598539.0,Vernon
+23,New London,2932397.0,Voluntown
+22,New Haven,74646914.0,Wallingford
+21,Litchfield,1435438.0,Warren
+20,Litchfield,10875912.0,Washington
+19,New Haven,56146024.0,Waterbury
+18,New London,32858979.0,Waterford
+17,Litchfield,34416348.0,Watertown
+15,Hartford,187671397.0,West Hartford
+14,New Haven,44681171.0,West Haven
+16,Middlesex,13865104.0,Westbrook
+13,Fairfield,62378869.0,Weston
+12,Fairfield,218578916.0,Westport
+11,Hartford,50870415.0,Wethersfield
+10,Tolland,8280838.0,Willington
+9,Fairfield,102381191.0,Wilton
+8,Litchfield,10612405.0,Winchester
+7,Windham,12723078.0,Windham
+6,Hartford,41167367.0,Windsor
+5,Hartford,14729802.0,Windsor Locks
+4,New Haven,24596191.0,Wolcott
+3,New Haven,43739647.0,Woodbridge
+2,Litchfield,22649260.0,Woodbury
+1,Windham,11706636.0,Woodstock
