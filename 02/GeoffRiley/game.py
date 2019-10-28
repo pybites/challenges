@@ -4,6 +4,7 @@
 import copy
 import random
 from collections import Counter
+from itertools import permutations
 from pprint import pprint
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
@@ -25,6 +26,29 @@ def max_word_value(words):
     return max(words, key=calc_word_value)
 
 
+def get_possible_dict_words(letters):
+    possible_words = []
+    for w in _get_permutations_draw(letters):
+        if ''.join(w).lower() in DICTIONARY:
+            possible_words.append(w)
+    return possible_words
+
+
+def _get_permutations_draw(letters):
+    for n in range(1,len(letters)+1):
+        for w in permutations(letters,n):
+            yield w
+
+
+def _validation(word, draw):
+    if not validate_word_in_letters(draw,word):
+        raise ValueError('Word cannot be made from letters drawn')
+    if not validate_word_in_dictionary(word):
+        raise ValueError('Word is not in dictionary')
+
+def draw_letters():
+    return pick_letters(pouch=POUCH)
+
 def pick_letters(cnt: int = NUM_LETTERS, pouch: list = None) -> list:
     pick = []
     for i in range(cnt):
@@ -35,12 +59,12 @@ def pick_letters(cnt: int = NUM_LETTERS, pouch: list = None) -> list:
 
 def validate_word_in_letters(letters, guess):
     lcount = Counter(letters)
-    gcount = Counter(guess.upper())
+    gcount = Counter(guess.lower())
     return len(gcount - lcount) == 0
 
 
 def validate_word_in_dictionary(guess):
-    return guess.upper() in dictionary
+    return guess.lower() in dictionary
 
 
 def present_to_user(letters):
@@ -65,7 +89,7 @@ def present_to_user(letters):
 def main():
     # refine the dictionary for processing
     global dictionary
-    dictionary = {x.upper(): Counter(x.upper()) for x in DICTIONARY}
+    dictionary = {x.lower(): Counter(x.lower()) for x in DICTIONARY}
     # copy the pouch so that tiles can be removed from it
     pouch = copy.deepcopy(POUCH)
     # print(f'size of pouch, before: {len(pouch)}')
