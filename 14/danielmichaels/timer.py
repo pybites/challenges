@@ -27,7 +27,9 @@ def timer(function):
 
 @timer
 def download_test():
-    """ Download a test file for assessing speed."""
+    """ 
+    Download a test file for assessing speed with progressbar.
+    """
     url = "http://speedcheck.cdn.on.net/10meg.test"
     r = requests.get(url, stream=True)
     total_size = int(r.headers.get("content-length", 0))
