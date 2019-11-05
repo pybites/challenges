@@ -8,4 +8,4 @@ With the power of async I was able to quickly gather the dataset in minutes whic
 
 ## Final Results
 
-![visual] (visualization/images/final_analysis.jpg)
+![visual](https://github.com/Anuj-Devrani/challenges/blob/PCC64/64/visualization/images/final_analysis%20.png)
