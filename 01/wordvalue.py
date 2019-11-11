@@ -10,14 +10,14 @@ def calc_word_value(word_):
     """Calculate the value of the word entered into function
     using imported constant mapping LETTER_SCORES"""
 
-    clean_word = word_.replace('-', '') if '-' in word_ else word_
-
-    return sum([LETTER_SCORES[char.upper()] for char in clean_word])
+    return sum([LETTER_SCORES.get(char.upper(), 0) for char in word_])
 
 
 def max_word_value(word_list_=load_words()):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
+
+    return max(word_list_, key=calc_word_value)
 
     max_val = 0
     max_word = ''
