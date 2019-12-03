@@ -1,11 +1,11 @@
 """
 32 - Test a Simple Django App With Selenium
 
-Some of these tests could have been combined better, use of a class
-But I preferred banging it out **and** having ONE ASSERT TEST per function.
+Some of these tests could have been combined better, use of a class, yadda
+But I preferred banging it out **and** trying for one assert per function/test.
 
 EC was more necessary than expected, but also wonder if it was the differance
-between headed and headless. Headless just worked better (a lot better. No focus issues)
+between headed and headless. Headless just worked better (a lot better. No focus issues).
 
 """
 
