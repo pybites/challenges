@@ -3,6 +3,10 @@
 
 import argparse
 import asyncio
+import sys
+
+if sys.platform == 'win32':
+    import winsound
 
 parser = argparse.ArgumentParser(description='Pomodoro timer.')
 parser.add_argument('time', metavar='N', type=int, default=1, help='time in units (e.g., 25)')
@@ -29,10 +33,11 @@ def seconds_per_unit(units):
 async def main(time, units):
     total_seconds = time * seconds_per_unit(units)
     print("Starting pomodoro timer for {0} {1} ({2} seconds).".format(time, units, total_seconds))
-    while total_seconds >= 0:
+    while total_seconds > 0:
         await asyncio.sleep(1)
         print("{0} tick!".format(total_seconds))
         total_seconds -= 1
 
 asyncio.run(main(desired_time, desired_units))
-
+print("DING!")
+winsound.Beep(2000,1000)   #2000 is the frequency in Hz, 1000 is the duration in ms
