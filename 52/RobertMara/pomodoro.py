@@ -42,4 +42,7 @@ async def main(time, units):
 
 asyncio.run(main(desired_time, desired_units))
 print("\rDING!")
-winsound.Beep(2000,1000)   #2000 is the frequency in Hz, 1000 is the duration in ms
+if sys.platform == 'win32':
+    winsound.Beep(2000,1000)   #2000 is the frequency in Hz, 1000 is the duration in ms
+else:
+    print('\a')   #UNTESTED
