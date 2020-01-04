@@ -4,6 +4,7 @@
 import argparse
 import asyncio
 import sys
+from datetime import timedelta
 
 if sys.platform == 'win32':
     import winsound
@@ -35,7 +36,8 @@ async def main(time, units):
     print("Starting pomodoro timer for {0} {1} ({2} seconds).".format(time, units, total_seconds))
     while total_seconds > 0:
         await asyncio.sleep(1)
-        print("\r{0} tick!".format(total_seconds), end='')
+        td = str(timedelta(seconds=total_seconds))
+        print("\r{0}".format(td), end='')
         total_seconds -= 1
 
 asyncio.run(main(desired_time, desired_units))
