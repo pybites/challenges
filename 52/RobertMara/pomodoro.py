@@ -35,9 +35,9 @@ async def main(time, units):
     print("Starting pomodoro timer for {0} {1} ({2} seconds).".format(time, units, total_seconds))
     while total_seconds > 0:
         await asyncio.sleep(1)
-        print("{0} tick!".format(total_seconds))
+        print("\r{0} tick!".format(total_seconds), end='')
         total_seconds -= 1
 
 asyncio.run(main(desired_time, desired_units))
-print("DING!")
+print("\rDING!")
 winsound.Beep(2000,1000)   #2000 is the frequency in Hz, 1000 is the duration in ms
