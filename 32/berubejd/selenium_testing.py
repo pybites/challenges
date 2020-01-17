@@ -5,6 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
+ARTICLE_COUNT = 100
+
 
 def setup(url=None):
     if not url:
@@ -52,7 +54,7 @@ def test_sharer_app(driver):
     assert "Title" in table_header.text, "Incorrect table header"
 
     table_links = driver.find_elements_by_xpath("/html/body/main/table/tbody/tr/td/a")
-    assert len(table_links) == 100, "Incorrect number of table rows"
+    assert len(table_links) == ARTICLE_COUNT, "Incorrect number of table rows"
 
 
 def test_article_link(driver):
