@@ -2,10 +2,20 @@
 
 from pathlib import Path
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from time import sleep
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 ARTICLE_COUNT = 100
+
+
+def click(driver, element):
+    """ Function to replace native click() with JS implementation 
+        This appears to be a bug in Selenium: https://github.com/SeleniumHQ/selenium/issues/4075 """
+
+    driver.execute_script("arguments[0].click();", element)
 
 
 def setup(url=None):
@@ -47,7 +57,8 @@ def test_sharer_app(driver):
     print("\tPerforming anonymous user App testing...")
 
     # Navigate to the Sharer App
-    driver.find_element_by_xpath("/html/body/main/ul/li/a").click()
+    app_link = driver.find_element_by_xpath("/html/body/main/ul/li/a")
+    click(driver, app_link)
 
     # Collect table header and links
     table_header = driver.find_element_by_xpath("/html/body/main/table/thead")
@@ -68,22 +79,10 @@ def test_article_link(driver):
     link_title = table_link.text
 
     # Navigate to that article
-    sleep(2)
-
-    table_link.click()
+    click(driver, table_link)
 
     # Check that this is the correct article by comparing titles
-    # Keeping this ridiculous loop in case the click event still isn't registering
-    while True:
-        try:
-            article_title = driver.find_element_by_xpath("/html/body/main/h2/a").text
-            break
-        except:
-            # print("Sleeping...")
-            sleep(5)
-            print("Trying that click again...")
-            table_link.click()
-
+    article_title = driver.find_element_by_xpath("/html/body/main/h2/a").text
     assert link_title == article_title, "Article detail doesn't match table link"
 
     # Collect list of buttons
@@ -95,9 +94,7 @@ def test_article_link(driver):
     ), "Incorrect link for 'Go back' button"
 
     # Return to previous page
-    sleep(2)
-
-    nav_buttons[0].click()
+    click(driver, nav_buttons[0])
 
     # Verify the first table entry one more time
     table_link = driver.find_element_by_xpath("/html/body/main/table/tbody/tr[1]/td/a")
@@ -117,14 +114,18 @@ def test_login(driver, username=None, password=None):
     print("\tPerforming guest user login testing...")
 
     # Find and click the login link
-    driver.find_element_by_xpath('//*[@id="login"]/a[1]').click()
+    login_link = driver.find_element_by_xpath('//*[@id="login"]/a[1]')
+    click(driver, login_link)
 
     # Enter login credentials
-    sleep(2)
+    user_input = driver.find_element_by_name("username")
+    driver.execute_script(f"arguments[0].value='{username}';", user_input)
 
-    driver.find_element_by_name("username").send_keys(username)
-    driver.find_element_by_name("password").send_keys(password)
-    driver.find_element_by_css_selector("button").click()
+    password_input = driver.find_element_by_name("password")
+    driver.execute_script(f"arguments[0].value='{password}';", password_input)
+
+    login_button = driver.find_element_by_css_selector("button")
+    click(driver, login_button)
 
     # Verify we are back at the home page but logged in
     assert (
@@ -146,18 +147,15 @@ def test_user_article_buttons(driver):
     print("\tPerforming guest user article testing...")
 
     # Navigate to the Sharer App
-    sleep(2)
-
-    driver.find_element_by_xpath("/html/body/main/ul/li/a").click()
+    app_link = driver.find_element_by_xpath("/html/body/main/ul/li/a")
+    click(driver, app_link)
 
     # Find and save the first article in the table
     table_link = driver.find_element_by_xpath("/html/body/main/table/tbody/tr[1]/td/a")
     link_title = table_link.text
 
     # Navigate to that article
-    sleep(2)
-
-    table_link.click()
+    click(driver, table_link)
 
     # Check that this is the correct article by comparing titles
     article_title = driver.find_element_by_xpath("/html/body/main/h2/a").text
@@ -178,9 +176,8 @@ def test_logout(driver):
     print("\tPerforming guest user logout testing...")
 
     # Find and click the Logout button
-    sleep(2)
-
-    driver.find_element_by_xpath('//*[@id="login"]/a[1]').click()
+    logout_link = driver.find_element_by_xpath('//*[@id="login"]/a[1]')
+    click(driver, logout_link)
 
     # Header
     header = driver.find_element_by_xpath("/html/body/header/h1")
@@ -233,4 +230,4 @@ if __name__ == "__main__":
         print(f"\t{e}")
         print()
 
-        driver.close()
+        # driver.close()
