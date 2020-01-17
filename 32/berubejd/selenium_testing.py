@@ -24,7 +24,21 @@ def setup(url=None):
 
     print("\tStarting browser setup...")
 
-    chrome_driver = Path.cwd() / Path("chromedriver.exe")
+    # This should work on both Windows and Linux
+    # (and with a Windows chromedriver on an Ubuntu filesystem using WSL)
+    # Returns first file in the current working directory called "chromedriver*"
+    chrome_driver = None
+
+    for file in Path.cwd().glob("chromedriver*"):
+        if file.is_file():
+            chrome_driver = file
+            break
+
+    if not chrome_driver:
+        raise FileNotFoundError(
+            "The chromedriver is not found in the current directory"
+        )
+
     driver = webdriver.Chrome(executable_path=chrome_driver)
     driver.get(url)
 
