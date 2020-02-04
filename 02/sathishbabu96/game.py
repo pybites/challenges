@@ -35,9 +35,8 @@ def _validation(word, draw):
     for char in word.upper():
         if char not in draw:
             raise ValueError(f"Character {char} not in {draw}")
-    _dictionary = [word.upper() for word in DICTIONARY]
-    if word.upper() not in _dictionary:
-        raise ValueError(f"Not a valid word")
+    if word.upper() not in DICTIONARY:
+        raise ValueError("Not a valid word")
 
 
 # From challenge 01:
@@ -97,6 +96,23 @@ def main():
 
     game_score = (word_score / max_word_score) * 100
     print('You scored: {:.1f}'.format(game_score))
+
+    with open('records.txt', 'r') as fp:
+        records = fp.readlines()
+    if records:
+        record = records[-1]
+        old_word, old_word_score, old_game_score = record.split(' ')
+        old_game_score = float(old_game_score)
+        if game_score > old_game_score:
+            print('Wow! It\'s a new record!. Congratulations!!!')
+            print(f'Your old record is {old_game_score} for the word {old_word} with value {old_word_score}')
+            with open('records.txt', 'w') as fp:
+                fp.write(f'{word} {word_score} {game_score}')
+
+    else:
+        print('Wow! It\'s a new record!. Congratulations!!!')
+        with open('records.txt', 'w') as fp:
+            fp.write(f'{word} {word_score} {game_score}')
 
 
 if __name__ == "__main__":
