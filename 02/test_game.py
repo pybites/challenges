@@ -1,9 +1,9 @@
 import itertools
 import unittest
 
-from c02.sathishbabu96.game import draw_letters, calc_word_value, max_word_value
-from c02.sathishbabu96.game import get_possible_dict_words, _get_permutations_draw
-from c02.sathishbabu96.game import _validation
+from game import draw_letters, calc_word_value, max_word_value
+from game import get_possible_dict_words, _get_permutations_draw
+from game import _validation
 
 NUM_LETTERS = 7
 TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
