@@ -1,12 +1,13 @@
 import itertools
 import unittest
 
-from game import draw_letters, calc_word_value, max_word_value
-from game import get_possible_dict_words, _get_permutations_draw
-from game import _validation
+from c02.sathishbabu96.game import draw_letters, calc_word_value, max_word_value
+from c02.sathishbabu96.game import get_possible_dict_words, _get_permutations_draw
+from c02.sathishbabu96.game import _validation
 
 NUM_LETTERS = 7
 TEST_WORDS = ('bob', 'julian', 'pybites', 'quit', 'barbeque')
+
 
 class TestGame(unittest.TestCase):
 
@@ -27,11 +28,12 @@ class TestGame(unittest.TestCase):
         self.assertEqual(max_word_value(TEST_WORDS), 'barbeque')
 
     def test_get_permutations_draw(self):
-        gen_permutations_n_letters = sum(len(list(itertools.permutations(self.draw, n))) for n in range(1, NUM_LETTERS+1))
+        gen_permutations_n_letters = sum(
+            len(list(itertools.permutations(self.draw, n))) for n in range(1, NUM_LETTERS + 1))
         game_permutations = len(list(_get_permutations_draw(self.draw)))
         self.assertEqual(gen_permutations_n_letters, game_permutations)
-        alist = range(1,8)
-        gen_permutations_any_list = sum(len(list(itertools.permutations(alist, n))) for n in range(1, NUM_LETTERS+1))
+        alist = range(1, 8)
+        gen_permutations_any_list = sum(len(list(itertools.permutations(alist, n))) for n in range(1, NUM_LETTERS + 1))
         self.assertEqual(gen_permutations_any_list, gen_permutations_n_letters)
 
     def test_get_possible_dict_words(self):
@@ -48,5 +50,6 @@ class TestGame(unittest.TestCase):
         word = 'GARETTA'
         self.assertRaises(ValueError, _validation, word, draw)
 
+
 if __name__ == "__main__":
-   unittest.main() 
+    unittest.main()
