@@ -45,5 +45,4 @@ def multiprocess_max_word_value(words):
 
 if __name__ == "__main__":
     import unittest
-    from test_wordvalue import TestWordValue
     unittest.main()
