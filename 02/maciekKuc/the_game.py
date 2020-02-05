@@ -1,19 +1,27 @@
 from data import DICTIONARY, LETTER_SCORES, POUCH
+import random
 
 #function for loading words
-#def draw():
-#    letters = []
-#    for i in range(0, 6):
-print(POUCH)
+def draw():
+    letters = []
+    drawn = []
+    i = 0
+    while i < 7:
+        n = random.randrange(0,len(POUCH))
+        if n not in drawn:
+            drawn.append(n)
+            letters.append(POUCH[n])
+            i = i + 1
+    return letters
+
+print(random.randrange(0,len(POUCH)))
+print(draw())
 
 def score_calc(word):
     score = 0
     for letter in word:
-        for scores in scrabble_scores:
-            if letter.upper() in scores[1]:
-                score = score + scores[0]
+        score = score + LETTER_SCORES[letter.upper()]
     return score
-
 
 def check_word():
     with open(DICTIONARY, 'r') as file:
@@ -30,3 +38,4 @@ def check_word():
         print('The highest score is %s and its for %s' % (score[0], score[1]))
         return score
 
+print(score_calc('abba'))
