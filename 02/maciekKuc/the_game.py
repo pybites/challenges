@@ -25,7 +25,7 @@ def score_calc(word):
 
 def check_word():
     with open(DICTIONARY, 'r') as file:
-        words = file.read().split('\n')
+        words = DICTIONARY.read().split('\n')
         score = [0,'']
         for word in words:
             actuall_score = 0
@@ -37,5 +37,17 @@ def check_word():
                 score = [actuall_score, word]
         print('The highest score is %s and its for %s' % (score[0], score[1]))
         return score
+
+while True:
+    score = 0
+    actuall_draw = draw()
+    user_choice = input('You have drawn this set of letters: %s Please type a word out of them.' % actuall_draw)
+    if user_choice in DICTIONARY:
+        score = score_calc(user_choice)
+    else:
+        print('Wrong choice.')
+    next_step = input('Your score is: %s.(Press "q" for quit, any other button to continue)' % score)
+    if next_step == 'q':
+        break
 
 print(score_calc('abba'))
