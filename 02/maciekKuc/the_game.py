@@ -40,12 +40,22 @@ def check_word():
 
 while True:
     score = 0
+    best_score = 0
+    best_pick = ''
     actuall_draw = draw()
     user_choice = input('You have drawn this set of letters: %s Please type a word out of them.' % actuall_draw)
     if user_choice in DICTIONARY:
         score = score_calc(user_choice)
     else:
         print('Wrong choice.')
+    for word in DICTIONARY:
+        working = [char.upper() for char in word]
+        if all(item in working for item in actuall_draw):
+            this_one = score_calc(word)
+            if this_one > best_score:
+                best_score = this_one
+                best_pick = word
+    print('Optimal score is %s' % best_score)
     next_step = input('Your score is: %s.(Press "q" for quit, any other button to continue)' % score)
     if next_step == 'q':
         break
