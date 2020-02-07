@@ -23,21 +23,6 @@ def score_calc(word):
         score = score + LETTER_SCORES[letter.upper()]
     return score
 
-def check_word():
-    with open(DICTIONARY, 'r') as file:
-        words = DICTIONARY.read().split('\n')
-        score = [0,'']
-        for word in words:
-            actuall_score = 0
-            for letter in word:
-                for scores in scrabble_scores:
-                    if letter.upper() in scores[1]:
-                        actuall_score = actuall_score + scores[0]
-            if actuall_score > score[0]:
-                score = [actuall_score, word]
-        print('The highest score is %s and its for %s' % (score[0], score[1]))
-        return score
-
 while True:
     score = 0
     best_score = 0
@@ -50,14 +35,12 @@ while True:
         print('Wrong choice.')
     for word in DICTIONARY:
         working = [char.upper() for char in word]
-        if all(item in working for item in actuall_draw):
+        if all(item in actuall_draw for item in working):
             this_one = score_calc(word)
             if this_one > best_score:
                 best_score = this_one
                 best_pick = word
-    print('Optimal score is %s' % best_score)
-    next_step = input('Your score is: %s.(Press "q" for quit, any other button to continue)' % score)
+    print('Optimal score is %s and it,s for the word: %s' % (best_score, best_pick))
+    next_step = input('Your score is: %s.(Press "q" for quit, any other button to continue)' % round(score / best_score * 100, 2))
     if next_step == 'q':
         break
-
-print(score_calc('abba'))
