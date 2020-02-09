@@ -3,12 +3,13 @@ from difflib import SequenceMatcher
 from itertools import product
 import re
 
+IDENTICAL = 1.0
 TOP_NUMBER = 10
 RSS_FEED = 'rss.xml'
 SIMILAR = 0.87
 TAGS_HTML = re.compile(r"<category>([^<]+)</category>")
 
-print(TAGS_HTML)
+
 def get_tags():
     """Find all tags in RSS_FEED.
     Replace dash with whitespace."""
@@ -18,14 +19,19 @@ def get_tags():
 
 
 def get_top_tags(tags):
-    """Get the TOP_NUMBER of most common tags"""
-    pass
+    c = Counter(tags)
+    return c.most_common(10)
 
 
 def get_similarities(tags):
-    """Find set of tags pairs with similarity ratio of > SIMILAR"""
-    pass
-
+    similars = []
+    for i in range(0, len(tags) - 1):
+        for j in range(i + 1, len(tags)):
+            if IDENTICAL > SequenceMatcher(None,tags[i], tags[j]).ratio() > SIMILAR:
+                similars.append([tags[i],tags[j]])
+    return similars
+    
+print(SequenceMatcher('aabb', "aab").ratio())
 
 if __name__ == "__main__":
     tags = get_tags()
