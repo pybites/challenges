@@ -135,4 +135,12 @@ frm_button.grid(row=2, column=0, sticky='nsew')
 frm_hangman.grid(row=0, column=0, sticky='nsew')
 frm_others.grid(row=0, column=1, sticky='nsew')
 
+windowWidth = window.winfo_reqwidth()
+windowHeight = window.winfo_reqheight()
+
+positionRight = int(window.winfo_screenwidth() / 2 - windowWidth / 2)
+positionDown = int(window.winfo_screenheight() / 2 - windowHeight / 2)
+
+window.geometry("+{}+{}".format(positionRight, positionDown))
+
 window.mainloop()
