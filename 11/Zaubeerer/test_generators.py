@@ -1,34 +1,43 @@
 import generators
+from collections import Counter
 
-FILE_PATTERN = '../*/*.py'
+FILE_PATTERN = '*.py'
 LINE_PATTERN = "import "
 
 def test_gen_files():
-    expected_files = "..."
+    expected_files = ["test_generators.py", "generators.py"]
 
-    assert generators.gen_files(FILE_PATTERN) == expected_files
+    assert list(generators.gen_files(FILE_PATTERN)) == expected_files
 
 def test_gen_lines():
-    expected_lines = "..."
+    expected_lines = ['import generators\n',
+                      'from collections import Counter\n', 
+                      '\n', 
+                      "FILE_PATTERN = '*.py'\n", 
+                      'LINE_PATTERN = "import "\n', 
+                      ]
 
-    test_files = "filename"
+    test_files = ["test_generators.py"]
 
-    # test_lines = test_files.readlines() # pseudocode
-
-    assert generators.gen_lines(test_files) == test_lines
+    assert list(generators.gen_lines(test_files))[0][:5] == expected_lines
 
 
 def test_gen_grep():
-    lines = " ..."
+    lines = ['import generators\n', 
+             '\n', 
+             "FILE_PATTERN = '*.py'\n", 
+             'LINE_PATTERN = "import "\n', 
+             '\n',
+             ]
 
-    expected_lines = "..."
+    expected_lines = ["generators"]
 
-    assert generators.gen_grep(lines, LINE_PATTERN) == expected_lines
+    assert list(generators.gen_grep(lines, LINE_PATTERN)) == expected_lines
 
 def test_gen_count():
 
-    lines = "..."
+    lines = ["generators", "numpy", "generators"]
 
-    expected_counts = "..."
+    expected_counts = [Counter({'generators': 2, 'numpy': 1})]
 
-    assert generators.gen_count(lines) == expected_counts
+    assert list(generators.gen_count(lines)) == expected_counts

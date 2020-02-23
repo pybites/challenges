@@ -31,13 +31,13 @@ def gen_lines(files):
     
     for file in files:
         with open(file) as f:
-            yield f.readline()
+            yield f.readlines()
 
 def gen_grep(lines, pattern):
     """Analyze whether lines match a certain pattern"""
     for line in lines:
         if line.startswith(pattern):
-            yield line[len(pattern):]
+            yield line[len(pattern):-1]
 
 def gen_count(lines):
     """Count number of occurrences of specific patterns"""
