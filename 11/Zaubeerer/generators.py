@@ -51,7 +51,15 @@ if __name__ == "__main__":
     line_pattern = "import "
  
     files = gen_files(file_pattern)
+    print(files)
     lines = gen_lines(files)
+    print(lines)
     lines_of_interest = gen_grep(lines, line_pattern)
+    print(lines_of_interest)
     counted_lines = gen_count(lines_of_interest)
 
+    print(counted_lines)
+
+    print(*counted_lines)
+
+    [print(key, value) for key, value in counted_lines]
