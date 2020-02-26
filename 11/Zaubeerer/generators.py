@@ -23,15 +23,14 @@ import collections
 def gen_files(pat):
     """Finds all files"""
 
-    for file in glob.glob(pat):
-        yield file
+    yield from glob.glob(pat)
 
 def gen_lines(files):
     """Finds all lines"""
     
     for file in files:
         with open(file) as f:
-            yield f.readlines()
+            yield from f.readlines()
 
 def gen_grep(lines, pattern):
     """Analyze whether lines match a certain pattern"""

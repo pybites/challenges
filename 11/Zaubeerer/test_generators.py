@@ -1,5 +1,6 @@
 import generators
 from collections import Counter
+from itertools import islice
 
 FILE_PATTERN = '*.py'
 LINE_PATTERN = "import "
@@ -12,6 +13,7 @@ def test_gen_files():
 def test_gen_lines():
     expected_lines = ['import generators\n',
                       'from collections import Counter\n', 
+                      'from itertools import islice\n',
                       '\n', 
                       "FILE_PATTERN = '*.py'\n", 
                       'LINE_PATTERN = "import "\n', 
@@ -19,7 +21,7 @@ def test_gen_lines():
 
     test_files = ["test_generators.py"]
 
-    assert list(generators.gen_lines(test_files))[0][:5] == expected_lines
+    assert list(generators.gen_lines(test_files))[:6] == expected_lines
 
 
 def test_gen_grep():
