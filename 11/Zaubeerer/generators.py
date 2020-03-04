@@ -23,13 +23,11 @@ import re
 
 def gen_files(pat):
     """Finds all files"""
-
     yield from glob.glob(pat)
 
 
 def gen_lines(files):
     """Finds all lines"""
-
     for file in files:
         with open(file) as f:
             yield from f.readlines()
@@ -44,7 +42,6 @@ def gen_grep(lines, pattern):
 
 def gen_count(lines):
     """Count number of occurrences of specific patterns"""
-
     yield collections.Counter(line for line in lines)
 
 
