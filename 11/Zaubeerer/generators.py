@@ -20,35 +20,39 @@ import re
 
 import collections
 
+
 def gen_files(pat):
     """Finds all files"""
 
     yield from glob.glob(pat)
 
+
 def gen_lines(files):
     """Finds all lines"""
-    
+
     for file in files:
         with open(file) as f:
             yield from f.readlines()
+
 
 def gen_grep(lines, pattern):
     """Analyze whether lines match a certain pattern"""
     for line in lines:
         if line.startswith(pattern):
-            yield line[len(pattern):-1]
+            yield line[len(pattern) : -1]
+
 
 def gen_count(lines):
     """Count number of occurrences of specific patterns"""
 
     yield collections.Counter(line for line in lines)
-        
+
 
 if __name__ == "__main__":
     # call the generators, passing one to the other
-    file_pattern = '../*/*.py'
+    file_pattern = "../*/*.py"
     line_pattern = "import "
- 
+
     files = gen_files(file_pattern)
     lines = gen_lines(files)
     lines_of_interest = gen_grep(lines, line_pattern)
