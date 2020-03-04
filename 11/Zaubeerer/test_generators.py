@@ -1,6 +1,7 @@
-import generators
 from collections import Counter
 from itertools import islice
+
+import generators
 
 FILE_PATTERN = "*.py"
 LINE_PATTERN = "import "

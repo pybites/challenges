@@ -15,10 +15,10 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
    1 datetime
 """
 
-import glob, os
-import re
-
 import collections
+import glob
+import os
+import re
 
 
 def gen_files(pat):
