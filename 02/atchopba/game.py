@@ -18,20 +18,25 @@ def draw_letters():
 def input_word(draw):
     """Ask player for a word and validate against draw.
     Use _validation(word, draw) helper."""
-    word = input("Write a word with above letters, please: ")
-    while not _validation(word, draw):
-        word = input("Word not valid! Write a word with above letters, please: ")
-    return word
+    while True:
+        word = input("Write a word with above letters, please: ")
+        try:
+            return _validation(word, draw)
+        except ValueError as e:
+            print (e)
+            continue
 
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    validation_word = word[:1].upper() in draw
-    i=1
-    for letter in word[1:NUM_LETTERS]:
-        validation_word = validation_word and (word[i:i+1].upper() in draw)
+    i=0
+    for letter in word[0:NUM_LETTERS]:
+        if not (word[i:i+1].upper() in draw):
+            raise ValueError("{} is not valid!", format(word))
         i+=1
-    return validation_word and (word in DICTIONARY)
+    if not (word in DICTIONARY):
+        raise ValueError("{} Not valid dictionary word! try again")
+    return word
 
 
 # From challenge 01:
