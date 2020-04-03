@@ -16,9 +16,10 @@ def get_tags():
     Hint: use TAG_HTML.findall"""
     str_file = ''
     with open(RSS_FEED,'r') as f:
-        str_file += f.read().strip()
+        str_file += f.read().strip().lower()
     tags = TAG_HTML.findall(str_file)
-    return [tag.replace("-", " ") for tag in tags]
+    trs = str.maketrans("-", " ")
+    return [tag.translate(trs) for tag in tags]
 
 
 def get_top_tags(tags):
