@@ -13,6 +13,10 @@ NUM_TWEETS = 100
 
 Tweet = namedtuple('Tweet', 'id_str created_at text')
 
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.secure = True
+auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+api = tweepy.API(auth)
 
 class UserTweets(object):
 
@@ -22,12 +26,9 @@ class UserTweets(object):
         to create api interface.
         Use _get_tweets() helper to get a list of tweets.
         Save the tweets as data/<handle>.csv"""
-        auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-        auth.secure = True
-        auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-        self.api = tweepy.API(auth)
         self.handle = handle
         self.max_id = max_id
+        self.output_file = DEST_DIR +"/"+ self.handle +"." +EXT
         # ...
         self._tweets = list(self._get_tweets())
         self._save_tweets()
@@ -39,8 +40,8 @@ class UserTweets(object):
         id_str created_at text (optionally use namedtuple)"""
         tweets = []
         try:
-            for tweet in self.api.user_timeline(self.handle, count=NUM_TWEETS, max_id=self.max_id):
-                tweets.append(Tweet(tweet.id_str, tweet.created_at, tweet.text.encode("utf-8").strip()))
+            for t in api.user_timeline(self.handle, count=NUM_TWEETS, max_id=self.max_id):
+                tweets.append(Tweet(t.id_str, t.created_at, t.text.encode("utf-8").strip()))
         except tweepy.TweepError as e:
             print("")
         return tweets
@@ -51,7 +52,7 @@ class UserTweets(object):
         Otherwise define them as: id_str created_at text
         You can use writerow for the header, writerows for the rows"""
         os.makedirs(DEST_DIR, exist_ok=True)
-        with open(DEST_DIR +"/"+ self.handle +"." +EXT, "w") as f:
+        with open(self.output_file, "w") as f:
             csv_writer = csv.writer(f, delimiter=',')
             csv_writer.writerow(Tweet._fields)
             csv_writer.writerows(self._tweets)
@@ -63,7 +64,6 @@ class UserTweets(object):
     def __getitem__(self, pos):
         """See http://pybit.es/python-data-model.html"""
         return self._tweets[pos]
-
 
 if __name__ == "__main__":
 
