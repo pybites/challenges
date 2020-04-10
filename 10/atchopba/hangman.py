@@ -67,7 +67,7 @@ class Hangman(object):
            if letter in self.movie:
                movie_find = self._str_movie_letter_found(movie_find, letter)
                if self._is_movie_found(movie_find):
-                   print("you win ! The movie is : "+ self.movie_on_start)
+                   print("you win ! The title's movie is : "+ self.movie_on_start)
                    break
            else:
                letter = ""
