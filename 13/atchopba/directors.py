@@ -8,6 +8,7 @@ MIN_MOVIES = 4
 MIN_YEAR = 1960
 
 Movie = namedtuple('Movie', 'title year score')
+DirectorAvg = namedtuple('Library', 'director avg')
 
 
 def get_movies_by_director():
@@ -26,11 +27,12 @@ def get_movies_by_director():
 
 def get_average_scores(directors):
     '''Filter directors with < MIN_MOVIES and calculate averge score'''
-    directors_dict = defaultdict(list)
+    directoravg_dict = {}
     for d, m in directors.items():
         if len(m) >= MIN_MOVIES:
-            directors_dict[d] = {"movies": m, "avg": _calc_mean(m)}
-    return directors_dict
+            tmp = DirectorAvg(director=d, avg=_calc_mean(m))
+            directoravg_dict[tmp] = m
+    return directoravg_dict
     
 def _calc_mean(movies):
     '''Helper method to calculate mean of list of Movie namedtuples'''
@@ -44,12 +46,12 @@ def print_results(directors):
     fmt_movie_entry = '{year}] {title:<50} {score}'
     sep_line = '-' * 60
     #
-    directors = sorted(directors.items(), key=lambda x: x[1]['avg'], reverse=True)
+    directors = sorted(directors.items(), key=lambda x: float(x[0][1]), reverse=True)
     for counter in range(0, NUM_TOP_DIRECTORS+1):
         d = directors[counter]
-        print (fmt_director_entry.format(counter=counter, director=d[0], avg=d[1]["avg"]))
+        print (fmt_director_entry.format(counter=counter, director=d[0].director, avg=d[0].avg))
         print (sep_line)
-        for m in d[1]["movies"]:
+        for m in d[1]:
             print (fmt_movie_entry.format(year=str(m.year), title=m.title, score=m.score))
         print ("\n")
 
