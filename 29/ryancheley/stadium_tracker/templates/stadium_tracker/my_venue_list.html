@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mui--text-display1">
+    {% block title %}
+        {% if user.is_authenticated %}
+        {{ pages.header }}
+        {% else %}
+        Visited Stadia
+        {% endif %}
+    {% endblock %}
+    </h1>
+<ul class="mui-tabs__bar mui-tabs__bar--justified">
+    {% for d in divisions %}
+        <li class="{% if d.default_division %} mui--is-active {% endif %}">
+        <a data-mui-toggle="tab" data-mui-controls="pane-events-{{ d.division_id }}">{{d.division_name}}</a></li>
+    {% endfor %}
+</ul>
+
+{% for d in divisions %}
+    <div class="{% if d.default_division %} mui-tabs__pane mui--is-active {% else %} mui-tabs__pane {% endif %}"
+         id="pane-events-{{d.division_id}}">
+<div class="mui-row">
+    <div class="mui-col-md-3 mui--text-title">Stadium</div>
+    <div class="mui-col-md-2 mui--text-title">Home Team</div>
+    {% if user.is_authenticated %}
+    <div class="mui-col-md-1 mui--text-title">Visited</div>
+    {% endif %}
+</div>
+    {% for t in teams %}
+    {% if d.division_id == t.division_id %}
+        {% for v in t.venues %}
+        <div class="mui-row">
+            <div class="mui-col-md-3">
+                <span>
+                    <a href="{% url 'stadium_tracker:stadium_game_list' v.venue_id %}">
+                    {{ v.venue_name }}
+                    </a>
+                </span>
+                <span class="mui--divider-left mui--text-right">&nbsp;{{v.visit_count}}</span>
+            </div>
+            <div class="mui-col-md-3">
+                {{ v.team_name }}
+            </div>
+            <div class="mui-col-md-1 mui--text-center">
+                {% if user.is_authenticated %}
+                    {% if v.user_visited %}
+                    <i class="fas fa-check"></i>
+                    {% else %}
+                    <i class="fas fa-times-circle"></i>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% endfor %}
+    </div>
+{% endfor %}
+
+</div>
+
+
+<script>
+  // get toggle elements
+  var toggleEls = document.querySelectorAll('[data-mui-controls^="pane-events-"]');
+
+  function logFn(ev) {
+    var s = '[' + ev.type + ']';
+    s += ' paneId: ' + ev.paneId;
+    s += ' relatedPaneId: ' + ev.relatedPaneId;
+    console.log(s);
+  }
+
+  // attach event handlers
+  for (var i=0; i < toggleEls.length; i++) {
+    toggleEls[i].addEventListener('mui.tabs.showstart', logFn);
+    toggleEls[i].addEventListener('mui.tabs.showend', logFn);
+    toggleEls[i].addEventListener('mui.tabs.hidestart', logFn);
+    toggleEls[i].addEventListener('mui.tabs.hideend', logFn);
+  }
+</script>
+
+
+{% endblock %}

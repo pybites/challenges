@@ -1,0 +1,119 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+    <link href="//cdn.muicss.com/mui-0.9.40/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.9.40/js/mui.min.js"></script>
+    <script src="https://kit.fontawesome.com/c42837f93c.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header class="mui-appbar mui--z1">
+      <div class="mui-container">
+        <table>
+          <tr class="mui--appbar-height">
+            <td class="mui--text-title"><a id="pageTitle" href="/">StadiaTracker</a></td>
+            <td class="mui--text-right">
+              <ul class="mui-list--inline mui--text-body2">
+              <li>
+                  <button class="mui-btn mui-btn--primary">
+                  <a href="http://blog.stadiatracker.com">Blog</a>
+                  </button>
+              </li>
+              <li>
+                  <button class="mui-btn mui-btn--primary">
+                  <a href="{% url 'stadium_tracker:game_list' %}">All Games</a>
+                  </button>
+              </li>
+                <li>
+                    <button class="mui-btn mui-btn--primary">
+                    <!--<a href="/Pages/About">About</a>-->
+                        <a href="{% url 'content:content' 'About' %}">About</a>
+                        </button>
+                </li>
+                  {% if not request.user.is_authenticated %}
+                <li>
+                    <button class="mui-btn mui-btn--primary">
+                        <a href="{% url 'login' %}">Login</a>
+                    </button>
+                </li>
+                <li>
+                    <button class="mui-btn mui-btn--primary">
+                        <a href="{% url 'django_registration_register' %}">Register</a>
+                    </button>
+                </li>
+
+                  {% endif %}
+              {% if request.user.is_authenticated %}
+              <div class="mui-dropdown">
+                    <button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown">
+                        {{request.user}}
+                        <span class="mui-caret"></span>
+                    </button>
+                  <ul class="mui-dropdown__menu">
+                      <li><a href="{% url 'stadium_tracker:my_venues' %}">Visited Stadia</a></li>
+                      <li><a href="{% url 'stadium_tracker:my_game_list' %}">My Games</a></li>
+                      <li>
+                          <a href="{% url 'users:user' request.user.id %}">My User Details</a>
+                      </li>
+                      <li><a href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+              </div>
+              {% endif %}
+
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+    </header>
+
+    <div id="content-wrapper">
+
+      <div class="mui--appbar-height"></div>
+
+      <div class="mui-container">
+        <br><br>
+
+        <div id="messages">
+          {% for message in messages %}
+            <p style="color: {% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% endif %}">
+              {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+            </p>
+          {% endfor %}
+        </div>
+
+        {% block content %}{% endblock %}
+      </div>
+
+    </div><!-- end content-wrapper -->
+
+    <footer>
+        <div class="mui-container-fluid">
+          <div class="mui-row">
+              <div class="mui-col-md-1"></div>
+            <div class="mui-col-md-3">
+                &copy; 2019 <a href="https://www.ryancheley.com" target="_blank">Ryan Cheley</a>
+            </div>
+            <div class="mui-col-md-4">
+            Made with ♥ by <a href="https://www.muicss.com">MUICSS</a>
+            </div>
+            <div class="mui-col-md-3">
+            {% if request.user == 'ryan' %}
+            <a href="https://github.com/ryancheley/StadiumTrackerAPI">GitHub</a>
+            {% endif %}
+            </div>
+            <div class="mui-col-md-1"></div>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+</html>

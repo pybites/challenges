@@ -1,0 +1,106 @@
+/**
+ * Body CSS
+ */
+html,
+body {
+  height: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+
+/**
+ * Header CSS
+ */
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+header ul.mui-list--inline {
+  margin-bottom: 0;
+}
+
+header a {
+  color: white;
+}
+
+header table {
+  width: 100%;
+}
+
+
+/**
+ * Content CSS
+ */
+#content-wrapper {
+  min-height: 100%;
+
+  /* sticky footer */
+  box-sizing: border-box;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
+
+
+/**
+ * Footer CSS
+ */
+footer {
+  box-sizing: border-box;
+  height: 100px;
+  background-color: #eee;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 35px;
+}
+
+
+
+/* http://www.webmaster-source.com/static/demos/pure-css-blockquotes.php */
+blockquote {
+	border-left: none; /* cancel out bootstrap */
+	font-family: Georgia, serif;
+	font-size: 18px;
+	font-style: italic;
+	margin: 0.25em 0;
+	padding: 0.25em 40px;
+	line-height: 1.45;
+	position: relative;
+	color: #383838;
+}
+
+blockquote:before {
+	display: block;
+	content: "\201C";
+	font-size: 80px;
+	position: absolute;
+	left: -20px;
+	top: -20px;
+	color: #7a7a7a;
+}
+
+blockquote cite {
+	color: #999999;
+	font-size: 14px;
+	display: block;
+	margin-top: 5px;
+}
+
+blockquote cite:before {
+	content: "\2014 \2009";
+}
+
+#messages {
+  margin: 0 10px;
+}

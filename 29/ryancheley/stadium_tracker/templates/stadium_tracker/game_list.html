@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+{% block content %}
+
+    <h1>
+    {% block title %}
+        {{ pages.header }}
+    {% endblock %}
+    </h1>
+
+<table class="mui-table mui-table--bordered">
+    <thead>
+        <tr>
+            <th>Game</th>
+            <th>Details</th>
+            <th>User</th>
+            <th colspan="2">
+                &nbsp;
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+    {% for g in game_list %}
+    <tr>
+        <td>
+            {{g.game_datetime | timezone:"America/Los_Angeles"}}
+            <br>
+            {{g.away_team}} vs {{g.home_team}}
+            <br>
+            Final Score: {{g.away_runs}} - {{g.home_runs}}
+            </a>
+    </td>
+    <td>
+        <a href="{% url 'stadium_tracker:gamedetails_list' g.id %}">Details</a>
+    </td>
+    <td>
+        {% filter title%}
+        {{g.user}}
+        {% endfilter %}
+    </td>
+    {% if request.user == m.user %}
+    <td><a class="mui-btn mui-btn--small mui-btn--flat mui-btn--danger" href="{% url "stadium_tracker:gamesseen_delete" m.id %}">Delete</a></td>
+    {% else %}
+        <td colspan="2"></td>
+    {% endif %}
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+    <div class="mui-container">
+    {% if request.user.is_authenticated %}
+        {% if venue %}
+        <a class="mui-btn mui-btn--primary" href="{% url "stadium_tracker:venue_list" %}">Go Back</a>
+        {% else %}
+        <a class="mui-btn mui-btn--primary" href="{% url "stadium_tracker:gamedetails_create" %}">Add a Game Seen</a>
+        {% endif %}
+    {% else %}
+        <a class="mui-btn mui-btn--primary" href="{% url "login" %}">Log into add a game seen</a>
+    {% endif %}
+    </div>
+    <div class="">
+{% if is_paginated %}
+  <ul class="mui-list--inline mui--text-body2">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}    </div>
+
+{% endblock %}

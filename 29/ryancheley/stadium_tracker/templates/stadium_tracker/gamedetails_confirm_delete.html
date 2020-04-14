@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1 class="mui--text-display1">Confirm Delete Game Seen</h1>
+  <form method="post">
+      <h3>  {{ game_details.headline }} </h3>
+      <table>
+          <tr>
+              <th>Team</th>
+              <th>Runs</th>
+              <th>Hits</th>
+              <th>Errors</th>
+          </tr>
+          <tr>
+              <td>{{ game_details.away_team }}</td>
+              <td>{{ game_details.away_runs }}</td>
+              <td>{{ game_details.away_hits }}</td>
+              <td>{{ game_details.away_errors }}</td>
+          </tr>
+          <tr>
+              <td>{{ game_details.home_team }}</td>
+              <td>{{ game_details.home_runs }}</td>
+              <td>{{ game_details.home_hits }}</td>
+              <td>{{ game_details.home_errors }}</td>
+          </tr>
+      </table>
+
+
+    {% csrf_token %}
+    <p class="mui--text-danger">Are you sure you want to delete this game?</p>
+    <input class="mui-btn mui-btn--danger" type="submit" value="Delete" />
+    <a class="mui-btn mui-btn--raised" href="{% url "stadium_tracker:gamedetails_list" game_details.id %}">Go Back</a>
+  </form>
+
+{% endblock %}
