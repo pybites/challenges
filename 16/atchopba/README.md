@@ -12,6 +12,13 @@ Allows you to search on Twitter. The search returns 100 tweets max.
 
 * Python 3.7.7 or higher
 
+### Installation
+
+Install packages
+```
+pip install -r requirements.txt
+```
+
 ### Using the tool
 
 Then to run that image and attach to it at the same time:
