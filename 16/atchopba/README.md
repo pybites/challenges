@@ -1,6 +1,6 @@
 ## Overview
 
-Allows you to search on Twitter. The search returns 100 tweets max.
+Allows you to search on Twitter. The search returns 100 "last" tweets max.
 
 
 ## Getting Started
@@ -25,3 +25,4 @@ Then to run that image and attach to it at the same time:
 ```
 python app.py
 ```
+Go to your web browser: http://localhost:5000/
