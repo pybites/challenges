@@ -37,5 +37,7 @@ def search_tweets(q):
                 "<td>"+ str(t._json["retweet_count"]) +"</td>"
         "</tr>")
         i +=1
+    if (i == 1):
+        return_html += "<td colspan='7'>No result !</td>"
     return_html += "</tboby></table>"
     return return_html
