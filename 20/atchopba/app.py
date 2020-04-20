@@ -25,7 +25,7 @@ class Car(metaclass=ABCMeta):
         self.human = human
         
     def __str__(self):
-        return "<human: {}  have a car brand {}>".format(self.human, self.brand)
+        return "<human: {}  has a car brand {}>".format(self.human, self.brand)
     
     @abstractmethod
     def charging(self):
