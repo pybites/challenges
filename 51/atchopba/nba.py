@@ -142,7 +142,6 @@ def most_games_per_year_for_veterans():
        highest # games / year"""
     cur.execute("SELECT name, max(games/active) as games_year FROM players WHERE active > 10 GROUP BY year ORDER BY games_year DESC LIMIT 6;")
     rows = cur.fetchall()
-    #print(rows)
     return [row[0] for row in rows]
     
 
