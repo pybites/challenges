@@ -14,17 +14,12 @@
 
 import os
 import re
+import glob
 from collections import Counter
 
+
 def get_python_files(path='.'):
-    python_files = []
-    for root, dirs, files in os.walk(path, topdown=False):
-        for f in files:
-            if f.endswith('.py'):
-                python_files.append(os.path.join(root, f))
-
-    return python_files
-
+    yield from glob.glob(path)
 
 
 def get_file_text(files):
@@ -57,11 +52,12 @@ def final_print(modules):
 
 
 def main():
-    modules = []
-    python_files = get_python_files()
-    file_text = get_file_text(python_files)
-    modules = get_all_instances(file_text ,modules)
-    final_print(modules)
+    python_files = get_python_files('../*/*.py')
+    for file_ in python_files:
+        print(file_)
+    # file_text = get_file_text(python_files)
+    # modules = get_all_instances(file_text ,modules)
+    # final_print(modules)
 
 
 if __name__ == "__main__":
