@@ -18,17 +18,20 @@ import glob
 from collections import Counter
 
 
-def get_python_files(path='.'):
+def get_python_files(path):
     yield from glob.glob(path)
 
 
-def get_file_text(files):
-    for f in files:
-        with open(f, 'r') as file:
-            lines = file.readlines()
-        file.close()
-        yield lines
+def file_line_by_line(file):
+    with open(file) as f:
+            for line in f.readlines():
+                print(file)
+                yield line
 
+
+def all_lines(py_files):
+    for file_ in py_files:
+        yield from file_line_by_line(file_)
 
 def find_modules(lines, modules):
     pattern = re.compile(r'import[\s][A-Za-z0-9]+')
@@ -52,9 +55,8 @@ def final_print(modules):
 
 
 def main():
-    python_files = get_python_files('../*/*.py')
-    for file_ in python_files:
-        print(file_)
+    py_files = get_python_files('../*/*.py')
+    code_lines = all_lines(py_files)
     # file_text = get_file_text(python_files)
     # modules = get_all_instances(file_text ,modules)
     # final_print(modules)
