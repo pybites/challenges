@@ -2,6 +2,7 @@
 **swp
 **log
 **__pycache__
+**venv
 **drafts
 **.cache
 **sqlite
