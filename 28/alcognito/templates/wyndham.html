@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>PCC28</title>
+    {{ js_resources|indent(4)|safe }}
+    {{ css_resources|indent(4)|safe }}
+    {{ plot_script|indent(4)|safe }}
+  </head>
+  <body>
+    <p>"Hello, PyBiters!"<br /></p>
+    <p><a href="{{ url_for('index') }}">Home<br /></a></p>
+    
+    {{ plot_div|indent(4)|safe }}
+
+    <p>Plot of selected parameters from the complete dataset for "Wyndham Solar Energy Production daily", which was originally found on <a href={{"https://data.gov.au/data/dataset/aa75879c-1d3e-4ad2-b331-826032c6b84b"}}>data.gov.au</a><br /></p>
+    <p><a href={{"https://data.gov.au/data/dataset/aa75879c-1d3e-4ad2-b331-826032c6b84b"}}>https://data.gov.au/data/dataset/aa75879c-1d3e-4ad2-b331-826032c6b84b</a><br />
+    and is licenced under <a href={{"https://creativecommons.org/licenses/by/3.0/au/"}}>CC BY 3.0 AU</a>
+    </p>
+  </body>
+</html>
