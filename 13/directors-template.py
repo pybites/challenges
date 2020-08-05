@@ -8,6 +8,7 @@ MIN_YEAR = 1960
 
 Movie = namedtuple('Movie', 'title year score')
 
+print(Movie.head())
 
 def get_movies_by_director():
     '''Extracts all movies from csv and stores them in a dictionary
