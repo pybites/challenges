@@ -5,7 +5,6 @@
 from data import DICTIONARY, LETTER_SCORES, POUCH
 import random
 import itertools
-from copy import deepcopy
 
 NUM_LETTERS = 7
 
@@ -25,17 +24,15 @@ def max_word_value(words):
 def _get_permutations_draw(letters: list) -> list:
     permutations = []
     for i in range(1, len(letters) + 1):
-        permutations += ["".join(permutation) for permutation in list(itertools.permutations(letters, i))]
+        permutations += ["".join(permutation) for permutation in itertools.permutations(letters, i)]
     return permutations
 
 
 def _validation(word: str, letters: list) -> bool:
-    dict_test = True if word.lower() in DICTIONARY else False
-    char_test = True
+    if word.lower() not in DICTIONARY:
+        raise ValueError
     for char in word:
         letters.remove(char.upper())
-    if not dict_test:
-        raise ValueError
     return True
 
 
@@ -51,18 +48,16 @@ def draw_letters():
 
 def main():
     letters = draw_letters()
-    while True:
-        print(f"Letters drawn: {letters}")
-        word = input("Form a valid word: ")
-        if not _validation(word, deepcopy(letters)):
-            continue
-        word_value = calc_word_value(word)
-        poss_words = _get_permutations_draw(letters)
-        best_choice = max_word_value(poss_words)
-        best_choice_value = calc_word_value(best_choice)
-        print(f"Word chosen: {word} (value: {word_value})")
-        print(f"Optimal word possible: {best_choice} (value: {best_choice_value})")
-        print(f"You scored: {100 * word_value / best_choice_value}")
+    print(f"Letters drawn: {letters}")
+    word = input("Form a valid word: ")
+    _validation(word, letters)
+    word_value = calc_word_value(word)
+    poss_words = _get_permutations_draw(letters)
+    best_choice = max_word_value(poss_words)
+    best_choice_value = calc_word_value(best_choice)
+    print(f"Word chosen: {word} (value: {word_value})")
+    print(f"Optimal word possible: {best_choice} (value: {best_choice_value})")
+    print(f"You scored: {100 * word_value / best_choice_value}")
 
 
 if __name__ == "__main__":
