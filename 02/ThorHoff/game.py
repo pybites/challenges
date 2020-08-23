@@ -5,6 +5,7 @@
 from data import DICTIONARY, LETTER_SCORES, POUCH
 import random
 import itertools
+from copy import deepcopy
 
 NUM_LETTERS = 7
 
@@ -28,12 +29,11 @@ def _get_permutations_draw(letters: list) -> list:
     return permutations
 
 
-def _validation(word: str, letters: list) -> bool:
+def _validation(word: str, letters: list):
     if word.lower() not in DICTIONARY:
-        raise ValueError
+        raise ValueError("Word not in Dictionary!")
     for char in word:
         letters.remove(char.upper())
-    return True
 
 
 def get_possible_dict_words(letters: list) -> list:
@@ -46,18 +46,41 @@ def draw_letters():
     return random.choices(POUCH, k=7)
 
 
-def main():
-    letters = draw_letters()
-    print(f"Letters drawn: {letters}")
-    word = input("Form a valid word: ")
-    _validation(word, letters)
-    word_value = calc_word_value(word)
-    poss_words = _get_permutations_draw(letters)
+def game_result(letters: list, word=None):
+    poss_words = get_possible_dict_words(letters)
     best_choice = max_word_value(poss_words)
     best_choice_value = calc_word_value(best_choice)
-    print(f"Word chosen: {word} (value: {word_value})")
+    if word:
+        word_value = calc_word_value(word)
+        print(f"Word chosen: {word} (value: {word_value})")
     print(f"Optimal word possible: {best_choice} (value: {best_choice_value})")
-    print(f"You scored: {100 * word_value / best_choice_value}")
+    if word:
+        print(f"You scored: {100 * word_value / best_choice_value}")
+
+
+def main():
+    letters = draw_letters()
+    while True:
+        print(f"Letters drawn: {letters}")
+        word = input("Form a valid word: ")
+        try:
+            _validation(word, deepcopy(letters))
+            game_result(letters, word)
+            new_game = input("To quit the game press q and to play a new round "
+                             "press any key: ")
+            if new_game.lower() == "q":
+                break
+            else:
+                letters = draw_letters()
+        except ValueError:
+            game = input("Invalid word! To try a new word press any key, to "
+                         "quit press q and to get a new set of words press n: ")
+            if game.lower() == "q":
+                game_result(letters)
+                break
+            elif game.lower() == "n":
+                game_result(letters)
+                letters = draw_letters()
 
 
 if __name__ == "__main__":
