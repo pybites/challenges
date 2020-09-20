@@ -1,7 +1,8 @@
-import builtins
-import unittest
+import importlib
 
-from unittest.mock import patch
+from importlib.machinery import SourceFileLoader
+
+import pytest
 
 import fizzbuzz
 
@@ -18,46 +19,61 @@ FIZZBUZZ_100 = (
     "Fizz, Buzz")
 
 
-fizzbuzz.print = lambda *args, **kwargs: builtins.print(*args, **kwargs)
+@pytest.mark.parametrize("number", [-1, 1, 16])
+def test_fizzbuzz_number(number):
+    """The result for these numbers is their string."""
+    assert fizzbuzz.fizzbuzz(number) == f"{number}"
 
 
-class TestFizzBuzz(unittest.TestCase):
-
-    def test_fizzbuzz(self):
-        self.assertEqual(fizzbuzz.fizzbuzz(0), "FizzBuzz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-1), "-1")
-        self.assertEqual(fizzbuzz.fizzbuzz(1), "1")
-
-        self.assertEqual(fizzbuzz.fizzbuzz(3), "Fizz")
-        self.assertEqual(fizzbuzz.fizzbuzz(5), "Buzz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-3), "Fizz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-5), "Buzz")
-
-        self.assertEqual(fizzbuzz.fizzbuzz(9), "Fizz")
-        self.assertEqual(fizzbuzz.fizzbuzz(20), "Buzz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-9), "Fizz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-20), "Buzz")
-
-        self.assertEqual(fizzbuzz.fizzbuzz(15), "FizzBuzz")
-        self.assertEqual(fizzbuzz.fizzbuzz(45), "FizzBuzz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-15), "FizzBuzz")
-        self.assertEqual(fizzbuzz.fizzbuzz(-45), "FizzBuzz")
-
-    def test_fizzbuzz_with_value_errors(self):
-        self.assertRaises(ValueError, fizzbuzz.fizzbuzz, "")
-        self.assertRaises(ValueError, fizzbuzz.fizzbuzz, 3.0)
-        self.assertRaises(ValueError, fizzbuzz.fizzbuzz, 2.5)
-        self.assertRaises(ValueError, fizzbuzz.fizzbuzz, "2")
-        self.assertRaises(ValueError, fizzbuzz.fizzbuzz, None)
-
-    def test_fizzbuzz_100(self):
-        self.assertEqual(fizzbuzz.fizzbuzz_100(), FIZZBUZZ_100)
-
-    @patch('builtins.print', autospec=True)
-    def test_main(self, mocked_print):
-        fizzbuzz.main()
-        mocked_print.assert_called_with(FIZZBUZZ_100)
+@pytest.mark.parametrize("number", [3, -3, 9, -9, 12, -12])
+def test_fizzbuzz_fizz(number):
+    """The result for these numbers is 'Fizz'."""
+    assert fizzbuzz.fizzbuzz(number) == "Fizz"
 
 
-if __name__ == '__main__':
-    unittest.main()
+@pytest.mark.parametrize("number", [5, -5, 20, -20])
+def test_fizzbuzz_buzz(number):
+    """The result for these numbers is 'Buzz'."""
+    assert fizzbuzz.fizzbuzz(number) == "Buzz"
+
+
+@pytest.mark.parametrize("number", [0, 15, 45, -15, -45])
+def test_fizzbuzz_fizzbuzz(number):
+    """The result for these numbers is 'FizzBuzz'."""
+    assert fizzbuzz.fizzbuzz(number) == "FizzBuzz"
+
+
+@pytest.mark.parametrize("number", ["", 3.0, 2.5, "2", None])
+def test_fizzbuzz_with_value_errors(number):
+    """The result for these numbers is a ValueError."""
+    with pytest.raises(ValueError):
+        fizzbuzz.fizzbuzz(number)
+
+
+def test_fizzbuzz_100():
+    """Check fizzbuzz_100() returns the first 100 fizzbuzz numbers."""
+    fizzbuzz.fizzbuzz_100() == FIZZBUZZ_100
+
+
+def test_fizzbuzz_main(capsys):
+    """Check fizzbuzz.main() prints the first 100 fizzbuzz numbers."""
+    fizzbuzz.main()
+    out, err = capsys.readouterr()
+    assert out == FIZZBUZZ_100 + "\n"
+    assert err == ''
+
+
+def test_fizzbuzz_standalone(capsys):
+    """Check calling fizzbuzz prints the first 100 fizzbuzz numbers."""
+    SourceFileLoader('__main__', 'fizzbuzz.py').load_module()
+    out, err = capsys.readouterr()
+    assert out == FIZZBUZZ_100 + "\n"
+    assert err == ''
+
+
+def test_fizzbuzz_imported(capsys):
+    """Check that nothing is printed when module is imported."""
+    importlib.reload(fizzbuzz)
+    out, err = capsys.readouterr()
+    assert out == ''
+    assert err == ''
