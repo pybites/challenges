@@ -27,7 +27,7 @@ def fizzbuzz(number):
 
 
 def fizzbuzz_100():
-    return ", ".join(fizzbuzz(n) for n in range(1, 101))
+    return ", ".join(map(fizzbuzz, range(1, 101)))
 
 
 def main():
