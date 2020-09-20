@@ -1,19 +1,65 @@
+import argparse
 import csv
+import logging
+import os
 
+from collections import namedtuple
+from operator import attrgetter
 from pathlib import Path
+from types import SimpleNamespace
 
 import tweepy
 
-from config import CONSUMER_KEY, CONSUMER_SECRET
-from config import ACCESS_TOKEN, ACCESS_SECRET
+
+# ======================================================================
+# Settings
+# ======================================================================
+
+try:
+    import config as settings
+except ModuleNotFoundError:
+    # No config module, read environment variables
+    settings = SimpleNamespace()
+    settings.CONSUMER_KEY = os.getenv("TWITTER_API_KEY")
+    settings.CONSUMER_SECRET = os.getenv("TWITTER_API_SECRET")
+    settings.ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN")
+    settings.ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET")
 
 
-DEST_DIR = 'data'
-EXT = 'csv'
+settings.LOG_FORMAT = '%(asctime)s %(levelname)s - %(name)s - %(message)s'
+settings.LOG_PATH = Path(__file__).parent.joinpath("logs", "logs.log")
+settings.LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+settings.DEFAULT_HANDLES = ('pybites', '_juliansequeira', 'bbelderbos')
+
+
+# ======================================================================
+# Loggers
+# ======================================================================
+
+logging.basicConfig(
+    handlers=[
+        logging.FileHandler(filename=settings.LOG_PATH, encoding='utf8', mode='a')
+    ],
+    format=settings.LOG_FORMAT,
+    level=logging.DEBUG
+)
+
+
+# ======================================================================
+# Definitions
+# ======================================================================
+
+CSV_DIR = Path('data')
+CSV_DIR.mkdir(parents=True, exist_ok=True)
+
 NUM_TWEETS = 100
 
 
-class UserTweets(object):
+Tweet = namedtuple('Tweet', ['id_str', 'created_at', 'text'])
+
+
+class UserTweets:
     """
     - create a tweepy api interface
     - get all tweets for passed in handle
@@ -21,48 +67,75 @@ class UserTweets(object):
     - save tweets to csv file in data/ subdirectory
     - implement len() an getitem() magic (dunder) methods"""
 
-    _statuses = []
-
     def __init__(self, handle, max_id=None):
+        self.tweets = []
         self.handle = handle
         self.max_id = max_id
-        self.output_file = Path(DEST_DIR, f"{self.handle}.{EXT}")
-        self.authenticate()
-        self.get_statuses()
+        self.output_file = CSV_DIR.joinpath(f"{self.handle}.csv")
+        self.refresh()
         self.write_csv()
 
-    def authenticate(self):
-        self._auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-        self._auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-        self._api = tweepy.API(self._auth)
-
-    def get_statuses(self):
-        try:
-            self._statuses = self._api.user_timeline(screen_name=self.handle, max_id=self.max_id, count=NUM_TWEETS)
-        except tweepy.error.TweepError:
-            self._statuses = []
-
-    def write_csv(self):
-        self.output_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(self.output_file, 'w', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow(['id_str', 'created_at', 'status'])
-            writer.writerows([status.id_str.strip(), status.created_at, status.text.strip()] for status in self._statuses)
+    def __repr__(self):
+        return f"<{type(self).__name__} handle='{self.handle}'>"
 
     def __len__(self):
-        """Get number of statuses."""
-        return len(self._statuses)
+        """Get number of tweets."""
+        return len(self.tweets)
 
     def __getitem__(self, key):
-        """Retrieve the statuses by index."""
-        return self._statuses[key]
+        """Retrieve the tweets by index."""
+        return self.tweets[key]
 
+    def refresh(self):
+        """Use API to get user's timeline and update self.tweets."""
+        auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
+        auth.set_access_token(settings.ACCESS_TOKEN, settings.ACCESS_SECRET)
+        api = tweepy.API(auth)
+
+        kwargs = {
+            'screen_name': self.handle,
+            'max_id': self.max_id,
+            'count': NUM_TWEETS
+        }
+        try:
+            self.tweets = [
+                Tweet(*attrgetter(*Tweet._fields)(status))
+                for status in api.user_timeline(**kwargs)
+            ]
+        except tweepy.error.TweepError:
+            logging.warning(f"{self}: Refreshing user's timeline... FAILED")
+
+    def write_csv(self):
+        with self.output_file.open('w', encoding='utf8', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(Tweet._fields)
+            writer.writerows(self.tweets)
+
+
+# ======================================================================
+# Main
+# ======================================================================
+
+def main(handle):
+    user = UserTweets(handle)
+
+    title = f"( {handle} )"
+    print(f"\n{title:=^80}")
+
+    for status in user[:5]:
+        print(status)
+
+
+# ======================================================================
+# Standalone
+# ======================================================================
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-u', '--users', nargs='+', help='<Optional> Users')
+    args = parser.parse_args()
 
-    for handle in ('pybites', '_juliansequeira', 'bbelderbos'):
-        print('--- {} ---'.format(handle))
-        user = UserTweets(handle)
-        for tw in user[:5]:
-            print(tw)
-        print()
+    handles = args.users if args.users else settings.DEFAULT_HANDLES
+
+    for handle in handles:
+        main(handle)
