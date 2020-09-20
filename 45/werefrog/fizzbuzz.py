@@ -35,4 +35,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(fizzbuzz_100())
+    main()
