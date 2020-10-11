@@ -22,7 +22,7 @@ def hang_graphics():
 	|             
 	|"""
     yield """
-
+	________      
 	|      |      
 	|      0     
 	|     /|      
