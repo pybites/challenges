@@ -22,11 +22,14 @@ class Hangman(object):
         self.guesses = set()
         self.errors = 0
 
-    def __str__(self):
+    def __str__(self) -> str:
         result = [HANG_GRAPHICS[self.errors], '', ' '.join(self.skeleton)]
         if len(self.guesses) > 0:
-            result.append('Guessed: '+''.join(sorted(self.guesses)))
+            result.append('Guessed: ' + ''.join(sorted(self.guesses)))
         return '\n'.join(result)
+
+    def score(self) -> str:
+        return f'{self.errors}/{ALLOWED_GUESSES}*{len(self.guesses)}/{len(self.word)}'
 
     @property
     def skeleton(self):
@@ -55,7 +58,7 @@ class Hangman(object):
             idx = self._word.find(ch)
             while idx >= 0:
                 self._set_skeleton(idx, ch)
-                idx = self._word.find(ch, idx+1)
+                idx = self._word.find(ch, idx + 1)
 
 
 if __name__ == '__main__':
@@ -74,7 +77,7 @@ if __name__ == '__main__':
         except HangError as e:
             if 'hanged' in e.args[0].lower():
                 print(game)
-                print('Oh dear, perhaps you weren\'t cut out for this.')
+                print("Oh dear, perhaps you weren't cut out for this.")
                 print(f'You were trying to find the word: {game.word}')
                 break
             if 'invalid' in e.args[0].lower():
@@ -83,4 +86,4 @@ if __name__ == '__main__':
             print('Whoops, try again.')
     else:
         print(game)
-        print('Well done you won!')
+        print(f'Well done you won! Your score is {game.score()}')
