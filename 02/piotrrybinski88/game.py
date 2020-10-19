@@ -27,16 +27,16 @@ def input_word(draw):
 
 def _validation(word, draw):
     """Validations: 1) only use letters of draw, 2) valid dictionary word"""
-    # Not all letter in word
-    # if Counter(word) == Counter(draw)
+    # Copy list to save all letters from draw
+    draw_for_check = draw.copy()
     if word.lower() not in DICTIONARY:
         raise ValueError('word not in dictionary')
 
-    if len(word) > 7:
+    if len(word) > NUM_LETTERS:
         raise ValueError('word can be max 7 letters')
 
     for letter in word:
-        draw.remove(letter)
+        draw_for_check.remove(letter)
 
 
 # From challenge 01:
@@ -53,15 +53,16 @@ def get_possible_dict_words(draw):
     """Get all possible words from draw which are valid dictionary words.
     Use the _get_permutations_draw helper and DICTIONARY constant"""
     all_permutations = _get_permutations_draw(draw)
+
     valid_words = [permutation for permutation in all_permutations if permutation.lower() in DICTIONARY]
-    return set(valid_words)
+    return valid_words
 
 
 def _get_permutations_draw(draw):
     """Helper for get_possible_dict_words to get all permutations of draw letters.
     Hint: use itertools.permutations"""
     list_of_permutation = []
-    for num in range(1,8):
+    for num in range(1, NUM_LETTERS + 1):
         list_of_permutation.append(
             [''.join(word) for word in (itertools.permutations(draw, r=num))]
         )
@@ -85,7 +86,7 @@ def main():
     print('Word chosen: {} (value: {})'.format(word, word_score))
 
     possible_words = get_possible_dict_words(draw)
-
+    print(possible_words)
     max_word = max_word_value(possible_words)
     max_word_score = calc_word_value(max_word)
     print('Optimal word possible: {} (value: {})'.format(
@@ -97,4 +98,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
