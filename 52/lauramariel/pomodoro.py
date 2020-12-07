@@ -9,9 +9,6 @@ def timer(timer_type):
         endtime = datetime.now() + timedelta(minutes=5)
     elif timer_type == "long_break":
         endtime = datetime.now() + timedelta(minutes=10)
-    else:
-        endtime = ""
-        print(f"Error")
 
     while (datetime.now().replace(microsecond=0) != endtime.replace(microsecond=0)):
         timeleft = endtime - datetime.now()
