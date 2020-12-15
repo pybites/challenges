@@ -54,18 +54,27 @@ def draw_letters():
 
 def get_user_input(draw):
     """Asks the player to form a word with one or more letters from draw."""
-    print('Letters drawn:', *draw)
-    word = input('Form a valid word: ').lower()
+    draw_copy = draw.copy()
+    print('Letters drawn:', *draw_copy)
 
-    if word not in DICTIONARY:
-        raise ValueError(f'{word} is not in the dictionary.')
+    while True:
+        word = input('Form a valid word: ').lower()
 
-    word = word.upper()
-    for letter in word:
-        if letter not in draw:
-            raise ValueError(f'{letter} is not in draw.')
+        try:
+            if word not in DICTIONARY:
+                raise ValueError(f'{word} is not in the dictionary. Try again.')
 
-    return word
+            word = word.upper()
+            for letter in word:
+                if letter not in draw_copy:
+                    raise ValueError(f'{letter} is not in draw. Try again.')
+                else:
+                    draw_copy.remove(letter)
+
+            return word
+        except ValueError as e:
+            print(e)
+            continue
 
 
 def main():
