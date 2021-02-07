@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markdown_filter %}
 {% block page_content %}
     <div class="col-md-8 offset-md-2">
         <h1>{{ post.title }}</h1>
@@ -11,9 +12,9 @@
                 </a>&nbsp;
             {% endfor %}
         </small>
-        <p>{{ post.body | linebreaks }}</p>
+        <p>{{ post.body | markdown }}</p>
         <h3>Leave a comment:</h3>
-        <form action="/blog/{{ post.pk }}/" method="post">
+        <form action="{% url 'blog_detail' post.pk %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 {{ form.author }}
@@ -29,7 +30,7 @@
                 On {{ comment.created_on.date }}&nbsp;
                 <b>{{ comment.author }}</b> wrote:
             </p>
-            <p>{{ comment.body }}</p>
+            <p>{{ comment.body | markdown }}</p>
             <hr>
         {% endfor %}
     </div>
