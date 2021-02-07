@@ -1,0 +1,7 @@
+# Don't track content of these folders
+data/
+logs/
+
+# Files
+test_usertweets.py
+tweets.py
