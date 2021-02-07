@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="mui--text-display1">
+    {% block title %}
+        {{ pages.header }}
+    {% endblock %}
+    </h1>
+
+<table class="mui-table mui-table--bordered">
+    <thead>
+        <tr>
+            <th>Venue</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for v in venues %}
+    <tr>
+        <td><a href="{% url 'stadium_tracker:stadium_game_list' v.venue_id %}">{{ v.name }}</a></td>
+        <td>{{ v.total }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+{% endblock %}

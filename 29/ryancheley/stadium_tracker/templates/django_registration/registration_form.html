@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<h2>Sign up today!</h2>
+<form class="pure-form pure-form-stacked" method="post" action=".">
+  {% csrf_token %}
+
+  <div class="mui--text-danger">
+    {% for error in form.non_field_errors %}
+      {{error}}
+    {% endfor %}
+  </div>
+
+  <div class="mui-textfield">
+    {{ form.username.label }}
+    {{ form.username }}
+  </div>
+  <div class="mui-textfield">
+    {{ form.email.label }}
+    {{ form.email }}
+  </div>
+  <div class="mui-textfield">
+    {{ form.password1.label }}
+    {{ form.password1 }}
+  </div>
+  <div class="mui-textfield">
+    {{ form.password2.label }}
+    {{ form.password2 }}
+  </div>
+
+  <input class="mui-btn mui-btn--primary" type="submit" value="{% trans 'Submit' %}" />
+</form>
+{% endblock %}

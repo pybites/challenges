@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<form method="post" action=".">
+  {% csrf_token %}
+
+  <div class="mui--text-danger">
+    {% for error in form.non_field_errors %}
+      {{error}}
+    {% endfor %}
+  </div>
+
+  <div class="mui-textfield">
+    {{ form.username.label }}
+    {{ form.username }}
+  </div>
+  <div class="mui-textfield">
+    {{ form.password.label }}
+    {{ form.password }}
+  </div>
+
+  <input class="mui-btn mui-btn--primary" type="submit" value="{% trans 'Log in' %}" />
+  <input type="hidden" name="next" value="{{ request.GET.next }}" />
+</form>
+
+<br><div class="mui-divider"></div><br>
+
+<p>{% trans "Forgot password" %}? <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a>!</p>
+<p>{% trans "Not member" %}? <a href="{% url 'django_registration_register' %}">{% trans "Register" %}</a>!</p>
+{% endblock %}
