@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image's name</th>
+            <th>Image's url</th>
+            <th>Image's Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for card in context %}
+        <tr>
+            <td>{{ card.name }}</td>
+            <td>{{ card.url }}</td>
+            <td>{{ card.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h5>In case you want to add another <a href="{{ url_for('index')}}">image</a></h5>
+{% endblock %}

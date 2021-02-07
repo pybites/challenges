@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Logged in as {{ username }}, if you want to <a href="/logout">logout</a></h4>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <form method="post">
+                    <label for="">Image's url</label>
+                    <input type="text" class="form-control form-control-sm" name="url" id="url"
+                        aria-describedby="helpId" onkeyup="getUrl()" placeholder="url">
+                    <label for="">Optional name</label>
+                    <input type="text" class="form-control form-control-sm" name="image_name" id=""
+                        aria-describedby="helpId" placeholder="name">
+                    <div class="form-group">
+                        <label for="">Image's description</label>
+                        <textarea class="form-control" name="description" id="" rows="4"></textarea>
+                    </div>
+                    <button type="submit" method="post" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <img src="" id="img"
+                class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+    function getUrl() {
+        document.getElementById("img").src = document.getElementById("url").value
+    }    
+</script>
+{% endblock %}
