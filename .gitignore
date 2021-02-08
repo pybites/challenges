@@ -1,11 +1,10 @@
-**pyc
-**swp
-**log
+**.pyc
+**.swp
 **__pycache__
+**.venv
 **venv
-**drafts
 **.cache
-**sqlite
+**sqlite3
 **.idea
 **.vscode
 **.DS_Store
