@@ -1,0 +1,5 @@
+!**/blog
+!**/blog/*/**
+**sqlite3
+**pyc
+**__pycache__
