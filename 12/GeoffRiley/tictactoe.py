@@ -3,6 +3,8 @@
     American name: 'Tic Tac Toe'
     Reason: Who on Earth has a clue?
 """
+from collections import defaultdict
+from functools import reduce
 from itertools import cycle
 from operator import mul
 from typing import List, Union
@@ -26,6 +28,10 @@ SYM_TO_NUM: dict = {
     'O': O_CONST,
     'X': X_CONST,
 }
+OPPONENT: dict = {
+    O_CONST: X_CONST,
+    X_CONST: O_CONST,
+}
 # Visualise the board cells numbered as:
 #  7  8  9
 #  4  5  6
@@ -38,6 +44,10 @@ WINNING_COMBINATIONS = (
     (6, 3, 0), (7, 4, 1), (8, 5, 2),
     (0, 4, 8), (6, 4, 2),
 )
+WINNING_PROD = {
+    O_CONST: 18,
+    X_CONST: 50,
+}
 
 
 class BlockedCell(Exception):
@@ -88,7 +98,8 @@ class TicTacToe:
             if self._board[cell] is BLANK_CONST:
                 self._board[cell] = self._turn
             else:
-                raise BlockedCell(f'Cannot play at {target_position}, it is already held by {self._board[cell]}')
+                raise BlockedCell(
+                    f'Cannot play at {target_position}, it is already held by {NUM_TO_SYM[self._board[cell]]}')
         else:
             raise InvalidMove(f'Invalid move, {target_position} not available')
 
@@ -111,7 +122,7 @@ class TicTacToe:
     @property
     def lose(self) -> bool:
         """Test if the game is lost"""
-        return self.find_winner() not in [self._turn, None]
+        return self.find_winner() == OPPONENT[self._turn]
 
     @property
     def draw(self) -> bool:
@@ -127,34 +138,109 @@ class TicTacToe:
     def player(self) -> str:
         return NUM_TO_SYM[self._turn]
 
-    def ai_move(self) -> int:
-        """Work out a move for the computer"""
-        # 1. Find a winning line.
-        # Check through the winning lines to see if there is a single gap
-        # that we can fill
-        for line in WINNING_COMBINATIONS:
-            prod = map(mul, [self._board[c] for c in line])
+    def ai_move(self) -> str:
+        return str(self._cell_to_ndx_(self._ai_move()))
 
-        # 2. Try to block opponents winning move
-        # 3. Create an opportunity to win in two ways
-        # 4. Block an opponents fork:
-        #   a. put two symbols in a row to force a defensive move
-        #   b. place a symbol where opponent could create a fork
-        # 5. Play the center if it's not already filled
-        # 6. Play the opposite corner to the opponent
-        # 7. Play an empty corner
-        # 8. Play an empty side
-        pass
+    def _ai_move(self) -> int:
+        """Work out a move for the computer"""
+        # Working from the Strategy presented on Wikipedia
+        #       [https://en.wikipedia.org/wiki/Tic-tac-toe#Strategy]
+        # 1. Win: If the player has two in a row, they can place a
+        #       third to get three in a row.
+        #
+        # Using 3 and 5 for 'O' and 'X' and 2 for empty means that
+        # in order to identify a 'winning' line we can take the
+        # product of the values to work out what if an appropriate
+        # gap is present.
+        # (Distinct) Possible products are:
+        #   _ _ _ → 2 x 2 x 2 = 8
+        #   O _ _ → 3 x 2 x 2 = 12
+        #   O O _ → 3 x 3 x 2 = 18 [Winning O line]
+        #   O O O → 3 x 3 x 3 = 27
+        #   O X _ → 3 x 5 x 2 = 30
+        #   O O X → 3 x 3 x 5 = 45
+        #   X _ _ → 5 x 2 x 2 = 20
+        #   X X _ → 5 x 5 x 2 = 50 [Winning X line]
+        #   X X X → 5 x 5 x 5 = 125
+        #   X X O → 5 x 5 x 3 = 75
+        # Therefore it can be seen that there is a single value
+        # indicating a winning line for either Os or Xs
+        winning_lines = defaultdict(set)
+        for line in WINNING_COMBINATIONS:
+            prod = reduce(mul, [self._board[c] for c in line])
+            winning_lines[prod].add(line)
+
+        # Let's see if there is a winning line for the current player
+        if winning_lines[WINNING_PROD[self._turn]]:
+            # find the blank in the first winning line.
+            line = winning_lines[WINNING_PROD[self._turn]].pop()
+            return [n for n in line if self._board[n] == BLANK_CONST][0]
+
+        # 2. Block: If the opponent has two in a row, the player
+        #       must play the third themselves to block the opponent.
+        if winning_lines[WINNING_PROD[OPPONENT[self._turn]]]:
+            # find the blank to play a block.
+            line = winning_lines[WINNING_PROD[OPPONENT[self._turn]]].pop()
+            return [n for n in line if self._board[n] == BLANK_CONST][0]
+
+        # 3. Fork: Create an opportunity where the player has two
+        #       ways to win (two non-blocked lines of 2).
+
+        # 4. Blocking an opponent's fork:
+        #       If there is only one possible fork for the opponent,
+        #       the player should block it.
+        #       Otherwise, the player should block all forks in any
+        #       way that simultaneously allows them to create two
+        #       in a row.
+        #       Otherwise, the player should create a two in a row
+        #       to force the opponent into defending, as long as it
+        #       doesn't result in them creating a fork.
+        #       For example, if "X" has two opposite corners and
+        #       "O" has the center, "O" must not play a corner move
+        #       in order to win. (Playing a corner move in this
+        #       scenario creates a fork for "X" to win.)
+
+        # 5. Center: A player marks the center. (If it is the first
+        #       move of the game, playing a corner move gives the
+        #       second player more opportunities to make a mistake
+        #       and may therefore be the better choice; however, it
+        #       makes no difference between perfect players.)
+        if self._board[4] == BLANK_CONST:
+            return 4
+
+        # 6. Opposite corner: If the opponent is in the corner, the
+        #       player plays the opposite corner.
+        for x, y in [(0, 8), (2, 6), (6, 2), (8, 0)]:
+            if self._board[x] == OPPONENT[self._turn] and self._board[y] == BLANK_CONST:
+                return y
+
+        # 7. Empty corner: The player plays in a corner square.
+        for x in [0, 2, 6, 8]:
+            if self._board[x] == BLANK_CONST:
+                return x
+
+        # 8. Empty side: The player plays in a middle square on any
+        #       of the 4 sides.
+        for x in [1, 3, 5, 7]:
+            if self._board[x] == BLANK_CONST:
+                return x
+
+        raise InvalidMove(f"Couldn't identify a move to make for AI controlled {self.player}")
 
 
 if __name__ == "__main__":
     while True:
         game = TicTacToe()
-        print("Let's play Naughts and Crosses!\n")
+        print("Let's play Naughts and Crosses!")
         while not game.win_draw_lose:
+            print('\nCurrent state of game:')
             print(game)
-            mv = input(f'Where would you like to play your {game.player}? ')
             try:
+                if game.player == 'O':
+                    mv = input(f'Where would you like to play your {game.player}? ')
+                else:
+                    mv = game.ai_move()
+                    print(f'\nComputer chooses to play {game.player} at {mv}.')
                 position = int(mv)
                 game.player_move(position)
                 if game.win:
@@ -166,7 +252,12 @@ if __name__ == "__main__":
                     print('**DRAW** That was a little pointless in the end.')
                     break
                 game.next_player()
-            except InvalidMove:
+            except InvalidMove as exc:
                 print(f'Poor choice, Grasshopper, "{mv}" is not and acceptable move: use the numeric keypad layout!')
-            except BlockedCell:
+                print(f'DEBUG: {exc}')
+            except BlockedCell as exc:
                 print(f'Sorry that spot is already taken.')
+                print(f'DEBUG: {exc}')
+            except ValueError as exc:
+                print(f'Please indicate position as though it were the numeric keypad.')
+                print(f'DEBUG: {exc}')
