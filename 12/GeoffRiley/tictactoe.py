@@ -4,6 +4,7 @@
     Reason: Who on Earth has a clue?
 """
 from itertools import cycle
+from operator import mul
 from typing import List, Union
 
 # Definition of game elements
@@ -12,6 +13,19 @@ from typing import List, Union
 # Working with a 3 x 3 grid represented as a linear array of nine cells
 # initialise to `DEFAULT`
 DEFAULT: str = '_'
+BLANK_CONST: int = 2
+O_CONST: int = 3
+X_CONST: int = 5
+NUM_TO_SYM: dict = {
+    BLANK_CONST: DEFAULT,
+    O_CONST: 'O',
+    X_CONST: 'X',
+}
+SYM_TO_NUM: dict = {
+    DEFAULT: BLANK_CONST,
+    'O': O_CONST,
+    'X': X_CONST,
+}
 # Visualise the board cells numbered as:
 #  7  8  9
 #  4  5  6
@@ -35,13 +49,13 @@ class InvalidMove(Exception):
 
 
 class TicTacToe:
-    _board: List[str]
+    _board: List[int]
 
     def __init__(self):
         """Constructor, allocate the blank board"""
         # Create an array of cells to hold the grid positions.
-        self._board = [DEFAULT] * len(VALID_POSITIONS)
-        self._turn_cycle = cycle(['O', 'X'])
+        self._board = [BLANK_CONST] * len(VALID_POSITIONS)
+        self._turn_cycle = cycle([O_CONST, X_CONST])
         self._turn = self._next_turn()
         self._move = 0
 
@@ -50,7 +64,10 @@ class TicTacToe:
 
     def __str__(self):
         """Print the board"""
-        return ' ' + '\n---+---+---\n '.join(' | '.join(c for c in self._board[s * 3:(s + 1) * 3]) for s in range(3))
+        return ' ' + '\n---+---+---\n '.join(
+            ' | '.join(NUM_TO_SYM[c]
+                       for c in self._board[s * 3:(s + 1) * 3])
+            for s in range(3))
 
     @staticmethod
     def _ndx_to_cell_(ndx: int) -> int:
@@ -68,7 +85,7 @@ class TicTacToe:
         """
         if target_position in VALID_POSITIONS:
             cell = self._ndx_to_cell_(target_position)
-            if self._board[cell] is DEFAULT:
+            if self._board[cell] is BLANK_CONST:
                 self._board[cell] = self._turn
             else:
                 raise BlockedCell(f'Cannot play at {target_position}, it is already held by {self._board[cell]}')
@@ -77,11 +94,11 @@ class TicTacToe:
 
     def next_player(self) -> str:
         self._turn = self._next_turn()
-        return self._turn
+        return NUM_TO_SYM[self._turn]
 
-    def find_winner(self) -> Union[str, None]:
+    def find_winner(self) -> Union[int, None]:
         """Find a winner, 'O', 'X' or None"""
-        for s in ['O', 'X']:
+        for s in [O_CONST, X_CONST]:
             if any(all(self._board[c] == s for c in combo) for combo in WINNING_COMBINATIONS):
                 return s
         return None
@@ -99,7 +116,7 @@ class TicTacToe:
     @property
     def draw(self) -> bool:
         """Test if the game is a draw"""
-        return not (any(c == DEFAULT for c in self._board))
+        return not (any(c == BLANK_CONST for c in self._board))
 
     @property
     def win_draw_lose(self) -> bool:
@@ -108,7 +125,26 @@ class TicTacToe:
 
     @property
     def player(self) -> str:
-        return self._turn
+        return NUM_TO_SYM[self._turn]
+
+    def ai_move(self) -> int:
+        """Work out a move for the computer"""
+        # 1. Find a winning line.
+        # Check through the winning lines to see if there is a single gap
+        # that we can fill
+        for line in WINNING_COMBINATIONS:
+            prod = map(mul, [self._board[c] for c in line])
+
+        # 2. Try to block opponents winning move
+        # 3. Create an opportunity to win in two ways
+        # 4. Block an opponents fork:
+        #   a. put two symbols in a row to force a defensive move
+        #   b. place a symbol where opponent could create a fork
+        # 5. Play the center if it's not already filled
+        # 6. Play the opposite corner to the opponent
+        # 7. Play an empty corner
+        # 8. Play an empty side
+        pass
 
 
 if __name__ == "__main__":
@@ -117,7 +153,7 @@ if __name__ == "__main__":
         print("Let's play Naughts and Crosses!\n")
         while not game.win_draw_lose:
             print(game)
-            mv = input(f'Where would you like to play your {game.player}?')
+            mv = input(f'Where would you like to play your {game.player}? ')
             try:
                 position = int(mv)
                 game.player_move(position)
