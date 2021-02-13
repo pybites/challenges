@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+    <main class="px-3">
+        <div class="container mt-5">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dadJoke">
+              Get Funny
+            </button>
+        </div>
+
+        <!-- Dad Joke Modal -->
+        <div class="modal fade" id="dadJoke" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="dadJoke">A dad joke:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  {{ joke }}
+              </div>
+              <div class="modal-footer">
+                <button onClick="window.location.reload();" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+                <div class="about-modal-credit m-2">
+                    <span class="text-muted">Thanks <a href="https://icanhazdadjoke.com">icanhazdadjoke.com</a>.</span>
+                </div>
+            </div>
+          </div>
+        </div>
+    </main>
+{% endblock content %}
