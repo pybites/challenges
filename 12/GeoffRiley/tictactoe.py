@@ -7,46 +7,60 @@ from collections import defaultdict
 from functools import reduce
 from itertools import cycle
 from operator import mul
-from typing import List, Union
+from typing import List, Union, Set, Tuple, Iterator
 
 # Definition of game elements
 # External representation of grid is numbered 1 to 9;
 # internal representation of grid is numbered 0 to 8.
 # Working with a 3 x 3 grid represented as a linear array of nine cells
 # initialise to `DEFAULT`
-DEFAULT: str = '_'
-BLANK_CONST: int = 2
-O_CONST: int = 3
-X_CONST: int = 5
-NUM_TO_SYM: dict = {
-    BLANK_CONST: DEFAULT,
-    O_CONST: 'O',
-    X_CONST: 'X',
+BLANK_SYM: str = '_'
+O_SYM: str = 'O'
+X_SYM: str = 'X'
+BLANK_VALUE: int = 2
+O_VALUE: int = 3
+X_VALUE: int = 5
+VAL_TO_SYM: dict = {
+    BLANK_VALUE: BLANK_SYM,
+    O_VALUE: O_SYM,
+    X_VALUE: X_SYM,
 }
-SYM_TO_NUM: dict = {
-    DEFAULT: BLANK_CONST,
-    'O': O_CONST,
-    'X': X_CONST,
+SYM_TO_VAL: dict = {
+    BLANK_SYM: BLANK_VALUE,
+    O_SYM: O_VALUE,
+    X_SYM: X_VALUE,
 }
 OPPONENT: dict = {
-    O_CONST: X_CONST,
-    X_CONST: O_CONST,
+    O_VALUE: X_VALUE,
+    X_VALUE: O_VALUE,
 }
 # Visualise the board cells numbered as:
-#  7  8  9
-#  4  5  6
-#  1  2  3
-# (Just like a numeric keypad!)
-VALID_POSITIONS: List[int] = list(range(1, 10))
+#  Internal   External
+#  0  1  2    7  8  9
+#  3  4  5    4  5  6
+#  6  7  8    1  2  3
+#             (Just like a numeric keypad!)
+INTERNAL_TO_EXTERNAL: dict = {
+    0: 7, 1: 8, 2: 9,
+    3: 4, 4: 5, 5: 6,
+    6: 1, 7: 2, 8: 3
+}
+EXTERNAL_TO_INTERNAL: dict = {
+    7: 0, 8: 1, 9: 2,
+    4: 3, 5: 4, 6: 5,
+    1: 6, 2: 7, 3: 8
+}
+VALID_POSITIONS: Set[int] = set(range(1, 10))
 # A winning combination exists for three symbols in a row:
-WINNING_COMBINATIONS = (
+WINNING_COMBINATIONS: List[Tuple[int, int, int]] = [
     (6, 7, 8), (3, 4, 5), (0, 1, 2),
     (6, 3, 0), (7, 4, 1), (8, 5, 2),
     (0, 4, 8), (6, 4, 2),
-)
+]
+# The product of values in an *almost* winning line…
 WINNING_PROD = {
-    O_CONST: 18,
-    X_CONST: 50,
+    O_VALUE: 18,
+    X_VALUE: 50,
 }
 
 
@@ -59,33 +73,38 @@ class InvalidMove(Exception):
 
 
 class TicTacToe:
+    # define the types of various internal variables
     _board: List[int]
+    _turn_cycle: Iterator[int]
+    _turn: int
+    _move: int
 
     def __init__(self):
         """Constructor, allocate the blank board"""
         # Create an array of cells to hold the grid positions.
-        self._board = [BLANK_CONST] * len(VALID_POSITIONS)
-        self._turn_cycle = cycle([O_CONST, X_CONST])
+        self._board = [BLANK_VALUE] * len(VALID_POSITIONS)
+        self._turn_cycle = cycle([O_VALUE, X_VALUE])
         self._turn = self._next_turn()
         self._move = 0
 
-    def _next_turn(self):
+    def _next_turn(self) -> int:
         return next(self._turn_cycle)
 
     def __str__(self):
         """Print the board"""
         return ' ' + '\n---+---+---\n '.join(
-            ' | '.join(NUM_TO_SYM[c]
-                       for c in self._board[s * 3:(s + 1) * 3])
-            for s in range(3))
+            ' | '.join(VAL_TO_SYM[c]
+                       for c in self._board[s * 3:(s + 1) * 3]
+                       ) for s in range(3)
+        )
 
     @staticmethod
     def _ndx_to_cell_(ndx: int) -> int:
-        return {7: 0, 8: 1, 9: 2, 4: 3, 5: 4, 6: 5, 1: 6, 2: 7, 3: 8}[ndx]
+        return EXTERNAL_TO_INTERNAL[ndx]
 
     @staticmethod
     def _cell_to_ndx_(cell: int) -> int:
-        return {0: 7, 1: 8, 2: 9, 3: 4, 4: 5, 5: 6, 6: 1, 7: 2, 8: 3}[cell]
+        return INTERNAL_TO_EXTERNAL[cell]
 
     def player_move(self, target_position: int):
         """
@@ -95,21 +114,21 @@ class TicTacToe:
         """
         if target_position in VALID_POSITIONS:
             cell = self._ndx_to_cell_(target_position)
-            if self._board[cell] is BLANK_CONST:
+            if self._board[cell] is BLANK_VALUE:
                 self._board[cell] = self._turn
             else:
                 raise BlockedCell(
-                    f'Cannot play at {target_position}, it is already held by {NUM_TO_SYM[self._board[cell]]}')
+                    f'Cannot play at {target_position}, it is already held by {VAL_TO_SYM[self._board[cell]]}')
         else:
             raise InvalidMove(f'Invalid move, {target_position} not available')
 
     def next_player(self) -> str:
         self._turn = self._next_turn()
-        return NUM_TO_SYM[self._turn]
+        return VAL_TO_SYM[self._turn]
 
     def find_winner(self) -> Union[int, None]:
         """Find a winner, 'O', 'X' or None"""
-        for s in [O_CONST, X_CONST]:
+        for s in [O_VALUE, X_VALUE]:
             if any(all(self._board[c] == s for c in combo) for combo in WINNING_COMBINATIONS):
                 return s
         return None
@@ -127,7 +146,7 @@ class TicTacToe:
     @property
     def draw(self) -> bool:
         """Test if the game is a draw"""
-        return not (any(c == BLANK_CONST for c in self._board))
+        return not (any(c == BLANK_VALUE for c in self._board))
 
     @property
     def win_draw_lose(self) -> bool:
@@ -136,7 +155,7 @@ class TicTacToe:
 
     @property
     def player(self) -> str:
-        return NUM_TO_SYM[self._turn]
+        return VAL_TO_SYM[self._turn]
 
     def ai_move(self) -> str:
         return str(self._cell_to_ndx_(self._ai_move()))
@@ -174,14 +193,14 @@ class TicTacToe:
         if winning_lines[WINNING_PROD[self._turn]]:
             # find the blank in the first winning line.
             line = winning_lines[WINNING_PROD[self._turn]].pop()
-            return [n for n in line if self._board[n] == BLANK_CONST][0]
+            return [n for n in line if self._board[n] == BLANK_VALUE][0]
 
         # 2. Block: If the opponent has two in a row, the player
         #       must play the third themselves to block the opponent.
         if winning_lines[WINNING_PROD[OPPONENT[self._turn]]]:
             # find the blank to play a block.
             line = winning_lines[WINNING_PROD[OPPONENT[self._turn]]].pop()
-            return [n for n in line if self._board[n] == BLANK_CONST][0]
+            return [n for n in line if self._board[n] == BLANK_VALUE][0]
 
         # 3. Fork: Create an opportunity where the player has two
         #       ways to win (two non-blocked lines of 2).
@@ -205,24 +224,24 @@ class TicTacToe:
         #       second player more opportunities to make a mistake
         #       and may therefore be the better choice; however, it
         #       makes no difference between perfect players.)
-        if self._board[4] == BLANK_CONST:
+        if self._board[4] == BLANK_VALUE:
             return 4
 
         # 6. Opposite corner: If the opponent is in the corner, the
         #       player plays the opposite corner.
         for x, y in [(0, 8), (2, 6), (6, 2), (8, 0)]:
-            if self._board[x] == OPPONENT[self._turn] and self._board[y] == BLANK_CONST:
+            if self._board[x] == OPPONENT[self._turn] and self._board[y] == BLANK_VALUE:
                 return y
 
         # 7. Empty corner: The player plays in a corner square.
         for x in [0, 2, 6, 8]:
-            if self._board[x] == BLANK_CONST:
+            if self._board[x] == BLANK_VALUE:
                 return x
 
         # 8. Empty side: The player plays in a middle square on any
         #       of the 4 sides.
         for x in [1, 3, 5, 7]:
-            if self._board[x] == BLANK_CONST:
+            if self._board[x] == BLANK_VALUE:
                 return x
 
         raise InvalidMove(f"Couldn't identify a move to make for AI controlled {self.player}")
