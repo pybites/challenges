@@ -59,8 +59,8 @@ WINNING_COMBINATIONS: List[Tuple[int, int, int]] = [
 ]
 # The product of values in an *almost* winning line…
 WINNING_PROD = {
-    O_VALUE: 18,
-    X_VALUE: 50,
+    O_VALUE: O_VALUE * O_VALUE * BLANK_VALUE,
+    X_VALUE: X_VALUE * X_VALUE * BLANK_VALUE,
 }
 
 
@@ -132,6 +132,25 @@ class TicTacToe:
             if any(all(self._board[c] == s for c in combo) for combo in WINNING_COMBINATIONS):
                 return s
         return None
+
+    # def find_winner(self) -> Union[int, None]:
+    #     """Find a winner, 'O', 'X' or None"""
+    #     for s in [O_VALUE, X_VALUE]:
+    #         # ANY of the following
+    #         any_ok = False
+    #         for combo in WINNING_COMBINATIONS:
+    #             # ALL of the following
+    #             all_ok = True
+    #             for c in combo:
+    #                 if self._board[c] != s:
+    #                     all_ok = False
+    #                     break
+    #             if all_ok:
+    #                 any_ok = True
+    #                 break
+    #         if any_ok:
+    #             return s
+    #     return None
 
     @property
     def win(self) -> bool:
