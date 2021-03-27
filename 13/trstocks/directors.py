@@ -81,6 +81,9 @@ def print_results(directors):
         print(sep_line)
         [print(fmt_movie_entry.format(year=m.year, title=m.title, score=m.score)) for m in ord_movies]
         print()
+        if cnt == 20:
+            break
+
 
 def main():
     '''This is a template, feel free to structure your code differently.
