@@ -8,7 +8,6 @@ console = Console()
 
 
 class PomodoroTimer:
-
     def __init__(self, start_timer=25, break_timer=5):
         self._timer = start_timer
         self._break = break_timer
@@ -27,8 +26,8 @@ class PomodoroTimer:
         self.run(prompt)
 
 
-timer_duration = int(input('Duration: ').strip())
-break_duration = int(input('Break Duration: ').strip())
+timer_duration = int(input("Duration: ").strip())
+break_duration = int(input("Break Duration: ").strip())
 console.print("\nCTRL+C to quit")
 while True:
     try:
