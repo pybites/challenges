@@ -4,6 +4,11 @@ from collections import defaultdict, namedtuple
 from statistics import mean
 from pathlib import Path
 
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
 
 MOVIE_DATA = "../movie_metadata.csv"
 NUM_TOP_DIRECTORS = 20
@@ -51,41 +56,48 @@ def _calc_mean(movies):
     return round(float(_mean), 1)
 
 
+def _create_table():
+    table = Table(show_header=True, header_style="bold magenta")
+    table.title = "[not italic]:popcorn:[/] Top 20 Directors [not italic]:popcorn:[/]"
+    table.add_column("Rank", style="dim", width=12)
+    table.add_column("Director")
+    table.add_column("Score", justify="right")
+    return table
+
+
+def _get_director_row_data(movies):
+    return sorted(
+        (m for m in movies if m.year >= MIN_YEAR),
+        key=lambda x: x.score,
+        reverse=True,
+    )
+
+
 def print_results(directors):
     """Print directors ordered by highest average rating. For each director
     print his/her movies also ordered by highest rated movie.
     See http://pybit.es/codechallenge13.html for example output"""
-    fmt_director_entry = "{counter}. {director:<52} {avg}"
-    fmt_movie_entry = "{year}] {title:<50} {score}"
-    sep_line = "-" * 60
-    for counter, data in enumerate(
-        sorted(directors.items(), key=lambda x: x[0][1], reverse=True)[
-            :NUM_TOP_DIRECTORS
-        ]
-    ):
-        counter += 1
-        director = data[0][0]
-        avg = data[0][1]
 
-        print()
-        print(
-            fmt_director_entry.format(
-                counter=str(counter).zfill(2), director=director, avg=str(avg)
-            )
+    movie_table = _create_table()
+    sorted_directors = sorted(directors.items(), key=lambda x: x[0][1], reverse=True)[:NUM_TOP_DIRECTORS]
+
+    for counter, data in enumerate(sorted_directors, start=1):
+        director, avg = data[0]
+        movies = data[1]
+
+        # start new section for director
+        movie_table.add_row(
+            str(counter).zfill(2), director, str(avg), style="blue", end_section=True
         )
 
-        print(sep_line)
-        movies = sorted(
-            (m for m in data[1] if m.year >= MIN_YEAR),
-            key=lambda x: x.score,
-            reverse=True,
-        )
-        for movie in movies:
-            print(
-                fmt_movie_entry.format(
-                    year=movie.year, title=movie.title, score=movie.score
-                )
-            )
+        # add all rows for the director to the table
+        director_row = _get_director_row_data(movies)
+        for movie in director_row:
+            movie_table.add_row(str(movie.year), movie.title, str(movie.score))
+
+        # end section with a line
+        movie_table.add_row(end_section=True)
+    console.print(movie_table)
 
 
 def main():
