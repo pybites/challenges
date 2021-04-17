@@ -21,11 +21,16 @@ def get_movies_by_director():
         movies_by_director = defaultdict(list)
 
         for r in reader:
-            director = r["director_name"]
-            movie = Movie(
-                title=r["movie_title"], year=r["title_year"], score=r["imdb_score"]
-            )
-            movies_by_director[director].append(movie)
+            try:
+                director = r["director_name"]
+                movie = Movie(
+                    title=r["movie_title"],
+                    year=int(r["title_year"]),
+                    score=float(r["imdb_score"]),
+                )
+                movies_by_director[director].append(movie)
+            except Exception:
+                continue
         return movies_by_director
 
 
@@ -37,13 +42,12 @@ def get_average_scores(directors):
         if len(movies) >= MIN_MOVIES
     }
     return {
-        director: {"average": _calc_mean(movies), "movies": movies}
-        for director, movies in records.items()
+        (director, _calc_mean(movies)): movies for director, movies in records.items()
     }
 
 
 def _calc_mean(movies):
-    _mean = mean(Decimal(movie.score) for movie in movies)
+    _mean = mean(Decimal(movie.score) for movie in movies if movie.year >= MIN_YEAR)
     return round(float(_mean), 1)
 
 
@@ -55,26 +59,24 @@ def print_results(directors):
     fmt_movie_entry = "{year}] {title:<50} {score}"
     sep_line = "-" * 60
     for counter, data in enumerate(
-        sorted(directors.items(), key=lambda x: x[1]["average"], reverse=True)[:20]
+        sorted(directors.items(), key=lambda x: x[0][1], reverse=True)[
+            :NUM_TOP_DIRECTORS
+        ]
     ):
         counter += 1
-        director = data[0]
-        avg = data[1]["average"]
+        director = data[0][0]
+        avg = data[0][1]
 
         print()
         print(
             fmt_director_entry.format(
-                counter=str(counter).zfill(2), director=director, avg=avg
+                counter=str(counter).zfill(2), director=director, avg=str(avg)
             )
         )
 
         print(sep_line)
         movies = sorted(
-            (
-                m
-                for m in data[1]["movies"]
-                if m.year.isdigit() and int(m.year) >= MIN_YEAR
-            ),
+            (m for m in data[1] if m.year >= MIN_YEAR),
             key=lambda x: x.score,
             reverse=True,
         )
