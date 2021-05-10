@@ -1,0 +1,7 @@
+venv
+out
+session
+__pycache__/
+*pyc
+*swp
+*sqlite

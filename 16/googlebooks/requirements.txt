@@ -1,0 +1,10 @@
+click==6.7
+Flask==0.12.1
+Flask-JSGlue==0.3.1
+Flask-Session==0.3.1
+itsdangerous==0.24
+Jinja2==2.9.6
+MarkupSafe==1.0
+requests==2.13.0
+requests-cache==0.4.13
+Werkzeug==0.12.1

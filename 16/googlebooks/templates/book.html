@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+{{ super() }} | {{ book['title'] }}
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ book['title'] }}
+{% if book['subtitle'] %}
+ - {{ book['subtitle'] }}
+{% endif %}
+</h2>
+
+<div class="pure-g">
+    <div class="pure-u-1-5">
+    	<img src="{{ book['thumb'] }}">
+	</div>
+    <div class="pure-u-3-5">
+		<table class="pure-table">
+			<tr>
+				<td>Author(s)</td>
+				<td>{{ book['authors']|join(', ') }}</td>
+			</tr>
+			<tr>
+				<td>Publisher</td>
+				<td>{{ book['publisher']|replace("\"", "") }}</td>
+			</tr>
+			<tr>
+				<td>Published</td>
+				<td>{{ book['publishedDate'] }}</li>
+			</tr>
+			<tr>
+				<td>Page count</td>
+				<td>{{ book['pageCount'] }}</td>
+			</tr>
+			<tr>
+				<td>ISBN</td>
+				<td>{{ book['industryIdentifiers'][1]['identifier'] }}</td>
+			</tr>
+		</table>
+	</div>
+    <div class="pure-u-1-5">
+		<ul id="action">
+			<li><a class="pure-button button-success" href="#">I have read</a></li>
+			<li><a class="pure-button pure-button-primary" href="#">I am reading</a></li>
+			<li><a class="pure-button button-secondary" href="#">I want to read</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="bookInfo">
+{{ book['description']|safe }}
+</div>
+
+<!--<pre>{{ pp(book) }}</pre>-->
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% if error %}
+		<p class='alert'>{{ error }}</p>
+	{% elif books %}
+
+        <table class="pure-table">
+            <tr>
+                <th>Book</th>
+                <th>Start Date</th>
+                <th>Total Pages</th>
+                <th>Start Page</th>
+                <th>Pages / Day</th>
+                <th>Progress</th>
+                <th>Tasks</th>
+            </tr>
+            {% for book in books %}
+
+                {% if progress[book.id]|int == 100 %} 
+                    <tr class="done">
+                {% else %}
+                    <tr>
+                {% endif %}
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.add_date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ book.pages }}</td>
+                    <td>{{ book.start_page }}</td>
+                    <td>{{ book.pages_per_day }}</td>
+                    <td>{{'%0.2f'| format(progress[book.id]|float)}}%
+                    <td>
+						<a href="/book/{{ book.id }}" class="pure-button button-secondary">Progress</a>
+						<a href="/book/delete/{{ book.id }}" class="pure-button button-warning">Delete</a>
+					</td>
+
+                </tr>
+
+            {% endfor %}
+        </table>
+
+	{% endif %}
+
+{% endblock %}
