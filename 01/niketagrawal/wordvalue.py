@@ -38,7 +38,7 @@ def calc_word_value(word: str):
             value += LETTER_SCORES[letter]
     return value
 
-def max_word_value(*args):
+def max_word_value(list_of_words=None):
     """
     Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY
@@ -51,12 +51,10 @@ def max_word_value(*args):
     """
     value_list = []
     value_to_word = {}
-    word_list = []
-    if args:
-        word_list = list(args[0])
-    else:
-        word_list = load_words() 
-    for word in word_list:
+    if not list_of_words:
+        list_of_words = load_words()
+
+    for word in list_of_words:
         word_value = calc_word_value(word)
         value_list.append(word_value)
         value_to_word[word_value] = word
