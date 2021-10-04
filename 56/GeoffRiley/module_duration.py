@@ -66,3 +66,18 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# Example output:
+
+# Looking at /home/??????/Music
+# ---------------File name---------------- -Ext- -Duration-
+# Piccadilly1152_Jingles_1996              .mp3    1:52.26 ***********              |
+# Key_Jingles_1995                         .mp3    1:53.35 ***********              |
+# PiccadillyGold_Jingles_1990              .mp3    2:25.09 **************           |
+# Key103_Jingles_Oct90                     .mp3    2:52.59 *****************        |
+# StanFreberg-Sh-boom                      .ogg    3:24.46 ********************     |
+# Piccadilly_Jingles_1988                  .mp3    4:24.98 *************************|
+# key_Launch_0988                          .mp3    5:08.47 *************************|*****
+# signal_TestsLaunch_050983                .mp3    7:52.53 *************************|*********************
+# StanFreberg-TheOldPayolaRollBlues        .ogg    8:12.45 *************************|************************
+# --------------------------------Total Duration  38:06.17
