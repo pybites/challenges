@@ -1,0 +1,2 @@
+# CanHazDadJoke
+A single page [flask](https://flask.palletsprojects.com/en/1.1.x/) app that presents a button to press for a dad joke.  A dad joke is received from the [icanhazdadjoke](https://icanhazdadjoke.com/) API as `json`.  The `json` is then parsed and presented in a modal to the user.  Page is styled using [Bootstrap](https://getbootstrap.com/) v5.0.  A more detailed description of the project can be found [here](https://covrebo.com/retrieving-json-with-flask.html).

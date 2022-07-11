@@ -26,7 +26,7 @@ def read_csv(fname):
 class TestUserTweets(unittest.TestCase):
     def setUp(self):
         super().setUp()
-        with patch('tweepy.API.user_timeline') as mock_timeline:
+        with patch('tweepy.API') as mock_timeline:
             mock_timeline.return_value = TWEETS
             self.user = UserTweets(HANDLE, max_id=MAX_ID)
 

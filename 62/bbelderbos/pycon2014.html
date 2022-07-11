@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" /><![endif]-->
+        <title>PyConES 2014 - Zaragoza  </title>
+        <meta name="description" content="Python Conference in Spain - National event" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+        <link type="image/png" href="/static/img/favicon.png" rel="icon"/>
+        <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css" rel="stylesheet" type="text/css">
+        <script src="/static/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/URI.js/1.11.2/URI.min.js"></script>
+    </head>
+<body>
+<img src="/static/img/flag-pycon.png" style="position:fixed;">
+    <div class="container">
+     <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+              <img src="/static/img/pycones2014.svg" class="center-block img-responsive">
+            <p class="lead">Centro de Arte y Tecnología Etopia, 8-9 de Noviembre 2014</p>
+          </div>
+        </div>
+      </div>
+      
+          <div style="border-bottom:1px solid #eee; padding-bottom:20px; margin-bottom:30px" class=text-center>
+              <ul class="nav nav-pills text-center" style="background:white; margin-left:80px" id=navigation>
+                  <li><a onclick="window.location.href='/'"  href="/">Introducción</a></li>
+                  <li><a onclick="window.location.href='/info'"  href="/info">Información del evento</a></li>
+                  <li><a onclick="window.location.href='/talks'" href="/talks">Charlas</a></li>
+                  <li><a href="/blog" onclick="window.location.href='/blog'">Blog</a></li>
+                  <li><a href="/static/fotos/" onclick="window.location.href='/static/fotos/'">Galería de fotos</a></li>
+              </ul>
+          </div>
+
+    
+
+    </div>
+        <div class="container">
+            
+
+    <img src="/static/img/pyconcabecera.png" style="margin-bottom:40px" class="img-responsive col-md-12" alt="horarios" />
+    <img src="/static/img/horariospycon.png" class="img-responsive col-md-12" alt="horarios" />
+    <img style="margin-top:110px; margin-bottom:70px;" src="/static/img/horariospycon2.png" class="img-responsive col-md-12" alt="horarios" />
+    <a href="/static/img/horariospycon.pdf"> <h3> Descargar horarios en PDF </h3> </a>
+
+    <div id="onlytext">
+        <h1 id=horarios> Horarios </h1>
+        <p>
+        La conferencia empezará el sabado día 8 a las 9:30 y terminará el domingo
+        día 9 a las 21:00
+        </p>
+        <h1 class=text-danger>Charlas</h1>
+        
+            <h3 id="domingo-a-12:10">Domingo, Auditorio, 12:10</h3>
+            <h1 class=text-center> Víctor Terrón</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Clases en Python: lo estás haciendo mal</h1>
+<a href="https://www.youtube.com/watch?v=MgRdg3s8n3E">Vídeo</a> - <a href="/static/talks/Clases en Python, Lo estás haciendo mal - Víctor Terrón.pdf">Presentación</a>
+<p>Esta charla explora diferentes conceptos y técnicas fundamentales para hacer idiomáticas y elegantes nuestras clases programadas en Python. La mayoría de nosotros utiliza la orientación a objetos, pero desconocer qué hace exactamente el método mágico <code>__new__()</code> o lo útil que resulta la función <code>collections.namedtuple()</code> puede hacer que nuestro código sea innecesariamente feo o complejo. También aprenderemos detalles que pueden evitarnos más de un bug, como por ejemplo a no delegar en <code>__del__()</code> la liberación de recursos, cuando esta es una tarea que debería confiarse a <code>with</code>, o cómo implementar correctamente <code>__hash__()</code>.</p>
+<p>Hay también tiempo para discutir asuntos casi filosóficos, como por qué quizás deberíamos llamar a <code>__init__()</code> <em>inicializador</em> en vez de <em>constructor</em> (ya que es <code>__new__()</code> quien realmente crea el nuevo objeto) o cuál es en la práctica la diferencia entre <code>__str__()</code> y <code>__repr__()</code>, a menudo usados indistintamente.</p>
+<p>Algunos conceptos avanzados, como qué son los descriptores o una introducción a las metaclases (esas grandes desconocidas) se exponen en la recta final, antes de cerrar con algunos ejemplos rápidos bastante útiles — como, por ejemplo, cómo podemos aplicar lo aprendido para heredar de un array de NumPy.</p>
+<p>En definitiva, el objetivo es enseñar a simplificar y optimizar nuestras clases, convirtiendo un trozo de código tan habitual como este:</p>
+<pre><code>class Point(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+</code></pre>
+
+<p>... en algo mucho más eficiente y versátil:</p>
+<pre><code>Point = collections.namedtuple("Point", "x y z")
+</code></pre>
+
+<h2>Guión:</h2>
+<p><strong>Fáciles:</strong>
+<ul>
+  <li>Heredando de <code>object</code> (<em>new-style</em>)
+  <li>Variables de clase (estáticas)
+  <li>Atributos privados y ocultos (_foo y __spam)
+  <li>Métodos estáticos y de clase
+  <li>El primer argumento: <em>self</em>
+  <li>Propiedades (<code>@property</code>)
+  <li><code>__str__()</code> vs <code>__repr__()</code>: para qué son
+</ul></p>
+<p><strong>Menú principal:</strong>
+<ul>
+  <li>Muy, muy útil: <code>collections.namedtuple()</code>
+  <li>Diferencia entre <code>__init__()</code> y <code>__new__()</code>
+  <li>Implementando nuestro propio <code>__hash__()</code>
+  <li><code>functools.total_ordering()</code>
+  <li>Liberación de recursos y <code>__del__()</code>
+  <li>Gestores de contexto: <code>__enter__()</code> y <code>__exit__()</code>
+</ul></p>
+<p><strong>Algo difíciles:</strong>
+<ul>
+  <li>Descriptores
+  <li>Slots
+  <li>Metaclases
+</ul></p>
+<p><strong>Frikadas varias:</strong>
+<ul>
+  <li>Heredando de un array de NumPy
+  <li>Añadiendo docstring a una namedtuple
+  <li>Parámetros por defecto en namedtuples
+</ul></p>
+<h2>Duración</h2>
+<p>50 minutos.</p>
+<h2>Sobre mí:</h2>
+<p>Trabajo como ingeniero de software en el <a href="http://www.iaa.es">Instituto de Astrofísica de Andalucía (CSIC)</a>. Desde 2009 desarrollo <a href="http://www.github.com/vterron/lemon">LEMON</a>, un programa de reducción y análisis de imágenes astronómicas para PANIC, un instrumento del <a href="http://www.caha.es">Observatorio de Calar Alto</a> (Almería). Tengo una enemistad personal con los ponentes aburridos, así que me tomo muy en serio que mis charlas sean amenas y todo lo divertidas posibles — es lo que intenté <a href="http://www.youtube.com/watch?v=QZiX75rbkuI">en la charla que di el año pasado</a>, y que sorprendentemente, y si es que eso significa algo, es una de las que más reproducciones tiene en YouTube (¡!) de la PyConES 2013. También tengo unos cuantos y muy modestos parches que, contra todo pronóstico, me han aceptado en proyectos como CPython y matplotlib.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-a-10:00">Sábado, Auditorio, 10:00</h3>
+            <h1 class=text-center> David Arcos</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Python on a Plane</h1>
+<a href="https://www.youtube.com/watch?v=rZzrGhEgWWs">Vídeo</a> - <a href="/static/talks/Python on a plane - David Arcos.pdf">Presentación</a>
+<p>Duración: 1 hora
+Idioma: Castellano (slides en inglés)</p>
+<p>La versatilidad de Python nos permite encontrarlo a 10.000 metros del suelo, a bordo de un avión.</p>
+<p>La charla explicará en el caso de uso de Immfly: un sistema de entretenimiento, durante el vuelo, en el que el pasajero se conecta a una red wifi mediante su dispositivo favorito, y puede ver películas, leer revistas, consultar datos del vuelo, hacer reservas en destino, y mucho más.</p>
+<p>La charla consta de tres bloques diferenciados:
+- 1) A bordo del avión: arquitectura de un sistema offline
+- 2) Del avión al hangar: sincronización y actualizaciones
+- 3) Integración con &#34;3rd parties&#34;: contenidos, pagos, partners
+Veremos los retos técnicos que se presentan en cada uno, así como las herramientas Python que se han usado para resolverlos.</p>
+<h1>Acerca de</h1>
+<p>David Arcos es un desarrollador Python especializado en sistemas distribuidos, escalabilidad y seguridad. Utiliza Python y Django desde 2008. Actualmente trabaja en Immfly, desarrollando la plataforma de entretenimiento a bordo.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-a-18:30">Domingo, Auditorio, 18:30</h3>
+            <h1 class=text-center> Saul Diez-Guerra</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Speed without drag</h1>
+<a href="https://www.youtube.com/watch?v=1AamKu-FwCU">Vídeo</a> - <a href="/static/talks/Speed without drag - Saul Diez-Guerra.ipynb.slides.html">Presentación</a> - <a href="/static/talks/Speed without drag - Saul Diez-Guerra.ipynb">ipynb</a>
+<p>Recorrido práctico a través de las opciones que Python ofrece para la optimización de código númerico de baja fricción (esto es, sin dejar de escribir Python), incluyendo: agotando CPython, NumPy, Numba, Parakeet, Cython, Theano, PyPy/NumPyPy, Pyston y Blaze.</p>
+<p>40 minutos. Charla presentada en PyData Silicon Valley 2014, PyData Berlin 2014 y PyGotham 2014.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-a-10:55">Domingo, Auditorio, 10:55</h3>
+            <h1 class=text-center> Aitor Guevara</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Concurrencia de I/O en Python</h1>
+<a href="https://www.youtube.com/watch?v=8UhkFpIMtYE">Vídeo</a> - <a href="/static/talks/Concurrencia - Aitor Guevara.pdf">Presentación</a>
+<p>El objetivo de la charla es revisar el estado del desarrollo de
+aplicaciones distribuidas / asíncronas / concurrentes con Python. No
+siendo un lenguaje diseñado con aplicaciones de red en mente, la
+librería estándar no ofrece (ofrecía hasta 3.4, al menos) demasiadas
+facilidades en este aspecto. Con la creciente escala de los proyectos
+de internet, la necesidad ha propiciado la aparición de librerías y
+frameworks de terceros que rellenan ese vacío siguiendo distintas
+estrategias. Tal es así que la revisión de esos proyectos sirve como
+introducción a las principales estrategias de desarrollo asíncrono en
+uso actualmente.</p>
+<p>La charla es una variante de una presentación que ya he dado en un par
+de ocasiones (slides en
+https://speakerdeck.com/aitorciki/concurrent-io-and-python) y trata de
+equilibrar conceptos teóricos con ejemplos concretos de código. No
+tengo problema en presentar en castellano o inglés, cómo le convenga a
+la organización. Charla de 50 minutos, claro.</p>
+<p>Un ligero resumen de los asuntos abordados:</p>
+<ul>
+<li>Concurrencia / paralelismo</li>
+<li>E/S asíncrona</li>
+<li>Threads</li>
+<li>Procesos</li>
+<li>Callbacks</li>
+<li>Corrutinas</li>
+<li>Twisted / geven / asyncio</li>
+</ul>
+<h1>Acerca de</h1>
+<p>Aitor Guevara (https://twitter.com/aitorciki), co-fundador de
+Ducksboard (http://ducksboard.com). Ducksboard es un panel web de
+métricas en tiempo real escrito en Python. Tanto en Ducksboard como en
+mi anterior puesto (Flumotion) he usado Python y Twisted para el
+desarrollo de aplicaciones distribuidas de tamaño considerable.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> James Powell</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Generators Will Free Your Mind</h1>
+<p>(new material)</p>
+<p>duración: 50 minute talk</p>
+<p>What are generators and coroutines in Python? What additional conceptualisations do they offer, and how can we use them to better model problems? This is a talk I&#39;ve given at PyData London, PyCon Spain, and the conference &#34;for Python Quants&#34;. It&#39;s an intermediate-level talk around the core concept of generators with a lot of examples of not only neat things you can do with generators but also new ways to model and conceptualise problems.</p>
+<p>Generators are one of the most notable features of Python, and they are a critical component of Python 3&#39;s driving focus on iterability as a core protocol. This talk introduces the basic concepts surrounding generators, generator expressions, and co-routines, then dives into ways that generators can improve our code: not just in terms of performance but also by offering us better ways to model our problems.</p>
+<h1>About</h1>
+<p>I&#39;m a Python programmer in NYC. I run NYC Python (http://nycpython.org), the world&#39;s largest and most active Python meetup group, and am the president of the not-for-profit that runs the group (http://bigapplepy.org)</p>
+<p>I am the chair of New York&#39;s upcoming regional Python conference (http://pygotham.org - Aug 16-17) , was the chair of a conference &#34;for Python Quants&#34; on pi-day, Mar-14 of this year, and am a co-organiser for the PyData conference series (http://pydata.org)</p>
+<p>I&#39;ve given talks at PyTexas, PyCon Sweden, PyCon Canada, and PyCon Finland, and a number of PyData events (London, New York, Boston, Silicon Valley, and Berlin.)</p>
+<p>I spoke last year at PyCon Spain 2013, and it was my favourite conference of the year!</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s1-10:00">Sábado, Sala 1, 10:00</h3>
+            <h1 class=text-center> Ivan Compañy</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h2>Procesamiento de lenguaje natural en Python</h2>
+<a href="https://www.youtube.com/watch?v=DVZPQ65k130">Vídeo</a> - <a href="/static/talks/natural language processing - Iván Compañy.pdf">Presentación</a>
+<p>Básicamente cubriría algunos aspectos del procesamiento de lenguaje natural con NLTK (Natural Language ToolKit), explicaré por encima en qué consiste, pasos para poder procesar un lenguaje, identificar patrones en un lenguaje y casos de uso útiles para aplicar.</p>
+<p>La duración de la charla creo que será de unos 45 minutos aproximadamente.</p>
+<h2>Acerca de</h2>
+<p>Me llamo Iván Compañy, trabajo en Barcelona (aunque soy nacido en Alicante) y soy arquitecto Python en MyTaste.com. Mi trabajo consiste en administrar un sistema de extracción de recetas de cocina de otras webs (Con Scrapy). A parte de eso, desarrollo aplicaciones de vez en cuando a titulo personal con Django + AngularJS.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-a-17:00">Domingo, Auditorio, 17:00</h3>
+            <h1 class=text-center>Lluis Esquerda</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>PyBikes</h1>
+<a href="https://www.youtube.com/watch?v=HS9EovEsRjc">Vídeo</a> - <a href="/static/talks/pybikes_pycones2014 - Lluis Esquerda.svg">Presentación</a> (SVG)
+<p>Desde el 2010 tengo en marcha un proyecto llamado CityBikes
+(http://citybik.es). Básicamente, lo que empezó siendo una app Android
+para mostrar el estado de las bicis públicas de Barcelona (Bicing),
+luego una API pública para esos datos, ha acabado siendo un proyecto
+que incluye, a día de hoy, 177 sistemas de bicis de alrededor del
+mundo y una API usada por la mayoria de aplicaciones alternativas a
+las oficiales para Android, iPhone, firefox, etc.</p>
+<p>Todo el proyecto es FOSS y, exceptuando la (ya un poco desfasada)
+aplicación de Android, esta realizado enteramente en Python. Los
+componentes son:</p>
+<p>pybikes: la pieza fundamental del proyecto es una librería de scraping
+para todos éstos sistemas. A mi me gusta llamarlo &#34;bike sharing data
+at your fingertips&#34;. Utiliza requests y lxml. Lo importante de éstapycon
+libreria es que es el punto de encuentro principal para las personas
+que contribuyen a CityBikes: si quieres añadir el sistema de tu
+ciudad, puedes hacerlo tu mismo. http://github.com/eskerda/pybikes</p>
+<p>api: nada realmente importante, flask y pymongo.
+https://github.com/eskerda/citybikes-api</p>
+<p>gyro: el sistema que mantiene la base de datos de sistemas
+actualizado. En resumen, una serie de tareas rq que trabajan con
+pybikes y la base de datos. https://github.com/eskerda/citybikes-gyro</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> James Powell</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>A CPython Eating Its Own Tail</h1>
+<p>(new material)</p>
+<p>duración: 50 minute talk</p>
+<p>This is a proper expert talk, but it&#39;s actually still fairly accessible to an intermediate audience.</p>
+<p>The contents of this talk are much less immediately useful to the audience than the Generators talk, but I think it&#39;s a bit more fun! (e.g., can we use ctypes to load a seperate Python interpreter into the same process space, could we use this as some perverse way to run Python 2 and Python 3 code side-by-side, what does this mean as an approach to avoiding the GIL?)</p>
+<h1>About</h1>
+<p>I&#39;m a Python programmer in NYC. I run NYC Python (http://nycpython.org), the world&#39;s largest and most active Python meetup group, and am the president of the not-for-profit that runs the group (http://bigapplepy.org)</p>
+<p>I am the chair of New York&#39;s upcoming regional Python conference (http://pygotham.org - Aug 16-17) , was the chair of a conference &#34;for Python Quants&#34; on pi-day, Mar-14 of this year, and am a co-organiser for the PyData conference series (http://pydata.org)</p>
+<p>I&#39;ve given talks at PyTexas, PyCon Sweden, PyCon Canada, and PyCon Finland, and a number of PyData events (London, New York, Boston, Silicon Valley, and Berlin.)</p>
+<p>I spoke last year at PyCon Spain 2013, and it was my favourite conference of the year!</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Christine Doig</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Introduction to Large Scale Data Analytics and Interactive Visualization in the Browser with Blaze and Bokeh.</h1>
+<p>NumPy, Pandas y Matplotlib, entre otros, han revolucionado el procesamiento, manipulación y visualización de datos en Python. ¿Pero, qué hacemos cuando nuestro dataset es demasiado grande para caber en la memoria de nuestro ordenador? ¿Usar una base de datos como Postgres o MongoDB, almacenar en disco con PyTables o BColz, o usar sistemas distribuidos como Hadoop o Spark?Cada una de estas opciones tiene sus ventajas e inconvenientes. Aprender cada una de estas herramientas consume tiempo que podría estar empleándose en el análisis de los datos en sí. La librería Blaze ofrece una interfaz común para una variedad de backends y abstracciones para el procesamiento y la migración de datos. </p>
+<p>Por otro lado, ¿cómo visualizamos nuestro dataset cuando tenemos más individuos que píxeles tiene nuestra pantalla? Bokeh es una librería para la visualización interactiva de datos en el navegador al estilo de D3.js en Python, que incluye la funcionalidad de Abstract Rendering para estos casos.</p>
+<p>La charla consistirá en una introducción al análisis y visualización de large datasets, cómo las librerías Blaze and Bokeh nos pueden facilitar el trabajo y un ejemplo práctico con un dataset de tweets.</p>
+<p>Para más información sobre las librerías, visita:
+- http://bokeh.pydata.org/
+- http://blaze.pydata.org/</p>
+<p>Duración: 50 min.</p>
+<h1>Acerca de</h1>
+<p>Christine Doig, Data Scientist en Continuum Analytics. Ingeniera Industrial (UPC) y estudiante del Máster en Informática (UPC), especialidad en Data Mining y Business Intelligence. Experiencia analizando datos en varios sectores: energía (E.ON), manufacturing (P&amp;G - A&amp;A) y banca (consultora en &#34;La Caixa&#34;).</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Mayte Gimenez y Angela Rivera</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Porque Charles Xavier debe cambiar a Cerebro por Python</h1>
+<p>Los buenos de Marvel han liberado su API, ¿qué quiere decir esto? ¡Un montón de datos para jugar!</p>
+<p>La premisa que queremos estudiar mediante el análisis de los datos disponibles a través de la API de Marvel es la variedad de personajes femeninos y de personajes de minorías culturales y raciales (en occidente) que hay en el mundo Marvel así como los roles en los que están representados más frecuentemente.¿De qué color dirías que tiene el pelo el personaje típico de Marvel? ¿Y cuál es su nacionalidad? </p>
+<p>El objetivo de la charla es enseñar las distintas herramientas de las que disponemos los científicos para el análisis de datos. Usando ipython Notebook veremos como cargar datos y extraer información de ellos usando pandas, cómo dibujar gráficas con matplotlib.  </p>
+<p>Además aplicaremos Machine Learning para distinguir clases (iris, spam,...) aplicado a la muestra de personajes de Marvel que hay disponibles a través de la citada API, para ello utilizaremos el toolkit scikit-learn.</p>
+<p>Probablemente Stan Lee no nos acompañe, pero nunca se sabe. </p>
+<p>Duración
+40/50 minutos</p>
+<h1>Acerca de</h1>
+<h2>Mayte Giménez</h2>
+<p>Soy Ingeniera Informática y graduada en Bellas Artes por la Univesitat Politècnica de València, actualmente curso un máster de inteligencia artificial, reconocimiento de formas y lingüística computacional. Tengo la suerte de trabajar en uno de los trabajos más molones (para mi, claro)  y en python (en mis horas felices) en el departamento de sistemas y computación de la UPV.<br />
+Llevo trabajando con python desde el 2005, he disfrutado de las becas Google Summer of Code del 2011 al 2013. Creo firmemente que divulgar conocimiento es una de las obligaciones de los científicos. He dado una charla en la PyCon ES 2013 y presenté un póster en la PyCon 2013. Formo parte del capítulo español de las pyladies y de la asociación de python españa. </p>
+<h2>Angela Rivera</h2>
+<p>Soy licenciada en Física por la Universidad Complutense de Madrid, he trabajado en consultoría y durante los últimos siete años en la industria aeroespacial en proyectos para la ESA como Ingeniera de Entorno Espacial y en desarrollo de software con Python para análisis de radiación y aplicaciones. Tras toda una vida dedicada al rol como hobby me he embarcado en la industria de los juegos de rol en USA, además estoy reorientando mi carrera profesional desarrollando un proyecto supersecreto para jugadores usando Django que puede que vea la luz antes de la PyCon.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-s1-12:10">Domingo, Sala 1, 12:10</h3>
+            <h1 class=text-center>Jesús Cea</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Métodos mágicos en Python 3</h1>
+<a href="https://www.youtube.com/watch?v=GE2wfDB0lZU">Vídeo</a> - <a href="/static/talks/metodos_magicos_python3-Jesus_Cea.pdf">Presentación</a>
+<p>Revisión de los métodos mágicos implementados en Python 3, haciendo énfasis especial en los menos conocidos y en casos de uso interesantes.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s1-17:00">Sábado, Sala 1, 17:00</h3>
+            <h1 class=text-center> Jesús Espino</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h2>Programación funcional con Python</h2>
+<a href="https://www.youtube.com/watch?v=h1GwD5KheEI">Vídeo</a> - <a href="/static/talks/python-funcional - Jesús Espino.pdf">Presentación</a>
+<p>Esta charla es un recorrido por las posibilidades para programación funcional que tiene python, incluyendo las que están en las baterias de python, las propias estructuras inmutables de python y bibliotecas externas como fn.py.</p>
+<p>La duración sería de unos 45/60 minutos.</p>
+<h2>Acerca de</h2>
+<p>Mi nombre es Jesús Espino, soy desarollador python/django en Kaleidos y colaboro con proyectos de software libre.</p>
+<p>Un saludo.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-a-13:05">Sábado, Auditorio, 13:05</h3>
+            <h1 class=text-center> Jose A. Rocamonde</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h2>Desarrollo de appliances y sistemas embebidos utilizando Python.</h2>
+<b>FALTA Vídeo</b> - <a href="/static/talks/Desarrollo de appliances y sistemas embebidos utilizando Python - Jose A. Rocamonde.pdf">Presentación</a>
+<p>Los sistemas embebidos y los appliances están ganando terreno día a día en  el ámbito de la implantación de soluciones de propósito específico. Áreas como la telemetría, el datalogger, los sistemas expertos o el bussines intelligence están ocupando un porcentaje cada vez mas elevado del desarrollo software. Históricamente tanto C como C++ o Assembler han sido los lenguajes dominantes  en este campo, sin embargo Python en un lenguaje de programación que ofrece importantes ventajas frente a estos &#34;clásicos&#34;. La existencia de módulos o librerías para casi todo lo que podamos necesitar, unido al desarrollo multiplataforma, junto con las características intrínsecas a un lenguaje de muy alto nivel unido a la  capacidad de acceso a muy bajo nivel hacen de Python el lenguaje ideal para el desarrollo de este tipo de proyectos.</p>
+<p>Duración: entre 40 y 50 mins.</p>
+<h2>Acerca de</h2>
+<p>Realizé estudios de Ingeniero Técnico en Informática en la Universidade de A Coruña (sin finalizar), complementados con un postgrado como experto en sistemas de información para la empresa por la Universidad de Cádiz (esta vez si finalizados). Durante 10 años fui el socio fundador y  responsable general de una empresa de Ingeniería Informática dedicada al desarrollo de proyectos de I+D+I  relacionados con el sector de las  telecomunicaciones, Industrial y Naval. Desde hace tres años soy el responsable de informática de  una importante empresa gallega relacionada con el juego y las apuestas. Experto en telemetía y en extracción y análisis de datos.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-a-10:00">Domingo, Auditorio, 10:00</h3>
+            <h1 class=text-center> Toni Robres Turón</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Testing, testing everywhere</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/testing, testing everywhere - Toni Robles Turón.pdf">Presentación</a>
+<p>Uno de los principales problemas que existen en la automatización y diseño de test cases es la diversidad de herramientas que se utilizan para cada parte del proceso de QA. Esto implica que los diferentes componentes del equipo tengan que formarse en todas las herramientas necesarias, y que haga falta una integración ad-hoc para que todo el proceso sea automático.
+ </p>
+<p>Existe una herramienta capaz de realizar el proceso sin salir de ella, y que la utilizan millones de desarrolladores, una herramienta que nos permite poder realizar pruebas a todos los niveles sin necesitar ninguna integración con otras herramientas. Una herramienta que la utilizan millones de personas en el mundo. Python!</p>
+<p>Python nos provee de varias librerías para facilitar la realización de pruebas en todos los niveles, desde pruebas unitaria como pruebas de frontend (Selenium) pasando por las pruebas de componente o las pruebas de Performance. Utilizando Python podemos incrementar la velocidad de la automatización de pruebas y mejorar el mantenimiento de los test gracias a la reutilización de código y utilidades entre las diferentes pruebas.</p>
+<p>En esta conferencia se mostrará como podemos realizar pruebas en diferentes niveles (unitario, backend, frontend, performance) utilizando diferentes librerías de Python. También se mostraran ejemplos de como podemos reutizar tests entre diferentes niveles (unitario, aceptación y performance) para mejorar el mantenimiento de la automatización de tests y mejorar la comunicación entre programadores y testers.</p>
+<h1>Acerca de</h1>
+<p>Mi nombre es Antonio Robres y me considero QA y tester hasta la medula, con una gran pasión por el desarrollo de software. Automatizando proyectos de testing desde hace varios años y lidiando con proyectos inmantenibles hasta que descubrí como integrar todo el proceso con Python... desde entonces puedo dormir con la conciencia tranquila.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Miguel Angel Garcia</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Travisify: Gestión del ciclo de vida de un proyecto desde el propio repositorio</h1>
+<p>Me gustaría contar nuestro último caso de éxito utilizando Python. Consiste en un sistema de actualización automática de trabajos en el servidor de Integración Contínua. Está basado en la forma de trabajar de Travis, de manera que la especificación de las pruebas (entorno y ejecución) se encuentre en el mismo repositorio que el código, y se gestione automáticamente el entorno de integración contínua. Entre otras ventajas, se consigue que:</p>
+<p>Los desarrolladores tengan control completo sobre el entorno de pruebas
+existe un histórico de la configuración del entorno de pruebas
+cierta independencia del sistema de Integración Contínua</p>
+<p>Desgraciadamente, Travis no se ajustaba completamente a nuestros requisitos, por lo que tuvimos que escribir nuestra propia solución. En Python, por supuesto.</p>
+<p>En Tuenti hemos llamado a este proyecto: &#34;Travisification&#34;, lo que da lugar al título de la charla.</p>
+<p>Duración: 40-45 minutos
+Ponente: Miguel Ángel García (Tuenti)</p>
+<h1>Acerca de</h1>
+<p>Miguel Ángel García, perteneciente al grupo SRE (System Reliability Engeneers) en Tuenti.</p>
+<p>Nuestro grupo tiene un ámbito bastante amplio: gestión de las máquinas de desarrollo, pruebas y producción, automatización de procesos y gestión de releases.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-a-19:30">Sábado, Auditorio, 19:30</h3>
+            <h1 class=text-center> Jaime Crespo</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>MySQL Fabric, High Availability Solution for Connector/Python</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/MySQL fabric - Jaime Crespo.pdf">Presentación</a>
+<p>Your web application becomes so successful that you start to have performance problems (in particular, on your persistence layer)- it cannot withstand so many concurrent reads and writes. What to do now? While scaling up should be your first option, there will be a point in which you code and your hardware will make imposible to survive on a single database instance. However, both sharding and clustering can be hard and they are never fully transparent for the application, no matter the technology.</p>
+<p>MySQL Fabric is an open source Python (2.6+) set of tools that handles MySQL (5.6+) sharding, load balancing and read/write splitting in a GTID replication environment and that can talk to the Python Connector itself using XML-RPC for application awareness, making the handling of MySQL farms much easier.</p>
+<p>In this presentation we will try to introduce MySQL fabric in a practical way, providing use cases in which Fabric can provide a better read and write throughput for a Python application, and also more service resiliency.</p>
+<h1>Acerca de</h1>
+<p>Jaime Crespo is a former MySQL A.B./Sun Microsystems/Oracle and Percona consultant trainer, having worked for companies like Telefónica, BBC, Activision-Blizzard or Twitter.</p>
+<p>Currently he is a freelance consultant at &lt;http://dbahire.com&gt;, specialized on web performance optimization and architectures for high availability.</p>
+<p>More info: &lt;http://jynus.com&gt;</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Juan Riaza</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Tecnicas avanzadas de Scrapy</h1>
+<p>Scrapy is a fast high-level screen scraping and web crawling framework, used to crawl websites and extract structured data from their pages. It can be used for a wide range of purposes, from data mining to monitoring and automated testing.</p>
+<p>In this talk some advanced techniques will be shown based on how Scrapy is used at Scrapinghub.</p>
+<h1>Acerca de</h1>
+<p>Juan Riaza - Pythonista, Djangonaut, Web Scraper. Data addict. Software developer @ScrapingHub Organizing @betabeersvg</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s1-10:55">Sábado, Sala 1, 10:55</h3>
+            <h1 class=text-center>Salvador de la Puente González</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Method dispatching techniques in Python</h1>
+<a href="https://www.youtube.com/watch?v=a2GZvdXptP8">Vídeo</a> - <a href="/static/talks/Method dispatching - Salvador de la Puente.pdf">Presentación</a>
+<p>La charla recuerda la importancia del method dispatching en la POO en general
+y en Python en particular a través de 3 implementaciones de
+<code>__getattribute__()</code>: decoración dinámica de métodos,
+APIs tolerantes a typos y control de acceso a miembros privados de clase.</p>
+<p>50min.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-a-17:00">Sábado, Auditorio, 17:00</h3>
+            <h1 class=text-center> Miguel Angel Marco</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Breve presentación de Sage.</h1>
+<a href="https://www.youtube.com/watch?v=eshURXzOJRQ">Vídeo</a> - <a href="/static/talks/Breve introduccion a Sage - Miguel Angel Marco.pdf">Presentación</a> - <a href="https://riemann.unizar.es/~mmarco/pycones.mp4">Screencast</a>
+<p><a href="http://www.sagemath.org">Sage</a> es un sistema de álgebra computacional que nació hace ya diez años con la idea ser una alternativa libre a Maple, Mathematica, Matlab y Magma. Para ello se aprovecha de numerosos paquetes libes disponibles para tareas muy específicas. Como lenguaje común a un entorno tan heterogéneo, se usa extensamente python, y para tareas donde el rendimiento es crítico, cython. Esta charla pretende mostrar un breve repaso sobre este proyecto, algunas de sus peculiaridades y retos futuros.</p>
+<h1>Acerca de</h1>
+<p>Mi nombre es Miguel Angel Marco Buzunariz. Soy doctor en matemáticas por la Universidad de Zaragoza, en la que actualmente soy profesor. Mi carrera investigadora se ha centrado en las áreas de la geometría algebraica, la teoría de singularidades, combinatoria y álgebra computacional. Como parte de esa investigación, he necesitado en algunas ocasiones desarrollar software específico, la mayor parte del cual está integrada en Sage.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s1-12:10">Sábado, Sala 1, 12:10</h3>
+            <h1 class=text-center> Francisco Fernandez Castaño</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Understanding PyPy</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/Understanding PYPY - Francisco Fernández Castaño.pdf">Presentación</a>
+<p>PyPy is an alternative implementation of CPython implemented in Python, to newcomers understanding concepts like RPython, JIT, PyPy garbage collection and other core concepts could be difficult so this talk is aimed to introduce all of these concepts and understand better how PyPy works.</p>
+<h1>Acerca de</h1>
+<p>Francisco Fernandez works as a software engineer at Rushmore.fm in Madrid. He uses Python as his main programming language but he also program in other languages like Scala, Go, Clojure... His main interests are distributed systems, functional programming and graph databases.</p>
+<p>I&#39;ve been speaker at international conferences like Codemotion Rome, EuroPython, Scala Workshop also I&#39;ll be speaking at PyCon Finland, Codemotion Madrid.</p>
+<p>Las charlas las puedo dar tanto en español como en inglés y la duración de todas rondaría los 40 minutos más preguntas y el taller podemos cuadrarlo en 2 horas y media.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Javier santana</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Torque: Python y Analisis de Datos</h1>
+<p>En CartoDB usamos torque (https://github.com/cartodb/torque) para la generación de visualizaciones en el navegador de millones de puntos. Para que sea posible es necesario hacer un procesado de los datos en el servidor. En esta charla se tratará como usamos python para:</p>
+<ul>
+<li>Hacer análisis estadístico de los datos para buscar la mejor forma de codificar los datos</li>
+<li>La generación de los tiles desde los datos en crudo con millones de datos</li>
+</ul>
+<p>Del toolset de python usamos tornado para servidor datos de torque en tiempo real y numpy + pyplot para el análsis de datos.</p>
+<p>Un poco más de información sobre torque en:
+http://javisantana.com/2014/07/18/encoding-point-map-animations.html
+http://javisantana.com/jsgeo14/</p>
+<p>La duración sería en torno a unos 30 minutos</p>
+<h1>Acerca de</h1>
+<p>Soy desarrollador en CartoDB desde hace 3 años donde creamos un producto para la visualización de datos geoespaciales. Llevo desarrollando aplicaciones desde hace 10 años, desde aplicaciones para agricultores hasta  videojuegos</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-s1-10:55">Domingo, Sala 1, 10:55</h3>
+            <h1 class=text-center>CodeSyntax - Aitzol Naberan</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h2>Buildout: creando y desplegando configuraciones repetibles en aplicaciones python</h2>
+<a href="https://www.youtube.com/watch?v=tJzsM5DqW_U">Vídeo</a> - <a href="/static/talks/buildout - Aitzol Naberan.pdf">Presentación</a>
+<p>Buildout es un sistema de instalación y despliegue de aplicaciones escrita en python. Desarrollado originalmente para la instalación de aplicaciones Zope, su uso se ha extendido a la instalación de todo tipo de aplicaciones, aunque la mayoría son escritas en python.</p>
+<p>En CodeSyntax utilizamos buildout para la configuración y despliegue de nuestras aplicaciones basadas en Plone y Django, porque nos permite tener una forma repetible y potente para la instalación de aplicaciones. Desde simples webs que solo usan el interfaz de administración de Django, hasta aplicaciones distribuidas en 5 servidores diferentes en las que se instala Apache, pound, haproxy, Zope o Memcache.</p>
+<p>En esta charla, explicaremos el funcionamiento y las ideas básicas de buldout, como se configuran las diferentes partes y explicaremos y mostraremos ejemplos y casos de uso reales. También compararemos buildout con otras herramientas muy usadas en entornos python como fabric. </p>
+<h2>Acerca de</h2>
+<p>La duración estimada de la charla es de 45 minutos, todavía no hemos decidido quien va a ser el ponente de esta charla, probablemente sea yo mismo Aitzol Naberan o Mikel Larreategi, ambos somos desarrolladores python con años de experiencia. Nos apasiona la tecnología y somos los encargados de analizar e implementar nuevos métodos de trabajo en CodeSyntax</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s1-16:00">Sábado, Sala 1, 16:00</h3>
+            <h1 class=text-center> Alejandro Enrique Brito Monedero</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Fabric más alla de lo básico</h1>
+<a href="https://www.youtube.com/watch?v=FoLb-Ne_snQ">Vídeo</a> - <a href="/static/talks/Fabric, más allá de lo básico - Alejandro Enrique Brito Monedero.pdf">Presentación</a>
+<p>Un rehash, director&#39;s cut de la charla que di en el grupo de python madrid &#34;Fabric F&amp;F  edition&#34; http://www.slideshare.net/ae_bm/fabric-ff-32842706 haciendo ejemplo de como integrar fabric como libreria en nuestros scripts en python, quizas con un caso de uso en AWS. Podria ser un taller corto si la &#34;patria&#34; lo requiere.</p>
+<p>Duracion: 40 - 45 minutos (o lo que tarden en lanzar tomates)</p>
+<h1>Acerca de</h1>
+<p>Me llamo Alejandro, trabajo como administrador de sistemas aunque estudie ciencias de la computación ( si deberia dedicarme a investigar cosas en sistemas operativos, redes de computadoras y no en reiniciar aplicaciones). Miembro del grupo de Madrid devops, python Madrid, postgres España. Di una charla en el codemotion España del año 2013. Y para más cosas esta twitter @ae_bm, linkedin y google. Advertencia humor acido.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-s1-16:00">Domingo, Sala 1, 16:00</h3>
+            <h1 class=text-center> Guillem borrell</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h2>El problema C10K, la nube y la supercomputación.</h2>
+<a href="https://www.youtube.com/watch?v=N2g3v4WME1E">Vídeo</a> - <a href="/static/talks/El problema C10K, la nube y la supercomputación - Guillem Borrell i Nogueras.pdf">Presentación</a>
+<p>La nube, la infraestructura para servicios online del presente y del futuro,
+es enormemente similar a un superordenador. Muchas tecnologías que han hecho la nube posible fueron desarrolladas, ensayadas y escaladas en centros de supercomputación hace años. Python ha permitido por primera vez que científicos acostumbrados a utilizar superordenadores puedan hablar el mismo lenguaje que los expertos en servicios online, y que entiendan los problemas técnicos que surgen con el problema C10K, C100K o C1M. En esta charla, la experiencia utilizando superordenadores se intenta trasladar al desarrollo de un servidor de chat capaz de escalar de manera eficiente sobre un PAAS, identificando qué tecnologías y patrones que ya han demostrado su eficacia en supercomputación pueden ser aplicables. El chat, por cierto, funciona y escala bastante bien.</p>
+<p>Duración de la charla: 50 minutos.</p>
+<h2>Acerca de</h2>
+<p>Ingeniero Aeronáutico de formación, llevo más de una década explorando la computación aplicada al ámbito científico y técnico. Después de una etapa como consultor, ayudando a empresas a entender la supercomputación, volví a la universidad para doctorarme. He pasado estos últimos años simulando flujos turbulentos, participando en dos proyectos PRACE y un INCITE, desarrollando herramientas que han demostrado escalar hasta millones de procesadores, y analizando cientos de terabytes de datos con Python. Todo ello para entender un poco más cómo los fluidos disipan energía. También me he encargado de mantener y ampliar el centro de datos del laboratorio, y un poco a mi pesar, he conseguido aprender algo sobre hardware y sistemas.</p>
+<p>Fuera del ámbito profesional me he involucrado en la promoción del software libre. Publiqué unos apuntes sobre Octave en 2004, que se convirtieron en un  libro gratuito relativamente popular. He promovido el uso de Python en Ciencia e Ingeniería desde 2007, y ha sido una pieza importante en mi trabajo como investigador. Me gusta entender cómo funcionan las cosas usándolas y enseñando a usarlas.</p>
+<p>Mi página web personal es http://guillemborrell.es</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+
+        <h1 class=text-danger>Talleres </h1>
+        
+            <h3 id="sabado-s4-10:00">Sábado, Sala 4, 10:00</h3>
+            <h1 class=text-center> Samuel de ancos y Alejandro Guirao</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Taller de Python - Internet Of Things</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/Taller Python - Internet Of Things - Samuel de Ancos y Alejandro Guirao.pdf">Presentación</a>
+<p>Duración: 90 minutos</p>
+<p>Descripción: A través de este taller se realizarán una serie de ejercicios, katas o ejemplos en los que el lenguaje de programación Python será la herramienta para integrar dispositivos en el Internet Of Things (enviar datos de sensores, controlarlos remotamente, etc..). Se realizarán prácticas sobre dispositivos tales como Arduino, Raspberry PI, Arduino Yun y Beagleboard. El número de asistentes se estima en aproximadamente un máximo de 50 personas, para que sea ágil.</p>
+<p>Requisitos para asistir al taller: Cada participante (o grupo de trabajo de participantes) deberá traer su propio portátil con wifi y a ser posible su dispositivo que quiera conectar, así como los sensores, placa de inserción, leds y cables. En función de la disponibilidad de material, se podrá prestar material a los asistentes que no dispongan del mismo.</p>
+<h1>Acerca de</h1>
+<p>Alejadro Guirao Rodríguez. Soy pythonista acérrimo, radioaficionado, amante de la electrónica y el cacharreo vario. Me podéis encontrar en twitter como @lekum y  enhttps://github.com/lekum.</p>
+<p>Samuel de Ancos Martín. Soy un apasionado del desarrollo y la tecnología, ultimamente me dedico a eso que llaman &#34;Internet Of things&#34; como analista y desarrollador core en la plataforma Carriots. Me podeis encontrar en twitter como @sdeancos, en mi pagina web http://deancos.com y en http://github.com/sdeancos.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Ivan Pedrazas</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>&#34;50 Shades of Docker&#34;</h1>
+<p>El workshop intentara explicar como montar una application hecha en Flask que usa un cluster de Cassandra (o mongo o redis... la base de datos da un poco igual) como backend y tiene servicios anyadidos como podria ser un buscador (ES)</p>
+<p>No hay mucho codigo Python... which is bad :( </p>
+<p>Por contra, el workshop trata de como coger el codigo en Python y ponerlo en production... which is good :) Asi que el workshop se centrara en como hacer el deploy... usando Docker.</p>
+<p>[Supervisor] ? (si hay tiempo)
+[Gunicorn - Flask]
+[Cassandra] 
+[ElasticSearch] ? (si hay tiempo)</p>
+<p>La Agenda podria ser algo asi
+- Intro
+- Docker, por que y como
+- Ejecutar Flask en docker
+- Ejecutar Cassandra  en docker
+- Conectar Flask-container y cassandra-container
+- Ejecutar ElasticSearch en docker
+- Conectar Flask container con ElasticSearch container
+- Q &amp; A</p>
+<p>La duracion: 1:30 - 2h (seguro que pasa de la hora y media... pero despues del 5 punto, ya podremos dar el dia por bueno</p>
+<h1>Acerca de</h1>
+<p>Me defino a mi mismo como developer, aunque mi titulo oficial es Software Architecht en el departamento de DevOps del EMA (European Medicines Agency) en Londres. En mi dia a dia programo en Java (O_0) Python ( ^<em>^) y Php (#</em>#)</p>
+<p>Estoy a punto de poner en marcha una (os &amp;&amp; python) application para gestionar bookmarks (lo se, lo se...) hecha en flask y mongo (y redis, y celery y... angularjs (&#34;_&#34;))</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s4-16:00">Sábado, Sala 4, 16:00</h3>
+            <h1 class=text-center> Néstor Salceda, Eduardo Ferro, Jaime Gil de Sagredo, Alberto Pérez
+</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Workshop: Diseño modular dirigido por pruebas para Python</h1>
+<b>FALTA Vídeo</b> - <b>FALTA presentación</b> - <a href="http://www.eferro.net/2014/11/taller-diseno-modular-dirigido-por.html">Link externo</a>
+<h2>Descripción:</h2>
+<p>La gente que quiere empezar a hacer TDD, es cómo aplicarlo a su plataforma. Los ejemplos siempre se basan en lógica de negocio, sin prestar atención al resto de interacciones con el sistema.</p>
+<p>Cuando se acaban encontrando un montón de problemas a la hora de escribir tests de unidad, lo acaban resolviendo escribiendo tests de integración.</p>
+<p>El problema no reside en el ciclo de TDD, sino en una arquitectura pobre o falta de ella. Será en esta última parte donde pongamos más hincapié.</p>
+<p>Vamos a:</p>
+<ul>
+<li>
+<p>Hacer un modelo de dominio como parte central de la aplicación</p>
+</li>
+<li>
+<p>Evitar el framework como parte central de un software / arquitectura</p>
+</li>
+<li>
+<p>Demostrar cómo se puede hacer TDD &#34;de libro&#34;</p>
+</li>
+<li>
+<p>Ver algunos smells de TDD (tests lentos, dificultad de probar algunas partes), que no son de TDD sino de una arquitectura pobre.</p>
+</li>
+<li>
+<p>Demostrar que se pueden tener suites de tests rápidas &lt; 1s</p>
+</li>
+<li>
+<p>Dejar muy claro el concepto de &#34;Delivery Mechanism&#34;</p>
+</li>
+</ul>
+<p>Este workshop es un port para Python de uno realizado en la CAS 2013 por parte de Guillermo Pascual y Javier Acero que tuvo muy buena acogida. Se pueden ver las <a href="https://speakerdeck.com/jacegu/modular-design-with-tdd">diapositivas</a> y el <a href="https://github.com/pasku/kata-roar">código</a> original que hicieron Guillermo y Javier.</p>
+<h2>Programa detallado:</h2>
+<p>Se realizará una aplicación web utilizando TDD, para hacerlo sencillo utilizaremos un clon de alguna aplicación existente, con un dominio conocido por todos los asistentes.</p>
+<p>Se dividirá en pequeñas funcionalidades que presentarán una dificultad o un problema específico, y expondremos soluciones (dobles, tests de contrato …). De este modo, se mezclarán explicaciones e implementación.</p>
+<h2>Resumen:</h2>
+<p>Este ha sido el año de matar TDD, en este taller vamos a hacer una aplicación haciendo iteraciones y utilizando TDD; para que veamos que no estaba muerto, que estaba de parranda.</p>
+<p>Vamos a hacer una aplicación utilizando TDD, hablaremos de tests de integración y hablaremos de arquitecturas pobres, problemas de diseño y principios SOLID.</p>
+<h2>Duración:</h2>
+<p>2 horas</p>
+<h2>Sobre nosotros:</h2>
+<ul>
+<li>
+<p>Néstor Salceda</p>
+</li>
+<li>
+<p>Eduardo Ferro</p>
+</li>
+<li>
+<p>Alberto Pérez</p>
+</li>
+<li>
+<p>Jaime Gil de Sagredo</p>
+</li>
+</ul>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="sabado-s4-18:30">Sábado, Sala 4, 18:30</h3>
+            <h1 class=text-center> Pedro Varo Herrero</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<p>Computación Altas Prestaciones con Python en Cluster - MPI: 
+Módulo a usar MPI4PY.</p>
+<b>FALTA Vídeo</b> - <a href="/static/talks/Taller - Computación altas prestaciones - Pedro Varo Herrero.pdf">Presentación</a>
+<p>Sería una charla o taller para personas que saben o se dediquen a la informática o personas de perfil investigador(físicos, matemáticos, biologos..) que necesiten o hagan uso de computacion de altas prestaciones en cluster. </p>
+<p>Pequeña introducción a MPI, cómo funciona sin entrar en detalles sobre capas bajas del desarrolo,  explicando que se basa en el paso de mensajes. A continuación pasaría a introducir el módulo de Python MPI4Py, sus funciones, sus diferencias con C y cómo se usan. Todo esto con pequeños ejemplos, empezando por un calculo de Pi y terminando por ejemplo con la paralización de un algoritmo genético o colonias de hormigas. Si es un taller haría algún notebook en ipython para que todos fuésemos a la vez y cada uno programe lo que vaya tocando.</p>
+<h2>Acerca de</h2>
+<p>Graduado en ingeniería informática, este Julio me gradué, por la Universidad de Sevilla. Especializado en computación ( Algorítmica, complejidad, matemáticas, modelos de computación e inteligencia artificial), y en computación de altas prestaciones con conocimiento de varias tecnologías, MPI, OpenMP, CUDA, OpenCL. Esto último porque me apasiona esa rama.</p>
+<p>Con Python llevo ya para 4 años y fuí a la anterior edición de PyConES cómo ponente.</p>
+<p>Mi trabajo final de carrera, defendido en Julio, fué la implementación de un algoritmo genético con Python en un sistema de computación de altas prestaciones con 40 procesadores, orientado a la genética, Redes de Regulación Génicas y el estudio de la aceleración, escalabilidad y convergencia del algoritmo.
+http://www.atc.us.es/news/125-defensa-tfg-evogenet</p>
+<p>Algunos de mis temas que llevo investigando actualmente son: Modelos de computación no convencionales, Computación con Membranas y computación con ADN.
+Aplicación de técnicas de computación de altas prestaciones a procesos de inteligencias artificial( aprendizaje, visión artificial, simulaciones)</p>
+<p>Por último en Julio me aceptaron y fuí al curso PUMPS 2014 en el Barcelona Supercomputing Center, curso sobre CUDA dado por la Universidad de Illinois.
+http://bcw.ac.upc.edu/PUMPS2014/</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Cacheme y pybonacci</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Python Cientifico</h1>
+<p>Introducción al lenguaje de programación Python enfocado principalmente a científicos, ingenieros o cualquier persona interesada en análisis y visualización de datos. Los temas a tratar serían:
+Introducción a la sintaxis de Python
+Uso del Notebook de IPython
+Introducción a NumPy
+Representación gráfica con matplotlib
+Análisis numérico con Pandas y SciPy
+Introducción a la depuración con pdb, testing y buenas prácticas (siempre que el tiempo lo permita)
+Introducción a DVCS (siempre que el tiempo lo permita)
+El taller en general sería algo similar a lo que proponen los afamados talleres de Software Carpentry (http://software-carpentry.org/) presentados alrededor del mundo. Una versión de este taller ya ha sido realizada con éxito en la Universidad de Alicante (http://cacheme.org/curso-online-python-cientifico-ingenieros/) y ya se dispone de materiales de apoyo digitales (Vídeos, presentaciones, notebooks,...) relacionados con el mismo.</p>
+<p>Duración: 
+120-180 minutos (dependiendo de la decisión final de los organizadores)</p>
+<h1>Acerca de</h1>
+<p>El taller será impartido por personas relacionadas con CAChemE y Pybonacci, comunidades que tratan de fomentar el uso del software libre en entornos científicos y en las universidades.</p>
+<p>Pybonacci (@pybonacci): Es una comunidad abierta iniciada por gente vinculada a Python-Madrid compuesta por estudiantes, licenciados, ingenieros, Doctores y todo le que se quiera implicar y colaborar. Su principal función es dar a conocer el mundo de la programación y el software libre dentro del entorno científico y académico enfocándose principalmente en Python.</p>
+<p>CAChemE.org (@CAChemEorg): CAChemE (Computer Aided Chemical Engineering) es una comunidad de ingenieros químicos que pretende estimular las posibilidades del software libre en la ingeniería de procesos. Formada por estudiantes, profesionales y docentes del sector; la sede de CAChemE se encuentra en el Instituto Universitario de Ingeniería de Procesos Químicos de la Universidad de Alicante.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Javier Gutierrez</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Desarrollo dirigido por comportamiento en Python con Behave</h1>
+<p>El desarrollo dirigido por comportamiento (BDD por sus siglas en inglés), toma la filosofía del desarrollo dirigido por pruebas y las enriquece con técnicas y herramientas que permiten crear un punto de encuentro para clientes y usuarios, desarrolladores y testers.</p>
+<p>Los clientes y usuarios tienen la posibilidad de participar de forma más directa e interactiva en la definición de requisitos y la resolución de dudas, así como conocer con más detalle qué se ha hecho y cómo avanza el proyecto.</p>
+<p>Los desarrolladores obtienen especificaciones más claras y precisas y una referencia clara para saber cuándo han terminado de implementar la funcionalidad esperada.</p>
+<p>Los testers pueden integrarse proponiendo pruebas adicionales de una manera que el resto del equipo puede entender.</p>
+<p>Una de las herramientas que existen en Python para soportar BDD es Behave (otras serían Lettuce o Mamba). Esta herramienta permite escribir escenarios en texto plano y lenguaje natural utilizando la sintaxis Gherkin de Given (precondiciones), When (acción a realizar), Then (resultados), e implementar dichos escenarios con código Python que interactúa con la aplicación.</p>
+<h2>Objetivo</h2>
+<p>En este taller se pondrá en práctica BDD desde la perspectiva del desarrollador, aunque ya se proporcionará implementado el código de la aplicación. Los objetivos a alcanzar son dos:
+El primer objetivo es mostrar cómo los escenarios son una técnica para identificar inconsistencias y ambigüedades en los requisitos que impiden su implementación y cómo nos ayudan a resolverlos
+El segundo objetivo de es que todos los asistentes escriban sus primeros escenarios y los implementen como pruebas utilizando una herramienta de BDD como Behave.</p>
+<h2>Descripción del taller</h2>
+<p>A los asistentes se les presentará el enunciado de la kata Gildes Rose, el cuál es un conjunto de requisitos incompletos y ambiguos, y un código Python con una calidad muy baja, que implementa correctamente dicha documentación.
+En la primera parte del taller realizamos un workshop de especificaciones (specification workshop, http://gojko.net/2008/11/12/specification-workshops-an-agile-way-to-get-better-requirements/) para identificar posibles escenarios a partir de los requisitos así como poner de relieve las ambigüedades y carencias.
+En la segunda parte, cada equipo de una o dos personas implementará algunos de los escenarios identificados con la herramienta Behave y comprobar que se ejecuta correctamente con la implementación ya proporcionada.
+En ambas partes, habrá una pequeña charla de 5-10 min. para dar una introducción a lo que estamos haciendo y explicar las mecánicas. Al final, reservaremos 10 min. para hacer una puesta en común.
+La duración estimada del taller es, como mínimo de 1 hora y como máximo, de 2 horas y se propone un mínimo de 2 y un máximo de 10 asistentes, aunque nos apañaremos con el número de asistentes que sea. El taller puede durar menos dependiendo de la fluidez con la que transcurra tanto el workshop como la implementación y ejecución de escenarios.
+He realizado esta actividad con un grupo de 5 personas con total desconocimiento de BDD y tardamos 2 horas largas, pero también lo he practicado con varias personas de manera individual vía hangout y hemos tardado menos de 40 min. Nunca he tenido la oportunidad de probar esta actividad con personas con experiencia en escenarios o en BDD.
+El único conocimiento requerido por parte de los asistente es fundamentos de programación en Python (e, incluso, ni eso si haces pareja con alguien que sí sepa Python).</p>
+<h2>Materiales relaciones con el taller</h2>
+<p>El ejercicio del taller estará basado en la kata Gilded Rose, aunque esto no se anunciará a los participantes hasta el momento de comenzar el taller.
+Con un ordenador cada dos participantes sería suficiente. Se dejará libertad para que, quienes quieran trabajen en pareja.
+Cada participante tendrá disponible, vía USB, el código de la kata Gilded Rose por si no tuviera conexión a Internet.
+Se aconseja traer portátiles con la herramienta Behave ya instalada.
+Ayudaría mucho el disponer de una gran pizarra para realizar el specification workshop entre todos.</p>
+<h1>Acerca de</h1>
+<p>Javier J. Gutiérrez es doctor en Lenguajes y sistemas Informáticos y miembro del grupo de investigación en Ingeniería Web y Testing Temprano (IWT2) de la Universidad de Sevilla. También es Certified Agile TDD por el iSQB y certificado en Scrum por Scrum.org
+En su tiempo libre, facilita un dojo de código activo desde 2.020, escribe un libro para enseñar TDD que se ya está para libre descarga en la web, colabora en varios blogs (Indie-O-Rama, Pybonacci, AprendeTDD, etc.) y escribe pequeños videojuegos aplicando TDD tanto como puede.
+Su presentación sobre TDD en la PyConEs 2.013 está en el siguiente enlace: https://www.youtube.com/watch?v=P_gInusEF5M</p>
+<p>Enlaces
+Enunciado kata Gilded Rose:
+Código Gilded Rose en Python:
+Enlace a Behave:</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h3 id="domingo-s4-16:00">Domingo, Sala 4, 16:00</h3>
+            <h1 class=text-center> Fernando Salamero y Enrique Porta</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Taller de Creación de Juegos con Pilas­Engine</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/Pilas Engine - Fernando Salamero y Enrique Portas.pdf">Presentación</a>
+<p>Pequeño taller en el que los participantes podrán crear un videojuego sencillo usando python y pilas­engine. PilasEngine ( http://pilas­engine.com.ar/ ) es un motor multiplataforma, creado y liderado por el argentino Hugo Ruscitti, dirigido a personas que comienzan a programar videojuegos y quieren lograr resultados sorprendentes y divertidos en poco tiempo.</p>
+<p>Tiempo: 1h ó 1:30h</p>
+<h1>Acerca De</h1>
+<p>Quique Porta (Valencia) y Fernando Salamero (Huesca).
+Ambos colaboramos junto con Hugo Ruscitti (Argentina) e Irving Rodríguez (México) en el desarrollo y difusión de pilas­engine.</p>
+<p>Quique Porta es un programador valenciano que descubrió Python a través de la programación de videojuegos y cada día está más fascinado por este gran lenguaje y su comunidad.</p>
+<p>Fernando Salamero  es profesor e inicia a sus alumnos en el mundo de la programación a través del desarrollo de videojuegos, usando Python y pilas­engine.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+            <h1 class=text-center> Jose Luis Cercos</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>SonSilentSea, creación de un SDK para Blender Game Engine</h1>
+<h2>Resumen</h2>
+<p>En la anterior edición de PyConES ya se presentó &#34;SonSilentSea, creación de juegos en Blender con Python&#34;, donde se introducía de cierta forma la programación de videojuegos con Python mediante el motor de Blender. En esta edición creo que sería muy interesante dar un salto más a las tripas de Blender, no limitándonos a extender el motor gráfico BGE en si, sino creando un conjunto de herramientas en Blender que permitan generar objetos que comparten ciertas propiedades de manera sencilla.</p>
+<h2>Acerca de</h2>
+<p>Mi nombre es Jose Luis Cercós, Ingeniero Naval y Oceánico, y actualmente doctorando en el programa de Ingeniería Aeroespacial, donde me especializo en la mecánica de fluidos computacional.
+A título personal participó en varios proyectos de software libre, entre ellos:
+<em> AQUAgpusph
+</em> FreeCAD-Ship
+<em> Ocland
+</em> SonSilentSea</p>
+<!-- ENDMARKDOWN -->
+            </div>
+            <hr/>
+        
+
+        <h1 class=text-danger>Lightning talks</h1>
+        <h1 class=text-danger>Charlas</h1>
+        
+	<h3 id="domingo-s1-13:05-1">Domingo, Sala 1, 13:05 (1)</h3>
+            <h1 class=text-center> Oriol Rius</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>MIIMETIQ</h1>
+<a href="https://www.youtube.com/watch?v=6gERClut07k">Vídeo</a> - <a href="/static/talks/miimetiq-Oriol_Rius.pdf">Presentación</a>
+<p>Presentación del proyecto MIIMETIQ se trata de un framework para construir soluciones M2M a medida. Más del 80% del código es python y muchísimas tecnologías de moda como: MongoDB, RabbitMQ, Elastic Search, Graphite, Sencha Architect, etc.
+El proyecto MIIMETIQ ha sido desarrollado como producto de la empresa M2M Cloud Factory se trata de una startup que hemos montado un equipo de personas que actualmente esta alrededor de 10 personas y que ya ha conseguido vender su primer proyecto a una multinacional un mes después de finalizar la versión 1.0.
+La idea sería explicar para que sirve el producto y la arquitectura que se ha usado para desarrollarlo. Hay que tener en cuenta que el diseño esta pensado para soportar millones de dispositivos conectados.</p>
+<p>Duración
+Un buen formato puede ser una keynote de 10minutos
+Pero hay material para hablar durante horas, así que si se quiere extender a 50 minutos no habría ningún problema.</p>
+<h1>Acerca de</h1>
+<p>Me gusta definirme como &#34;Pure G33k&#34;, es decir que tengo la suerte de vivir de mi vocación; una vocación que tengo desde los 9 años y que jamas me ha abandonado hasta los 37 años que tengo ahora.
+Tengo un blog desde hace 14 años http://oriolrius.cat
+Además me podeis seguir por twitter: @oriolrius
+Mi linkedin es: http://es.linkedin.com/in/oriolrius
+Una buena idea para conocerme mejor es escuchar la entrevista me hicieron en el blog de &#34;Business Coaching&#34;:  http://tubusinesscoach.es/oriol-rius/</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="sabado-s1-19:30-4">Sábado, Sala 1, 19:30 (4)</h3>
+            <h1 class=text-center> Miquel Camprodon e Israel Saeta</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Ligthning talk: Lead Ratings</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/Lead Ratings - Miquel Camprodon.pdf">Presentación</a>
+<p>El producto a presentar es Lead Ratings:http://lead-ratings.com. Es un Software as a Service que realiza análisis on-line de la probabilidad de conversión a venta de leads. A partir de una base de datos de leads previos, se evalúa con modelos matemáticos y estadísticos la probabilidad estimada de conversión de cada lead de forma individual.
+El resultado que devuelve Lead Ratings del análisis es un rating. Este rating permite comparar los leads entre ellos y clasificarlos según la probabilidad conversión. La clasificación permite la toma de decisiones a medida para cada uno de los leads.
+El análisis de un lead se realiza on-line, en el mismo momento que se genera la petición a la API, lo que permite la toma de decisiones de forma rápida a partir del resultado obtenido.
+El motor analítico está desarrollado en Python, y la interfaz de gestión en Django.</p>
+<p>Lead Ratings es una empresa con sede en Barcelona liderada por Ricard Bonastre. Empezó su andadura justo hace un año, en septiembre 2013, y ya dispone de una decena de clientes que usan habitualmente el sistema de rating de leads. Entre ellos están varios centros de formación y empresas de e-commerce.
+Link: http://es.linkedin.com/company/lead-ratings</p>
+<h1>Acerca de</h1>
+<p>Miquel Camprodon es un matemático e informático con cinco años de experiencia en el análisis de datos y la programación web en varias empresas.
+Israel Saeta es licenciado en física con un máster en Inteligencia Artificial y tiene amplia experiencia en programación web en Python. 
+Miquel es el responsable técnico de Lead Ratings desde su fundación hace un año, responsabilidad que comparte con Israel desde su incorporación.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="sabado-s1-13:05-3">Sábado, Sala 1, 13:05 (3)</h3>
+            <h1 class=text-center> PyLadies</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Y Eva dominió a la serpiente</h1>
+<h1>{&#39;pyladies&#39;: comunidad femenina de python}</h1>
+<a href="https://www.youtube.com/watch?v=oaqUQ1FnQLc#t=34m00s">Vídeo</a> - <a href="/static/talks/Y Eva dominió a la serpiente - PyLadies.pdf">Presentación</a>
+<p>¿Cómo que no conoces a las pyladies? Somos un grupo internacional de chicas que disfrutan programando y si es en python mucho más! </p>
+<p>En esta charla os contaremos que hemos estado haciendo durante el año de vida que tenemos, los sueños que nos quedan por cumplir y, sobre todo, que puedes hacer tú para ayudarnos a conseguirlos. </p>
+<p>¡Ah! Y no os engañéis, esto no es una pequeña secta, esto es una comunidad. Los chicos también tenéis un papel importante y sois más que bienvenidos. Guido es uno de los más firmes defensores de las pyladies y ¿Quién somos nosotros para enmendarle la plana a nuestro benevolente dictador? ¡Venid todos y todas! ¡Nos encantará oír aquellas propuestas que tengáis para nosotras!</p>
+<h1>Acerca de</h1>
+<p>Esta charla la daremos entre todas las pyladies españolas, de este modo podemos exponer las distintas perspectivas que cada una tenemos y el  heterogéneo grupo que formamos. La mayor parte de nosotras ya nos hemos presentado pero para resumir somos todas pythonistas y pyladies.</p>
+<p>Teresa de la Torre
+Mayte Giménez
+Núria Pujol
+Ángela Rivera
+Yamila Moreno</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="sabado-s1-13:05-2">Sábado, Sala 1, 13:05 (2)</h3>
+            <h1 class=text-center> Jesus Espino</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<p>Lightning talks: Django Sample Data Helper</p>
+<a href="https://www.youtube.com/watch?v=oaqUQ1FnQLc#t=13m45s">Vídeo</a> - <a href="/static/talks/sampledatahelper - Jesús Espino.pdf">Presentación</a>
+<p>Django Sample Data Helper es un plugin de django para la rellenar la
+bbdd con datos aleatorios de manera fácil y potente, pudiendo
+personalizar los datos a generar, y escogiendo una semilla para que se
+generen siempre los mismos datos aleatorios.</p>
+<p>Permite empezar a trabajar en proyectos teniendo datos relativamente
+realistas para probar y ver como va quedando.</p>
+<p>Duración: 10 minutos.</p>
+<p>Mi nombre es Jesús Espino, soy desarollador python/django en Kaleidos
+y colaboro con proyectos de software libre.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="domingo-s1-13:05-3">Domingo, Sala 1, 13:05 (3)</h3>
+            <h1 class=text-center> Eyad toma</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Django-oscar</h1>
+<a href="https://www.youtube.com/watch?v=mQcgdrGzUYA#t=33m20s">Vídeo</a> - <a href="/static/talks/django-oscar - Eyad Toma.pdf">Presentación</a>
+<p>I would like to talk about Djnago-Oscar. I&#39;ll start with the basic features
+and mainly talk about the learning curve, how easy or how hard it is to get
+started, and customization of templates, views, models, etc....</p>
+<p>Duration: 10 minutes Lightning talk</p>
+<h1>Acerca de</h1>
+<p>I&#39;m a Django/Python Web Developer at CloudAppers. I work on creating
+websites, and mobile backend APIs. I contribute to django.me project and
+contributed to the Arabic translation of the Django web framework. I gave a
+lighting talk about why people should use Django
+http://www.slideshare.net/dadoeyad/why-you-should-use-django-in-your-next-project at ArabNet Beirut 2014</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+	    <h3 id="domingo-s4-13:05-2">Domingo, Sala 4, 13:05 (2)</h3>
+            <h1 class=text-center> Eduardo Ferro</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Lightning talk: Luke soy tu padre…</h1>
+<a href="https://www.youtube.com/watch?v=mQcgdrGzUYA#t=16m40s">Vídeo</a> - <a href="/static/talks/luke_soy_tu_padre - Eduardo Ferro.pdf">Presentación</a>
+<h2>Resumen:</h2>
+<p>La herencia es una de las forma de acoplamiento más fuerte entre clases y en muchas ocasiones se usa sin ser necesario, generando diseño
+s frágiles y difíciles de mantener.</p>
+<p>Se va ha presentar los dos tipos básicos de herencia, su uso más adecuado y los errores más comunes en su uso. Parte de estos errores de
+ diseño provienen de cómo nos han enseñado la OO o de otros lenguajes en que la herencia sirve para otros propósitos.</p>
+<p>En Python podemos usar la composición como alternativa permitiéndonos realizar diseños más simples, fáciles de reusar y de testear.</p>
+<h2>Duración:</h2>
+<p>10min</p>
+<h2>Ponente:</h2>
+<p>Eduardo Ferro</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="domingo-s1-18:30">Domingo, Sala 1, 18:30</h3>
+            <h1 class=text-center> Kiko correoso</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Hackeando el notebook de IPython</h1>
+<a href="https://www.youtube.com/watch?v=dIoZjXnq-oM">Vídeo</a> - <a href="/static/talks/Hacking the notebook - Kiko Correoso/00-Index.slides.html">Presentación</a> - <a href="/static/talks/Hacking the notebook - Kiko Correoso.zip">ipynb (ZIP)</a>
+<p>El notebook de IPython se ha convertido en una herramienta omnipresente entre el mundo científico (y parte del mundo no científico) al haber abierto la posibilidad de poner los datos y el código dentro de un contexto que permite visualizar historias.</p>
+<p>En esta charla veremos mediante ejemplos cómo podemos modificar el notebook, cómo podemos crear nuestras propias extensiones, cómo podemos crear nuestras propias funciones mágicas, cómo podemos manipular las salidas para convertir el notebook a otros formatos,...</p>
+<p>El/la taller/charla pretende ser muy práctico/a viendo los ejemplos en directo.</p>
+<p>Duración: 50 mins</p>
+<h1>Acerca de</h1>
+<p>Kiko Correoso: PhD en Físicas y actualmente trabajando manejando datos en Iberdrola. Co-organizador de Python-madrid, Co-fundador de Pybonacci, Co-fundador de la asociación Python España y Co-medor de sobrassada a tiempo parcial.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h1 class=text-center> Nuria pujol</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Compartir nuestros Ipython Notebooks con el mundo</h1>
+<ul>
+<li>Cambios de formato (pdf, etc.)</li>
+<li>A través de la red.</li>
+<li>Y cómo mejorarlos para hacerlos mas atractivos (mejor documentados, etc.)</li>
+</ul>
+<p>Tiempo: 10-20 minutos.</p>
+<h1>Acerca de</h1>
+<p>Mi nombre es Núria Pujol y trabajo en el Centro de Investigaciones Marinas y Ambientales del CSIC en Barcelona en la Unidad de Tecnologia Marina dónde compagino tareas de desarrollo de software para control de calidad de datos, automatización de procesos e informes, etc. con tareas diseño electrónico para la adaptación de nuevos sensores a plataformas autónomas marinas y &#34;cacharreo&#34; en general.</p>
+<p>Llevo años trabajando con Python, dando algunas charlas internas en mi centro de trabajo y desde hace casi un año formo parte de la de la organización de PyBCN (Python Barcelona) y soy miembro de PyLadies España (e intento que la cosa también arranque en Barcelona). También estoy metida en algunas asociaciones de robótica e informática para niños a las que puedo dedicar menos tiempo del que quisiera. </p>
+<p>A parte de eso también me gustan los deportes al aire libre como el patinaje en linea, el treking, la vela y buscando tiempo para hacer el &#34;open water&#34; de submarinismo: una chica todoterreno :P</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="sabado-a-12:10">Sábado, Auditorio, 12:10</h3>
+            <h1 class=text-center>Alejandro Gómez</h1>
+            <div class="lead">
+<h1>Gradual Typing in Python</h1>
+<b>FALTA Vídeo</b> - <a href="/static/talks/gradual-typing-in-python/index.html">Presentación</a>
+<p>Gradual  typing  in  dynamic  languages  is  becoming  popular.  The 
+implementations for Python, Lua, Clojure and Racket show how a dynamic 
+language can be retrofitted with static type checking. This makes possible 
+to combine the flexibility of these languages with the guarantees of a type 
+checker and can be done in a gradual, non-invasive manner.</p>
+<p>In this talk we’ll understand what gradual typing is and the benefits it 
+yields, explore the existing implementations for Python and talk about 
+Guido’s plans for the usage of function annotations introduced in Python 3.</p>
+            </div>
+        <hr/>
+    
+            <h3 id="sabado-s1-19:30-3">Sábado, Sala 1, 19:30 (3)</h3>
+            <h1 class=text-center> Kiko Correoso</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Brythonmagic</h1>
+<a href="https://www.youtube.com/watch?v=4Bh_WmGwXCg">Vídeo</a> - <a href="/static/talks/Brython usage in the IPython notebook - Kiko Correoso.slides.html">Presentación</a> - <a href="/static/talks/Brython usage in the IPython notebook - Kiko Correoso.ipynb">ipynb</a>
+<p>En esta lighning talk se mostrará la herramienta brythonmagic, que permite correr Brython dentro del notebook de IPython.</p>
+<p>Brython es una implementación de CPython 3 que corre en navegadores mientras que el notebook de IPython es la versión más moderna del famoso REPL. Brythonmagic permite poder utilizar librerías javascript con una sintáxis más pythónica, permite crear prototipos rápidos de aplicaciones hechas con Brython, permite visualizar datos manipulados con Python usando librerías javascript como openLayers, Highcharts, d3, Raphäel,...</p>
+<p>Duración: 10 mins (lighning talk)</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h3 id="sabado-s1-19:30-2">Sábado, Sala 1, 19:30 (2)</h3>
+            <h1 class=text-center> Víctor Terrón</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Usuarios finales y GitHub: evitando versiones obsoletas</h1>
+<a href="https://www.youtube.com/watch?v=4Bh_WmGwXCg#t=32m15s">Vídeo</a> - <a href="/static/talks/github-sync - Víctor Terrón.slides.html">Presentación</a> - <a href="/static/talks/github-sync - Víctor Terrón.ipynb">ipynb</a>
+<p>Es un escenario habitual. Subes un script a GitHub y tus usuarios hacen click en <code>Download ZIP</code> o teclean <code>git clone</code>, seguido de <code>python setup.py install</code>. El problema: el desarollo en el repositorio continúa, pero la versión instalada en sus ordenadores no se actualiza de forma acorde. Aquellos usuarios que no hagan <code>git update</code> de forma manual se quedarán cada vez más atrás.</p>
+<p>Esta breve charla muestra en apenas unos minutos cómo podemos usar la <a href="http://developer.github.com/v3/">API de GitHub</a> y el <a href="http://docs.python.org/2/library/json.html">módulo de JSON</a> de la librería estándar (Python 2.6+) para hacer que todas nuestras aplicaciones muestren una advertencia cuando detecten que hay una nueva versión disponible en GitHub — es decir, que se se ha hecho <em>push</em> de commits más recientes a <code>origin</code>. Apenas unas líneas de código más bastan para que no se haga más de una consulta a la API por hora, así como para que la advertencia sólo se muestre una vez al día. Y lo mejor: toda esta funcionalidad se ha implementado en un único módulo que tan sólo hemos de importar para que nuestro programa se encargue de avisar al usuario cuando haya nuevos cambios disponibles en GitHub.</p>
+<p>Duración: 10 minutos.</p>
+<h1>Sobre mí</h1>
+<p>Además de esta <em>lightning talk</em>, he enviado también una propuesta de charla de 50 minutos. Para no duplicar contenido, creo que lo mejor es enlazar a la misma, donde <a href="https://trello.com/c/7dl4CoJX">ya he escrito un párrafo sobre quién soy</a>.</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+            <h1 class=text-center> Jaime Gil de Sagredo</h1>
+            <div class="lead">
+                <!-- MARKDOWN -->
+<h1>Lightning talk: Continuous Delivery para proyectos Python open source</h1>
+<h2>Resumen:</h2>
+<p>Nuestro propósito como profesionales del desarrollo es entregar software útil y funcional a los usuarios tan pronto como sea posible. Esta es la premisa detrás de la Entrega Continua (o Continuous Delivery). Veremos rápidamente las prácticas y herramientas necesarias para lograr entregar nuestro software a la comunidad de una forma rápida y confiable.</p>
+<h2>Duración:</h2>
+<p>10min</p>
+<h2>Ponente:</h2>
+<p>Jaime Gil de Sagredo</p>
+<!-- ENDMARKDOWN -->
+            </div>
+        <hr/>
+    
+    </div>
+
+        </div>
+    </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="/static/js/vendor/bootstrap.min.js "></script>
+        <script src="/static/js/main.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="//cdn.jsdelivr.net/stickynavbar.js/1.1.1/jquery.stickyNavbar.min.js"></script>
+        <script>
+            $(function () {
+                $('#navigation').stickyNavbar();
+            });
+        </script>
+
+    </body>
+</html>
