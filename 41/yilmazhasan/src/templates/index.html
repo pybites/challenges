@@ -1,0 +1,24 @@
+<!doctype html>
+
+<head>
+    <title>{% block title %}Welcome{% endblock %} | Flask Twitter Api Example</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Flask Api Example - PythonTip Tweeter</h1>
+    <ul class=navigation>
+        <li><a href="{{ url_for('home') }}">overview</a></li>
+        {% if current_user_name %}
+        <li><a href="{{ url_for('logout') }}">sign out [{{ current_user_name}}]</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login') }}">sign in</a></li>
+        {% endif %}
+    </ul>
+    {% for message in get_flashed_messages() %}
+    <p class=message>{{ message }}</p>
+    {% endfor %}
+    {% block body %}{% endblock %}
+</body>
+
+</html>
