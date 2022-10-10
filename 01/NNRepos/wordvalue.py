@@ -19,5 +19,4 @@ def max_word_value(dictionary: Optional[List[str]] = None) -> str:
     of words as arg, if none provided uses default DICTIONARY"""
     if dictionary is None:
         dictionary = load_words()
-    print("crap:", [x for x in dictionary if "-" in x])
-    return list(sorted(([calc_word_value(word), word] for word in dictionary), reverse=True))[0][1]
+    return max(dictionary, key=calc_word_value)
