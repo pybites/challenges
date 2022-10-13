@@ -1,0 +1,111 @@
+<html>
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+  {%if current_user_name%}
+  <h1>Add a Python tip</h1>
+  <h3> Welcome {{current_user_name}} </h3>
+  <form method="POST" action="/new-tip">
+    <textarea name="text" id="text" cols="30" rows="10" maxlength="140" placeholder="Tip text"></textarea>
+    <input type="hidden" name="user_name" value={{current_user_name}} placeholder="user name">
+    <input type="submit" value="Add">
+  </form>
+  {% else %}
+  <p>
+    Sign in to add python tip.
+  </p>
+
+  <p>
+    <a href="{{ url_for('login') }}"><img src="{{
+        url_for('static', filename='sign-in.png') }}" alt="sign in"></a>
+  </p>
+  {% endif %}
+
+  {% if bag['message'] %}<strong><span class="badge badge-pill badge-error" style="font:300">{{bag['message'] }} </span>
+  </strong>{% endif %}
+
+  {% if bag['searched'] and bag['similar_tip_id'] >= 0 and not bag['is_published'] %}
+  <br>
+  <strong> Not published yet: </strong>
+  <span class="badge badge-pill badge-error"> {{tips[bag['similar_tip_id']].text}} </span>
+  {% endif %}
+
+  {% if bag['searched'] and bag['similar_tip_id'] >= 0 and bag['is_published'] %}
+  <br>
+  <strong> Published: </strong>
+  <span class="badge badge-pill badge-error">{{tweets[bag['similar_tip_id']].text}} </span>
+  {% endif %}
+  <div class="row">
+
+    <div class="column">
+      <h1>Published PythonTip Tweets: </h1>
+      <table>
+        <colgroup>
+          <col span="1" style="width: 8%;">
+          <col span="1" style="width: 92%;">
+        </colgroup>
+
+        {% for tweet in tweets %}
+        <tr>
+          <td style="max-width: 10px">
+            {{loop.index}}
+          </td>
+          <td>
+            <p>{{tweet.text}}</p>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>
+
+    <div class="column">
+
+      <h1>Submitted Python tips: </h1>
+      <table>
+        <colgroup>
+          <col span="1" style="width: 8%;">
+          <col span="1" style="width: 62%;">
+          <col span="1" style="width: 20%;">
+          <col span="1" style="width: 10%;">
+        </colgroup>
+
+        {% for tip in tips %}
+        <tr>
+          <td>
+            {{loop.index}}
+          </td>
+          <td>
+            <p>{{tip.text}}</p>
+          </td>
+          <td>
+              <form method="POST" action="./update_tip" style="display: inline">
+                <input type="hidden" value="{{tip.id}}" name="id">
+                <input type="hidden" value="{{tip.text}}" name="oldtext">
+                <input type="hidden" type="text" value="{{tip.text}}" name="newtext">
+                <input type="submit" type="submit" value="Make published">
+              </form>
+            </td>
+            <td>
+              <form method="POST" action="./delete_tip" style="display: inline">
+                <input type="hidden" value="{{tip.id}}" name="id">
+                <input type="hidden" value="{{tip.text}}" name="text">
+                <input type="submit" type="submit" value="Delete">
+              </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>
+
+  </div>
+
+  <style>
+
+  </style>
+
+</body>
+
+</html>

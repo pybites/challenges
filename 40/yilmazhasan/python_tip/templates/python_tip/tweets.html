@@ -1,0 +1,85 @@
+{% extends "python_tip/base.html" %}
+{% load custom_filters %}
+
+<h3>
+  Python_tip tweets:
+</h3>
+
+
+
+{% block hashtags %}
+
+{% for hashtag_keys in hashtag_freq_keys %}
+{% for hashtag_key in hashtag_keys %}
+<span style="font-size: {{hashtag_freq_values.0 |get_index:forloop.counter0|get_font_em_ratio}}em">
+  <a href="{% url 'tweets-filtered' hashtag_key %}">
+    #{{hashtag_freq_keys.0 | get_index:forloop.counter0}}
+  </a>
+
+</span>
+
+{% endfor %}
+{% endfor %}
+{% endblock hashtags %}
+
+{% block content %}
+<form method="get">
+  <input name="q" type="text" placeholder="Search...">
+  <button type="submit"> Search </button>
+</form>
+<br>
+
+
+{% for tweet in tweets %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ tweet.user.profile_image_url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <small class="anchor-right text-muted">{{ tweet.created_at|date:"F d, Y" }}</small>
+      {% for url in tweet.entities.urls %}
+      <a class="mr-2" href="{{ url.url }}">{{ url.url }}</a>
+      {% endfor %}
+      <br>
+      {% for hashtag in tweet.entities.hashtags %}
+      <a class="mr-2" href="{% url 'tweets-filtered' hashtag.text %}">#{{ hashtag.text }}</a>
+      {% endfor %}
+      <a class="mr-2">{{ tweet.Status }}</a>
+    </div>
+
+    <h2><span class="article-title">{{ tweet.text }}</span></h2>
+    <div class="article-footer" style="display: flex">
+      <a style="flex: 1" href="https://twitter.com/intent/retweet?tweet_id={{tweet.id}}" target="_blank">Retweet</a>
+      {% if tweet.byUser %}
+      <span style="font: italic 0.5em">by</span> &nbsp; <a style="flex:2"
+        href="https://twitter.com/{{tweet.byUser}}">@{{tweet.byUser }} </a>
+      {% endif %}
+      <span style="flex: 1" class="anchor-right">
+        <strong>{{tweet.favorite_count}}</strong> Likes,
+        <strong>{{tweet.retweet_count}} </strong> RTs
+      </span>
+    </div>
+  </div>
+</article>
+{% endfor %}
+{% if is_paginated %}
+
+{% if page_obj.has_previous %}
+<a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+{% if page_obj.number == num %}
+<a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+<a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+
+{% endif %}
+{% endblock content %}
