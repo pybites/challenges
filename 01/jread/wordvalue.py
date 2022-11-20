@@ -48,3 +48,4 @@ def max_word_value(dictionary: list = None) -> str:
 
 if __name__ == "__main__":
     print(max_word_value())
+
