@@ -25,4 +25,5 @@ class TestWordValue(unittest.TestCase):
         self.assertEqual(max_word_value(), 'benzalphenylhydrazone')
 
 if __name__ == "__main__":
-   unittest.main() 
+   unittest.main()
+ 
