@@ -1,6 +1,4 @@
 from directors import get_movies_by_director, _calc_mean
-from operator import itemgetter
-
 
 def test():
     directors = get_movies_by_director()

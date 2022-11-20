@@ -1,5 +1,5 @@
 import csv
-from collections import defaultdict, namedtuple, OrderedDict
+from collections import defaultdict, namedtuple
 
 MOVIE_DATA = '../movie_metadata.csv'
 NUM_TOP_DIRECTORS = 20
@@ -35,9 +35,6 @@ def _calc_mean(movies):
 
 
 def print_results(directors):
-    '''Print directors ordered by highest average rating. For each director
-    print his/her movies also ordered by highest rated movie.
-    See http://pybit.es/codechallenge13.html for example output'''
     for i, director in zip(range(20), sorted(directors.items(), key=lambda x: float(x[1].avg_score), reverse=True)):
         print()
         print(f'{i+1:02d}. {director[0]:<52} {director[1].avg_score}')
