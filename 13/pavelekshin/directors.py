@@ -16,12 +16,14 @@ def get_movies_by_director():
         reader = csv.DictReader(f)
         d = defaultdict(list)
         for row in reader:
-            director = row["director_name"]
-            title = row["movie_title"].replace("\xa0", "")
-            year = row["title_year"]
-            score = float(row["imdb_score"])
-            if director:
-                d[director].append(Movie(title=title, year=year, score=score))
+            try:
+                director = row["director_name"]
+                title = row["movie_title"].replace("\xa0", "")
+                year = int(row["title_year"])
+                score = float(row["imdb_score"])
+            except ValueError:
+                continue
+            d[director].append(Movie(title=title, year=year, score=score))
     return d
 
 
@@ -39,11 +41,13 @@ def get_average_scores(directors):
     )
     return sd
 
+
 def _year_sort(movies):
     for count, movie in enumerate(movies):
-        if not int(movie.year) > MIN_YEAR:
-            del (movies[count])
+        if not movie.year > MIN_YEAR:
+            del movies[count]
     return movies
+
 
 def _calc_mean(movies):
     """Helper method to calculate mean of list of Movie namedtuples"""
@@ -57,7 +61,7 @@ def print_results(directors):
     """Print directors ordered by highest average rating. For each director
     print his/her movies also ordered by highest rated movie.
     See http://pybit.es/codechallenge13.html for example output"""
-    directors = dict(list(directors.items())[:10])
+    directors = dict(list(directors.items())[:20])
     fmt_director_entry = "{counter:02}. {director:<52} {avg}"
     fmt_movie_entry = "{year} {title:<50} {score}"
     sep_line = "-" * 60
