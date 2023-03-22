@@ -1,5 +1,5 @@
 import csv
-from collections import defaultdict, namedtuple, OrderedDict, ChainMap
+from collections import defaultdict, namedtuple, OrderedDict, Counter
 from pprint import pprint
 
 MOVIE_DATA = "movie_metadata.csv"
@@ -23,7 +23,8 @@ def get_movies_by_director():
                 score = float(row["imdb_score"])
             except ValueError:
                 continue
-            d[director].append(Movie(title=title, year=year, score=score))
+            if year > MIN_YEAR:
+                d[director].append(Movie(title=title, year=year, score=score))
     return d
 
 
@@ -31,9 +32,8 @@ def get_average_scores(directors):
     """Filter directors with < MIN_MOVIES and calculate averge score"""
     fd, dd = {}, {}
     Movie = namedtuple("Movie", "score movies")
-    for k, v in directors.items():
-        if not len(v) < MIN_MOVIES:
-            movies = _year_sort(v)
+    for k, movies in directors.items():
+        if not len(movies) < MIN_MOVIES:
             score = _calc_mean(movies)
             fd[k] = Movie(score=score, movies=movies)
     sd = OrderedDict(
@@ -42,19 +42,16 @@ def get_average_scores(directors):
     return sd
 
 
-def _year_sort(movies):
-    for count, movie in enumerate(movies):
-        if not movie.year > MIN_YEAR:
-            del movies[count]
-    return movies
-
-
 def _calc_mean(movies):
     """Helper method to calculate mean of list of Movie namedtuples"""
-    score = 0
-    for i in movies:
-        score += i.score
-    return round(score / len(movies), 1)
+    return round(sum(i.score for i in movies) / len(movies), 1)
+
+
+def most_film_directors(directors):
+    cnt = Counter()
+    for director, movies in directors.items():
+        cnt[director] += len(movies[1])
+    return cnt.most_common(5)
 
 
 def print_results(directors):
@@ -84,6 +81,7 @@ def main():
     We wrote some tests based on our solution: test_directors.py"""
     directors = get_movies_by_director()
     directors = get_average_scores(directors)
+    # pprint(most_film_directors(directors))
     print_results(directors)
 
 
