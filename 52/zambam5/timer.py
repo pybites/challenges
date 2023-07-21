@@ -30,7 +30,7 @@ def main() -> None:
         b_question = input(
             'Do you want the timer to beep when finished? Answer "yes" or "no" '
         )
-        if b_question == "no":
+        if b_question == "yes":
             beep = True
     else:
         beep = False
