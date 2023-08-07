@@ -1,0 +1,1 @@
+web: gunicorn fuzzlefolio.wsgi --log-file -
