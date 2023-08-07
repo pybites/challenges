@@ -11,4 +11,4 @@ python-dotenv==0.9.1
 requests==2.20.0
 toml==0.10.0
 update-checker==0.16
-urllib3==1.24
+urllib3==1.24.2
