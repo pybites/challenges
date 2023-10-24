@@ -2,14 +2,23 @@ from data import DICTIONARY, LETTER_SCORES
 
 
 def load_words():
-    """Load dictionary into a list and return list"""
+    """Load dictionary into a list and return list
+
+    :return: Scrabble score for this word
+    :rtype: int
+    """
     with open(DICTIONARY) as my_dict:
         return my_dict.read().splitlines()
 
 
 def calc_word_value(word):
-    """Calculate the value of the word entered into function
-    using imported constant mapping LETTER_SCORES"""
+    """Calculate the value of the word entered into function using imported constant mapping LETTER_SCORES
+
+    :param word: a word to score using Scrabble values
+    :type word: str
+    :return: Scrabble score for this word
+    :rtype: int
+    """
     score = 0
     # print(f"word:{word}:")
     for letter in word:
