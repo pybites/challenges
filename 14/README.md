@@ -2,4 +2,3 @@
 
 Instructions [here](https://pybit.es/articles/codechallenge14/).
 
-Previous challenges and About [here](http://pybit.es/pages/challenges.html).

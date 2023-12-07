@@ -4,4 +4,3 @@ Instructions [here](https://pybit.es/articles/codechallenge19/).
 
 Review [here](http://pybit.es/articles/codechallenge19_review).
 
-Previous challenges and About [here](http://pybit.es/pages/challenges.html).
