@@ -1,6 +1,6 @@
 ## Code Challenge 25 - Notification Service of Now Playing and Upcoming Movies
 
-[Challenge instructions](http://pybit.es/codechallenge25.html).
+[Challenge instructions](https://pybit.es/articles/codechallenge25/).
 
 [To follow along with our challenges](https://github.com/pybites/challenges/blob/master/INSTALL.md).
 
