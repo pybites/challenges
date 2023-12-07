@@ -1,5 +1,4 @@
 ## Code Challenge 20 - Object Oriented Programming Fun
 
-Instructions [here](http://pybit.es/codechallenge20.html).
+Instructions [here](https://pybit.es/articles/codechallenge20/).
 
-Previous challenges and About [here](http://pybit.es/pages/challenges.html).

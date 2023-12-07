@@ -1,5 +1,6 @@
 ## Code Challenge 19 - Post to Your Favorite API
 
-Instructions [here](http://pybit.es/codechallenge19.html).
+Instructions [here](https://pybit.es/articles/codechallenge19/).
 
-Previous challenges and About [here](http://pybit.es/pages/challenges.html).
+Review [here](http://pybit.es/articles/codechallenge19_review).
+

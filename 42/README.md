@@ -1,7 +1,6 @@
 ## Code Challenge 42 - Mastering Regular Expressions
 
-[Challenge instructions](http://pybit.es/codechallenge42.html).
+[Challenge instructions](https://pybit.es/articles/codechallenge42/).
 
 [To follow along with our challenges](https://github.com/pybites/challenges/blob/master/INSTALL.md).
 
-[Previous challenges and About](http://pybit.es/pages/challenges.html).
