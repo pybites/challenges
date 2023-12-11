@@ -14,11 +14,11 @@ Head over to [our platform](https://codechalleng.es/challenges/), click on one a
 ### Where can I see other people's code submissions?
 Browse (or checkout) [our community branch](https://github.com/pybites/challenges/tree/community) - all PRs get merged into that branch.
 
-### How do I join your Slack Community?
+### How do I join your Circle Community?
 Use [this link](https://pybit.es/community/) - and use our #codechallenges channel for coding questions.
 
 ### Can I help you out with code reviewing?
-We are still getting a pretty manageable number of PRs to be able to merge them all in ourselves, but we do want to give each PR a bit more of a code review. As we're pretty busy we want to turn this into a *community effort*. So if you want to help out merging PRs into our challenges branch, become a moderator (and mentor!), you can volunteer [on Slack](https://pybit.es/community/).
+We are still getting a pretty manageable number of PRs to be able to merge them all in ourselves, but we do want to give each PR a bit more of a code review. As we're pretty busy we want to turn this into a *community effort*. So if you want to help out merging PRs into our challenges branch, become a moderator (and mentor!), you can volunteer [on Circle](https://pybit.es/community/).
 
 ### Is this a place where we gonna be cool... just like Fonzie?
 Ah you mean something like a _Code of conduct_? We wrote this when we started 2 years ago and it still holds true: "Remember, we don't strive for the 'best' solution, it's not a competition! Learning more + better Python is the main objective. Respect the newbie. There is no right or wrong answer. Do as much or as little as you want. Just have fun!"
@@ -28,7 +28,7 @@ Remember our blog code challenges are mostly open-ended and for you to work loca
 
 ![PyBites Challenges banner image](pybites-challenges.png)
 
-We believe solving code challenges is a very effective way to achieve Python mastery. Code more Python, share your journey on Slack, good luck and have fun!
+We believe solving code challenges is a very effective way to achieve Python mastery. Code more Python, share your journey on Circle, good luck and have fun!
 
 	Keep Calm and Code in Python! 
 	- Julian and Bob
