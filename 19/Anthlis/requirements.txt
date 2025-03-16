@@ -1,0 +1,8 @@
+certifi==2019.9.11
+chardet==3.0.4
+geographiclib==1.50
+geopy==1.20.0
+idna==2.8
+python-dotenv==0.10.3
+requests==2.22.0
+urllib3==1.25.6
