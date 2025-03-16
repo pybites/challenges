@@ -1,4 +1,4 @@
-nltk==3.2.2
+nltk==3.4.5
 oauthlib==2.0.1
 requests==2.13.0
 requests-oauthlib==0.8.0
