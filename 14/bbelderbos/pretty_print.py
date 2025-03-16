@@ -12,7 +12,7 @@ def pretty_print(func):
     return wrapper
 
 @pretty_print
-def get_movie_data(infile='data.json'):
+def get_movie_data(infile='14/bbelderbos/data.json'):
     with open(infile, 'r') as f:
         data = json.load(f)
         return data
