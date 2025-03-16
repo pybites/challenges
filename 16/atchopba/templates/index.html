@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+ 
+    <!-- En-tête du document  -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+    <!-- Balise meta  -->
+    <meta name="title" content="Titre de la page" />
+    <meta name="description" content="description de la page" />
+    <meta name="keywords" content="mots-clé1, mots-clé2, ..." />
+   
+    <!-- Indexer et suivre -->
+    <meta name="robots" content="index,follow" />
+   
+    <!--  Relier une feuille CSS externe  -->
+    <!-- <link rel='stylesheet' href='votre-fichier.css' type='text/css' /> -->
+   
+    <!-- Incorporez du CSS dans la page  -->
+    <style type="text/css" media="screen">
+      p { color:red; }
+    </style>
+   
+    <!-- Relier un fichier JavaScript  -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/jquery.autocomplete.min.js"></script>
+    -->
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="/js/scraping-job.js"></script> -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/site.js') }}"></script>
+   
+    
+  </head>
+ 
+ 
+  <body>
+ 
+    <!-- CORPS DE LA PAGE  -->
+    <h3>Bienvenue ici: recherche sur Twitter</h3>
+    
+    <div id="boxsearch" class="class-search">
+        <input type="text" id="search_text" name="search_text" value="" placeholder="Libellé de la recherche" autocomplete="false" size="100" />
+        <input type="button" id="btnsearch" name="btnsearch" value="Rechercher" />
+    </div>
+
+    <div id="boxresult" class="class-result">
+
+    </div>
+ 
+  </body>
+
+</html>

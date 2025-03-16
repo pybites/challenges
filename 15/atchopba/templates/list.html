@@ -1,0 +1,18 @@
+<h3>Player add form</h3>
+<form action="/player" method="POST">
+    <p>Firstname : <input type="text" name="firstname" /></p>
+    <p>Lastname : <input type="text" name="lastname" /></p>
+    <input type="submit" value="Add player" />
+</form>
+
+
+<h3>List of players</h3>
+<ul>
+{% for player in players %}
+    <li>
+        {%if player.done  %} <strike> {% endif %} {{ player.firstname }} {{ player.lastname }} {% if player.done %} </strike> {% endif %}
+        <a href="/done/{{ player.id }}">X</a>
+        <a href="/delete/{{ player.id }}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
